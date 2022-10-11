@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @RestController
 
 @RequestMapping("/admin")
@@ -26,6 +27,7 @@ public class TopAdController {
         int insert = topAdMapping.insert(topAdBean);
         return insert;
     }
+
     @PostMapping("/deltopad")
     public Integer delTopAd(@RequestBody TopAdBean topAdBean) {
         int i = topAdMapping.deleteById(topAdBean.getId());

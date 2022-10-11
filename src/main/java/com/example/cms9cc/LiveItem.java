@@ -78,7 +78,6 @@ public class LiveItem {
     }
 
     @JsonIgnoreProperties(value = {"h", IntegerTokenConverter.CONVERTER_KEY, "c"}, allowSetters = true)
-    /* loaded from: server.jar:BOOT-INF/classes/ticai/demo/bean/LiveItem$Item.class */
     public static class Item {
         @JSONField(name = "aw")
         private Integer id;
@@ -247,7 +246,6 @@ public class LiveItem {
         }
     }
 
-    /* loaded from: server.jar:BOOT-INF/classes/ticai/demo/bean/LiveItem$RelationA.class */
     public class RelationA {
         private String n;
         private String i;
@@ -281,7 +279,6 @@ public class LiveItem {
         }
     }
 
-    /* loaded from: server.jar:BOOT-INF/classes/ticai/demo/bean/LiveItem$RelationT.class */
     public class RelationT {
         private String l;
         private String i;
@@ -315,7 +312,6 @@ public class LiveItem {
         }
     }
 
-    /* loaded from: server.jar:BOOT-INF/classes/ticai/demo/bean/LiveItem$RelationO.class */
     public class RelationO {
         private String i;
         private String n;

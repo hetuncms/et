@@ -6,10 +6,8 @@ import okhttp3.*;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Sink;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +26,7 @@ public class Main {
         resPath = this.getClass().getResource("/static").getPath();
     }
 
-    private List<CmsPlayBean> requestData(@RequestHeader Map<String, String> header, String requstbody) {
+    private LiveItem requestData(@RequestHeader Map<String, String> header, String requstbody) {
         okhttp3.RequestBody body = okhttp3.RequestBody.create(JSON, requstbody);
         Headers headers = Headers.of(header);
         System.out.println(requstbody);
@@ -85,16 +83,31 @@ public class Main {
                 item.setGameName(relationO.getI());
             }
         });
-        ArrayList<CmsPlayBean> cmsPlayBeans = new ArrayList<>();
-        live_item.forEach(item -> {
 
+
+        return liveset;
+    }
+
+    private List<CmsPlayBean> toCmsBean(Map<String, String> map, String requstbody) {
+        ArrayList<CmsPlayBean> cmsPlayBeans = new ArrayList<>();
+        List<LiveItem.Item> live_item = requestData(map, requstbody).getLive_item();
+        live_item.forEach(item -> {
             CmsPlayBean cmsPlayBean = new CmsPlayBean(item.getId(), item.getGameType(),
                     item.getLeftName() + "=" + item.getRightName(), item.getLeftImg(), item.getIframeLink(), item.getDate());
-
             cmsPlayBeans.add(cmsPlayBean);
         });
-
         return cmsPlayBeans;
+    }
+
+    @PostMapping("/index")
+    public LiveItem index(@RequestHeader Map<String, String> header, @RequestBody String reqBody) {
+
+        header.remove("accept-encoding");
+        header.put("origin", "http://www.515.tv");
+        header.put("host", "www.515.tv");
+        header.put("X-Requested-With", "XMLHttpRequest");
+        LiveItem liveItem = requestData(header, reqBody);
+        return liveItem;
     }
 
     @GetMapping({"/download"})
@@ -115,7 +128,7 @@ public class Main {
             ArrayList<CmsPlayBean> cmsPlayBeans = new ArrayList<>();
 
             while (true) {
-                List<CmsPlayBean> cmsPlayList = requestData(header, requestBody + "&g=" + page);
+                List<CmsPlayBean> cmsPlayList = toCmsBean(header, requestBody + "&g=" + page);
                 if (cmsPlayList == null) {
                     break;
                 }

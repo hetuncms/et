@@ -15,6 +15,7 @@ public class CmsPlayBean {
     private String playUrl;
     @JsonProperty("d_time")
     private String date;
+
     public CmsPlayBean(int id, int type, String name, String pic, String playUrl, String date) {
         this.id = id;
         this.type = type;

@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName("user")
-public class AdminBean{
+public class AdminBean {
     @TableField("id")
     private String id;
 

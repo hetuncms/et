@@ -6,7 +6,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.WebContentGenerator;
 
 @Configuration
-/* loaded from: server.jar:BOOT-INF/classes/ticai/demo/config/Config.class */
 public class Config implements WebMvcConfigurer {
     @Override // org.springframework.web.servlet.config.annotation.WebMvcConfigurer
     public void addCorsMappings(CorsRegistry registry) {

@@ -15,28 +15,33 @@ import javax.annotation.Resource;
 public class AdminController {
     @Resource
     private BasisMapping basisMapping;
+    @Resource
+    private StatisticsMapping statisticsMapping;
+
     @GetMapping("/getbasis")
-    public BasisBean getBasis(){BasisBean basisBean = basisMapping.selectOne(new QueryWrapper<>());
+    public BasisBean getBasis() {
+        BasisBean basisBean = basisMapping.selectOne(new QueryWrapper<>());
         return basisBean;
     }
+
     @PostMapping("/editbasis")
-    public BasisBean editBasis(@RequestBody BasisBean basisBean){
+    public BasisBean editBasis(@RequestBody BasisBean basisBean) {
         int update = basisMapping.update(basisBean, new UpdateWrapper<>());
         return basisBean;
     }
-    @Resource
-    private StatisticsMapping statisticsMapping;
+
     @GetMapping("/getstatistics")
-    public StatisticsBean getStatistics(){
+    public StatisticsBean getStatistics() {
         StatisticsBean statisticsBean = statisticsMapping.selectOne(new QueryWrapper<>());
         return statisticsBean;
     }
+
     @PostMapping("/editstatistics")
-    public StatisticsBean editStatistics(@RequestBody StatisticsBean basisBean){
-        Integer integer = statisticsMapping.selectCount(new QueryWrapper<>());
-        if (integer==0) {
+    public StatisticsBean editStatistics(@RequestBody StatisticsBean basisBean) {
+        Long count = statisticsMapping.selectCount(new QueryWrapper<>());
+        if (count == 0) {
             statisticsMapping.insert(basisBean);
-        }else{
+        } else {
             int update = statisticsMapping.update(basisBean, new UpdateWrapper<>());
         }
         return basisBean;
