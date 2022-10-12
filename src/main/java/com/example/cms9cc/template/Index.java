@@ -1,21 +1,22 @@
-package com.example.cms9cc;
+package com.example.cms9cc.template;
 
 
+import com.example.cms9cc.LiveItem;
 import com.example.cms9cc.admin.AdminService;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
-public class Main {
+@Controller
+public class Index {
     public static final MediaType JSON = MediaType.parse("application/x-www-form-urlencoded;");
 
     OkHttpClient okHttpClient = new OkHttpClient();
@@ -23,7 +24,7 @@ public class Main {
     AdminService adminService;
 
     private LiveItem requestData(@RequestHeader Map<String, String> header, String requstbody) {
-        okhttp3.RequestBody body = okhttp3.RequestBody.create(JSON, requstbody);
+        RequestBody body = RequestBody.create(JSON, requstbody);
         Headers headers = Headers.of(header);
         System.out.println(requstbody);
         Request build = new Request.Builder().url("http://www.515.tv").headers(headers).post(body).build();
@@ -83,21 +84,48 @@ public class Main {
 
         return liveset;
     }
-
-    @PostMapping("/index")
-    public LiveItem index(@RequestHeader Map<String, String> header, @org.springframework.web.bind.annotation.RequestBody String reqBody) {
+    public String to(@RequestHeader Map<String, String> header,String reqBody, Model model){
         header.remove("accept-encoding");
         header.put("origin", "http://www.515.tv");
         header.put("host", "www.515.tv");
         header.put("X-Requested-With", "XMLHttpRequest");
         LiveItem liveItem = requestData(header, reqBody);
-
-        return liveItem;
+        if (liveItem != null) {
+            model.addAttribute("list",liveItem.getLive_item());
+        }
+        return "index";
     }
 
+    @GetMapping("/")
+    public String index(@RequestHeader Map<String, String> header, Model model) {
+        String reqBody = "s=0&t=1&a=0&g=1";
+        to(header,reqBody,model);
+        return "index";
+    }
+    @GetMapping("/football")
+    public String football(@RequestHeader Map<String, String> header, Model model) {
+        String reqBody = "s=0&t=1&a=1&g=1";
+        to(header,reqBody,model);
+        return "index";
+    }
 
-    @GetMapping("/getconfig")
-    public HashMap<String, Object> getConfig() {
-        return adminService.getAllConfig();
+    @GetMapping("/basketball")
+    public String basketball(@RequestHeader Map<String, String> header, Model model) {
+        String reqBody = "s=0&t=1&a=2&g=1";
+        to(header,reqBody,model);
+        return "index";
+    }
+
+    @GetMapping("/tiyu")
+    public String tiyu(@RequestHeader Map<String, String> header, Model model) {
+        String reqBody = "s=0&t=1&a=3&g=1";
+        to(header,reqBody,model);
+        return "index";
+    }
+    @GetMapping("/bofang")
+    public String bofang(Model model, @RequestParam("iframelink") String iframelink) {
+        String reqBody = "s=0&t=1&a=3&g=1";
+
+        return "bofang";
     }
 }

@@ -1,0 +1,174 @@
+<html lang="zh-CN"
+      xmlns:th="http://www.thymeleaf.org/"
+      style="font-size: 55.6533px;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/><![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="referrer" content="no-referrer" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="telephone=yes" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <title>515直播-JRS直播,足球直播,NBA直播吧,低调看直播</title>
+    <meta content="JRS直播,足球直播,低调看直播,NBA直播吧" name="keywords">
+    <meta content="515直播（515.TV）是最好的低调看JRS直播吧，提供足球直播、NBA直播，英超直播、西甲直播、欧洲杯直播。看球就来515.TV直播导航站。"
+          name="description">
+    <link rel="apple-touch-icon" href="http://www.515.tv/~static/www/img/app_logo@512.png?r=400">
+    <link rel="shortcut icon" href="/faviconn.ico?r=17" type="image/x-icon">
+    <link href="http://www.515.tv/~static/www/css/public.min.css?r=r1003" type="text/css" rel="stylesheet">
+    <link href="http://www.515.tv/~static/www/css/public-color.min.css?r=r1003" type="text/css" rel="stylesheet">
+</head>
+<body data-domainwww="http://www.515.tv/" data-domainstatic="http://www.515.tv/~static/"
+      data-domainres="http://res.515.tv/~res" data-scoredisplay="1" id="green">
+
+
+<script>
+    //rem
+    window.onload = window.onresize = function () {
+        document.documentElement.style.fontSize = document.documentElement.clientWidth * 10 / 375 + 'px';
+    }
+</script>
+<style type="text/css">
+    #cnzz_stat_icon_1279756755 {
+        display: none
+    }
+</style>
+<!-- <link rel="manifest" href="manifest.json"> -->
+<header>
+    <div class="head-main">
+        <a class="head_main_img" href="http://www.515.tv/"><img src="http://www.515.tv/~static/www/img/logon.png?r=1"
+                                                                alt="515直播logo"></a>
+        <div class="zhti_qiehuan_wrap">
+            <p class="zhti_qiehuan_top">
+                <span>绿色主题</span>
+                <img src="http://www.515.tv/~static/www/img/zhutx.png" style="transform: rotate(0deg);">
+            </p>
+            <ul class="zhti_qiehuan" show="0" style="display: none;">
+                <li value="green">绿色主题</li>
+                <li value="red">红色主题</li>
+                <li value="yellow">黄色主题</li>
+                <li value="blue">蓝色主题</li>
+            </ul>
+        </div>
+        <div class="pc-app-box">
+            <!-- <div class="word"><a href="http://www.515.tv/downApp" target="_blank"><i></i><span>APP下载</span></a>
+                <div class="ewm"><em></em><img src="http://www.515.tv/~static/www/img/downewm.png?r=100"><span>扫码下载APP</span></div>
+            </div> -->
+            <div class="jifengbang jfhover">
+                <a href="http://www.515.tv/paihang" target="_blank"><i></i><span>积分榜</span></a>
+            </div>
+        </div>
+        <div class="wap_jfb">
+            <p class="wap_jfb_dj">
+                <a href="http://www.515.tv/paihang" target="_blank"><i></i><!-- <span>积分榜</span> --></a>
+            </p>
+        </div>
+        <div class="jfqh_wrap">
+            <a id="StranLink" name="StranLink" href="javascript:StranBody()" title="點擊以繁體中文方式浏覽">繁</a>
+        </div>
+    </div>
+</header>
+<div class="main">
+    <div class="top-div">
+        <span class="newyearl"></span>
+        <ul class="index-nav clearfix navindex">
+            <a href="/">
+                <li th:class="${#httpServletRequest.requestURI=='/'?'active':''}" i-cbd-d="0"><span >热门</span></li>
+            </a><a href="/football">
+            <li th:class="${#httpServletRequest.requestURI=='/football'?'active':''}" class=""><span>足球</span></li>
+            </a>
+            <a href="/basketball">
+                <li th:class="${#httpServletRequest.requestURI=='/basketball'?'active':''}"><span>篮球</span></li>
+            </a>
+            <a href="/tiyu">
+                <li th:class="${#httpServletRequest.requestURI=='/tiyu'?'active':''}" i-cbd-d="3"><span>体育</span></li>
+            </a>
+        </ul>
+        <span class="newyearr"></span>
+    </div>
+    <div th:insert="~{list::listFragment}"></div>
+    <div class="iosKJ">
+        <span class="iostipimg"></span>
+        <p>×</p>
+        <i></i>
+    </div>
+</div>
+<div class="pcrlist">
+    <div class="once appbtn hide">
+        <i></i>
+        <div class="hdiv"><p>925</p>
+            <p>APP</p></div>
+    </div>
+    <div class="indexbtn"><a href="/static">
+        <i></i>
+        <span>回首页</span></a>
+    </div>
+    <div class="refreshbtn" onclick="location.reload()">
+        <i></i>
+        <span>刷新</span>
+    </div>
+    <div class="totop" onclick="window.scrollTo(0,0)" style="display: none;">
+        <i></i>
+        <span>回顶部</span>
+    </div>
+</div>
+<div class="iosKJ_nosafsai">
+    <i class="close_safari"><img src="http://www.515.tv/~static/www/img/close.png?r=2"></i>
+    <div class="smtp">
+        <div class="copy_wz">
+            <span>515直播：</span>
+            <input id="taokouling" value="http://www.515.tv/" type="text" readonly="readonly">
+            <button id="copyCode" class="btn" data-clipboard-target="#taokouling" data-clipboard-action="copy">
+                点击复制
+            </button>
+
+
+        </div>
+    </div>
+</div>
+<div class="fuzhi_ts" id="copy_zt">复制成功</div>
+<!--非safari end-->
+
+<div class="waplist">
+    <!-- <div class="iosKJ-safari" id="safari">
+        <span class="iosKJ-safari_w_img"></span>
+    </div> -->
+    <!--<div class="iosKJ-btn" style="display: none">-->
+    <!--<span class="iosKJ-btn_w_img"></span>-->
+    <!--</div>-->
+    <div class="once indexwap">
+        <a href="/static">
+            <i></i>
+            <p>首页</p>
+        </a>
+
+    </div>
+    <div class="once refreshwap" onclick="location.reload()">
+        <i></i>
+        <p>刷新</p>
+    </div>
+    <div class="once totop" onclick="window.scrollTo(0,0)" style="display: none;">
+        <i></i>
+    </div>
+</div>
+<div class="footer-wap">
+    <p>515直播——体育直播网站</p>
+    <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
+</div>
+<div class="quwangapptg" style="display: none;">
+
+</div>
+<footer>
+    <div>
+        <span>Copyright©2020 515直播</span><i></i>
+        <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
+    </div>
+</footer>
+
+</body>
+</html>

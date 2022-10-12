@@ -6,6 +6,7 @@ import ch.qos.logback.core.rolling.helper.IntegerTokenConverter;
 import com.alibaba.fastjson2.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -95,7 +96,7 @@ public class LiveItem {
         @JSONField(name = "c")
         private String c;
         @JSONField(name = "t")
-        private String date;
+        private Date date;
         @JSONField(name = ANSIConstants.ESC_END)
         private String isTop;
         private String matchId;
@@ -125,11 +126,11 @@ public class LiveItem {
             this.isTop = isTop;
         }
 
-        public String getDate() {
+        public Date getDate() {
             return this.date;
         }
 
-        public void setDate(String date) {
+        public void setDate(Date date) {
             this.date = date;
         }
 

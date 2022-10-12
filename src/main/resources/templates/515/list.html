@@ -1,0 +1,48 @@
+
+<div th:fragment="listFragment" class="index-div" zssyhqz="64540cl2iNsvtc2m0U2O0O0O281" zssyhqzt="28121cl2iNsvtc2m0V2z252">
+  <div class="list_wrap_one_wuy list_wrap list_wrap_one" yn="1" style="display: block;">
+    <div th:if="${list}"  class="list_content">
+      <a th:each="item:${list}" class="clearfix" czf-t="3683016" nzw-o-t="2022-10-12 19:35:00"
+         th:href="'/bofang/?iframelink='+${item.iframeLink}" t-nzf-o="2022-10-12 19:35:00" t-zfr-y="2">
+
+        <section class="clearfix jiabifeng" wuyd="">
+          <div class="changci" style="display: block;">
+            <cite class="noks">&nbsp;</cite></div>
+
+          <div class="bifeng">vs</div>
+          <div class="team zhudui zhudui_wuyd">
+            <span><img alt="" class="" th:src="${item.leftImg}"></span>
+            <p th:text="${item.leftName}">
+            </p>
+          </div>
+          <div class="center">
+            <p class="eventtime_wuy eventtime"><span class="feleimg">
+									</span>
+              <span><em th:text="${item.gameName}"></em> <i
+                      style="white-space: nowrap; overflow: visible;" th:text="${#dates.format(item.date,'yyyy-MM-dd')}"></i> </span></p>
+            <p class="vsp">VS</p>
+            <p th:class="${item.date.before(#dates.createNow())}?'video zb_green':'video'"><i class="video-icon"></i>
+              <span>视频直播</span>
+            </p>
+          </div>
+          <div class="team kedui">
+                            <span><img alt=""
+                                       class=""
+                                       th:src="${item.rightImg}"></span>
+            <p th:text="${item.rightName}"></p>
+          </div>
+        </section>
+      </a>
+
+      <div class="clcik_more">点击加载更多</div>
+      <div class="more_animate" style="display: none;">︾</div>
+    </div>
+    <div th:unless="${list}">
+      <div class="list_wrap" yn="0" style="display: block;">
+        <div class="list_content"><div class="no-data"><div class="zwsig"></div><p>当前暂无数据</p></div></div>
+        <div class="clcik_more">没有更多数据了</div>
+        <div class="more_animate" style="display: none;">︾</div>
+      </div>
+    </div>
+  </div>
+</div>
