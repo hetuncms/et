@@ -23,7 +23,6 @@ public class TopAdController {
 
     @PostMapping("/addtopad")
     public Integer addTopAd(@RequestBody TopAdBean topAdBean) {
-
         int insert = topAdMapping.insert(topAdBean);
         return insert;
     }

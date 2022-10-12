@@ -19,9 +19,9 @@ dependencies {
     implementation 'org.xerial:sqlite-jdbc'
     implementation 'p6spy:p6spy:3.9.1'
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
+//tasks.named('test') {
+//    useJUnitPlatform()
+//}
