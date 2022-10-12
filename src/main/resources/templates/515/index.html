@@ -14,12 +14,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="x5-fullscreen" content="true">
     <meta name="apple-touch-fullscreen" content="yes">
-    <title>515直播-JRS直播,足球直播,NBA直播吧,低调看直播</title>
-    <meta content="JRS直播,足球直播,低调看直播,NBA直播吧" name="keywords">
-    <meta content="515直播（515.TV）是最好的低调看JRS直播吧，提供足球直播、NBA直播，英超直播、西甲直播、欧洲杯直播。看球就来515.TV直播导航站。"
-          name="description">
+    <title th:text="${config.get('basis').getSiteName()}"></title>
+    <meta th:content="${config.get('basis').getKeyWords()}" name="keywords">
+    <meta th:content="${config.get('basis').getDescribe()}" name="description">
     <link rel="apple-touch-icon" href="http://www.515.tv/~static/www/img/app_logo@512.png?r=400">
-    <link rel="shortcut icon" href="/faviconn.ico?r=17" type="image/x-icon">
+    <link rel="shortcut icon" th:href="${config.get('basis').getLogo()}" type="image/x-icon">
     <link href="http://www.515.tv/~static/www/css/public.min.css?r=r1003" type="text/css" rel="stylesheet">
     <link href="http://www.515.tv/~static/www/css/public-color.min.css?r=r1003" type="text/css" rel="stylesheet">
 </head>
@@ -41,8 +40,8 @@
 <!-- <link rel="manifest" href="manifest.json"> -->
 <header>
     <div class="head-main">
-        <a class="head_main_img" href="http://www.515.tv/"><img src="http://www.515.tv/~static/www/img/logon.png?r=1"
-                                                                alt="515直播logo"></a>
+        <a class="head_main_img" href="http://www.515.tv/">
+        <img th:src="${config.get('basis').getLogo()}"></a>
         <div class="zhti_qiehuan_wrap">
             <p class="zhti_qiehuan_top">
                 <span>绿色主题</span>
@@ -56,9 +55,6 @@
             </ul>
         </div>
         <div class="pc-app-box">
-            <!-- <div class="word"><a href="http://www.515.tv/downApp" target="_blank"><i></i><span>APP下载</span></a>
-                <div class="ewm"><em></em><img src="http://www.515.tv/~static/www/img/downewm.png?r=100"><span>扫码下载APP</span></div>
-            </div> -->
             <div class="jifengbang jfhover">
                 <a href="http://www.515.tv/paihang" target="_blank"><i></i><span>积分榜</span></a>
             </div>

@@ -93,39 +93,35 @@ public class Index {
         if (liveItem != null) {
             model.addAttribute("list",liveItem.getLive_item());
         }
+        model.addAttribute("config",adminService.getAllConfig());
         return "index";
     }
 
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=0&g=1";
-        to(header,reqBody,model);
-        return "index";
+        return to(header,reqBody,model);
     }
     @GetMapping("/football")
     public String football(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=1&g=1";
-        to(header,reqBody,model);
-        return "index";
+        return to(header,reqBody,model);
     }
 
     @GetMapping("/basketball")
     public String basketball(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=2&g=1";
-        to(header,reqBody,model);
-        return "index";
+        return to(header,reqBody,model);
     }
 
     @GetMapping("/tiyu")
     public String tiyu(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=3&g=1";
-        to(header,reqBody,model);
-        return "index";
+        return to(header,reqBody,model);
     }
     @GetMapping("/bofang")
     public String bofang(Model model, @RequestParam("iframelink") String iframelink) {
-        String reqBody = "s=0&t=1&a=3&g=1";
-
+        model.addAttribute("iframelink",iframelink);
         return "bofang";
     }
 }
