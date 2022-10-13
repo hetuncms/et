@@ -10,9 +10,9 @@ public class TopAdBean {
     private Integer id;
     private Integer sort;
     private String url;
-    private String pic_url;
-    private Integer pic_width;
-    private Integer pic_height;
+    private String picUrl;
+    private Integer picWidth;
+    private Integer picHeight;
     private String status;
     private String tel;
 
@@ -40,28 +40,28 @@ public class TopAdBean {
         this.url = url;
     }
 
-    public String getPic_url() {
-        return pic_url;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setPic_url(String pic_url) {
-        this.pic_url = pic_url;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 
-    public Integer getPic_width() {
-        return pic_width;
+    public Integer getPicWidth() {
+        return picWidth;
     }
 
-    public void setPic_width(Integer pic_width) {
-        this.pic_width = pic_width;
+    public void setPicWidth(Integer picWidth) {
+        this.picWidth = picWidth;
     }
 
-    public Integer getPic_height() {
-        return pic_height;
+    public Integer getPicHeight() {
+        return picHeight;
     }
 
-    public void setPic_height(Integer pic_height) {
-        this.pic_height = pic_height;
+    public void setPicHeight(Integer picHeight) {
+        this.picHeight = picHeight;
     }
 
     public String getStatus() {

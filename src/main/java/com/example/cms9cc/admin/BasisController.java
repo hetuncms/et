@@ -7,6 +7,7 @@ import com.example.cms9cc.admin.bean.StatisticsBean;
 import com.example.cms9cc.admin.mapper.BasisMapping;
 import com.example.cms9cc.admin.mapper.StatisticsMapping;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.StringUtils;
 
 import javax.annotation.Resource;
 
@@ -39,13 +40,16 @@ public class BasisController {
     }
 
     @PostMapping("/editstatistics")
-    public StatisticsBean editStatistics(@RequestBody StatisticsBean basisBean) {
-        Long count = statisticsMapping.selectCount(new QueryWrapper<>());
-        if (count == 0) {
-            statisticsMapping.insert(basisBean);
-        } else {
-            int update = statisticsMapping.update(basisBean, new UpdateWrapper<>());
+    public StatisticsBean editStatistics(@RequestBody StatisticsBean statisticsBean) {
+
+        if (statisticsBean != null && !StringUtils.isEmpty(statisticsBean.getJsUrl())) {
+            Long count = statisticsMapping.selectCount(new QueryWrapper<>());
+            if (count == 0) {
+                statisticsMapping.insert(statisticsBean);
+            } else {
+                int update = statisticsMapping.update(statisticsBean, new UpdateWrapper<>());
+            }
         }
-        return basisBean;
+        return null;
     }
 }

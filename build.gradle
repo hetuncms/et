@@ -27,6 +27,7 @@ repositories {
 
         implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
 
+        implementation 'com.auth0:java-jwt:4.1.0'
 //    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 

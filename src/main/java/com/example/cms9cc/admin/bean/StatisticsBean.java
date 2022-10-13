@@ -10,4 +10,12 @@ public class StatisticsBean {
     @JsonProperty("jsurl")
     @TableField("jsurl")
     private String jsUrl;
+
+    public String getJsUrl() {
+        return jsUrl;
+    }
+
+    public void setJsUrl(String jsUrl) {
+        this.jsUrl = jsUrl;
+    }
 }
