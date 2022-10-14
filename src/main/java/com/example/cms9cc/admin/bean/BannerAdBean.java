@@ -1,6 +1,7 @@
 package com.example.cms9cc.admin.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -10,9 +11,12 @@ public class BannerAdBean {
     private Integer id;
     private Integer sort;
     private String url;
-    private String pic_url;
-    private Integer pic_width;
-    private Integer pic_height;
+    @TableField("pic_url")
+    private String picUrl;
+    @TableField("pic_width")
+    private Integer picWidth;
+    @TableField("pic_height")
+    private Integer picHeight;
     private String status;
     private String tel;
 
@@ -40,28 +44,28 @@ public class BannerAdBean {
         this.url = url;
     }
 
-    public String getPic_url() {
-        return pic_url;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setPic_url(String pic_url) {
-        this.pic_url = pic_url;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 
-    public Integer getPic_width() {
-        return pic_width;
+    public Integer getPicWidth() {
+        return picWidth;
     }
 
-    public void setPic_width(Integer pic_width) {
-        this.pic_width = pic_width;
+    public void setPicWidth(Integer picWidth) {
+        this.picWidth = picWidth;
     }
 
-    public Integer getPic_height() {
-        return pic_height;
+    public Integer getPicHeight() {
+        return picHeight;
     }
 
-    public void setPic_height(Integer pic_height) {
-        this.pic_height = pic_height;
+    public void setPicHeight(Integer picHeight) {
+        this.picHeight = picHeight;
     }
 
     public String getStatus() {

@@ -1,6 +1,7 @@
 package com.example.cms9cc.admin.bean;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -10,8 +11,11 @@ public class TopAdBean {
     private Integer id;
     private Integer sort;
     private String url;
+    @TableField("pic_url")
     private String picUrl;
+    @TableField("pic_width")
     private Integer picWidth;
+    @TableField("pic_height")
     private Integer picHeight;
     private String status;
     private String tel;

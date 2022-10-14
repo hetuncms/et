@@ -11,7 +11,8 @@ public class FloatBean {
     private Integer id;
     private String location;
     private String url;
-    private String pic_url;
+    @TableField("pic_url")
+    private String picUrl;
     private String status;
     private String tel;
     @TableField(exist = false)
@@ -49,12 +50,12 @@ public class FloatBean {
         this.url = url;
     }
 
-    public String getPic_url() {
-        return pic_url;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setPic_url(String pic_url) {
-        this.pic_url = pic_url;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 
     public String getStatus() {
