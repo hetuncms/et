@@ -5,10 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.cms9cc.admin.bean.LoginBean;
 import com.example.cms9cc.admin.mapper.LoginMapping;
 import com.example.cms9cc.tools.JWTUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -18,9 +15,8 @@ public class LoginController {
     @Resource
     LoginMapping loginMapping;
     @PostMapping("/login")
-    public String login( LoginBean requestLoginBean){
+    public String login(@RequestBody LoginBean requestLoginBean){
         LoginBean loginBean = loginMapping.selectOne(new QueryWrapper<>());
-
         if (loginBean.equals(requestLoginBean)) {
             return JWTUtils.getToken(loginBean);
         }
@@ -31,5 +27,11 @@ public class LoginController {
     public int changeAdminInfo(@RequestBody LoginBean requestLoginBean){
         int update = loginMapping.update(requestLoginBean, new UpdateWrapper<>());
         return update;
+    }
+    @GetMapping("/getinfo")
+    @CrossOrigin
+    public String getAdminInfo(){
+        return "{\"name\":\"admin\",\"avatar\":\"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif\"}";
+
     }
 }
