@@ -19,12 +19,11 @@ public class JWTUtils {
     public static String getToken(LoginBean u) {
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret");
-            String token = JWT.create()
+            return JWT.create()
                     .withIssuer("auth0")
-                    .withClaim("username",u.getUsername())
-                    .withClaim("password",u.getPassword())
+                    .withClaim("username", u.getUsername())
+                    .withClaim("password", u.getPassword())
                     .sign(algorithm);
-            return token;
         } catch (JWTCreationException exception) {
             exception.printStackTrace();
         }
@@ -34,15 +33,14 @@ public class JWTUtils {
     /**
      * 验证token合法性 成功返回token
      */
-    public static DecodedJWT verify(String token)  {
+    public static DecodedJWT verify(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256("secret"); //use more secure key
             JWTVerifier verifier = JWT.require(algorithm)
                     .withIssuer("auth0")
                     .build(); //Reusable verifier instance
-            DecodedJWT jwt = verifier.verify(token);
-            return jwt;
-        } catch (JWTVerificationException exception){
+            return verifier.verify(token);
+        } catch (JWTVerificationException exception) {
             exception.printStackTrace();
         }
         return null;

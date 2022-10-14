@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @TableName("statistics")
 public class StatisticsBean {
 
-    @JsonProperty("jsurl")
+    @JsonProperty("jsUrl")
     @TableField("jsurl")
     private String jsUrl;
 

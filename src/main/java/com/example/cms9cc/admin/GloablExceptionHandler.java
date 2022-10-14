@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+
 @ControllerAdvice(basePackages = "com.example.cms9cc.admin")
 @Configuration
 @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -20,8 +21,8 @@ public class GloablExceptionHandler {
             msg = "服务器出错";
         }
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
-        objectObjectHashMap.put("msg",msg);
-        objectObjectHashMap.put("code",500);
+        objectObjectHashMap.put("msg", msg);
+        objectObjectHashMap.put("code", 500);
         return objectObjectHashMap;
     }
 }

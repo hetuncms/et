@@ -18,12 +18,12 @@ public class AdJsController {
 
 
     @PostMapping("/changejsad")
-    public Integer changeAdJs(@RequestBody JsAdBean jsAdBean){
-        return jsAdMapping.update(jsAdBean,new UpdateWrapper<>());
+    public Integer changeAdJs(@RequestBody JsAdBean jsAdBean) {
+        return jsAdMapping.update(jsAdBean, new UpdateWrapper<>());
     }
 
     @GetMapping("/getjsad")
-    public JsAdBean getJsAd(){
+    public JsAdBean getJsAd() {
         return jsAdMapping.selectOne(new QueryWrapper<>());
     }
 

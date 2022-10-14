@@ -29,7 +29,7 @@ public class Index {
         System.out.println(requstbody);
         Request build = new Request.Builder().url("http://www.515.tv").headers(headers).post(body).build();
 
-        Response execute = null;
+        Response execute;
         String netData;
         try {
             execute = okHttpClient.newCall(build).execute();
@@ -84,44 +84,47 @@ public class Index {
 
         return liveset;
     }
-    public String to(@RequestHeader Map<String, String> header,String reqBody, Model model){
+
+    public String to(@RequestHeader Map<String, String> header, String reqBody, Model model) {
         header.remove("accept-encoding");
         header.put("origin", "http://www.515.tv");
         header.put("host", "www.515.tv");
         header.put("X-Requested-With", "XMLHttpRequest");
         LiveItem liveItem = requestData(header, reqBody);
         if (liveItem != null) {
-            model.addAttribute("list",liveItem.getLive_item());
+            model.addAttribute("list", liveItem.getLive_item());
         }
-        model.addAttribute("config",adminService.getAllConfig());
+        model.addAttribute("config", adminService.getAllConfig());
         return "index";
     }
 
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=0&g=1";
-        return to(header,reqBody,model);
+        return to(header, reqBody, model);
     }
+
     @GetMapping("/football")
     public String football(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=1&g=1";
-        return to(header,reqBody,model);
+        return to(header, reqBody, model);
     }
 
     @GetMapping("/basketball")
     public String basketball(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=2&g=1";
-        return to(header,reqBody,model);
+        return to(header, reqBody, model);
     }
 
     @GetMapping("/tiyu")
     public String tiyu(@RequestHeader Map<String, String> header, Model model) {
         String reqBody = "s=0&t=1&a=3&g=1";
-        return to(header,reqBody,model);
+        return to(header, reqBody, model);
     }
+
     @GetMapping("/bofang")
     public String bofang(Model model, @RequestParam("iframelink") String iframelink) {
-        model.addAttribute("iframelink",iframelink);
+        model.addAttribute("iframelink", iframelink);
         return "bofang";
     }
 }
