@@ -125,6 +125,7 @@ public class Index {
     @GetMapping("/bofang")
     public String bofang(Model model, @RequestParam("iframelink") String iframelink) {
         model.addAttribute("iframelink", iframelink);
+        model.addAttribute("config", adminService.getAllConfig());
         return "bofang";
     }
 }
