@@ -1008,7 +1008,7 @@ footer div a, footer div i {
 
 .zhiding:before {
     content: '';
-    background: url(../img/zd_img_w.png) no-repeat top left/33px 33px;
+    background: url(../img/zd_img.png) no-repeat top left/33px 33px;
     position: absolute;
     top: 0;
     left: 0;
