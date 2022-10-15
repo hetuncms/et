@@ -1,0 +1,1516 @@
+@charset "utf-8";
+html {
+    background: #fff;
+    overflow: auto;
+    height: 100%;
+    font-size: 11px
+}
+
+#red {
+    background: url(/515/css/img/background.png) no-repeat top center #f4f4f4;
+    background-size: 100% auto;
+}
+
+#red .show {
+    display: block !important
+}
+
+#red header {
+    background: #e60640;
+}
+
+#pink header {
+    background: pink;
+}
+
+#red .wap-app-box {
+    background-image: linear-gradient(to bottom right, #3dbee7, #007bec)
+}
+
+#red .wap-app-box a.djxz {
+    background: #fff;
+    color: #e60640;
+}
+
+#red .index-nav .active i {
+    background: #e60640
+}
+
+#red .index-nav .active {
+    color: #e60640
+}
+
+#red .index-div .date-p .date {
+    background: #cff4e9;
+    color: #e60640;
+}
+
+#red .singldl .active {
+    background: #ee564f;
+    color: #fff
+}
+
+#red .waplist .once {
+    background-image: linear-gradient(to right bottom, #f14874, #e60640);
+}
+
+#red .download-wap-btn {
+    background: #e60640;
+}
+
+#red .tzpt_nav a {
+    color: #333;
+}
+
+#red .tzpt_nav li.default a {
+    color: #ee564f
+}
+
+#red .tzpt_nav li.default:after {
+    background: #ee564f;
+}
+
+#red .mjtj-list:nth-child(4n+1) .number {
+    background: #fe6301
+}
+
+#red .mjtj-list:nth-child(4n+2) .number {
+    background: #2fc595
+}
+
+#red .mjtj-list:nth-child(4n+3) .number {
+    background: #f04b59
+}
+
+#red .mjtj-list:nth-child(4n+4) .number {
+    background: #17a0f1
+}
+
+#red .mjtj-list .contant .copy-btn {
+    background: #ee564f;
+    border-radius: 2rem;
+    color: #fff;
+}
+
+#red .zhiding {
+    background-image: linear-gradient(to right, #fdd3dd, #fdd6e0, #fef4f7);
+    border-bottom: 1px #fbbbca solid !important;
+}
+
+#red .zhiding:before {
+    content: '';
+    background: url(../img/zd_img_w.png) no-repeat top left/33px 33px;
+}
+
+#red .index-div_zd .date-p .date {
+    background: #cff4e9;
+    color: #e60640;
+}
+
+#red .index-div_zd a .center .vsp {
+    color: #ee564f;
+}
+
+#red .index-div_zd a .video {
+    color: #fff;
+    background: #e60640;
+}
+
+#red .index-nav .active i {
+    background: #e60640
+}
+
+#red .index-nav .active {
+    color: #e60640
+}
+
+#red .jump_videoan {
+    color: #fff;
+    background: #de1e30;
+}
+
+#red .refreshbtn {
+    background: #e60640;
+}
+
+#red .refreshbtn i {
+    background: url(/515/css/img/shuaxing_n.png) no-repeat center center #e60640 !important;
+}
+
+#red .index-div a .zb_green {
+    background: #e60640
+}
+
+#red .btn {
+    color: #fff;
+    background: #e60640;
+}
+
+#red .clock-d {
+    animation: clockD 1s infinite
+}
+
+@keyframes clockD {
+    0% {
+        color: transparent
+    }
+    40% {
+        color: #006fc0
+    }
+    80% {
+        color: #006fc0
+    }
+    100% {
+        color: transparent
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #red .pcrlist .hdiv {
+        background: #e60640;
+        color: #fff;
+    }
+
+    #red .download-btn a:hover {
+        background: #e60640;
+        color: #fff
+    }
+
+    #red .tzpt_nav li.default a {
+        color: #006fc0
+    }
+
+    #red .tzpt_nav li.default:after {
+        background: #006fc0;
+    }
+
+    #red .mjtj-list:nth-child(4n+1) .number {
+        background: #fe6301
+    }
+
+    #red .mjtj-list:nth-child(4n+2) .number {
+        background: #2fc595
+    }
+
+    #red .mjtj-list:nth-child(4n+3) .number {
+        background: #f04b59
+    }
+
+    #red .mjtj-list:nth-child(4n+4) .number {
+        background: #17a0f1
+    }
+
+    #red .mjtj-list .contant .copy-btn {
+        background: #006fc0;
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    #red .zhiding {
+        background-image: linear-gradient(to right, #fdd3dd, #fdd6e0, #fef4f7);
+        border-bottom: 1px #fbbbca solid !important;
+    }
+
+    #red .zhiding:before {
+        content: '';
+        background: url(../img/zd_img_red.png) no-repeat top left/33px 33px;
+    }
+
+    #red .top-div {
+        border-bottom: 2px #fbbbca solid
+    }
+
+    #red .navindex li {
+        color: #e60640;
+    }
+
+    #red .index-nav .active i {
+        background: #e60640
+    }
+
+    #red .index-nav .active {
+        color: #ffffff;
+        background: #e60640;
+    }
+
+    #red .index-div .date-p {
+        background: #f9f9f9;
+        color: #e60640;
+    }
+
+    #red .mjtjbj {
+        background: #f3f3f3;
+    }
+
+    #red .indexbtn {
+        background: #e60640;
+    }
+
+    #red .indexbtn i {
+        background: url(../img/index-PC.png) no-repeat center center #e60640 !important;
+    }
+
+    #red .index-div a .zb_green:hover {
+        background: #b90533;
+    }
+
+    #red .index-div a:hover {
+        background: #fff4f6;
+    }
+
+    #red .totop {
+        background: #e60640;
+    }
+
+    #red .totop i {
+        background: url(/515/css/img/totop.png) no-repeat center center #e60640 !important;
+    }
+
+    #red .jump_videoan {
+        color: #fff;
+        background: #de1e30;
+    }
+
+    #red .jfqh_wrap a {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .changci {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .jingq p {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .jingq_k p {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .jingq_bt {
+        color: #e60640;
+        font-weight: 700
+    }
+
+    #red .bifeng_num .jing {
+        color: #e60640
+    }
+
+    #red .jiabifeng .zhujingq p {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .zhujingq_k p {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .zhujingq_bt {
+        color: #e60640;
+    }
+
+    #red .bifeng .jing {
+        color: #e60640
+    }
+
+    #red .bifeng_zhishu .bs_bt_zt {
+        color: #ef584c;
+    }
+
+    #red .bifeng_zhishu .bs_time {
+        color: #e60640;
+    }
+
+    #red .bifeng_zhishu .bs_befeng {
+        color: #e60640;
+    }
+
+    #red .zhishu .jscs_num cite.red {
+        background: #ef584c
+    }
+
+    #red .zhishu .jscs_num cite.blue {
+        background: #e60640
+    }
+
+    #red .zhishu .jscs_num cite.yellow {
+        background: #e60640;
+        color: #fff
+    }
+
+    #red .zhishu_lan .qcred {
+        color: #e60640
+    }
+
+    #red .bifeng_kai .btnn {
+        background-color: #e60640;
+    }
+
+    #red .newyearl {
+        background: url(/515/css/img/logo_june_l.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    #red .newyearr {
+        background: url(/515/css/img/logo_june_r.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    #red .bifeng_zhishu .yikaisai .ks_vs_new em {
+        color: #e60640;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #red .zhiding:before {
+        content: '';
+        background: url(../img/zd_img_w_r_red.png) no-repeat top left/33px 33px;
+    }
+
+    #red .jiabifeng .changci {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .bifeng {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .jingq p {
+        color: #006fc0;
+    }
+
+    #red .jiabifeng .jingq_k p {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .jingq_bt {
+        color: #e60640;
+    }
+
+    #red .bifeng_num .jing {
+        color: #e60640
+    }
+
+    #red .bifeng .jing {
+        color: #e60640
+    }
+
+    #red .jiabifeng .zhujingq p {
+        color: #e60640;
+        font-weight: 700
+    }
+
+    #red .jiabifeng .zhujingq_k p {
+        color: #e60640;
+    }
+
+    #red .jiabifeng .zhujingq_bt {
+        color: #e60640;
+    }
+
+    #red .bifeng_zhishu .bs_vs {
+        color: #ef584c;
+    }
+
+    #red .bifeng_zhishu .bs_bt_zt {
+        color: #ef584c;
+    }
+
+    #red .bifeng_zhishu .bs_time {
+        color: #e60640;
+    }
+
+    #red .bifeng_zhishu .bs_befeng {
+        color: #e60640;
+    }
+
+    #red .zhishu .jscs_num cite.red {
+        background: #ef584c;
+        color: #fff
+    }
+
+    #red .zhishu .jscs_num cite.blue {
+        background: #e60640;
+        color: #fff
+    }
+
+    #red .zhishu .jscs_num cite.yellow {
+        background: #e60640;
+        color: #fff
+    }
+
+    #red .bifeng_pei .redyellow_p {
+        color: #e60640;
+    }
+
+    #red .bifeng_pei .redyellow_p em.bianhua {
+        background: #e60640;
+        color: #fff
+    }
+
+    #red .bfonoff {
+        background-color: #e60640;
+    }
+
+    #red .jfqh_wrap a {
+        color: #e60640;
+    }
+
+    #red .newyearl {
+        background: url(../img/logo_june_l_w_red.png?r=43) no-repeat;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    #red .newyearr {
+        background: url(../img/logo_june_r_w_red.png?r=43) no-repeat;
+        background-size: 100%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #red .gb_ad_an {
+        background: #e60640;
+        border: 1px #e60640 solid;
+        color: #fff
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #red .gb_ad_an {
+        background: #e60640;
+        color: #fff
+    }
+
+    #red .guanbi_ad:hover .gb_ad_an {
+        background: #e60640;
+        color: #fff
+    }
+
+    #red .bs_time_new {
+        display: none;
+        margin-bottom: 15px;
+        color: #e60640;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #red .bs_bt_title .bs_time_new {
+        color: #e60640;
+    }
+}
+
+#red .zhti_qiehuan > li:hover {
+    color: #e60640;
+}
+
+#red .no-data .zwsig {
+    background: url(../img/no-data_red.png) no-repeat;
+    background-size: 100%;
+}
+
+#red .index_login_wrap {
+    background: url(../img/div_loding_red.gif) no-repeat center;
+    background-size: 100%;
+}
+
+#blue {
+    background: url(../img/background_blue.jpg?r=2) no-repeat top center #f4f4f4;
+    background-size: 100% auto;
+}
+
+#blue header {
+    background: #006bb7;
+}
+
+#blue .wap-app-box {
+    background-image: linear-gradient(to bottom right, #3dbee7, #007bec)
+}
+
+#blue .wap-app-box a.djxz {
+    background: #fff;
+    color: #006bb7;
+}
+
+#blue .index-nav .active i {
+    background: #006bb7
+}
+
+#blue .index-nav .active {
+    color: #006bb7
+}
+
+#blue .index-div .date-p .date {
+    background: #cff4e9;
+    color: #006bb7;
+}
+
+#blue .index-div a .video {
+    color: #fff;
+}
+
+#blue .waplist .once {
+    background-image: linear-gradient(to right bottom, #73c5ff, #006bb7);
+}
+
+#blue .download-wap-btn {
+    background: #006bb7;
+}
+
+#blue .tzpt_nav li.default a {
+    color: #ee564f
+}
+
+#blue .tzpt_nav li.default:after {
+    background: #ee564f;
+}
+
+#blue .mjtj-list:nth-child(4n+1) .number {
+    background: #fe6301
+}
+
+#blue .mjtj-list:nth-child(4n+2) .number {
+    background: #2fc595
+}
+
+#blue .mjtj-list:nth-child(4n+3) .number {
+    background: #f04b59
+}
+
+#blue .mjtj-list:nth-child(4n+4) .number {
+    background: #17a0f1
+}
+
+#blue .mjtj-list .contant .copy-btn {
+    background: #ee564f;
+    border-radius: 2rem;
+    color: #fff;
+}
+
+#blue .zhiding {
+    background-image: linear-gradient(to right, #cedffb, #d0e0fb, #f7fafe);
+    border-bottom: 1px #b4cef6 solid !important;
+}
+
+#blue .index-div_zd .date-p .date {
+    background: #cff4e9;
+    color: #006bb7;
+}
+
+#blue .index-div_zd a .center .vsp {
+    color: #ee564f;
+}
+
+#blue .index-div_zd a .video {
+    color: #fff;
+    background: #006bb7;
+}
+
+#blue .index-nav .active i {
+    background: #006bb7
+}
+
+#blue .index-nav .active {
+    color: #006bb7
+}
+
+#blue .jump_videoan {
+    color: #fff;
+    background: #de1e30;
+}
+
+#blue .refreshbtn {
+    background: #006bb7;
+}
+
+#blue .refreshbtn i {
+    background: url(../img/shuaxing_n.png) no-repeat center center #006bb7 !important;
+}
+
+#blue .index-div a .zb_green {
+    background: #006bb7
+}
+
+#blue .btn {
+    color: #fff;
+    background: #006bb7;
+}
+
+@keyframes clockD {
+    0% {
+        color: transparent
+    }
+    40% {
+        color: #006fc0
+    }
+    80% {
+        color: #006fc0
+    }
+    100% {
+        color: transparent
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #blue .pcrlist .hdiv {
+        background: #006bb7;
+        color: #fff;
+    }
+
+    #blue .download-btn a:hover {
+        background: #006bb7;
+        color: #fff
+    }
+
+    #blue .tzpt_nav li.default a {
+        color: #006fc0
+    }
+
+    #blue .tzpt_nav li.default:after {
+        background: #006fc0;
+    }
+
+    #blue .mjtj-list:nth-child(4n+1) .number {
+        background: #fe6301
+    }
+
+    #blue .mjtj-list:nth-child(4n+2) .number {
+        background: #2fc595
+    }
+
+    #blue .mjtj-list:nth-child(4n+3) .number {
+        background: #f04b59
+    }
+
+    #blue .mjtj-list:nth-child(4n+4) .number {
+        background: #17a0f1
+    }
+
+    #blue .mjtj-list .contant .copy-btn {
+        background: #006fc0;
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    #blue .zhiding {
+        background-image: linear-gradient(to right, #cedffb, #d0e0fb, #f7fafe);
+        border-bottom: 1px #b4cef6 solid !important;
+    }
+
+    #blue .zhiding:before {
+        content: '';
+        background: url(../img/zd_img_blue.png) no-repeat top left/33px 33px;
+    }
+
+    #blue .top-div {
+        border-bottom: 2px #b4cef6 solid
+    }
+
+    #blue .navindex li {
+        color: #006bb7;
+    }
+
+    #blue .index-nav .active i {
+        background: #006bb7
+    }
+
+    #blue .index-nav .active {
+        color: #ffffff;
+        background: #006bb7;
+    }
+
+    #blue .index-div .date-p {
+        background: #f9f9f9;
+        color: #006bb7;
+    }
+
+    #blue .mjtjbj {
+        background: #f3f3f3;
+    }
+
+    #blue .indexbtn {
+        background: #006bb7;
+    }
+
+    #blue .indexbtn i {
+        background: url(../img/index-PC.png) no-repeat center center #006bb7 !important;
+    }
+
+    #blue .index-div a .zb_green:hover {
+        background: #005693
+    }
+
+    #blue .index-div a:hover {
+        background: #f0f5fe
+    }
+
+    #blue .totop {
+        background: #006bb7;
+    }
+
+    #blue .totop i {
+        background: url(../img/totop.png) no-repeat center center #006bb7 !important;
+    }
+
+    #blue footer {
+        border-top: 60px #f6f6f6 solid
+    }
+
+    #blue .jump_videoan {
+        color: #fff;
+        background: #de1e30;
+    }
+
+    #blue .jfqh_wrap a {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .changci {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .jingq p {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .jingq_k p {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .jingq_bt {
+        color: #006bb7;
+        font-weight: 700
+    }
+
+    #blue .bifeng_num .jing {
+        color: #006bb7
+    }
+
+    #blue .jiabifeng .zhujingq p {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .zhujingq_k p {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .zhujingq_bt {
+        color: #006bb7;
+    }
+
+    #blue .bifeng .jing {
+        color: #006bb7
+    }
+
+    #blue .bifeng_zhishu .bs_bt_zt {
+        color: #ef584c;
+    }
+
+    #blue .bifeng_zhishu .bs_time {
+        color: #006bb7;
+    }
+
+    #blue .bifeng_zhishu .bs_befeng {
+        color: #006bb7;
+    }
+
+    #blue .zhishu .jscs_num cite.red {
+        background: #ef584c
+    }
+
+    #blue .zhishu .jscs_num cite.blue {
+        background: #006bb7
+    }
+
+    #blue .zhishu .jscs_num cite.yellow {
+        background: #006bb7;
+        color: #fff
+    }
+
+    #blue .zhishu_lan .qcred {
+        color: #006bb7
+    }
+
+    #blue .bifeng_kai .btnn {
+        background-color: #006bb7;
+    }
+
+    #blue .newyearl {
+        background: url(../img/logo_june_l_blue.png?r=43);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    #blue .newyearr {
+        background: url(../img/logo_june_r_blue.png?r=43);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    #blue .bifeng_zhishu .yikaisai .ks_vs_new em {
+        color: #006bb7;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #blue .zhiding:before {
+        content: '';
+        background: url(../img/zd_img_w_r_red.png) no-repeat top left/33px 33px;
+    }
+
+    #blue .jiabifeng .changci {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .bifeng {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .jingq p {
+        color: #006fc0;
+    }
+
+    #blue .jiabifeng .jingq_k p {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .jingq_bt {
+        color: #006bb7;
+    }
+
+    #blue .bifeng_num .jing {
+        color: #006bb7
+    }
+
+    #blue .bifeng .jing {
+        color: #006bb7
+    }
+
+    #blue .jiabifeng .zhujingq p {
+        color: #006bb7;
+        font-weight: 700
+    }
+
+    #blue .jiabifeng .zhujingq_k p {
+        color: #006bb7;
+    }
+
+    #blue .jiabifeng .zhujingq_bt {
+        color: #006bb7;
+    }
+
+    #blue .bifeng_zhishu .bs_vs {
+        color: #ef584c;
+    }
+
+    #blue .bifeng_zhishu .bs_bt_zt {
+        color: #ef584c;
+    }
+
+    #blue .bifeng_zhishu .bs_time {
+        color: #006bb7;
+    }
+
+    #blue .bifeng_zhishu .bs_befeng {
+        color: #006bb7;
+    }
+
+    #blue .zhishu .jscs_num cite.red {
+        background: #ef584c;
+        color: #fff
+    }
+
+    #blue .zhishu .jscs_num cite.blue {
+        background: #006bb7;
+        color: #fff
+    }
+
+    #blue .zhishu .jscs_num cite.yellow {
+        background: #006bb7;
+        color: #fff
+    }
+
+    #blue .bifeng_pei .redyellow_p {
+        color: #006bb7;
+    }
+
+    #blue .bifeng_pei .redyellow_p em.bianhua {
+        background: #006bb7;
+        color: #fff
+    }
+
+    #blue .bfonoff {
+        background-color: #006bb7;
+    }
+
+    #blue .jfqh_wrap a {
+        color: #006bb7;
+    }
+
+    #blue .newyearl {
+        background: url(../img/logo_june_l_w_blue.png?r=43) no-repeat;
+        background-size: 100%;
+    }
+
+    #blue .newyearr {
+        background: url(../img/logo_june_r_w_blue.png?r=43) no-repeat;
+        background-size: 100%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #blue .gb_ad_an {
+        background: #006bb7;
+        border: 1px #006bb7 solid;
+        color: #fff
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #blue .gb_ad_an {
+        background: #006bb7;
+        color: #fff
+    }
+
+    #blue .guanbi_ad:hover .gb_ad_an {
+        background: #006bb7;
+        color: #fff
+    }
+
+    #blue .bs_time_new {
+        display: none;
+        margin-bottom: 15px;
+        color: #006bb7;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #blue .bs_bt_title .bs_time_new {
+        color: #006bb7;
+    }
+}
+
+#blue .zhti_qiehuan > li:hover {
+    color: #006bb7;
+}
+
+#blue .no-data .zwsig {
+    background: url(../img/no-data_blue.png) no-repeat;
+    background-size: 100%;
+}
+
+#blue .index_login_wrap {
+    background: url(../img/div_loding_blue.gif) no-repeat center;
+    background-size: 100%;
+}
+
+html {
+    background: #fff;
+    overflow: auto;
+    height: 100%;
+    font-size: 11px
+}
+
+#yellow {
+    background: url(../img/background_yellow.jpg?r=2) no-repeat top center #f4f4f4;
+    background-size: 100% auto;
+}
+
+#yellow .show {
+    display: block !important
+}
+
+#yellow header {
+    background: #fd8521;
+}
+
+#yellow .wap-app-box {
+    background-image: linear-gradient(to bottom right, #3dbee7, #007bec)
+}
+
+#yellow .wap-app-box a.djxz {
+    background: #fff;
+    color: #fd8521;
+}
+
+#yellow .index-nav .active i {
+    background: #fd8521
+}
+
+#yellow .index-nav .active {
+    color: #fd8521
+}
+
+#yellow .index-div .date-p .date {
+    background: #cff4e9;
+    color: #fd8521;
+}
+
+#yellow .singldl .active {
+    background: #ee564f;
+    color: #fff
+}
+
+#yellow .waplist .once {
+    background-image: linear-gradient(to right bottom, #ffcda4, #fd9521);
+}
+
+#yellow .download-wap-btn {
+    background: #fd8521;
+}
+
+#yellow .tzpt_nav a {
+    color: #333;
+}
+
+#yellow .tzpt_nav li.default a {
+    color: #ee564f
+}
+
+#yellow .tzpt_nav li.default:after {
+    background: #ee564f;
+}
+
+#yellow .mjtj-list:nth-child(4n+1) .number {
+    background: #fe6301
+}
+
+#yellow .mjtj-list:nth-child(4n+2) .number {
+    background: #2fc595
+}
+
+#yellow .mjtj-list:nth-child(4n+3) .number {
+    background: #f04b59
+}
+
+#yellow .mjtj-list:nth-child(4n+4) .number {
+    background: #17a0f1
+}
+
+#yellow .mjtj-list .contant .copy-btn {
+    background: #ee564f;
+    border-radius: 2rem;
+    color: #fff;
+}
+
+#yellow .zhiding {
+    background-image: linear-gradient(to right, #f9e0cb, #f9e1cc, #fdf4ec);
+    border-bottom: 1px #f2ceae solid !important;
+}
+
+#yellow .zhiding:before {
+    content: '';
+    background: url(../img/zd_img_w.png) no-repeat top left/33px 33px;
+}
+
+#yellow .index-div_zd .date-p .date {
+    background: #cff4e9;
+    color: #fd8521;
+}
+
+#yellow .index-div_zd a .center .vsp {
+    color: #ee564f;
+}
+
+#yellow .index-div_zd a .video {
+    color: #fff;
+    background: #fd8521;
+}
+
+#yellow .index-nav .active i {
+    background: #fd8521
+}
+
+#yellow .index-nav .active {
+    color: #fd8521
+}
+
+#yellow .jump_videoan {
+    color: #fff;
+    background: #de1e30;
+}
+
+#yellow .refreshbtn {
+    background: #fd8521;
+}
+
+#yellow .refreshbtn i {
+    background: url(../img/shuaxing_n.png) no-repeat center center #fd8521 !important;
+}
+
+#yellow .index-div a .zb_green {
+    background: #fd8521
+}
+
+#yellow .btn {
+    color: #fff;
+    background: #fd8521;
+}
+
+#yellow .clock-d {
+    animation: clockD 1s infinite
+}
+
+@keyframes clockD {
+    0% {
+        color: transparent
+    }
+    40% {
+        color: #006fc0
+    }
+    80% {
+        color: #006fc0
+    }
+    100% {
+        color: transparent
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #yellow .pcrlist .hdiv {
+        background: #fd8521;
+        color: #fff;
+    }
+
+    #yellow .tzpt_nav li.default a {
+        color: #006fc0
+    }
+
+    #yellow .tzpt_nav li.default:after {
+        background: #006fc0;
+    }
+
+    #yellow .mjtj-list:nth-child(4n+1) .number {
+        background: #fe6301
+    }
+
+    #yellow .mjtj-list:nth-child(4n+2) .number {
+        background: #2fc595
+    }
+
+    #yellow .mjtj-list:nth-child(4n+3) .number {
+        background: #f04b59
+    }
+
+    #yellow .mjtj-list:nth-child(4n+4) .number {
+        background: #17a0f1
+    }
+
+    #yellow .mjtj-list .contant .copy-btn {
+        background: #006fc0;
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    #yellow .zhiding {
+        background-image: linear-gradient(to right, #f9e0cb, #f9e1cc, #fdf4ec);
+        border-bottom: 1px #f2ceae solid !important;
+    }
+
+    #yellow .zhiding:before {
+        content: '';
+        background: url(../img/zd_img_yellow.png) no-repeat top left/33px 33px;
+    }
+
+    #yellow .top-div {
+        border-bottom: 2px #f2ceae solid
+    }
+
+    #yellow .navindex li {
+        color: #fd8521;
+    }
+
+    #yellow .index-nav .active i {
+        background: #fd8521
+    }
+
+    #yellow .index-nav .active {
+        color: #ffffff;
+        background: #fd8521;
+    }
+
+    #yellow .index-div .date-p {
+        background: #f9f9f9;
+        color: #fd8521;
+    }
+
+    #yellow .mjtjbj {
+        background: #f3f3f3;
+    }
+
+    #yellow .indexbtn {
+        background: #fd8521;
+    }
+
+    #yellow .indexbtn i {
+        background: url(../img/index-PC.png) no-repeat center center #fd8521 !important;
+    }
+
+    #yellow .index-div a .zb_green:hover {
+        background: #e3771e;
+    }
+
+    #yellow .index-div a:hover {
+        background: #fffaf6;
+    }
+
+    #yellow .totop {
+        background: #fd8521;
+    }
+
+    #yellow .totop i {
+        background: url(../img/totop.png) no-repeat center center #fd8521 !important;
+    }
+
+    #yellow footer {
+        border-top: 60px #f6f6f6 solid
+    }
+
+    #yellow .jump_videoan {
+        color: #fff;
+        background: #de1e30;
+    }
+
+    #yellow .jfqh_wrap a {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .changci {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .jingq p {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .jingq_k p {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .jingq_bt {
+        color: #fd8521;
+        font-weight: 700
+    }
+
+    #yellow .bifeng_num .jing {
+        color: #fd8521
+    }
+
+    #yellow .jiabifeng .zhujingq p {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .zhujingq_k p {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .zhujingq_bt {
+        color: #fd8521;
+    }
+
+    #yellow .bifeng .jing {
+        color: #fd8521
+    }
+
+    #yellow .bifeng_zhishu .bs_bt_zt {
+        color: #ef584c;
+    }
+
+    #yellow .bifeng_zhishu .bs_time {
+        color: #fd8521;
+    }
+
+    #yellow .bifeng_zhishu .bs_befeng {
+        color: #fd8521;
+    }
+
+    #yellow .zhishu .jscs_num cite.red {
+        background: #ef584c
+    }
+
+    #yellow .zhishu .jscs_num cite.blue {
+        background: #fd8521
+    }
+
+    #yellow .zhishu .jscs_num cite.yellow {
+        background: #fd8521;
+        color: #fff
+    }
+
+    #yellow .zhishu_lan .qcred {
+        color: #fd8521
+    }
+
+    #yellow .bifeng_kai .btnn {
+        background-color: #fd8521;
+    }
+
+    #yellow .newyearl {
+        background: url(../img/logo_june_l_yellow.png?r=43);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    #yellow .newyearr {
+        background: url(../img/logo_june_r_yellow.png?r=43);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #yellow .zhiding:before {
+        content: '';
+        background: url(../img/zd_img_w_r_yellow.png) no-repeat top left/33px 33px;
+    }
+
+    #yellow .jiabifeng .changci {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .bifeng {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .jingq p {
+        color: #006fc0;
+    }
+
+    #yellow .jiabifeng .jingq_k p {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .jingq_bt {
+        color: #fd8521;
+    }
+
+    #yellow .bifeng_num .jing {
+        color: #fd8521
+    }
+
+    #yellow .bifeng .jing {
+        color: #fd8521
+    }
+
+    #yellow .jiabifeng .zhujingq p {
+        color: #fd8521;
+        font-weight: 700
+    }
+
+    #yellow .jiabifeng .zhujingq_k p {
+        color: #fd8521;
+    }
+
+    #yellow .jiabifeng .zhujingq_bt {
+        color: #fd8521;
+    }
+
+    #yellow .bifeng_zhishu .bs_vs {
+        color: #ef584c;
+    }
+
+    #yellow .bifeng_zhishu .bs_bt_zt {
+        color: #ef584c;
+    }
+
+    #yellow .bifeng_zhishu .bs_time {
+        color: #fd8521;
+    }
+
+    #yellow .bifeng_zhishu .bs_befeng {
+        color: #fd8521;
+    }
+
+    #yellow .zhishu .jscs_num cite.red {
+        background: #ef584c;
+        color: #fff
+    }
+
+    #yellow .zhishu .jscs_num cite.blue {
+        background: #fd8521;
+        color: #fff
+    }
+
+    #yellow .zhishu .jscs_num cite.yellow {
+        background: #fd8521;
+        color: #fff
+    }
+
+    #yellow .bifeng_pei .redyellow_p {
+        color: #fd8521;
+    }
+
+    #yellow .bifeng_pei .redyellow_p em.bianhua {
+        background: #fd8521;
+        color: #fff
+    }
+
+    #yellow .bfonoff {
+        background-color: #fd8521;
+    }
+
+    #yellow .jfqh_wrap a {
+        color: #fd8521;
+    }
+
+    #yellow .newyearl {
+        background: url(../img/logo_june_l_w_yellow.png?r=43) no-repeat;
+        background-size: 100%;
+    }
+
+    #yellow .newyearr {
+        background: url(../img/logo_june_r_w_yellow.png?r=43) no-repeat;
+        background-size: 100%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #yellow .gb_ad_an {
+        background: #fd8521;
+        border: 1px #fd8521 solid;
+        color: #fff
+    }
+}
+
+@media screen and (min-width: 750px) {
+    #yellow .gb_ad_an {
+        background: #fd8521;
+        color: #fff
+    }
+
+    #yellow .guanbi_ad:hover .gb_ad_an {
+        background: #fd8521;
+        color: #fff
+    }
+
+    #yellow .bs_time_new {
+        display: none;
+        margin-bottom: 15px;
+        color: #fd8521;
+    }
+
+    #yellow .bifeng_zhishu .yikaisai .ks_vs_new em {
+        color: #fd8521;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #yellow .bs_bt_title .bs_time_new {
+        color: #fd8521;
+    }
+}
+
+#yellow .zhti_qiehuan > li:hover {
+    color: #fd8521;
+}
+
+#yellow .no-data .zwsig {
+    background: url(../img/no-data_yellow.png) no-repeat;
+    background-size: 100%;
+}
+
+#yellow .index_login_wrap {
+    background: url(../img/div_loding_yellow.gif) no-repeat center;
+    background-size: 100%;
+}
