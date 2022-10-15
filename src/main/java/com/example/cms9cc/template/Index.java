@@ -3,15 +3,22 @@ package com.example.cms9cc.template;
 
 import com.example.cms9cc.LiveItem;
 import com.example.cms9cc.admin.AdminService;
+import com.example.cms9cc.tools.TemplateUtils;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.context.WebContext;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +29,24 @@ public class Index {
     OkHttpClient okHttpClient = new OkHttpClient();
     @Autowired
     AdminService adminService;
+
+
+    @PostMapping("/loadmore")
+    @org.springframework.web.bind.annotation.ResponseBody
+    private String loadMore(HttpServletRequest request, HttpServletResponse response, @RequestHeader Map<String, String> header, @org.springframework.web.bind.annotation.RequestBody String reqBody) {
+        header.remove("accept-encoding");
+        header.put("origin", "http://www.515.tv");
+        header.put("host", "www.515.tv");
+        header.put("X-Requested-With", "XMLHttpRequest");
+
+        LiveItem liveItem = requestData(header, reqBody);
+        HashMap<String, Object> respData = new HashMap<>();
+        respData.put("list", liveItem.getLive_item());
+
+        WebContext context = new WebContext(request, response, request.getServletContext(), response.getLocale(), respData);
+        String process = TemplateUtils.process("list_more.html", context);
+        return process;
+    }
 
     private LiveItem requestData(@RequestHeader Map<String, String> header, String requstbody) {
         RequestBody body = RequestBody.create(JSON, requstbody);
@@ -85,41 +110,45 @@ public class Index {
         return liveset;
     }
 
-    public String to(@RequestHeader Map<String, String> header, String reqBody, Model model) {
+    public String to(@RequestHeader Map<String, String> header, Integer listType, Model model) {
         header.remove("accept-encoding");
         header.put("origin", "http://www.515.tv");
         header.put("host", "www.515.tv");
         header.put("X-Requested-With", "XMLHttpRequest");
+        String reqBody = "s=0&t=1&a=" + listType + "&g=1";
         LiveItem liveItem = requestData(header, reqBody);
         if (liveItem != null) {
             model.addAttribute("list", liveItem.getLive_item());
         }
         model.addAttribute("config", adminService.getAllConfig());
+        model.addAttribute("listtype", listType);
         return "index";
     }
 
+
+    public static final int TYPE_HOT = 0;
+    public static final int TYPE_BASKETBALL = 2;
+    public static final int TYPE_FOOTBALL = 1;
+    public static final int TYPE_TIYU = 3;
+
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {
-        String reqBody = "s=0&t=1&a=0&g=1";
-        return to(header, reqBody, model);
+        return to(header, TYPE_HOT, model);
     }
 
     @GetMapping("/football")
     public String football(@RequestHeader Map<String, String> header, Model model) {
-        String reqBody = "s=0&t=1&a=1&g=1";
-        return to(header, reqBody, model);
+        return to(header, TYPE_FOOTBALL, model);
     }
 
     @GetMapping("/basketball")
     public String basketball(@RequestHeader Map<String, String> header, Model model) {
-        String reqBody = "s=0&t=1&a=2&g=1";
-        return to(header, reqBody, model);
+        return to(header, TYPE_BASKETBALL, model);
     }
 
     @GetMapping("/tiyu")
     public String tiyu(@RequestHeader Map<String, String> header, Model model) {
-        String reqBody = "s=0&t=1&a=3&g=1";
-        return to(header, reqBody, model);
+        return to(header, TYPE_TIYU, model);
     }
 
     @GetMapping("/bofang")
