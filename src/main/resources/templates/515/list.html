@@ -27,7 +27,7 @@
                         <div class="center">
                             <p class="eventtime_wuy eventtime">
                             <span class="feleimg">
-                                <img th:src="@{/515/img/fenlei_1.png}"/>
+                                <img th:src="${item.gameType==1?'/515/img/fenlei_1.png':'/515/img/fenlei_2.png'}"/>
                             </span>
                                 <span><em th:text="${item.gameName}"></em> <i
                                         style="white-space: nowrap; overflow: visible;"
