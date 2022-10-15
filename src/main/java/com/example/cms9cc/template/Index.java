@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.thymeleaf.context.Context;
 import org.thymeleaf.context.WebContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,11 +24,13 @@ import java.util.Map;
 @Controller
 public class Index {
     public static final MediaType JSON = MediaType.parse("application/x-www-form-urlencoded;");
-
+    public static final int TYPE_HOT = 0;
+    public static final int TYPE_BASKETBALL = 2;
+    public static final int TYPE_FOOTBALL = 1;
+    public static final int TYPE_TIYU = 3;
     OkHttpClient okHttpClient = new OkHttpClient();
     @Autowired
     AdminService adminService;
-
 
     @PostMapping("/loadmore")
     @org.springframework.web.bind.annotation.ResponseBody
@@ -124,12 +125,6 @@ public class Index {
         model.addAttribute("listtype", listType);
         return "index";
     }
-
-
-    public static final int TYPE_HOT = 0;
-    public static final int TYPE_BASKETBALL = 2;
-    public static final int TYPE_FOOTBALL = 1;
-    public static final int TYPE_TIYU = 3;
 
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {

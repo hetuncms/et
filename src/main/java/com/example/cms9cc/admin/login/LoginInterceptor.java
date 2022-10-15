@@ -24,8 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         System.out.println(token);
 
 
-        if (handler instanceof HandlerMethod) {
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
+        if (handler instanceof HandlerMethod handlerMethod) {
             JwtIgnore jwtIgnore = handlerMethod.getMethodAnnotation(JwtIgnore.class);
             if (jwtIgnore != null) {
                 return true;

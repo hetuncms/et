@@ -1,10 +1,10 @@
 <div class="index-div" th:fragment="listFragment" zssyhqz="64540cl2iNsvtc2m0U2O0O0O281"
      zssyhqzt="28121cl2iNsvtc2m0V2z252">
     <div class="list_wrap_one_wuy list_wrap list_wrap_one" style="display: block;" yn="1">
-        <div class="list_content" th:if="${list}" id="list">
+        <div class="list_content" id="list" th:if="${list}">
 
 
-            <div th:each="item,count:${list}" id="item_list">
+            <div id="item_list" th:each="item,count:${list}">
                 <p class="date-p"
                    th:if="${(item.getIsTop().equals('0') && count.index==0)
                    || (item.getIsTop().equals('0') && count.index!=0  && #dates.day(item.date) - #dates.day(list.get(count.index-1).date)!=0)
@@ -51,7 +51,7 @@
 
         </div>
 
-        <div th:if="${list}" class="clcik_more" th:onclick="loadmore([[${listtype}]])">点击加载更多</div>
+        <div class="clcik_more" th:if="${list}" th:onclick="loadmore([[${listtype}]])">点击加载更多</div>
         <div class="more_animate" style="display: none;">︾</div>
         <div th:unless="${list}">
             <div class="list_wrap" style="display: block;" yn="0">
@@ -69,17 +69,18 @@
 
     <script>
         var count = 1
+
         function loadmore(type) {
             count++;
             $.ajax({
                 url: "/loadmore",
                 type: "POST",
                 contentType: "application/html",
-                dataType:"html",
-                data: "s=0&t=1&a="+type+"&g="+count,
+                dataType: "html",
+                data: "s=0&t=1&a=" + type + "&g=" + count,
                 success: function (result) {
                     $("#list").append(result)
-                    },
+                },
                 error: function (errormsg) {
                     $(".clcik_more").text("没有更多数据了")
                 }

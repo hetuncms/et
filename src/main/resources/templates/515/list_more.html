@@ -1,6 +1,5 @@
-
-<a th:class="${item.getIsTop().equals('1') ? 'clearfix zhiding':'clearfix'}"
-   th:each="item,count:${list}" id="item_list"
+<a id="item_list"
+   th:class="${item.getIsTop().equals('1') ? 'clearfix zhiding':'clearfix'}" th:each="item,count:${list}"
    th:href="'/bofang/?iframelink='+${item.iframeLink}">
     <section class="clearfix jiabifeng" wuyd="">
         <div class="changci" style="display: block;">
