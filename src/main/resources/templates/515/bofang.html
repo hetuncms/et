@@ -22,8 +22,7 @@
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
     <link href="http://www.515.tv/~static/www/css/swiper.min.css?r=r1003" rel="stylesheet" type="text/css">
 </head>
-<body data-domainres="http://res.515.tv/~res" data-domainstatic="http://www.515.tv/~static/"
-      data-domainwww="http://www.515.tv/" data-scoredisplay="1" id="blue">
+<body id="blue">
 
 
 <script>
@@ -40,7 +39,7 @@
 <!-- <link rel="manifest" href="manifest.json"> -->
 <header>
     <div class="head-main">
-        <a class="head_main_img" href="http://www.515.tv/"><img alt="515直播logo"
+        <a class="head_main_img"><img alt="515直播logo"
                                                                 src="http://www.515.tv/~static/www/img/logon.png?r=1"></a>
         <div class="zhti_qiehuan_wrap">
             <p class="zhti_qiehuan_top">
@@ -59,12 +58,12 @@
                 <div class="ewm"><em></em><img src="http://www.515.tv/~static/www/img/downewm.png?r=100"><span>扫码下载APP</span></div>
             </div> -->
             <div class="jifengbang jfhover">
-                <a href="http://www.515.tv/paihang" target="_blank"><i></i><span>积分榜</span></a>
+                <a target="_blank"><i></i><span>积分榜</span></a>
             </div>
         </div>
         <div class="wap_jfb">
             <p class="wap_jfb_dj">
-                <a href="http://www.515.tv/paihang" target="_blank"><i></i><!-- <span>积分榜</span> --></a>
+                <a target="_blank"><i></i><!-- <span>积分榜</span> --></a>
             </p>
         </div>
         <div class="jfqh_wrap">
@@ -210,7 +209,7 @@
         <iframe allowfullscreen="true" mozallowfullscreen="true" scrolling="no" style="background:transparent;"
                 th:src="${iframelink}" webkitallowfullscreen="true" width="100%"></iframe>
         <div class="signalcall">
-            <input class="lianjie" id="linkInput" type="text" value="http://www.515.tv/live/68">
+            <input class="lianjie" id="linkInput" type="text" >
             <button id="copybtn">复制</button>
         </div>
     </div>
@@ -310,7 +309,7 @@
     <div class="smtp">
         <div class="copy_wz">
             <span>515直播：</span>
-            <input id="taokouling" readonly="readonly" type="text" value="http://www.515.tv/">
+            <input id="taokouling" readonly="readonly" type="text">
             <button class="btn" data-clipboard-action="copy" data-clipboard-target="#taokouling" id="copyCode">
                 点击复制
             </button>

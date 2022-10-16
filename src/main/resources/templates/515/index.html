@@ -23,8 +23,7 @@
     <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
 </head>
-<body data-domainres="http://res.515.tv/~res" data-domainstatic="http://www.515.tv/~static/"
-      data-domainwww="http://www.515.tv/" data-scoredisplay="1" id="green">
+<body id="green">
 
 
 <script>
@@ -41,7 +40,7 @@
 <!-- <link rel="manifest" href="manifest.json"> -->
 <header>
     <div class="head-main">
-        <a class="head_main_img" href="http://www.515.tv/">
+        <a class="head_main_img">
             <img th:src="${config.get('basis').getLogo()}"></a>
         <div class="zhti_qiehuan_wrap">
             <p class="zhti_qiehuan_top">
@@ -57,12 +56,12 @@
         </div>
         <div class="pc-app-box">
             <div class="jifengbang jfhover">
-                <a href="http://www.515.tv/paihang" target="_blank"><i></i><span>积分榜</span></a>
+                <a target="_blank"><i></i><span>积分榜</span></a>
             </div>
         </div>
         <div class="wap_jfb">
             <p class="wap_jfb_dj">
-                <a href="http://www.515.tv/paihang" target="_blank"><i></i><!-- <span>积分榜</span> --></a>
+                <a target="_blank"><i></i><!-- <span>积分榜</span> --></a>
             </p>
         </div>
         <div class="jfqh_wrap">
@@ -119,7 +118,7 @@
     <div class="smtp">
         <div class="copy_wz">
             <span>515直播：</span>
-            <input id="taokouling" readonly="readonly" type="text" value="http://www.515.tv/">
+            <input id="taokouling" readonly="readonly" type="text">
             <button class="btn" data-clipboard-action="copy" data-clipboard-target="#taokouling" id="copyCode">
                 点击复制
             </button>

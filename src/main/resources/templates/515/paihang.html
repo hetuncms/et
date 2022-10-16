@@ -1,0 +1,72 @@
+<html>
+
+<head>
+
+    <link th:href="@{/515/css/ranks.min.css}" type="text/css" rel="stylesheet">
+    <link href="http://www.515.tv/~static/www/css/swiper.min.css?r=11" type="text/css" rel="stylesheet">
+    <link href="http://www.515.tv/~static/www/css/ranks-color.min.css?r=10" type="text/css" rel="stylesheet">
+    <link href="http://www.515.tv/~static/www/css/public.min.css?r=r1003" type="text/css" rel="stylesheet">
+    <link href="http://www.515.tv/~static/www/css/public-color.min.css?r=r1003" type="text/css" rel="stylesheet">
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/515/js/paihang.js}"></script>
+</head>
+<body>
+<div th:replace="~{header.html::head}"></div>
+<div class="main_jf">
+    <div class="nav_one_fl">
+        <p class="ss_fenglei_name">
+            <span class="ss_fenglei_img"><!-- <img src="http://www.515.tv/~static/www/img/jf_nav_c.png"> --> </span><span>积分榜</span>
+        </p>
+        <div class="nav_tow" id="nav_tow_p">
+            <ul class="fl ss_fl_list pc_ss_nav">
+                <li class="navtow_hover" data-py="yingchao" data-catid="1" data-comid="8">英超</li>
+                <li data-py="xijia" data-catid="1" data-comid="23" class="" onclick="xijia()">西甲</li>
+                <li data-py="yijia" data-catid="1" data-comid="21" class="" onclick="yijia()">意甲</li>
+                <li data-py="dejia" data-catid="1" data-comid="22" class="" onclick="dejia()">德甲</li>
+                <li data-py="fajia" data-catid="1" data-comid="24" class="" onclick="fajia()">法甲</li>
+                <li data-py="zhongchao" data-catid="1" data-comid="208" class="">中超</li>
+                <li data-py="yaguan" data-catid="1" data-comid="605" class="">亚冠</li>
+                <li data-py="ouguan" data-catid="1" data-comid="5" class="">欧冠</li>
+                <li data-py="nba" data-catid="2" data-comid="1" class="">NBA</li>
+                <li data-py="cba" data-catid="2" data-comid="2" class="">CBA</li>
+            </ul>
+        </div>
+    </div>
+    <div th:fragment="content" id="content">
+        <div class="jf_list">
+            <div class="jf_lb_list">
+
+                <div class="biaolist jqqh_lb qtbdlb duo_quyu" style="display: block;">
+                    <ul class="biaotitle jifeng" id="dqlebiao_bt">
+                        <li>排名</li>
+                        <li class="qiudui">球队</li>
+                        <li>场次</li>
+                        <li>胜</li>
+                        <li>平</li>
+                        <li>负</li>
+                        <li>进球</li>
+                        <li>失球</li>
+                        <li class="redbj">积分</li>
+                    </ul>
+                    <div class="list_xq jifeng" id="dqlebiao">
+                        <ul class="biaonr" th:each="item:${items}">
+                            <li><span class="rankimg" th:text="${item.rank}"></span></li>
+                            <li class="qiudui" th:text="${item.team}"></li>
+                            <li th:text="${item.times}"></li>
+                            <li th:text="${item.win}"></li>
+                            <li th:text="${item.ping}"></li>
+                            <li th:text="${item.loss}"></li>
+                            <li th:text="${item.goal}"></li>
+                            <li th:text="${item.loss_goal}"></li>
+                            <li class="redbj" th:text="${item.point}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

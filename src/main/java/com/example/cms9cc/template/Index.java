@@ -3,6 +3,8 @@ package com.example.cms9cc.template;
 
 import com.example.cms9cc.LiveItem;
 import com.example.cms9cc.admin.AdminService;
+import com.example.cms9cc.template.bean.PaiHangBean;
+import com.example.cms9cc.template.bean.PaiHangFromBean;
 import com.example.cms9cc.tools.TemplateUtils;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,47 @@ public class Index {
         return process;
     }
 
+
+
+
+    @GetMapping("/paihang")
+    public String paihang(Model model){
+        PaiHangBean paiHangBean = requestPaiHangData(8);
+        model.addAttribute("items",paiHangBean.getItems());
+        model.addAttribute("config",adminService.getAllConfig());
+        return "paihang";
+    }
+
+    @GetMapping("/paihang_fragment")
+    public String paihangFragment(Model model,@RequestParam("commid")Integer commid){
+        PaiHangBean paiHangBean = requestPaiHangData(commid);
+        model.addAttribute("items",paiHangBean.getItems());
+        model.addAttribute("config",adminService.getAllConfig());
+        return "paihang::content";
+    }
+
+
+    private PaiHangBean requestPaiHangData(Integer commid) {
+        RequestBody body = RequestBody.create(JSON, "comid="+commid+"&type=1&catid=1");
+        Map<String, String> header = new HashMap<>();
+        header.put("origin", "http://www.515.tv");
+        header.put("host", "www.515.tv");
+        header.put("X-Requested-With", "XMLHttpRequest");
+        Headers headers = Headers.of(header);
+        Request build = new Request.Builder().url("http://www.515.tv/paihang").headers(headers).post(body).build();
+
+        String netData;
+        try {
+            Response execute = okHttpClient.newCall(build).execute();
+            netData = execute.body().string();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        PaiHangBean paiHangBean = com.alibaba.fastjson2.JSON.parseObject(netData, PaiHangBean.class);
+        return paiHangBean;
+    }
     private LiveItem requestData(@RequestHeader Map<String, String> header, String requstbody) {
         RequestBody body = RequestBody.create(JSON, requstbody);
         Headers headers = Headers.of(header);

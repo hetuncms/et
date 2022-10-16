@@ -21,7 +21,7 @@ public class LoginController {
         if (loginBean.equals(requestLoginBean)) {
             return JWTUtils.getToken(loginBean);
         }
-        return "";
+        return "登录失败";
     }
 
     @PostMapping("/change_admin_info")
