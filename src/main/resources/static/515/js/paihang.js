@@ -10,7 +10,18 @@ function loadContent(commid) {
         }
     });
 }
-
+function loadChild(type) {
+    $.ajax({
+        url: "/paihang_fragment",
+        type: "GET",
+        contentType: "application/html",
+        dataType: "html",
+        data: {"type":type},
+        success: function (result) {
+            $("#content_child").html(result)
+        }
+    });
+}
 function xijia() {
     loadContent(23)
 }
@@ -25,4 +36,8 @@ function dejia() {
 
 function fajia() {
     loadContent(24)
+}
+
+function sheshou() {
+    loadChild(2);
 }

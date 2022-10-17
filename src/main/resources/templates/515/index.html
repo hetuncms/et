@@ -14,11 +14,11 @@
     <meta content="white" name="apple-mobile-web-app-status-bar-style">
     <meta content="true" name="x5-fullscreen">
     <meta content="yes" name="apple-touch-fullscreen">
-    <title th:text="${config.get('basis').getSiteName()}"></title>
-    <meta name="keywords" th:content="${config.get('basis').getKeyWords()}">
-    <meta name="description" th:content="${config.get('basis').getDescribe()}">
+    <title th:text="${config.getBasis().getSiteName()}"></title>
+    <meta name="keywords" th:content="${config.getBasis().getKeyWords()}">
+    <meta name="description" th:content="${config.getBasis().getDescribe()}">
     <link href="http://www.515.tv/~static/www/img/app_logo@512.png?r=400" rel="apple-touch-icon">
-    <link rel="shortcut icon" th:href="${config.get('basis').getLogo()}" type="image/x-icon">
+    <link rel="shortcut icon" th:href="${config.getBasis().getLogo()}" type="image/x-icon">
 
     <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
@@ -41,32 +41,14 @@
 <header>
     <div class="head-main">
         <a class="head_main_img">
-            <img th:src="${config.get('basis').getLogo()}"></a>
-        <div class="zhti_qiehuan_wrap">
-            <p class="zhti_qiehuan_top">
-                <span>绿色主题</span>
-                <img src="http://www.515.tv/~static/www/img/zhutx.png" style="transform: rotate(0deg);">
-            </p>
-            <ul class="zhti_qiehuan" show="0" style="display: none;">
-                <li value="green">绿色主题</li>
-                <li value="red">红色主题</li>
-                <li value="yellow">黄色主题</li>
-                <li value="blue">蓝色主题</li>
-            </ul>
-        </div>
-        <div class="pc-app-box">
-            <div class="jifengbang jfhover">
-                <a target="_blank"><i></i><span>积分榜</span></a>
-            </div>
-        </div>
+            <img th:src="${config.getBasis().getLogo()}"></a>
+
         <div class="wap_jfb">
             <p class="wap_jfb_dj">
                 <a target="_blank"><i></i><!-- <span>积分榜</span> --></a>
             </p>
         </div>
-        <div class="jfqh_wrap">
-            <a href="javascript:StranBody()" id="StranLink" name="StranLink" title="點擊以繁體中文方式浏覽">繁</a>
-        </div>
+
     </div>
 </header>
 <div class="main">
@@ -165,6 +147,18 @@
         <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
     </div>
 </footer>
-
+<div id="float" class="bottom_float">
+    <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
+        <img style="margin-left: auto;margin-right: auto;"
+             th:src="${config.getFloatAd().getPicUrl()}">
+    </a>
+    <span
+            class="close" onclick="close_float()">关闭</span>
+</div>
 </body>
+<script>
+    function close_float() {
+        $('#float').hide();
+    }
+</script>
 </html>

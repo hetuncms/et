@@ -70,6 +70,13 @@ public class Index {
         return "paihang::content";
     }
 
+    @GetMapping("/paihang_child_fragment")
+    public String paihangChildFragment(Model model,@RequestParam("type")Integer type){
+        PaiHangBean paiHangBean = requestPaiHangData(type);
+//        model.addAttribute("items",paiHangBean.getItems());
+//        model.addAttribute("config",adminService.getAllConfig());
+        return "aaaaaaaaaaaaaaaaaaaaaa";
+    }
 
     private PaiHangBean requestPaiHangData(Integer commid) {
         RequestBody body = RequestBody.create(JSON, "comid="+commid+"&type=1&catid=1");

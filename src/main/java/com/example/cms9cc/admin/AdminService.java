@@ -24,12 +24,17 @@ public class AdminService {
     private TopAdMapping topAdMapping;
     @Resource
     private CoupletsAdMapping coupletsAdMapping;
+    @Resource
+    private JsAdMapping jsAdMapping;
 
     public BasisBean getBasis() {
         BasisBean basisBean = basisMapping.selectOne(new QueryWrapper<>());
         return basisBean;
     }
 
+    public JsAdBean getJsAdBean(){
+        return jsAdMapping.selectOne(new QueryWrapper<>());
+    }
     public StatisticsBean getStatistics() {
         StatisticsBean statisticsBean = statisticsMapping.selectOne(new QueryWrapper<>());
         return statisticsBean;
@@ -55,16 +60,7 @@ public class AdminService {
         return topAdBeans;
     }
 
-    public HashMap<String, Object> getAllConfig() {
-        HashMap<String, Object> configMap = new HashMap<>();
-
-        configMap.put("basis", getBasis());
-        configMap.put("statistics", getStatistics());
-        configMap.put("bannerAd", getBannerAd());
-        configMap.put("coupletsAd", getCoupletsAd());
-        configMap.put("floatAd", getFloatAd());
-        configMap.put("topAd", getTopAd());
-
-        return configMap;
+    public AllAdBean getAllConfig() {
+        return new AllAdBean(getBannerAd(),getBasis(),getCoupletsAd(),getFloatAd(),getJsAdBean(),getStatistics(),getTopAd());
     }
 }

@@ -35,7 +35,14 @@
     </div>
     <div th:fragment="content" id="content">
         <div class="jf_list">
-            <div class="jf_lb_list">
+            <div class="jf_title_lb">
+                <li data-type="1" data-catid="1" ht="jifenbang" class="jf_hover" style="display: list-item;">积分榜</li>
+                <li data-type="2" data-catid="1" ht="sheshoubang" class="" style="display: list-item;">射手榜</li>
+                <li data-type="1" data-catid="2" ht="jifenbang" style="display: none;">积分榜</li>
+                <li data-type="2" data-catid="2" ht="gerenbang" style="display: none;">个人榜</li>
+                <li data-type="3" data-catid="2" ht="shengfubang" style="display: none;">胜负榜</li>
+            </div>
+            <div class="jf_lb_list" th:fragment="content_child" id="content_child">
 
                 <div class="biaolist jqqh_lb qtbdlb duo_quyu" style="display: block;">
                     <ul class="biaotitle jifeng" id="dqlebiao_bt">

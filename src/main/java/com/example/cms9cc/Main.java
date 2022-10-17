@@ -2,6 +2,7 @@ package com.example.cms9cc;
 
 
 import com.example.cms9cc.admin.AdminService;
+import com.example.cms9cc.admin.bean.AllAdBean;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -97,7 +98,7 @@ public class Main {
 
 
     @GetMapping("/getconfig")
-    public HashMap<String, Object> getConfig() {
+    public AllAdBean getConfig() {
         return adminService.getAllConfig();
     }
 }
