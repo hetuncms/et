@@ -22,14 +22,14 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
         source.forEach((k, v) -> {
             map.put(k, v);
         });
-        map.replace("spring.thymeleaf.prefix", "classpath:/templates/" + getTemplate() + "/");
+        map.replace("spring.thymeleaf.prefix", "classpath:/templates/" + getTemplate(map.get("spring.datasource.url").toString()) + "/");
 
         environment.getPropertySources().replace(name, new MapPropertySource(name, map));
     }
 
-    private String getTemplate(){
+    private String getTemplate(String sqlPath){
         try {
-            Connection connection = DriverManager.getConnection("jdbc:p6spy:sqlite:src/main/resources/static/admin.sql");
+            Connection connection = DriverManager.getConnection(sqlPath);
             Statement statement = connection.createStatement();
             ResultSet select_current_template_from_basis = statement.executeQuery("select current_template from basis");
             while (select_current_template_from_basis.next()){

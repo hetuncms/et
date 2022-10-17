@@ -1,0 +1,9 @@
+.bottom_float {
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    /*margin:0 auto;*/
+    background: rgba(0,0,0,0.5);
+}

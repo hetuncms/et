@@ -19,124 +19,218 @@
     <meta name="description" th:content="${config.getBasis().getDescribe()}">
     <link href="http://www.515.tv/~static/www/img/app_logo@512.png?r=400" rel="apple-touch-icon">
     <link rel="shortcut icon" th:href="${config.getBasis().getLogo()}" type="image/x-icon">
-
-    <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/leisu/css/iconfont-dbc35eac87.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/leisu/css/indexhome-70a852de69.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/leisu/css/layout-80d6aecc09.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/leisu/css/new-login-8f6de63e97.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/leisu/css/swiper-e0d8024459.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/cmsapp.css}" type="text/css">
 </head>
-<body id="green">
-
-
-<script>
-    //rem
-    window.onload = window.onresize = function () {
-        document.documentElement.style.fontSize = document.documentElement.clientWidth * 10 / 375 + 'px';
-    }
-</script>
+<body class="box">
 
 <header>
-    <div class="headerArea"><div class="header"><div id="head_vueArea" class="area"><a href="https://www.leisu.com" class="logo"><svg aria-hidden="true" class="icon svg-icon"><use xlink:href="#icon-leisutiyulogo"></use></svg></a><div class="navList"><ul><li><a href="https://www.leisu.com" class="navLink active">首页</a></li><li><a href="https://www.leisu.com/world" class="navLink ">世界杯</a></li><li><a href="javascript:void(0);" class="navLink ">即时比分</a> <i class="iconfont icon-arrow_down"></i><div class="menu_sec"><div class="menu_li"><a href="https://live.leisu.com" target="_blank">足球比分</a> <span class="hot">HOT</span></div><div class="menu_li"><a href="https://live.leisu.com/lanqiu" target="_blank">篮球比分</a> <span class="hot">HOT</span></div><div class="menu_li"><a href="https://live.leisu.com/wangqiu" target="_blank">网球比分</a></div></div></li><li><a href="javascript:void(0);" class="navLink ">赛事推荐</a> <i class="iconfont icon-arrow_down"></i><div class="menu_sec"><div class="menu_li"><a href="https://www.leisu.com/guide" target="_blank">足球推荐</a></div><div class="menu_li"><a href="https://www.leisu.com/guide/lanqiu" target="_blank">篮球推荐</a></div></div></li><li><a href="https://www.leisu.com/news" class="navLink ">资讯中心</a> <i class="iconfont icon-arrow_down"></i><div class="menu_sec"><div class="menu_li"><a href="https://www.leisu.com/news/catalog-zuqiu" target="_blank">足球头条</a> <span class="hot">HOT</span></div><div class="menu_li"><a href="https://www.leisu.com/news/catalog-lanqiu" target="_blank">篮球头条</a> <span class="hot">HOT</span></div></div></li><li><a href="https://www.leisu.com/data" class="navLink ">资料库</a> <i class="iconfont icon-arrow_down"></i><div class="menu_sec"><div class="menu_li"><a href="https://www.leisu.com/data/zuqiu" target="_blank">足球资料库</a></div><div class="menu_li"><a href="https://www.leisu.com/data/lanqiu" target="_blank">篮球资料库</a></div></div></li><li><a href="http://www.nami.com/" target="_blank" class="navLink">数据服务</a></li><li><a href="https://www.leisu.com/app" target="_blank" class="navLink ">APP下载</a></li><li><a href="https://hao.leisu.com/expert" target="_blank" class="navLink"><span class="position-r">自媒体</span></a></li></ul></div><div class="loginwrap"><i class="iconfont icon-portrait"></i> <a class="btn-border login">登录</a> <a rel="nofollow" href="https://www.leisu.com/user/register" class="btn-white active register">注册</a></div><div class="loggedwrap hide"><div class="before"><a rel="nofollow" href="https://www.leisu.com/user/coin" class="open-vip button">充值</a></div><div class="user-name select-type-one"><div class="user-ico"></div><span class="tip"><span class="name"></span> <i class="iconfont icon-arrow"></i> <i class="iconfont border-triangle"></i></span><div class="down"><ul><li><a href="https://www.leisu.com/user/pay" rel="nofollow" target="_blank">金币充值</a></li><li><a href="https://www.leisu.com/user/coin" rel="nofollow" target="_blank">雷速币充值</a></li><li><a href="https://www.leisu.com/user/profile" rel="nofollow" target="_blank">我的资料</a></li><li><a href="https://www.leisu.com/user/purchase-history" rel="nofollow" target="_blank">方案购买记录</a></li><li><a href="https://www.leisu.com/user/fav/zuqiu" rel="nofollow" target="_blank">我的收藏</a></li><li onclick="Login.loginOut()"><a>退出</a></li></ul></div></div></div><div class="nwe-login" style="display: none;"><div class="login-bg"></div> <div id="login" class="login-area isHide"><div class="closewind"><svg aria-hidden="true" class="icon svg-icon"><use xlink:href="#icon-close"></use></svg></div> <div class="xxkArea box_h"><div class="flex1"></div> <div class="lbtn xxk active">验证码登录</div> <div class="rbtn xxk">账号密码登录</div> <div class="flex1"></div></div> <!----> <div class="ffoot box_h"><div class="ffoot-l flex1"><div class="radio"></div>
-        一个月内免登录
-    </div> <div class="ffoot-r flex1">没有账号？<a>注册</a></div></div></div></div></div></div></div>
-</header>
-<div class="main">
-    <div class="top-div">
-        <span class="newyearl"></span>
-        <ul class="index-nav clearfix navindex">
-            <a href="/">
-                <li i-cbd-d="0" th:class="${#httpServletRequest.requestURI=='/'?'active':''}"><span>热门雷速</span></li>
-            </a><a href="/football">
-            <li class="" th:class="${#httpServletRequest.requestURI=='/football'?'active':''}"><span>足球</span></li>
-        </a>
-            <a href="/basketball">
-                <li th:class="${#httpServletRequest.requestURI=='/basketball'?'active':''}"><span>篮球</span></li>
+    <div class="headerArea">
+        <div class="header">
+            <div id="head_vueArea" class="area"><a href="" class="logo">
+                <svg aria-hidden="true" class="icon svg-icon">
+                    <use xlink:href="#icon-leisutiyulogo"></use>
+                </svg>
             </a>
-            <a href="/tiyu">
-                <li i-cbd-d="3" th:class="${#httpServletRequest.requestURI=='/tiyu'?'active':''}"><span>体育</span></li>
-            </a>
-        </ul>
-        <span class="newyearr"></span>
-    </div>
-    <a target="_blank" th:each="item:${config.getBannerAd()}" th:href="${item.getUrl()}">
-        <img style="width:100%;height:100px;margin-bottom:2px;"
-                                                        th:src="${item.getPicUrl()}"></a>
-    <div th:insert="~{list::listFragment}"></div>
-    <div class="iosKJ">
-        <span class="iostipimg"></span>
-        <p>×</p>
-        <i></i>
-    </div>
-</div>
-<div class="pcrlist">
-    <div class="once appbtn hide">
-        <i></i>
-        <div class="hdiv"><p>925</p>
-            <p>APP</p></div>
-    </div>
-    <div class="indexbtn"><a href="/static">
-        <i></i>
-        <span>回首页</span></a>
-    </div>
-    <div class="refreshbtn" onclick="location.reload()">
-        <i></i>
-        <span>刷新</span>
-    </div>
-    <div class="totop" onclick="window.scrollTo(0,0)" style="display: none;">
-        <i></i>
-        <span>回顶部</span>
-    </div>
-</div>
-<div class="iosKJ_nosafsai">
-    <i class="close_safari"><img src="http://www.515.tv/~static/www/img/close.png?r=2"></i>
-    <div class="smtp">
-        <div class="copy_wz">
-            <span>515直播：</span>
-            <input id="taokouling" readonly="readonly" type="text">
-            <button class="btn" data-clipboard-action="copy" data-clipboard-target="#taokouling" id="copyCode">
-                点击复制
-            </button>
-
-
+                <div class="navList">
+                    <ul>
+                        <li><a href="" class="navLink active">首页</a></li>
+                        <li><a href="" class="navLink ">世界杯</a></li>
+                        <li><a href="javascript:void(0);" class="navLink ">即时比分</a> <i
+                                class="iconfont"></i>
+                            <div class="menu_sec">
+                                <div class="menu_li"><a href="" target="_blank">足球比分</a> <span
+                                        class="hot">HOT</span></div>
+                                <div class="menu_li"><a href=""
+                                                        target="_blank">篮球比分</a> <span class="hot">HOT</span></div>
+                                <div class="menu_li"><a href=""
+                                                        target="_blank">网球比分</a></div>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0);" class="navLink ">赛事推荐</a> <i
+                                class="iconfont"></i>
+                            <div class="menu_sec">
+                                <div class="menu_li"><a href="" target="_blank">足球推荐</a>
+                                </div>
+                                <div class="menu_li"><a href=""
+                                                        target="_blank">篮球推荐</a></div>
+                            </div>
+                        </li>
+                        <li><a href="" class="navLink ">资讯中心</a> <i
+                                class="iconfont"></i>
+                            <div class="menu_sec">
+                                <div class="menu_li"><a href="" target="_blank">足球头条</a>
+                                    <span class="hot">HOT</span></div>
+                                <div class="menu_li"><a href=""
+                                                        target="_blank">篮球头条</a> <span class="hot">HOT</span></div>
+                            </div>
+                        </li>
+                        <li><a href="" class="navLink ">资料库</a> <i
+                                class="iconfont"></i>
+                            <div class="menu_sec">
+                                <div class="menu_li"><a href=""
+                                                        target="_blank">足球资料库</a></div>
+                                <div class="menu_li"><a href=""
+                                                        target="_blank">篮球资料库</a></div>
+                            </div>
+                        </li>
+                        <li><a href="http://www.nami.com/" target="_blank" class="navLink">数据服务</a></li>
+                        <li><a href="" target="_blank" class="navLink ">APP下载</a></li>
+                        <li><a href="" target="_blank" class="navLink"><span
+                                class="position-r">自媒体</span></a></li>
+                    </ul>
+                </div>
+                <div class="loginwrap"><i class="iconfont"></i> <a class="btn-border login">登录</a> <a
+                        rel="nofollow" href=""
+                        class="btn-white active register">注册</a></div>
+                <div class="loggedwrap hide">
+                    <div class="before"><a rel="nofollow" href=""
+                                           class="open-vip button">充值</a></div>
+                    <div class="user-name select-type-one">
+                        <div class="user-ico"></div>
+                        <span class="tip"><span class="name"></span> <i class="iconfont icon-arrow"></i> <i
+                                class="iconfont border-triangle"></i></span>
+                        <div class="down">
+                            <ul>
+                                <li><a href="" rel="nofollow" target="_blank">金币充值</a>
+                                </li>
+                                <li><a href="" rel="nofollow"
+                                       target="_blank">雷速币充值</a></li>
+                                <li><a href="" rel="nofollow"
+                                       target="_blank">我的资料</a></li>
+                                <li><a href="" rel="nofollow"
+                                       target="_blank">方案购买记录</a></li>
+                                <li><a href="" rel="nofollow"
+                                       target="_blank">我的收藏</a></li>
+                                <li onclick="Login.loginOut()"><a>退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nwe-login" style="display: none;">
+                    <div class="login-bg"></div>
+                    <div id="login" class="login-area isHide">
+                        <div class="closewind">
+                            <svg aria-hidden="true" class="icon svg-icon">
+                                <use xlink:href="#icon-close"></use>
+                            </svg>
+                        </div>
+                        <div class="xxkArea box_h">
+                            <div class="flex1"></div>
+                            <div class="lbtn xxk active">验证码登录</div>
+                            <div class="rbtn xxk">账号密码登录</div>
+                            <div class="flex1"></div>
+                        </div> <!---->
+                        <div class="ffoot box_h">
+                            <div class="ffoot-l flex1">
+                                <div class="radio"></div>
+                                一个月内免登录
+                            </div>
+                            <div class="ffoot-r flex1">没有账号？<a>注册</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="fuzhi_ts" id="copy_zt">复制成功</div>
-<!--非safari end-->
+</header>
+<div class="clearfix-row">
+<div class="content">
+<div id="maps" class="match-area">
+    <div class="match-bar index-model m-t-10">
+        <div class="match-type"><a target="_blank" rel="nofollow" href="https://live.leisu.com" data-showid="fide-match"
+                                   class="more"><span>查看更多</span><i class="iconfont icon-more2"></i></a> <span
+                class="jdss">焦点直播</span> <a class="link active">全部</a> <a class="link">
+            <svg aria-hidden="true" class="icon svg-icon">
+                <use xlink:href="#icon-Soccer"></use>
+            </svg>
+            足球</a> <a class="link">
+            <svg aria-hidden="true" class="icon svg-icon">
+                <use xlink:href="#icon-Basketball"></use>
+            </svg>
+            篮球</a></div>
 
-<div class="waplist">
-    <!-- <div class="iosKJ-safari" id="safari">
-        <span class="iosKJ-safari_w_img"></span>
-    </div> -->
-    <!--<div class="iosKJ-btn" style="display: none">-->
-    <!--<span class="iosKJ-btn_w_img"></span>-->
-    <!--</div>-->
-    <div class="once indexwap">
-        <a href="/static">
-            <i></i>
-            <p>首页</p>
-        </a>
-
-    </div>
-    <div class="once refreshwap" onclick="location.reload()">
-        <i></i>
-        <p>刷新</p>
-    </div>
-    <div class="once totop" onclick="window.scrollTo(0,0)" style="display: none;">
-        <i></i>
-    </div>
-</div>
-<div class="footer-wap">
-    <p>515直播——体育直播网站</p>
-    <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
-</div>
-<div class="quwangapptg" style="display: none;">
-
-</div>
-<footer>
-    <div>
-        <span>Copyright©2020 515直播</span><i></i>
-        <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
-    </div>
-</footer>
+    <div class="time-px">
+        <div class="index-model live">
+            <div id="match_lier3822208" class="match-lier" th:each="item,count:${list}">
+                <div class="match-label box_h">
+                    <div class="icon-area"><i class="iconfont icon-event_goal"></i></div>
+                    <div class="time">
+                        <canvas width="80" height="16"></canvas>
+                        <canvas width="80" height="16"></canvas>
+                    </div>
+                    <div class="eventname"><a href="https://www.leisu.com/data/zuqiu/comp-469" target="_blank"
+                                              class="link" th:text="${item.gameName}"></a></div>
+                    <div class="status start"><span class="">
+                            <i class="iconfont icon-iconclock05 m-r-3 v-a-m"></i>72<span class="ap-code-dian">'</span>
+                        </span></div>
+                    <div class="home"><a href="https://www.leisu.com/data/zuqiu/team-19758" target="_blank"
+                                         class="links onhome"
+                                         style="background-image: url(&quot;https://cdn.leisu.com/teamflag_s/9944d3cdb5e4543aff351771d23db374.png?imageMogr2/auto-orient/thumbnail/200x200>&quot;); background-size: 16px;"><span
+                            class="name" th:text="${item.leftName}"></span></a></div>
+                    <div class="td score"><a href="https://live.leisu.com/detail-3822208" target="_blank" class="link">
+                        <canvas width="48" height="16"></canvas>
+                    </a></div>
+                    <div class="away"><a href="https://www.leisu.com/data/zuqiu/team-12149" target="_blank"
+                                         class="links onaway"
+                                         style="background-image: url(&quot;https://cdn.leisu.com/teamflag_s/768a73b709b3d575de1e866486fbc360.png?imageMogr2/auto-orient/thumbnail/200x200>&quot;); background-size: 16px;"><span
+                            class="name" th:text="${item.rightName}">自由队</span></a></div>
+                    <div class="flex1"></div>
+                    <div class="more"><!----> <a href="https://live.leisu.com/shujufenxi-3822208" target="_blank"
+                                                 class="iconfont icon-next"></a> <a title="足球直播"
+                                                                                    href="https://live.leisu.com/detail-3822208"
+                                                                                    target="_blank"
+                                                                                    class="iconfont icon-liveanimation"></a>
+                    </div>
+                </div>
+                <div class="info-label">
+                    <div class="cont box_h">
+                        <div class="flex1"></div>
+                        <div class="tema_match_history">
+                            <div class="box_h line">
+                                <div class="win" style="width: 74px;"></div>
+                                <div class="pp" style="width: 55.5px;"></div>
+                                <div class="lose" style="width: 240.5px;"></div>
+                            </div>
+                            <div class="rank-area box_h">
+                                <div class="pm home_pm">
+                                    <div class="num">11</div>
+                                    <div class="txt">排名</div>
+                                </div>
+                                <div class="info">
+                                    <div class="h3">两队交锋20次，主队<span class="ss">4</span>胜<span
+                                            class="pp">3</span>平<span class="ff">13</span>负
+                                    </div>
+                                    <div class="spf box_h">
+                                        <div class="flex1"></div>
+                                        <div class="home_zs"><span class="f"></span><span class="f"></span><span
+                                                class="f"></span><span class="s"></span><span class="f"></span><span
+                                                class="s"></span><!----><!----><!----><!----><!----><!----><!---->
+                                            <!----><!----></div>
+                                        <div class="zs">近6场走势</div>
+                                        <div class="away_zs"><span class="f"></span><span class="p"></span><span
+                                                class="f"></span><span class="s"></span><span class="p"></span><span
+                                                class="s"></span><!----><!----><!----><!----><!----><!----><!---->
+                                            <!----><!----></div>
+                                        <div class="flex1"></div>
+                                    </div>
+                                </div>
+                                <div class="pm away_pm">
+                                    <div class="num">4</div>
+                                    <div class="txt">排名</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!----></div></div></div>
 <div id="float" class="bottom_float">
     <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
         <img style="margin-left: auto;margin-right: auto;"
