@@ -4,8 +4,16 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 @TableName("basis")
 public class BasisBean {
+
+    @JsonProperty("current_template")
+    @TableField("current_template")
+    private String currentTemplate;
+    @TableField(exist = false)
+    private String[] templates;
     @JsonProperty("site_name")
     @TableField("site_name")
     private String siteName;
@@ -41,6 +49,14 @@ public class BasisBean {
         return describe;
     }
 
+    public String[] getTemplates() {
+        return templates;
+    }
+
+    public void setTemplates(String[] templates) {
+        this.templates = templates;
+    }
+
     public void setDescribe(String describe) {
         this.describe = describe;
     }
@@ -69,4 +85,11 @@ public class BasisBean {
         this.email = email;
     }
 
+    public String getCurrentTemplate() {
+        return currentTemplate;
+    }
+
+    public void setCurrentTemplate(String currentTemplate) {
+        this.currentTemplate = currentTemplate;
+    }
 }
