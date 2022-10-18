@@ -6,10 +6,13 @@ import com.example.cms9cc.admin.bean.BasisBean;
 import com.example.cms9cc.admin.mapper.BasisMapping;
 import com.example.cms9cc.tools.RestartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 
@@ -17,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin")
 public class BasisController {
-    @Autowired
+    @Resource
     private RestartService restartService;
 
     @Resource
@@ -36,11 +39,15 @@ public class BasisController {
         restartService.restartApp();
         return update;
     }
-
+    @Value("${template.path}")
+    private String templatePath;
     private String[] getTemplates() {
-        URL resource = getClass().getResource("/templates");
-        File file = new File(resource.getFile());
+        File file = null;
+        try {
+            file = new File(new URI(templatePath).getSchemeSpecificPart());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
         return file.list();
     }
-
 }

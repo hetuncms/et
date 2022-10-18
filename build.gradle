@@ -16,7 +16,6 @@ repositories {
 }
 dependencies {
 
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.14'
@@ -26,11 +25,17 @@ dependencies {
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
 
-    implementation 'org.springframework.cloud:spring-cloud-context:3.1.4'
+    implementation 'org.springframework.cloud:spring-cloud-context:+'
+
     implementation 'com.auth0:java-jwt:4.1.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+bootJar{
+    baseName="server"
+    version("")
 }

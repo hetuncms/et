@@ -8,6 +8,7 @@ import com.example.cms9cc.template.bean.PaiHangFromBean;
 import com.example.cms9cc.tools.TemplateUtils;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -175,9 +176,11 @@ public class Index {
         model.addAttribute("listtype", listType);
         return "index";
     }
-
+    @Value("${spring.thymeleaf.prefix}")
+    private String templatePath;
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {
+        System.out.println(templatePath);
         return to(header, TYPE_HOT, model);
     }
 
