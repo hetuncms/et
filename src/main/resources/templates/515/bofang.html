@@ -16,8 +16,6 @@
     <meta content="10月12日《欧青联 里斯本竞技U19VS马赛U19》欧青联直播将在10:00准时在线直播，敬请关注。" name="description">
     <link href="http://www.515.tv/~static/www/img/app_logo@512.png?r=400" rel="apple-touch-icon">
     <link rel="shortcut icon" th:href="${config.getBasis().getLogo()}" type="image/x-icon">
-    <script src="https://hm.baidu.com/hm.js?3a932706472a36e2ca6a40b1651fb7e5"></script>
-    <script src="http://www.515.tv/~static/www/js/jquery-1.9.1.min.js?r=17" type="text/javascript"></script>
     <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
     <link href="http://www.515.tv/~static/www/css/swiper.min.css?r=r1003" rel="stylesheet" type="text/css">
@@ -36,46 +34,50 @@
         display: none
     }
 </style>
-<!-- <link rel="manifest" href="manifest.json"> -->
-<header>
-    <div class="head-main">
-        <a class="head_main_img"><img alt="515直播logo"
-                                                                src="http://www.515.tv/~static/www/img/logon.png?r=1"></a>
-        <div class="zhti_qiehuan_wrap">
-            <p class="zhti_qiehuan_top">
-                <span>蓝色主题</span>
-                <img src="http://www.515.tv/~static/www/img/zhutx.png" style="transform: rotate(0deg);">
-            </p>
-            <ul class="zhti_qiehuan" show="0" style="display: none;">
-                <li value="green">绿色主题</li>
-                <li value="red">红色主题</li>
-                <li value="yellow">黄色主题</li>
-                <li value="blue">蓝色主题</li>
-            </ul>
-        </div>
-        <div class="pc-app-box">
-            <!-- <div class="word"><a href="http://www.515.tv/downApp" target="_blank"><i></i><span>APP下载</span></a>
-                <div class="ewm"><em></em><img src="http://www.515.tv/~static/www/img/downewm.png?r=100"><span>扫码下载APP</span></div>
-            </div> -->
-            <div class="jifengbang jfhover">
-                <a target="_blank"><i></i><span>积分榜</span></a>
-            </div>
-        </div>
-        <div class="wap_jfb">
-            <p class="wap_jfb_dj">
-                <a target="_blank"><i></i><!-- <span>积分榜</span> --></a>
-            </p>
-        </div>
-        <div class="jfqh_wrap">
-            <a href="javascript:StranBody()" id="StranLink" name="StranLink" title="點擊以繁體中文方式浏覽">繁</a>
-            <!-- <cite></cite>  -->
-        </div>
-        <!-- <div class="qhzt fl">
-            <a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简</a>
-            <a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁</a>
-        </div> -->
-    </div>
-</header>
+<!--<header>-->
+<!--    <div class="head-main">-->
+<!--        <a class="head_main_img"><img alt="515直播logo"-->
+<!--                                                                src="http://www.515.tv/~static/www/img/logon.png?r=1"></a>-->
+<!--        <div class="zhti_qiehuan_wrap">-->
+<!--            <p class="zhti_qiehuan_top">-->
+<!--                <span>蓝色主题</span>-->
+<!--                <img src="http://www.515.tv/~static/www/img/zhutx.png" style="transform: rotate(0deg);">-->
+<!--            </p>-->
+<!--            <ul class="zhti_qiehuan" show="0" style="display: none;">-->
+<!--                <li value="green">绿色主题</li>-->
+<!--                <li value="red">红色主题</li>-->
+<!--                <li value="yellow">黄色主题</li>-->
+<!--                <li value="blue">蓝色主题</li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="pc-app-box">-->
+<!--            &lt;!&ndash; <div class="word"><a href="http://www.515.tv/downApp" target="_blank"><i></i><span>APP下载</span></a>-->
+<!--                <div class="ewm"><em></em><img src="http://www.515.tv/~static/www/img/downewm.png?r=100"><span>扫码下载APP</span></div>-->
+<!--            </div> &ndash;&gt;-->
+<!--            <div class="jifengbang jfhover">-->
+<!--                <a target="_blank"><i></i><span>积分榜</span></a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="wap_jfb">-->
+<!--            <p class="wap_jfb_dj">-->
+<!--                <a target="_blank"><i></i>&lt;!&ndash; <span>积分榜</span> &ndash;&gt;</a>-->
+<!--            </p>-->
+<!--        </div>-->
+<!--        <div class="jfqh_wrap">-->
+<!--            <a href="javascript:StranBody()" id="StranLink" name="StranLink" title="點擊以繁體中文方式浏覽">繁</a>-->
+<!--            &lt;!&ndash; <cite></cite>  &ndash;&gt;-->
+<!--        </div>-->
+<!--        &lt;!&ndash; <div class="qhzt fl">-->
+<!--            <a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简</a>-->
+<!--            <a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁</a>-->
+<!--        </div> &ndash;&gt;-->
+<!--    </div>-->
+<!--</header>-->
+
+<div th:insert="~{header::head}"></div>
+<div th:insert="~{base_ad::left_ad}"></div>
+<div th:insert="~{base_ad::right_ad}"></div>
+
 <style>
     @media screen and (min-width: 750px) {
         .indexbtn {
@@ -127,7 +129,10 @@
     }
 
 </style>
-
+<a target="_blank" th:each="item:${config.getBannerAd()}" th:href="${item.getUrl()}">
+    <img th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin: auto;'"
+         th:src="${item.getPicUrl()}"/>
+</a>
 <!--detail-->
 <div bzwmf="34635cl2iNsvtc2m0U2O0O0O211" class="zhuti bifeng_xq" style="padding-bottom: 0px;">
     <div class="bifeng_zhishu">
@@ -209,7 +214,7 @@
         <iframe allowfullscreen="true" mozallowfullscreen="true" scrolling="no" style="background:transparent;"
                 th:src="${iframelink}" webkitallowfullscreen="true" width="100%"></iframe>
         <div class="signalcall">
-            <input class="lianjie" id="linkInput" type="text" >
+            <input class="lianjie" id="linkInput" type="text">
             <button id="copybtn">复制</button>
         </div>
     </div>
@@ -284,7 +289,6 @@
 
 
 </script>
-<script src="http://pv.sohu.com/cityjson?ie=utf-8" type="text/javascript"></script>
 <div class="pcrlist">
     <div class="once appbtn hide">
         <i></i>
@@ -350,7 +354,6 @@
 <div class="quwangapptg" style="display: none;">
 
 </div>
-<script src="http://www.515.tv/~static/www/js/clipboard.min.js?r=1" type="text/javascript"></script>
 <footer style="position: static;">
     <div>
         <span>Copyright©2020 515直播</span><i></i>
@@ -433,7 +436,6 @@
             }
 
 
-
         }
 
         function myBrowser() {
@@ -495,26 +497,6 @@
         } */
     </script>
 </footer>
-<script data-cfasync="false" src="http://www.515.tv/~static/www/js/common.min.js?r=711" type="text/javascript"></script>
-<script data-cfasync="false" src="http://www.515.tv/~static/www/js/swiper.min.js?r=711" type="text/javascript"></script>
-<script data-cfasync="false" src="http://www.515.tv/~static/www/js/idangerous.swiper.min.js?r=711"
-        type="text/javascript"></script>
-<script data-cfasync="false" src="http://www.515.tv/~static/www/js/detail_hd.min.js?s=1?r=711"
-        type="text/javascript"></script>
-<script data-cfasync="false" src="http://www.515.tv/~static/www/js/score_xq.min.js?s=1?r=711"
-        type="text/javascript"></script>
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?3a932706472a36e2ca6a40b1651fb7e5";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-
-
-</script>
-
 
 </body>
 </html>

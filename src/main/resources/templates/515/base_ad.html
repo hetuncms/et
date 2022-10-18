@@ -1,0 +1,8 @@
+<div th:fragment="left_ad" style="position:fixed;top: 40%;left:0;background-color: red;" th:if="${config.getCouplets()}">
+    <img style="width: 200px" th:if="${config.getCouplets().getLeftAd()}"
+         th:src="${config.getCouplets().getLeftAd().getPicUrl()}"/>
+</div>
+<div th:fragment="right_ad" style="position:fixed;top: 40%; right:0;background-color: black;" th:if="${config.getCouplets()}">
+    <img style="width: 200px" th:if="${config.getCouplets().getLeftAd()}"
+         th:src="${config.getCouplets().getLeftAd().getPicUrl()}"/>
+</div>

@@ -14,9 +14,9 @@ public class TopAdBean {
     @TableField("pic_url")
     private String picUrl;
     @TableField("pic_width")
-    private Integer picWidth;
+    private String picWidth;
     @TableField("pic_height")
-    private Integer picHeight;
+    private String picHeight;
     private String status;
     private String tel;
 
@@ -52,19 +52,19 @@ public class TopAdBean {
         this.picUrl = picUrl;
     }
 
-    public Integer getPicWidth() {
+    public String getPicWidth() {
         return picWidth;
     }
 
-    public void setPicWidth(Integer picWidth) {
+    public void setPicWidth(String picWidth) {
         this.picWidth = picWidth;
     }
 
-    public Integer getPicHeight() {
+    public String getPicHeight() {
         return picHeight;
     }
 
-    public void setPicHeight(Integer picHeight) {
+    public void setPicHeight(String picHeight) {
         this.picHeight = picHeight;
     }
 

@@ -5,13 +5,13 @@ import java.util.List;
 public class AllAdBean {
     private List<BannerAdBean> bannerAd;
     private BasisBean basis;
-    private List<CoupletsBean> couplets;
+    private CoupletsMapBean couplets;
     private FloatBean floatAd;
     private JsAdBean jsAd;
     private StatisticsBean statistics;
     private List<TopAdBean> topAd;
 
-    public AllAdBean(List<BannerAdBean> bannerAd, BasisBean basis, List<CoupletsBean> couplets, FloatBean floatAd, JsAdBean jsAd, StatisticsBean statistics, List<TopAdBean> topAd) {
+    public AllAdBean(List<BannerAdBean> bannerAd, BasisBean basis, CoupletsMapBean couplets, FloatBean floatAd, JsAdBean jsAd, StatisticsBean statistics, List<TopAdBean> topAd) {
         this.bannerAd = bannerAd;
         this.basis = basis;
         this.couplets = couplets;
@@ -37,11 +37,11 @@ public class AllAdBean {
         this.basis = basis;
     }
 
-    public List<CoupletsBean> getCouplets() {
+    public CoupletsMapBean getCouplets() {
         return couplets;
     }
 
-    public void setCouplets(List<CoupletsBean> couplets) {
+    public void setCouplets(CoupletsMapBean couplets) {
         this.couplets = couplets;
     }
 

@@ -1,31 +1,6 @@
 <header th:fragment="head">
     <div class="head-main">
         <a class="head_main_img">
-            <img th:src="${config.get('basis').getLogo()}"></a>
-        <div class="zhti_qiehuan_wrap">
-            <p class="zhti_qiehuan_top">
-                <span>绿色主题</span>
-                <img src="http://www.515.tv/~static/www/img/zhutx.png" style="transform: rotate(0deg);">
-            </p>
-            <ul class="zhti_qiehuan" show="0" style="display: none;">
-                <li value="green">绿色主题</li>
-                <li value="red">红色主题</li>
-                <li value="yellow">黄色主题</li>
-                <li value="blue">蓝色主题</li>
-            </ul>
-        </div>
-        <div class="pc-app-box">
-            <div class="jifengbang jfhover">
-                <a target="_blank"><i></i><span>积分榜</span></a>
-            </div>
-        </div>
-        <div class="wap_jfb">
-            <p class="wap_jfb_dj">
-                <a target="_blank"><i></i><!-- <span>积分榜</span> --></a>
-            </p>
-        </div>
-        <div class="jfqh_wrap">
-            <a href="javascript:StranBody()" id="StranLink" name="StranLink" title="點擊以繁體中文方式浏覽">繁</a>
-        </div>
+            <img th:src="${config.getBasis().getLogo()}"></a>
     </div>
 </header>

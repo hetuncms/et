@@ -180,7 +180,6 @@ public class Index {
     private String templatePath;
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {
-        System.out.println(templatePath);
         return to(header, TYPE_HOT, model);
     }
 

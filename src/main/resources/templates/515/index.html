@@ -33,30 +33,26 @@
     }
 </script>
 
-<header>
-    <div class="head-main">
-        <a class="head_main_img">
-            <img th:src="${config.getBasis().getLogo()}"></a>
+<div th:insert="~{header::head}"></div>
+<div th:insert="~{base_ad::left_ad}"></div>
+<div th:insert="~{base_ad::right_ad}"></div>
 
-        <div class="wap_jfb">
-            <p class="wap_jfb_dj">
-                <a target="_blank"><i></i><!-- <span>积分榜</span> --></a>
-            </p>
-        </div>
-
-    </div>
-</header>
+<a target="_blank" th:each="item:${config.getTopAd()}" th:href="${item.getUrl()}">
+    <img th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin-bottom:2px;'"
+         th:src="${item.getPicUrl()}">
+</a>
 <div class="main">
+
     <div class="top-div">
         <span class="newyearl"></span>
         <ul class="index-nav clearfix navindex">
             <a href="/">
-                <li i-cbd-d="0" th:class="${#httpServletRequest.requestURI=='/'?'active':''}"><span>热门</span></li>
+                <li i-cbd-d="0" th:class="${#httpServletRequest.requestURI == '/'?'active':''}"><span>热门</span></li>
             </a><a href="/football">
-            <li class="" th:class="${#httpServletRequest.requestURI=='/football'?'active':''}"><span>足球</span></li>
+            <li class="" th:class="${#httpServletRequest.requestURI == '/football'?'active':''}"><span>足球</span></li>
         </a>
             <a href="/basketball">
-                <li th:class="${#httpServletRequest.requestURI=='/basketball'?'active':''}"><span>篮球</span></li>
+                <li th:class="${#httpServletRequest.requestURI == '/basketball'?'active':''}"><span>篮球</span></li>
             </a>
             <a href="/tiyu">
                 <li i-cbd-d="3" th:class="${#httpServletRequest.requestURI=='/tiyu'?'active':''}"><span>体育</span></li>
@@ -64,9 +60,7 @@
         </ul>
         <span class="newyearr"></span>
     </div>
-    <a target="_blank" th:each="item:${config.getBannerAd()}" th:href="${item.getUrl()}">
-        <img style="width:100%;height:100px;margin-bottom:2px;"
-                                                        th:src="${item.getPicUrl()}"></a>
+
     <div th:insert="~{list::listFragment}"></div>
     <div class="iosKJ">
         <span class="iostipimg"></span>
@@ -74,6 +68,7 @@
         <i></i>
     </div>
 </div>
+
 <div class="pcrlist">
     <div class="once appbtn hide">
         <i></i>
@@ -145,7 +140,7 @@
         <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
     </div>
 </footer>
-<div id="float" class="bottom_float">
+<div id="float" class="bottom_float" th:if="${config.getFloatAd()}">
     <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
         <img style="margin-left: auto;margin-right: auto;"
              th:src="${config.getFloatAd().getPicUrl()}">
