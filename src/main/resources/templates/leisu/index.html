@@ -139,106 +139,122 @@
     </div>
 </header>
 <div class="clearfix-row">
-<div class="content">
-<div id="maps" class="match-area">
-    <div class="match-bar index-model m-t-10">
-        <div class="match-type"><a target="_blank" rel="nofollow" href="https://live.leisu.com" data-showid="fide-match"
-                                   class="more"><span>查看更多</span><i class="iconfont icon-more2"></i></a> <span
-                class="jdss">焦点直播</span> <a class="link active">全部</a> <a class="link">
-            <svg aria-hidden="true" class="icon svg-icon">
-                <use xlink:href="#icon-Soccer"></use>
-            </svg>
-            足球</a> <a class="link">
-            <svg aria-hidden="true" class="icon svg-icon">
-                <use xlink:href="#icon-Basketball"></use>
-            </svg>
-            篮球</a></div>
+    <div class="content">
+        <div id="maps" class="match-area">
+            <div class="match-bar index-model m-t-10">
+                <div class="match-type">
+                    <a target="_blank" rel="nofollow" href="https://live.leisu.com"
+                       class="more">
+                        <span>查看更多</span>
+                        <i class="iconfont icon-more2"></i>
+                    </a>
+                    <span class="jdss">焦点直播</span> <a class="link active" href="/">全部</a>
+                    <a class="link" href="/football">
+                        <svg aria-hidden="true" class="icon svg-icon">
+                            <use xlink:href="#icon-Soccer"></use>
+                        </svg>
+                        足球</a> <a class="link" href="/basketball">
+                    <svg aria-hidden="true" class="icon svg-icon">
+                        <use xlink:href="#icon-Basketball"></use>
+                    </svg>
+                    篮球</a></div>
 
-    <div class="time-px">
-        <div class="index-model live">
-            <div id="match_lier3822208" class="match-lier" th:each="item,count:${list}">
-                <div class="match-label box_h">
-                    <div class="icon-area"><i class="iconfont icon-event_goal"></i></div>
-                    <div class="time">
-                        <canvas width="80" height="16"></canvas>
-                        <canvas width="80" height="16"></canvas>
-                    </div>
-                    <div class="eventname"><a href="https://www.leisu.com/data/zuqiu/comp-469" target="_blank"
-                                              class="link" th:text="${item.gameName}"></a></div>
-                    <div class="status start"><span class="">
+                <div class="time-px">
+                    <div class="index-model live">
+                        <div id="match_lier3822208" class="match-lier" th:each="item,count:${list}">
+                            <div class="match-label box_h">
+                                <div class="icon-area"><i class="iconfont icon-event_goal"></i></div>
+                                <div class="time">
+                                    <canvas width="80" height="16"></canvas>
+                                    <canvas width="80" height="16"></canvas>
+                                </div>
+                                <div class="eventname"><a href="https://www.leisu.com/data/zuqiu/comp-469"
+                                                          target="_blank"
+                                                          class="link" th:text="${item.gameName}"></a></div>
+                                <div class="status start"><span class="">
                             <i class="iconfont icon-iconclock05 m-r-3 v-a-m"></i>72<span class="ap-code-dian">'</span>
                         </span></div>
-                    <div class="home"><a href="https://www.leisu.com/data/zuqiu/team-19758" target="_blank"
-                                         class="links onhome"
-                                         style="background-image: url(&quot;https://cdn.leisu.com/teamflag_s/9944d3cdb5e4543aff351771d23db374.png?imageMogr2/auto-orient/thumbnail/200x200>&quot;); background-size: 16px;"><span
-                            class="name" th:text="${item.leftName}"></span></a></div>
-                    <div class="td score"><a href="https://live.leisu.com/detail-3822208" target="_blank" class="link">
-                        <canvas width="48" height="16"></canvas>
-                    </a></div>
-                    <div class="away"><a href="https://www.leisu.com/data/zuqiu/team-12149" target="_blank"
-                                         class="links onaway"
-                                         style="background-image: url(&quot;https://cdn.leisu.com/teamflag_s/768a73b709b3d575de1e866486fbc360.png?imageMogr2/auto-orient/thumbnail/200x200>&quot;); background-size: 16px;"><span
-                            class="name" th:text="${item.rightName}">自由队</span></a></div>
-                    <div class="flex1"></div>
-                    <div class="more"><!----> <a href="https://live.leisu.com/shujufenxi-3822208" target="_blank"
-                                                 class="iconfont icon-next"></a> <a title="足球直播"
-                                                                                    href="https://live.leisu.com/detail-3822208"
-                                                                                    target="_blank"
-                                                                                    class="iconfont icon-liveanimation"></a>
-                    </div>
-                </div>
-                <div class="info-label">
-                    <div class="cont box_h">
-                        <div class="flex1"></div>
-                        <div class="tema_match_history">
-                            <div class="box_h line">
-                                <div class="win" style="width: 74px;"></div>
-                                <div class="pp" style="width: 55.5px;"></div>
-                                <div class="lose" style="width: 240.5px;"></div>
+                                <div class="home"><a href="https://www.leisu.com/data/zuqiu/team-19758" target="_blank"
+                                                     class="links onhome"
+                                                     style="background-image: url(&quot;https://cdn.leisu.com/teamflag_s/9944d3cdb5e4543aff351771d23db374.png?imageMogr2/auto-orient/thumbnail/200x200>&quot;); background-size: 16px;"><span
+                                        class="name" th:text="${item.leftName}"></span></a></div>
+                                <div class="td score"><a href="https://live.leisu.com/detail-3822208" target="_blank"
+                                                         class="link">
+                                    <canvas width="48" height="16"></canvas>
+                                </a></div>
+                                <div class="away"><a href="https://www.leisu.com/data/zuqiu/team-12149" target="_blank"
+                                                     class="links onaway"
+                                                     style="background-image: url(&quot;https://cdn.leisu.com/teamflag_s/768a73b709b3d575de1e866486fbc360.png?imageMogr2/auto-orient/thumbnail/200x200>&quot;); background-size: 16px;"><span
+                                        class="name" th:text="${item.rightName}">自由队</span></a></div>
+                                <div class="flex1"></div>
+                                <div class="more"><!----> <a href="https://live.leisu.com/shujufenxi-3822208"
+                                                             target="_blank"
+                                                             class="iconfont icon-next"></a> <a title="足球直播"
+                                                                                                href="https://live.leisu.com/detail-3822208"
+                                                                                                target="_blank"
+                                                                                                class="iconfont icon-liveanimation"></a>
+                                </div>
                             </div>
-                            <div class="rank-area box_h">
-                                <div class="pm home_pm">
-                                    <div class="num">11</div>
-                                    <div class="txt">排名</div>
-                                </div>
-                                <div class="info">
-                                    <div class="h3">两队交锋20次，主队<span class="ss">4</span>胜<span
-                                            class="pp">3</span>平<span class="ff">13</span>负
+                            <div class="info-label">
+                                <div class="cont box_h">
+                                    <div class="flex1"></div>
+                                    <div class="tema_match_history">
+                                        <div class="box_h line">
+                                            <div class="win" style="width: 74px;"></div>
+                                            <div class="pp" style="width: 55.5px;"></div>
+                                            <div class="lose" style="width: 240.5px;"></div>
+                                        </div>
+                                        <div class="rank-area box_h">
+                                            <div class="pm home_pm">
+                                                <div class="num">11</div>
+                                                <div class="txt">排名</div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="h3">两队交锋20次，主队<span class="ss">4</span>胜<span
+                                                        class="pp">3</span>平<span class="ff">13</span>负
+                                                </div>
+                                                <div class="spf box_h">
+                                                    <div class="flex1"></div>
+                                                    <div class="home_zs"><span class="f"></span><span
+                                                            class="f"></span><span
+                                                            class="f"></span><span class="s"></span><span
+                                                            class="f"></span><span
+                                                            class="s"></span><!----><!----><!----><!----><!----><!---->
+                                                        <!---->
+                                                        <!----><!----></div>
+                                                    <div class="zs">近6场走势</div>
+                                                    <div class="away_zs"><span class="f"></span><span
+                                                            class="p"></span><span
+                                                            class="f"></span><span class="s"></span><span
+                                                            class="p"></span><span
+                                                            class="s"></span><!----><!----><!----><!----><!----><!---->
+                                                        <!---->
+                                                        <!----><!----></div>
+                                                    <div class="flex1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="pm away_pm">
+                                                <div class="num">4</div>
+                                                <div class="txt">排名</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spf box_h">
-                                        <div class="flex1"></div>
-                                        <div class="home_zs"><span class="f"></span><span class="f"></span><span
-                                                class="f"></span><span class="s"></span><span class="f"></span><span
-                                                class="s"></span><!----><!----><!----><!----><!----><!----><!---->
-                                            <!----><!----></div>
-                                        <div class="zs">近6场走势</div>
-                                        <div class="away_zs"><span class="f"></span><span class="p"></span><span
-                                                class="f"></span><span class="s"></span><span class="p"></span><span
-                                                class="s"></span><!----><!----><!----><!----><!----><!----><!---->
-                                            <!----><!----></div>
-                                        <div class="flex1"></div>
-                                    </div>
-                                </div>
-                                <div class="pm away_pm">
-                                    <div class="num">4</div>
-                                    <div class="txt">排名</div>
+                                    <div class="flex1"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex1"></div>
                     </div>
-                </div>
-            </div>
+                </div><!----></div>
         </div>
-    </div><!----></div></div></div>
-<div id="float" class="bottom_float">
-    <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
-        <img style="margin-left: auto;margin-right: auto;"
-             th:src="${config.getFloatAd().getPicUrl()}">
-    </a>
-    <span
-            class="close" onclick="close_float()">关闭</span>
-</div>
+    </div>
+    <div id="float" class="bottom_float">
+        <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
+            <img style="margin-left: auto;margin-right: auto;"
+                 th:src="${config.getFloatAd().getPicUrl()}">
+        </a>
+        <span
+                class="close" onclick="close_float()">关闭</span>
+    </div>
 </body>
 <script>
     function close_float() {

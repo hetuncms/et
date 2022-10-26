@@ -35,7 +35,7 @@ public class AdminService {
         return basisBean;
     }
 
-    public JsAdBean getJsAdBean(){
+    public JsAdBean getJsAd(){
         return jsAdMapping.selectOne(new QueryWrapper<>());
     }
     public StatisticsBean getStatistics() {
@@ -79,6 +79,6 @@ public class AdminService {
     }
 
     public AllAdBean getAllConfig() {
-        return new AllAdBean(getBannerAd(),getBasis(),getCoupletsAd(),getFloatAd(),getJsAdBean(),getStatistics(),getTopAd());
+        return new AllAdBean(getBannerAd(),getBasis(),getCoupletsAd(),getFloatAd(),getJsAd(),getStatistics(),getTopAd());
     }
 }

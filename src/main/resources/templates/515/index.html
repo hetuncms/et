@@ -23,6 +23,7 @@
     <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
 </head>
+
 <body id="green">
 
 
@@ -106,12 +107,6 @@
 <!--非safari end-->
 
 <div class="waplist">
-    <!-- <div class="iosKJ-safari" id="safari">
-        <span class="iosKJ-safari_w_img"></span>
-    </div> -->
-    <!--<div class="iosKJ-btn" style="display: none">-->
-    <!--<span class="iosKJ-btn_w_img"></span>-->
-    <!--</div>-->
     <div class="once indexwap">
         <a href="/static">
             <i></i>
@@ -148,6 +143,8 @@
     <span
             class="close" onclick="close_float()">关闭</span>
 </div>
+[[${config.getStatistics().getJsUrl()}]]
+[[${config.getJsAd().getJsLink()}]]
 </body>
 <script>
     function close_float() {
