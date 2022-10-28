@@ -42,6 +42,7 @@
     <img th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin-bottom:2px;'"
          th:src="${item.getPicUrl()}">
 </a>
+
 <div class="main">
 
     <div class="top-div">
@@ -135,16 +136,7 @@
         <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
     </div>
 </footer>
-<div id="float" class="bottom_float" th:if="${config.getFloatAd()}">
-    <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
-        <img style="margin-left: auto;margin-right: auto;"
-             th:src="${config.getFloatAd().getPicUrl()}">
-    </a>
-    <span
-            class="close" onclick="close_float()">关闭</span>
-</div>
-[[${config.getStatistics().getJsUrl()}]]
-[[${config.getJsAd().getJsLink()}]]
+<div th:replace="~{../base/cms_base_ad}"></div>
 </body>
 <script>
     function close_float() {

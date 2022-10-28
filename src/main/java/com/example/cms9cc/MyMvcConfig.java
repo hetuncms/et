@@ -1,6 +1,7 @@
 package com.example.cms9cc;
 
 import com.example.cms9cc.admin.login.LoginInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -9,8 +10,13 @@ import javax.annotation.Resource;
 
 @Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
-    @Resource
-    private LoginInterceptor loginInterceptor;
+
+    private final LoginInterceptor loginInterceptor;
+
+    @Autowired
+    public MyMvcConfig(LoginInterceptor loginInterceptor) {
+        this.loginInterceptor = loginInterceptor;
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

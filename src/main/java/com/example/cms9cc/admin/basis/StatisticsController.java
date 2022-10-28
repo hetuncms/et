@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.cms9cc.admin.bean.StatisticsBean;
 import com.example.cms9cc.admin.mapper.StatisticsMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 
@@ -12,8 +13,12 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/admin")
 public class StatisticsController {
-    @Resource
+
     StatisticsMapping statisticsMapping;
+    @Autowired
+    public StatisticsController(StatisticsMapping statisticsMapping) {
+        this.statisticsMapping = statisticsMapping;
+    }
 
     @GetMapping("/getstatistics")
     public StatisticsBean getStatistics() {

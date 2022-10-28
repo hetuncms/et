@@ -20,11 +20,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin")
 public class BasisController {
-    @Resource
-    private RestartService restartService;
 
-    @Resource
-    private BasisMapping basisMapping;
+    private final RestartService restartService;
+
+    private final BasisMapping basisMapping;
+
+    @Autowired
+    public BasisController(RestartService restartService, BasisMapping basisMapping) {
+        this.restartService = restartService;
+        this.basisMapping = basisMapping;
+    }
 
     @GetMapping("/getbasis")
     public BasisBean getBasis() {
@@ -39,6 +44,7 @@ public class BasisController {
         restartService.restartApp();
         return update;
     }
+
     @Value("${template.path}")
     private String templatePath;
     private String[] getTemplates() {

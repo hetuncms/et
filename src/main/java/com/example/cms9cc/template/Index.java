@@ -1,10 +1,9 @@
 package com.example.cms9cc.template;
 
 
-import com.example.cms9cc.LiveItem;
+import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.admin.AdminService;
 import com.example.cms9cc.template.bean.PaiHangBean;
-import com.example.cms9cc.template.bean.PaiHangFromBean;
 import com.example.cms9cc.tools.TemplateUtils;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -32,8 +30,12 @@ public class Index {
     public static final int TYPE_FOOTBALL = 1;
     public static final int TYPE_TIYU = 3;
     OkHttpClient okHttpClient = new OkHttpClient();
-    @Autowired
+
     AdminService adminService;
+    @Autowired
+    public Index(AdminService adminService) {
+        this.adminService = adminService;
+    }
 
     @PostMapping("/loadmore")
     @org.springframework.web.bind.annotation.ResponseBody
@@ -43,9 +45,9 @@ public class Index {
         header.put("host", "www.515.tv");
         header.put("X-Requested-With", "XMLHttpRequest");
 
-        LiveItem liveItem = requestData(header, reqBody);
+        LiveBean liveBean = requestData(header, reqBody);
         HashMap<String, Object> respData = new HashMap<>();
-        respData.put("list", liveItem.getLive_item());
+        respData.put("list", liveBean.getLive_item());
 
         WebContext context = new WebContext(request, response, request.getServletContext(), response.getLocale(), respData);
         String process = TemplateUtils.process("list_more.html", context);
@@ -100,66 +102,23 @@ public class Index {
         PaiHangBean paiHangBean = com.alibaba.fastjson2.JSON.parseObject(netData, PaiHangBean.class);
         return paiHangBean;
     }
-    private LiveItem requestData(@RequestHeader Map<String, String> header, String requstbody) {
+    private LiveBean requestData(@RequestHeader Map<String, String> header, String requstbody) {
         RequestBody body = RequestBody.create(JSON, requstbody);
         Headers headers = Headers.of(header);
         System.out.println(requstbody);
-        Request build = new Request.Builder().url("http://www.515.tv").headers(headers).post(body).build();
+        Request build = new Request.Builder().url("http://localhost:8081/index").headers(headers).post(body).build();
 
-        Response execute;
         String netData;
         try {
-            execute = okHttpClient.newCall(build).execute();
+            Response execute = okHttpClient.newCall(build).execute();
             netData = execute.body().string();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        LiveItem liveset = com.alibaba.fastjson2.JSON.parseObject(netData, LiveItem.class);
-        if (liveset == null) {
-            return null;
-        }
-        List<LiveItem.Item> live_item = liveset.getLive_item();
-        if (live_item == null || liveset.getInfo() != null) {
-            if (liveset.getInfo() == null || liveset.getInfo().isEmpty()) {
-                liveset.setInfo("未知错误");
-            }
-            liveset.setStatus(-1);
-            return null;
-        }
+        LiveBean liveBean = com.alibaba.fastjson2.JSON.parseObject(netData, LiveBean.class);
 
-        live_item.forEach(item -> {
-            item.setIframeLink("http://www.515.tv/live/" + item.getPlayid() + "?rel=0&amp&autoplay=1");
-            LiveItem.RelationT relationT = liveset.getT().get(item.getId());
-
-            if (relationT != null) {
-                item.setMatchId(relationT.getI());
-                item.setLid(relationT.getL());
-            }
-
-            LiveItem.RelationA leftRelationA = liveset.getA().get(item.getI());
-
-            if (leftRelationA != null) {
-                item.setLeftImg(leftRelationA.getN());
-                item.setLeftName(leftRelationA.getI());
-            }
-
-            LiveItem.RelationA rightRelationA = liveset.getA().get(item.getC());
-
-            if (rightRelationA != null) {
-                item.setRightName(rightRelationA.getI());
-                item.setRightImg(rightRelationA.getN());
-            }
-
-            LiveItem.RelationO relationO = liveset.getO().get(item.getH());
-
-            if (relationO != null) {
-                item.setGameName(relationO.getI());
-            }
-        });
-
-
-        return liveset;
+        return liveBean;
     }
 
     public String to(@RequestHeader Map<String, String> header, Integer listType, Model model) {
@@ -168,9 +127,9 @@ public class Index {
         header.put("host", "www.515.tv");
         header.put("X-Requested-With", "XMLHttpRequest");
         String reqBody = "s=0&t=1&a=" + listType + "&g=1";
-        LiveItem liveItem = requestData(header, reqBody);
-        if (liveItem != null) {
-            model.addAttribute("list", liveItem.getLive_item());
+        LiveBean liveBean = requestData(header, reqBody);
+        if (liveBean != null) {
+            model.addAttribute("list", liveBean.getLive_item());
         }
         model.addAttribute("config", adminService.getAllConfig());
         model.addAttribute("listtype", listType);

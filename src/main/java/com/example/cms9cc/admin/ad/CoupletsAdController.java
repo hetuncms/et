@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.cms9cc.admin.bean.CoupletsBean;
 import com.example.cms9cc.admin.mapper.CoupletsAdMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -13,8 +14,12 @@ import java.util.List;
 
 @RequestMapping("/admin")
 public class CoupletsAdController {
-    @Resource
-    private CoupletsAdMapping coupletsAdMapping;
+
+    private final CoupletsAdMapping coupletsAdMapping;
+@Autowired
+    public CoupletsAdController(CoupletsAdMapping coupletsAdMapping) {
+        this.coupletsAdMapping = coupletsAdMapping;
+    }
 
     @GetMapping("/getcoupletsad")
     public List<CoupletsBean> getCoupletsAd() {

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.cms9cc.admin.bean.FloatBean;
 import com.example.cms9cc.admin.mapper.FloatAdMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -11,8 +12,13 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/admin")
 public class FloatAdController {
-    @Resource
-    private FloatAdMapping floatAdMapping;
+
+    private final FloatAdMapping floatAdMapping;
+
+    @Autowired
+    public FloatAdController(FloatAdMapping floatAdMapping) {
+        this.floatAdMapping = floatAdMapping;
+    }
 
     @GetMapping("/getfloatad")
     public FloatBean getFloatAd() {

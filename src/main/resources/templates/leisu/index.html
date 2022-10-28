@@ -247,14 +247,9 @@
                 </div><!----></div>
         </div>
     </div>
-    <div id="float" class="bottom_float">
-        <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
-            <img style="margin-left: auto;margin-right: auto;"
-                 th:src="${config.getFloatAd().getPicUrl()}">
-        </a>
-        <span
-                class="close" onclick="close_float()">关闭</span>
-    </div>
+</div>
+
+<div th:replace="~{../base/cms_base_ad}"></div>
 </body>
 <script>
     function close_float() {

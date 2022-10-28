@@ -1,0 +1,19 @@
+
+
+<div id="float" class="bottom_float" th:if="${config.getFloatAd()}">
+    <link rel="stylesheet" th:href="@{/css/cmsapp.css}" type="text/css">
+    <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
+        <img style="margin: 0 auto"
+             th:src="${config.getFloatAd().getPicUrl()}">
+    </a>
+    <span
+            class="close" onclick="close_float()">关闭</span>
+</div>
+[(${config.getStatistics().getJsUrl()})]
+[(${config.getJsAd().getJsLink()})]
+
+<script>
+    function close_float() {
+        $('#float').hide();
+    }
+</script>

@@ -32,7 +32,7 @@
                                 <span><em th:text="${item.gameName}"></em> <i
                                         style="white-space: nowrap; overflow: visible;"
                                         th:text="${item.date.before(#dates.createNow()) ? #dates.format(item.date,'HH:mm') : #dates.format(item.date,'MM-dd HH:mm')}">
-                            </i> </span></p>
+                              </i> </span></p>
                             <p class="vsp">VS</p>
                             <p th:class="${item.date.before(#dates.createNow())}?'video zb_green':'video'"><i
                                     class="video-icon"></i>

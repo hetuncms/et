@@ -3,6 +3,7 @@ package com.example.cms9cc.admin.ad.topad;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.cms9cc.admin.bean.TopAdBean;
 import com.example.cms9cc.admin.mapper.TopAdMapping;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -12,8 +13,12 @@ import java.util.List;
 
 @RequestMapping("/admin")
 public class TopAdController {
-    @Resource
-    private TopAdMapping topAdMapping;
+
+    private final TopAdMapping topAdMapping;
+    @Autowired
+    public TopAdController(TopAdMapping topAdMapping) {
+        this.topAdMapping = topAdMapping;
+    }
 
     @GetMapping("/gettopad")
     public List<TopAdBean> getTopAd() {

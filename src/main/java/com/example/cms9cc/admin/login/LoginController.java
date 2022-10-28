@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.cms9cc.admin.bean.LoginBean;
 import com.example.cms9cc.admin.mapper.LoginMapping;
 import com.example.cms9cc.tools.JWTUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -12,8 +13,13 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/admin")
 public class LoginController {
-    @Resource
+
     LoginMapping loginMapping;
+
+    @Autowired
+    public LoginController(LoginMapping loginMapping) {
+        this.loginMapping = loginMapping;
+    }
 
     @PostMapping("/login")
     public String login(@RequestBody LoginBean requestLoginBean) {
