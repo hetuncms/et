@@ -12,7 +12,7 @@
                    th:text="${#dates.format(item.date,'MM-dd')}"></p>
                 <a th:class="${item.getIsTop().equals('1') ? 'clearfix zhiding':'clearfix'}"
 
-                   th:href="'/bofang/?iframelink='+${item.iframeLink}">
+                   th:href="'/bofang/'+${item.getPlayid()}">
 
                     <section class="clearfix jiabifeng" wuyd="">
                         <div class="changci" style="display: block;">

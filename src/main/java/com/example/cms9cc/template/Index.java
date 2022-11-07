@@ -6,14 +6,12 @@ import com.example.cms9cc.admin.AdminService;
 import com.example.cms9cc.template.bean.PaiHangBean;
 import com.example.cms9cc.tools.TemplateUtils;
 import okhttp3.*;
+import okhttp3.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.context.WebContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -157,9 +155,9 @@ public class Index {
         return to(header, TYPE_TIYU, model);
     }
 
-    @GetMapping("/bofang")
-    public String bofang(Model model, @RequestParam("iframelink") String iframelink) {
-        model.addAttribute("iframelink", iframelink);
+    @GetMapping("/bofang/{id}")
+    public String bofang(Model model, @PathVariable("id") String id) {
+        model.addAttribute("iframelink", "http://www.515.tv/live/"+id);
         model.addAttribute("config", adminService.getAllConfig());
         return "bofang";
     }

@@ -18,7 +18,7 @@
     <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
 </head>
-<body id="blue">
+<body>
 
 
 <script>
@@ -72,9 +72,9 @@
 <!--    </div>-->
 <!--</header>-->
 
-<div th:insert="~{header::head}"></div>
-<div th:insert="~{base_ad::left_ad}"></div>
-<div th:insert="~{base_ad::right_ad}"></div>
+<div th:replace="~{header::head}"></div>
+<div th:replace="~{base_ad::left_ad}"></div>
+<div th:replace="~{base_ad::right_ad}"></div>
 
 <style>
     @media screen and (min-width: 750px) {

@@ -34,17 +34,18 @@
     }
 </script>
 
-<div th:insert="~{header::head}"></div>
-<div th:insert="~{base_ad::left_ad}"></div>
-<div th:insert="~{base_ad::right_ad}"></div>
+<div th:replace="~{header::head}"></div>
+<div th:replace="~{base_ad::left_ad}"></div>
+<div th:replace="~{base_ad::right_ad}"></div>
 
-<a target="_blank" th:each="item:${config.getTopAd()}" th:href="${item.getUrl()}">
-    <img th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin-bottom:2px;'"
+<a target="_blank" th:each="item:${config.getTopAd()}" th:href="${item.getUrl()}" >
+    <img th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin-bottom:2px;'+'margin-left: auto;margin-right: auto;'"
          th:src="${item.getPicUrl()}">
 </a>
 
 <div class="main">
 
+    <marquee behavior=alternate direction=left align=middle style="font-size: 40px;" th:text="${config.getBasis().getAnnouncement()}"></marquee>
     <div class="top-div">
         <span class="newyearl"></span>
         <ul class="index-nav clearfix navindex">
@@ -123,19 +124,10 @@
         <i></i>
     </div>
 </div>
-<div class="footer-wap">
-    <p>515直播——体育直播网站</p>
-    <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
-</div>
-<div class="quwangapptg" style="display: none;">
 
-</div>
-<footer>
-    <div>
-        <span>Copyright©2020 515直播</span><i></i>
-        <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
-    </div>
-</footer>
+
+<div th:replace="~{footer::foot}"></div>
+
 <div th:replace="~{../base/cms_base_ad}"></div>
 </body>
 <script>
