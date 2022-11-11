@@ -1,20 +1,14 @@
 package com.example.cms9cc;
 
-import com.example.cms9cc.admin.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
-import org.springframework.core.env.PropertySource;
-import org.thymeleaf.util.StringUtils;
 
 import java.io.File;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class DemoEnvironment implements EnvironmentPostProcessor {
 
@@ -27,8 +21,8 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
 
         if (propertySource == null) {
             propertySource = (MapPropertySource) environment.getPropertySources().get(name);
-        }else {
-            name=onlineName;
+        } else {
+            name = onlineName;
         }
 
         Map<String, Object> source = propertySource.getSource();
@@ -38,7 +32,7 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
         });
         String templatePath = map.get("template.path").toString();
         map.replace("spring.thymeleaf.prefix", templatePath + getTemplate(map.get("spring.datasource.url").toString()) + File.separator);
-        System.out.println("==============="+map.get("spring.thymeleaf.prefix"));
+        System.out.println("===============" + map.get("spring.thymeleaf.prefix"));
         environment.getPropertySources().replace(name, new MapPropertySource(name, map));
     }
 

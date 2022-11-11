@@ -2,10 +2,10 @@
 
 <head>
 
-    <link th:href="@{/515/css/ranks.min.css}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/515/css/ranks.min.css}" type="text/css">
 
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" th:src="@{/515/js/paihang.js}"></script>
+    <script th:src="@{/515/js/paihang.js}" type="text/javascript"></script>
 </head>
 <body>
 <div th:replace="~{header.html::head}"></div>
@@ -16,29 +16,29 @@
         </p>
         <div class="nav_tow" id="nav_tow_p">
             <ul class="fl ss_fl_list pc_ss_nav">
-                <li class="navtow_hover" data-py="yingchao" data-catid="1" data-comid="8">英超</li>
-                <li data-py="xijia" data-catid="1" data-comid="23" class="" onclick="xijia()">西甲</li>
-                <li data-py="yijia" data-catid="1" data-comid="21" class="" onclick="yijia()">意甲</li>
-                <li data-py="dejia" data-catid="1" data-comid="22" class="" onclick="dejia()">德甲</li>
-                <li data-py="fajia" data-catid="1" data-comid="24" class="" onclick="fajia()">法甲</li>
-                <li data-py="zhongchao" data-catid="1" data-comid="208" class="">中超</li>
-                <li data-py="yaguan" data-catid="1" data-comid="605" class="">亚冠</li>
-                <li data-py="ouguan" data-catid="1" data-comid="5" class="">欧冠</li>
-                <li data-py="nba" data-catid="2" data-comid="1" class="">NBA</li>
-                <li data-py="cba" data-catid="2" data-comid="2" class="">CBA</li>
+                <li class="navtow_hover" data-catid="1" data-comid="8" data-py="yingchao">英超</li>
+                <li class="" data-catid="1" data-comid="23" data-py="xijia" onclick="xijia()">西甲</li>
+                <li class="" data-catid="1" data-comid="21" data-py="yijia" onclick="yijia()">意甲</li>
+                <li class="" data-catid="1" data-comid="22" data-py="dejia" onclick="dejia()">德甲</li>
+                <li class="" data-catid="1" data-comid="24" data-py="fajia" onclick="fajia()">法甲</li>
+                <li class="" data-catid="1" data-comid="208" data-py="zhongchao">中超</li>
+                <li class="" data-catid="1" data-comid="605" data-py="yaguan">亚冠</li>
+                <li class="" data-catid="1" data-comid="5" data-py="ouguan">欧冠</li>
+                <li class="" data-catid="2" data-comid="1" data-py="nba">NBA</li>
+                <li class="" data-catid="2" data-comid="2" data-py="cba">CBA</li>
             </ul>
         </div>
     </div>
-    <div th:fragment="content" id="content">
+    <div id="content" th:fragment="content">
         <div class="jf_list">
             <div class="jf_title_lb">
-                <li data-type="1" data-catid="1" ht="jifenbang" class="jf_hover" style="display: list-item;">积分榜</li>
-                <li data-type="2" data-catid="1" ht="sheshoubang" class="" style="display: list-item;">射手榜</li>
-                <li data-type="1" data-catid="2" ht="jifenbang" style="display: none;">积分榜</li>
-                <li data-type="2" data-catid="2" ht="gerenbang" style="display: none;">个人榜</li>
-                <li data-type="3" data-catid="2" ht="shengfubang" style="display: none;">胜负榜</li>
+                <li class="jf_hover" data-catid="1" data-type="1" ht="jifenbang" style="display: list-item;">积分榜</li>
+                <li class="" data-catid="1" data-type="2" ht="sheshoubang" style="display: list-item;">射手榜</li>
+                <li data-catid="2" data-type="1" ht="jifenbang" style="display: none;">积分榜</li>
+                <li data-catid="2" data-type="2" ht="gerenbang" style="display: none;">个人榜</li>
+                <li data-catid="2" data-type="3" ht="shengfubang" style="display: none;">胜负榜</li>
             </div>
-            <div class="jf_lb_list" th:fragment="content_child" id="content_child">
+            <div class="jf_lb_list" id="content_child" th:fragment="content_child">
 
                 <div class="biaolist jqqh_lb qtbdlb duo_quyu" style="display: block;">
                     <ul class="biaotitle jifeng" id="dqlebiao_bt">

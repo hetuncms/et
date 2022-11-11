@@ -38,14 +38,15 @@
 <div th:replace="~{base_ad::left_ad}"></div>
 <div th:replace="~{base_ad::right_ad}"></div>
 
-<a target="_blank" th:each="item:${config.getTopAd()}" th:href="${item.getUrl()}" >
-    <img th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin-bottom:2px;'+'margin-left: auto;margin-right: auto;'"
-         th:src="${item.getPicUrl()}">
+<a target="_blank" th:each="item:${config.getTopAd()}" th:href="${item.getUrl()}">
+    <img th:src="${item.getPicUrl()}"
+         th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin-bottom:2px;'+'margin-left: auto;margin-right: auto;'">
 </a>
 
 <div class="main">
 
-    <marquee behavior=alternate direction=left align=middle style="font-size: 40px;" th:text="${config.getBasis().getAnnouncement()}"></marquee>
+    <marquee align=middle behavior=alternate direction=left style="font-size: 40px;"
+             th:text="${config.getBasis().getAnnouncement()}"></marquee>
     <div class="top-div">
         <span class="newyearl"></span>
         <ul class="index-nav clearfix navindex">

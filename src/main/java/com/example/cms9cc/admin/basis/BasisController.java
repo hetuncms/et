@@ -9,12 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.List;
 
 
 @RestController
@@ -24,6 +21,8 @@ public class BasisController {
     private final RestartService restartService;
 
     private final BasisMapping basisMapping;
+    @Value("${template.path}")
+    private String templatePath;
 
     @Autowired
     public BasisController(RestartService restartService, BasisMapping basisMapping) {
@@ -45,8 +44,6 @@ public class BasisController {
         return update;
     }
 
-    @Value("${template.path}")
-    private String templatePath;
     private String[] getTemplates() {
         File file = null;
         try {

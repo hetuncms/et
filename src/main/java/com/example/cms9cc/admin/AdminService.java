@@ -6,12 +6,9 @@ import com.example.cms9cc.admin.mapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.function.Consumer;
 
 @Service
 public class AdminService {
@@ -23,6 +20,7 @@ public class AdminService {
     private final TopAdMapping topAdMapping;
     private final CoupletsAdMapping coupletsAdMapping;
     private final JsAdMapping jsAdMapping;
+
     @Autowired
     public AdminService(StatisticsMapping statisticsMapping, BannerAdMapping bannerAdMapping, BasisMapping basisMapping, FloatAdMapping floatAdMapping, TopAdMapping topAdMapping, CoupletsAdMapping coupletsAdMapping, JsAdMapping jsAdMapping) {
         this.statisticsMapping = statisticsMapping;
@@ -38,9 +36,10 @@ public class AdminService {
         return basisMapping.selectOne(new QueryWrapper<>());
     }
 
-    public JsAdBean getJsAd(){
+    public JsAdBean getJsAd() {
         return jsAdMapping.selectOne(new QueryWrapper<>());
     }
+
     public StatisticsBean getStatistics() {
         return statisticsMapping.selectOne(new QueryWrapper<>());
     }
@@ -70,13 +69,13 @@ public class AdminService {
         return topAdMapping.selectList(getQueryWrapper());
     }
 
-    private <T> QueryWrapper<T> getQueryWrapper(){
+    private <T> QueryWrapper<T> getQueryWrapper() {
 
         String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         return new QueryWrapper<T>().gt("status", today);
     }
 
     public AllAdBean getAllConfig() {
-        return new AllAdBean(getBannerAd(),getBasis(),getCoupletsAd(),getFloatAd(),getJsAd(),getStatistics(),getTopAd());
+        return new AllAdBean(getBannerAd(), getBasis(), getCoupletsAd(), getFloatAd(), getJsAd(), getStatistics(), getTopAd());
     }
 }

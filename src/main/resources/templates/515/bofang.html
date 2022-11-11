@@ -20,7 +20,6 @@
 </head>
 <body>
 
-
 <script>
     //rem
     window.onload = window.onresize = function () {
@@ -128,8 +127,8 @@
 
 </style>
 <a target="_blank" th:each="item:${config.getBannerAd()}" th:href="${item.getUrl()}">
-    <img th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin: auto;'"
-         th:src="${item.getPicUrl()}"/>
+    <img th:src="${item.getPicUrl()}"
+         th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin: auto;'"/>
 </a>
 <!--detail-->
 <div bzwmf="34635cl2iNsvtc2m0U2O0O0O211" class="zhuti bifeng_xq" style="padding-bottom: 0px;">
@@ -157,7 +156,6 @@
                         <cite class="ks_kemc">马赛U19</cite>
                     </div>
                 </div>
-
 
 
             </div>

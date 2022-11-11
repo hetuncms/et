@@ -6,7 +6,6 @@ import com.example.cms9cc.admin.mapper.BannerAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
@@ -15,6 +14,7 @@ import java.util.List;
 public class BannerAdController {
 
     private final BannerAdMapping bannerAdMapping;
+
     @Autowired
     public BannerAdController(BannerAdMapping bannerAdMapping) {
         this.bannerAdMapping = bannerAdMapping;

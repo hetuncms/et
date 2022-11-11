@@ -6,7 +6,6 @@ import com.example.cms9cc.admin.mapper.TopAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
@@ -15,6 +14,7 @@ import java.util.List;
 public class TopAdController {
 
     private final TopAdMapping topAdMapping;
+
     @Autowired
     public TopAdController(TopAdMapping topAdMapping) {
         this.topAdMapping = topAdMapping;

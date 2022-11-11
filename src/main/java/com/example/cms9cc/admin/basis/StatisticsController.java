@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 
-import javax.annotation.Resource;
-
 @RestController
 @RequestMapping("/admin")
 public class StatisticsController {
 
     StatisticsMapping statisticsMapping;
+
     @Autowired
     public StatisticsController(StatisticsMapping statisticsMapping) {
         this.statisticsMapping = statisticsMapping;

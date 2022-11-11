@@ -1,4 +1,5 @@
 package com.example.cms9cc.tools;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.cloud.context.restart.PauseHandler;
@@ -7,6 +8,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ClassUtils;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Collections;
@@ -27,6 +29,7 @@ public class RestartService implements ApplicationListener<ApplicationPreparedEv
     private List<PauseHandler> pauseHandlers = Collections.emptyList();
 
     private long timeout;
+
     public void restartApp() {
         restart();
     }
@@ -42,6 +45,7 @@ public class RestartService implements ApplicationListener<ApplicationPreparedEv
                     .collect(Collectors.toList());
         }
     }
+
     public Object restart() {
         Thread thread = new Thread(this::safeRestart);
         thread.setDaemon(false);
@@ -54,8 +58,7 @@ public class RestartService implements ApplicationListener<ApplicationPreparedEv
             doRestart();
             System.out.println("Restarted");
             return true;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -72,13 +75,13 @@ public class RestartService implements ApplicationListener<ApplicationPreparedEv
         }
         return this.context;
     }
+
     private void close() {
         ApplicationContext context = this.context;
         while (context instanceof Closeable) {
             try {
                 ((Closeable) context).close();
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             context = context.getParent();

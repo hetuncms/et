@@ -7,7 +7,6 @@ import com.example.cms9cc.admin.mapper.CoupletsAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
@@ -16,7 +15,8 @@ import java.util.List;
 public class CoupletsAdController {
 
     private final CoupletsAdMapping coupletsAdMapping;
-@Autowired
+
+    @Autowired
     public CoupletsAdController(CoupletsAdMapping coupletsAdMapping) {
         this.coupletsAdMapping = coupletsAdMapping;
     }

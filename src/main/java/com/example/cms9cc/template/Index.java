@@ -1,12 +1,14 @@
 package com.example.cms9cc.template;
 
 
+import com.example.cms9cc.Config;
 import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.admin.AdminService;
 import com.example.cms9cc.template.bean.PaiHangBean;
+import com.example.cms9cc.template.service.IndexService;
 import com.example.cms9cc.tools.TemplateUtils;
-import okhttp3.*;
 import okhttp3.RequestBody;
+import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -30,9 +32,18 @@ public class Index {
     OkHttpClient okHttpClient = new OkHttpClient();
 
     AdminService adminService;
+    @Value("${spring.thymeleaf.prefix}")
+    private String templatePath;
+
+
+    IndexService indexService;
+    Config config;
+
     @Autowired
-    public Index(AdminService adminService) {
+    public Index(AdminService adminService,Config config,IndexService indexService) {
         this.adminService = adminService;
+        this.config = config;
+        this.indexService = indexService;
     }
 
     @PostMapping("/loadmore")
@@ -52,27 +63,24 @@ public class Index {
         return process;
     }
 
-
-
-
     @GetMapping("/paihang")
-    public String paihang(Model model){
+    public String paihang(Model model) {
         PaiHangBean paiHangBean = requestPaiHangData(8);
-        model.addAttribute("items",paiHangBean.getItems());
-        model.addAttribute("config",adminService.getAllConfig());
+        model.addAttribute("items", paiHangBean.getItems());
+        model.addAttribute("config", adminService.getAllConfig());
         return "paihang";
     }
 
     @GetMapping("/paihang_fragment")
-    public String paihangFragment(Model model,@RequestParam("commid")Integer commid){
+    public String paihangFragment(Model model, @RequestParam("commid") Integer commid) {
         PaiHangBean paiHangBean = requestPaiHangData(commid);
-        model.addAttribute("items",paiHangBean.getItems());
-        model.addAttribute("config",adminService.getAllConfig());
+        model.addAttribute("items", paiHangBean.getItems());
+        model.addAttribute("config", adminService.getAllConfig());
         return "paihang::content";
     }
 
     @GetMapping("/paihang_child_fragment")
-    public String paihangChildFragment(Model model,@RequestParam("type")Integer type){
+    public String paihangChildFragment(Model model, @RequestParam("type") Integer type) {
         PaiHangBean paiHangBean = requestPaiHangData(type);
 //        model.addAttribute("items",paiHangBean.getItems());
 //        model.addAttribute("config",adminService.getAllConfig());
@@ -80,7 +88,7 @@ public class Index {
     }
 
     private PaiHangBean requestPaiHangData(Integer commid) {
-        RequestBody body = RequestBody.create(JSON, "comid="+commid+"&type=1&catid=1");
+        RequestBody body = RequestBody.create(JSON, "comid=" + commid + "&type=1&catid=1");
         Map<String, String> header = new HashMap<>();
         header.put("origin", "http://www.515.tv");
         header.put("host", "www.515.tv");
@@ -100,30 +108,17 @@ public class Index {
         PaiHangBean paiHangBean = com.alibaba.fastjson2.JSON.parseObject(netData, PaiHangBean.class);
         return paiHangBean;
     }
+
     private LiveBean requestData(@RequestHeader Map<String, String> header, String requstbody) {
-        RequestBody body = RequestBody.create(JSON, requstbody);
-        Headers headers = Headers.of(header);
-        System.out.println(requstbody);
-        Request build = new Request.Builder().url("http://localhost:8081/index").headers(headers).post(body).build();
+        return indexService.index(requstbody);
+    }
 
-        String netData;
-        try {
-            Response execute = okHttpClient.newCall(build).execute();
-            netData = execute.body().string();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        LiveBean liveBean = com.alibaba.fastjson2.JSON.parseObject(netData, LiveBean.class);
-
-        return liveBean;
+    private String requestM3u8Url(String id) {
+        return indexService.getIframeLinkByid(id);
     }
 
     public String to(@RequestHeader Map<String, String> header, Integer listType, Model model) {
         header.remove("accept-encoding");
-        header.put("origin", "http://www.515.tv");
-        header.put("host", "www.515.tv");
-        header.put("X-Requested-With", "XMLHttpRequest");
         String reqBody = "s=0&t=1&a=" + listType + "&g=1";
         LiveBean liveBean = requestData(header, reqBody);
         if (liveBean != null) {
@@ -133,8 +128,7 @@ public class Index {
         model.addAttribute("listtype", listType);
         return "index";
     }
-    @Value("${spring.thymeleaf.prefix}")
-    private String templatePath;
+
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {
         return to(header, TYPE_HOT, model);
@@ -157,8 +151,9 @@ public class Index {
 
     @GetMapping("/bofang/{id}")
     public String bofang(Model model, @PathVariable("id") String id) {
-        model.addAttribute("iframelink", "http://www.515.tv/live/"+id);
+        model.addAttribute("iframelink", requestM3u8Url(id));
         model.addAttribute("config", adminService.getAllConfig());
+
         return "bofang";
     }
 }

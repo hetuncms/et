@@ -4,8 +4,6 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
 @TableName("basis")
 public class BasisBean {
 
@@ -49,16 +47,16 @@ public class BasisBean {
         return describe;
     }
 
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
     public String[] getTemplates() {
         return templates;
     }
 
     public void setTemplates(String[] templates) {
         this.templates = templates;
-    }
-
-    public void setDescribe(String describe) {
-        this.describe = describe;
     }
 
     public String getAnnouncement() {
