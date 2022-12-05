@@ -18,9 +18,18 @@ public class IndexService {
         netInterface = netService.getRetrofit().create(NetInterface.class);
     }
 
-    public LiveBean index(String requestBody){
+    public LiveBean index(String requestBody) {
         try {
             return netInterface.index(requestBody).execute().body();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public LiveBean.LiveItem getLiveItem(Long id) {
+
+        try {
+            return netInterface.getLiveItem(id).execute().body();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -8,7 +8,55 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
+.couplet_left_ad{
+    position:fixed;
+    top: 40%;
+    width: 20px;
+    left:0;
+}
 
-.banner_ad {
+.couplet_left_img_ad{
+    width: 200px;
+}
+.couplet_righ_img_ad{
+    width: 200px;
+}
+.couplet_right_ad{
+    position:fixed;
+    top: 40%;
+    right:0;
+}
 
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: inline-block;
+}
+
+
+@media screen and (max-width: 750px) {
+    .couplet_left_ad{
+        position:fixed;
+        max-width: 20px;
+        top: 40%;
+        left:0;
+    }
+
+    .couplet_right_ad{
+        position:fixed;
+        top: 40%;
+        right:0;
+    }
+
+    .couplet_left_img_ad{
+        max-width: 100px;
+    }
+    .couplet_righ_img_ad{
+        max-width: 100px;
+    }
 }

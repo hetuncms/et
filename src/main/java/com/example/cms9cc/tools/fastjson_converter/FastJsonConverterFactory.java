@@ -19,7 +19,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 
-import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
@@ -31,12 +30,12 @@ import java.lang.reflect.Type;
  * you must {@linkplain Retrofit.Builder#addConverterFactory(Converter.Factory) add this instance}
  * last to allow the other converters a chance to see their types.
  */
-public final class GsonConverterFactory extends Converter.Factory {
-  public static GsonConverterFactory create() {
-    return new GsonConverterFactory();
+public final class FastJsonConverterFactory extends Converter.Factory {
+  public static FastJsonConverterFactory create() {
+    return new FastJsonConverterFactory();
   }
 
-  private GsonConverterFactory() {
+  private FastJsonConverterFactory() {
   }
 
   @Override

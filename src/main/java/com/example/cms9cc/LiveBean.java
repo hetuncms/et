@@ -10,7 +10,7 @@ public class LiveBean {
 
     private int status;
     private String info;
-    private List<Live_item> live_item;
+    private List<LiveItem> live_item;
 
     public int getStatus() {
         return status;
@@ -28,28 +28,73 @@ public class LiveBean {
         this.info = info;
     }
 
-    public List<Live_item> getLive_item() {
+    public List<LiveItem> getLive_item() {
         return live_item;
     }
 
-    public void setLive_item(List<Live_item> live_item) {
+    public void setLive_item(List<LiveItem> live_item) {
         this.live_item = live_item;
     }
 
-    public class Live_item {
+    public class LiveItem {
 
         private long id;
         private String playid;
-        private int gameType;
+        private int liveType;
         private String iframeLink;
+
+        private Long longTime;
         private String title;
         private Date date;
-        private String isTop;
+
+        private String liveId;
+
+        private Boolean isTop;
         private String leftName;
         private String rightName;
         private String leftImg;
         private String rightImg;
         private String gameName;
+
+        private String matchId;
+
+        private Boolean liveStatus;
+
+        public String getLiveId() {
+            return liveId;
+        }
+
+        public void setLiveId(String liveId) {
+            this.liveId = liveId;
+        }
+
+        public Boolean getLiveStatus() {
+            return liveStatus;
+        }
+
+        public void setLiveStatus(Boolean liveStatus) {
+            this.liveStatus = liveStatus;
+        }
+
+        public String getMatchId() {
+            return matchId;
+        }
+
+        public void setMatchId(String matchId) {
+            this.matchId = matchId;
+        }
+
+        public Long getLongTime() {
+            return longTime;
+        }
+
+        public void setLongTime(Long longTime) {
+            this.longTime = longTime;
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
+        }
 
         public long getId() {
             return id;
@@ -67,12 +112,12 @@ public class LiveBean {
             this.playid = playid;
         }
 
-        public int getGameType() {
-            return gameType;
+        public int getLiveType() {
+            return liveType;
         }
 
-        public void setGameType(int gameType) {
-            this.gameType = gameType;
+        public void setLiveType(int liveType) {
+            this.liveType = liveType;
         }
 
         public String getIframeLink() {
@@ -92,18 +137,14 @@ public class LiveBean {
         }
 
         public Date getDate() {
-            return date;
+            return new Date(this.getLongTime());
         }
 
-        public void setDate(Date date) {
-            this.date = date;
-        }
-
-        public String getIsTop() {
+        public Boolean getTop() {
             return isTop;
         }
 
-        public void setIsTop(String isTop) {
+        public void setTop(Boolean isTop) {
             this.isTop = isTop;
         }
 

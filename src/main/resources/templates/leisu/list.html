@@ -5,6 +5,8 @@
 
 
             <div id="item_list" th:each="item,count:${list}">
+
+
                 <p class="date-p"
                    th:if="${(item.getIsTop().equals('0') && count.index==0)
                    || (item.getIsTop().equals('0') && count.index!=0  && #dates.day(item.date) - #dates.day(list.get(count.index-1).date)!=0)
@@ -21,13 +23,14 @@
                         <div class="bifeng">vs</div>
                         <div class="team zhudui zhudui_wuyd">
                             <span><img alt="" class="" th:src="${item.leftImg}"></span>
+
                             <p th:text="${item.leftName}">
                             </p>
                         </div>
                         <div class="center">
                             <p class="eventtime_wuy eventtime">
                             <span class="feleimg">
-                                <img th:src="${item.gameType==1?'/515/img/fenlei_1.png':'/515/img/fenlei_2.png'}"/>
+                                <img th:src="${item.getLiveType()==1?'/515/img/fenlei_1.png':'/515/img/fenlei_2.png'}"/>
                             </span>
                                 <span><em th:text="${item.gameName}"></em> <i
                                         style="white-space: nowrap; overflow: visible;"

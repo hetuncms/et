@@ -1,7 +1,7 @@
 @font-face {
     font-family: "iconfont"; /* Project id 119687 */
     src: url('iconfont-39039bc4b6.woff2?t=1648035008410') format('woff2'),
-    url('iconfont-9df301eaa9.woff?t=1648035008410') format('woff'),
+    url('/leisu/font/iconfont-9df301eaa9.woff?t=1648035008410') format('woff'),
     url('iconfont-3e311ff297.ttf?t=1648035008410') format('truetype');
 }
 

@@ -40,7 +40,7 @@ public class Index {
     Config config;
 
     @Autowired
-    public Index(AdminService adminService,Config config,IndexService indexService) {
+    public Index(AdminService adminService, Config config, IndexService indexService) {
         this.adminService = adminService;
         this.config = config;
         this.indexService = indexService;
@@ -48,13 +48,14 @@ public class Index {
 
     @PostMapping("/loadmore")
     @org.springframework.web.bind.annotation.ResponseBody
-    private String loadMore(HttpServletRequest request, HttpServletResponse response, @RequestHeader Map<String, String> header, @org.springframework.web.bind.annotation.RequestBody String reqBody) {
-        header.remove("accept-encoding");
-        header.put("origin", "http://www.515.tv");
-        header.put("host", "www.515.tv");
-        header.put("X-Requested-With", "XMLHttpRequest");
+    private String loadMore(HttpServletRequest request, HttpServletResponse response,
+                            @org.springframework.web.bind.annotation.RequestBody String reqBody) {
+        LiveBean liveBean = requestData(reqBody);
 
-        LiveBean liveBean = requestData(header, reqBody);
+        if (liveBean.getStatus() == -1 || liveBean.getLive_item()==null ||liveBean.getLive_item().isEmpty()) {
+            return "";
+        }
+
         HashMap<String, Object> respData = new HashMap<>();
         respData.put("list", liveBean.getLive_item());
 
@@ -109,7 +110,7 @@ public class Index {
         return paiHangBean;
     }
 
-    private LiveBean requestData(@RequestHeader Map<String, String> header, String requstbody) {
+    private LiveBean requestData(String requstbody) {
         return indexService.index(requstbody);
     }
 
@@ -117,10 +118,9 @@ public class Index {
         return indexService.getIframeLinkByid(id);
     }
 
-    public String to(@RequestHeader Map<String, String> header, Integer listType, Model model) {
-        header.remove("accept-encoding");
-        String reqBody = "s=0&t=1&a=" + listType + "&g=1";
-        LiveBean liveBean = requestData(header, reqBody);
+    public String to(Integer listType, Model model) {
+        String reqBody = "s=0&t=1&a=" + listType + "&g=0";
+        LiveBean liveBean = requestData(reqBody);
         if (liveBean != null) {
             model.addAttribute("list", liveBean.getLive_item());
         }
@@ -131,28 +131,31 @@ public class Index {
 
     @GetMapping("/")
     public String index(@RequestHeader Map<String, String> header, Model model) {
-        return to(header, TYPE_HOT, model);
+        return to(TYPE_HOT, model);
     }
 
     @GetMapping("/football")
     public String football(@RequestHeader Map<String, String> header, Model model) {
-        return to(header, TYPE_FOOTBALL, model);
+        return to(TYPE_FOOTBALL, model);
     }
 
     @GetMapping("/basketball")
     public String basketball(@RequestHeader Map<String, String> header, Model model) {
-        return to(header, TYPE_BASKETBALL, model);
+        return to(TYPE_BASKETBALL, model);
     }
 
     @GetMapping("/tiyu")
     public String tiyu(@RequestHeader Map<String, String> header, Model model) {
-        return to(header, TYPE_TIYU, model);
+        return to(TYPE_TIYU, model);
     }
 
+
     @GetMapping("/bofang/{id}")
-    public String bofang(Model model, @PathVariable("id") String id) {
-        model.addAttribute("iframelink", requestM3u8Url(id));
+    public String bofang(Model model, @PathVariable("id") Long  id) {
+
+        model.addAttribute("item", indexService.getLiveItem(id));
         model.addAttribute("config", adminService.getAllConfig());
+//        model.addAttribute("item", item);
 
         return "bofang";
     }

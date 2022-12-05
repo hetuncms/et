@@ -1,5 +1,4 @@
 <div class="bottom_float" id="float" th:if="${config.getFloatAd()}">
-    <link rel="stylesheet" th:href="@{/css/cmsapp.css}" type="text/css">
     <a target="_blank" th:href="${config.getFloatAd().getUrl()}">
         <img style="margin: 0 auto"
              th:src="${config.getFloatAd().getPicUrl()}">

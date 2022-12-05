@@ -1,5 +1,4 @@
-@charset "utf-8";
-html {
+@charset "utf-8";html {
     background: #fff;
     overflow: auto;
     height: 100%;
@@ -7,12 +6,12 @@ html {
 }
 
 #red {
-    background: url(/515/css/img/background.png) no-repeat top center #f4f4f4;
+    background: url(../img/background_red.jpg?r=2) no-repeat top center #f4f4f4;
     background-size: 100% auto;
 }
 
 #red .show {
-    display: block !important
+    display: block!important
 }
 
 #red header {
@@ -24,7 +23,7 @@ html {
 }
 
 #red .wap-app-box {
-    background-image: linear-gradient(to bottom right, #3dbee7, #007bec)
+    background-image: linear-gradient(to bottom right,#3dbee7,#007bec)
 }
 
 #red .wap-app-box a.djxz {
@@ -51,7 +50,7 @@ html {
 }
 
 #red .waplist .once {
-    background-image: linear-gradient(to right bottom, #f14874, #e60640);
+    background-image: linear-gradient(to right bottom,#f14874,#e60640);
 }
 
 #red .download-wap-btn {
@@ -93,8 +92,8 @@ html {
 }
 
 #red .zhiding {
-    background-image: linear-gradient(to right, #fdd3dd, #fdd6e0, #fef4f7);
-    border-bottom: 1px #fbbbca solid !important;
+    background-image: linear-gradient(to right,#fdd3dd,#fdd6e0,#fef4f7);
+    border-bottom: 1px #fbbbca solid!important;
 }
 
 #red .zhiding:before {
@@ -134,7 +133,7 @@ html {
 }
 
 #red .refreshbtn i {
-    background: url(/515/css/img/shuaxing_n.png) no-repeat center center #e60640 !important;
+    background: url(../img/shuaxing_n.png) no-repeat center center #e60640!important;
 }
 
 #red .index-div a .zb_green {
@@ -154,12 +153,15 @@ html {
     0% {
         color: transparent
     }
+
     40% {
         color: #006fc0
     }
+
     80% {
         color: #006fc0
     }
+
     100% {
         color: transparent
     }
@@ -167,7 +169,7 @@ html {
 
 @media screen and (min-width: 750px) {
     #red .pcrlist .hdiv {
-        background: #e60640;
+        background:#e60640;
         color: #fff;
     }
 
@@ -207,8 +209,8 @@ html {
     }
 
     #red .zhiding {
-        background-image: linear-gradient(to right, #fdd3dd, #fdd6e0, #fef4f7);
-        border-bottom: 1px #fbbbca solid !important;
+        background-image: linear-gradient(to right,#fdd3dd,#fdd6e0,#fef4f7);
+        border-bottom: 1px #fbbbca solid!important;
     }
 
     #red .zhiding:before {
@@ -247,7 +249,7 @@ html {
     }
 
     #red .indexbtn i {
-        background: url(../img/index-PC.png) no-repeat center center #e60640 !important;
+        background: url(../img/index-PC.png) no-repeat center center #e60640!important;
     }
 
     #red .index-div a .zb_green:hover {
@@ -263,7 +265,7 @@ html {
     }
 
     #red .totop i {
-        background: url(/515/css/img/totop.png) no-repeat center center #e60640 !important;
+        background: url(../img/totop.png) no-repeat center center #e60640!important;
     }
 
     #red .jump_videoan {
@@ -346,13 +348,13 @@ html {
     }
 
     #red .newyearl {
-        background: url(/515/css/img/logo_june_l.png);
+        background: url(../img/logo_june_l_red.png?r=43);
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
 
     #red .newyearr {
-        background: url(/515/css/img/logo_june_r.png);
+        background: url(../img/logo_june_r_red.png?r=43);
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
@@ -364,7 +366,7 @@ html {
 
 @media screen and (max-width: 750px) {
     #red .zhiding:before {
-        content: '';
+        content:'';
         background: url(../img/zd_img_w_r_red.png) no-repeat top left/33px 33px;
     }
 
@@ -471,7 +473,7 @@ html {
 
 @media screen and (max-width: 750px) {
     #red .gb_ad_an {
-        background: #e60640;
+        background:#e60640;
         border: 1px #e60640 solid;
         color: #fff
     }
@@ -479,7 +481,7 @@ html {
 
 @media screen and (min-width: 750px) {
     #red .gb_ad_an {
-        background: #e60640;
+        background:#e60640;
         color: #fff
     }
 
@@ -497,11 +499,11 @@ html {
 
 @media screen and (max-width: 750px) {
     #red .bs_bt_title .bs_time_new {
-        color: #e60640;
+        color:#e60640;
     }
 }
 
-#red .zhti_qiehuan > li:hover {
+#red .zhti_qiehuan>li:hover {
     color: #e60640;
 }
 
@@ -516,7 +518,7 @@ html {
 }
 
 #blue {
-    background: url(/515/css/img/background.png) no-repeat top center #f4f4f4;
+    background: url(../img/background_blue.jpg?r=2) no-repeat top center #f4f4f4;
     background-size: 100% auto;
 }
 
@@ -525,7 +527,7 @@ html {
 }
 
 #blue .wap-app-box {
-    background-image: linear-gradient(to bottom right, #3dbee7, #007bec)
+    background-image: linear-gradient(to bottom right,#3dbee7,#007bec)
 }
 
 #blue .wap-app-box a.djxz {
@@ -551,7 +553,7 @@ html {
 }
 
 #blue .waplist .once {
-    background-image: linear-gradient(to right bottom, #73c5ff, #006bb7);
+    background-image: linear-gradient(to right bottom,#73c5ff,#006bb7);
 }
 
 #blue .download-wap-btn {
@@ -589,8 +591,8 @@ html {
 }
 
 #blue .zhiding {
-    background-image: linear-gradient(to right, #cedffb, #d0e0fb, #f7fafe);
-    border-bottom: 1px #b4cef6 solid !important;
+    background-image: linear-gradient(to right,#cedffb,#d0e0fb,#f7fafe);
+    border-bottom: 1px #b4cef6 solid!important;
 }
 
 #blue .index-div_zd .date-p .date {
@@ -625,7 +627,7 @@ html {
 }
 
 #blue .refreshbtn i {
-    background: url(../img/shuaxing_n.png) no-repeat center center #006bb7 !important;
+    background: url(../img/shuaxing_n.png) no-repeat center center #006bb7!important;
 }
 
 #blue .index-div a .zb_green {
@@ -641,12 +643,15 @@ html {
     0% {
         color: transparent
     }
+
     40% {
         color: #006fc0
     }
+
     80% {
         color: #006fc0
     }
+
     100% {
         color: transparent
     }
@@ -654,7 +659,7 @@ html {
 
 @media screen and (min-width: 750px) {
     #blue .pcrlist .hdiv {
-        background: #006bb7;
+        background:#006bb7;
         color: #fff;
     }
 
@@ -694,8 +699,8 @@ html {
     }
 
     #blue .zhiding {
-        background-image: linear-gradient(to right, #cedffb, #d0e0fb, #f7fafe);
-        border-bottom: 1px #b4cef6 solid !important;
+        background-image: linear-gradient(to right,#cedffb,#d0e0fb,#f7fafe);
+        border-bottom: 1px #b4cef6 solid!important;
     }
 
     #blue .zhiding:before {
@@ -734,7 +739,7 @@ html {
     }
 
     #blue .indexbtn i {
-        background: url(../img/index-PC.png) no-repeat center center #006bb7 !important;
+        background: url(../img/index-PC.png) no-repeat center center #006bb7!important;
     }
 
     #blue .index-div a .zb_green:hover {
@@ -750,7 +755,7 @@ html {
     }
 
     #blue .totop i {
-        background: url(../img/totop.png) no-repeat center center #006bb7 !important;
+        background: url(../img/totop.png) no-repeat center center #006bb7!important;
     }
 
     #blue footer {
@@ -855,7 +860,7 @@ html {
 
 @media screen and (max-width: 750px) {
     #blue .zhiding:before {
-        content: '';
+        content:'';
         background: url(../img/zd_img_w_r_red.png) no-repeat top left/33px 33px;
     }
 
@@ -961,7 +966,7 @@ html {
 
 @media screen and (max-width: 750px) {
     #blue .gb_ad_an {
-        background: #006bb7;
+        background:#006bb7;
         border: 1px #006bb7 solid;
         color: #fff
     }
@@ -969,7 +974,7 @@ html {
 
 @media screen and (min-width: 750px) {
     #blue .gb_ad_an {
-        background: #006bb7;
+        background:#006bb7;
         color: #fff
     }
 
@@ -987,11 +992,11 @@ html {
 
 @media screen and (max-width: 750px) {
     #blue .bs_bt_title .bs_time_new {
-        color: #006bb7;
+        color:#006bb7;
     }
 }
 
-#blue .zhti_qiehuan > li:hover {
+#blue .zhti_qiehuan>li:hover {
     color: #006bb7;
 }
 
@@ -1018,7 +1023,7 @@ html {
 }
 
 #yellow .show {
-    display: block !important
+    display: block!important
 }
 
 #yellow header {
@@ -1026,7 +1031,7 @@ html {
 }
 
 #yellow .wap-app-box {
-    background-image: linear-gradient(to bottom right, #3dbee7, #007bec)
+    background-image: linear-gradient(to bottom right,#3dbee7,#007bec)
 }
 
 #yellow .wap-app-box a.djxz {
@@ -1053,7 +1058,7 @@ html {
 }
 
 #yellow .waplist .once {
-    background-image: linear-gradient(to right bottom, #ffcda4, #fd9521);
+    background-image: linear-gradient(to right bottom,#ffcda4,#fd9521);
 }
 
 #yellow .download-wap-btn {
@@ -1095,8 +1100,8 @@ html {
 }
 
 #yellow .zhiding {
-    background-image: linear-gradient(to right, #f9e0cb, #f9e1cc, #fdf4ec);
-    border-bottom: 1px #f2ceae solid !important;
+    background-image: linear-gradient(to right,#f9e0cb,#f9e1cc,#fdf4ec);
+    border-bottom: 1px #f2ceae solid!important;
 }
 
 #yellow .zhiding:before {
@@ -1136,7 +1141,7 @@ html {
 }
 
 #yellow .refreshbtn i {
-    background: url(../img/shuaxing_n.png) no-repeat center center #fd8521 !important;
+    background: url(../img/shuaxing_n.png) no-repeat center center #fd8521!important;
 }
 
 #yellow .index-div a .zb_green {
@@ -1156,12 +1161,15 @@ html {
     0% {
         color: transparent
     }
+
     40% {
         color: #006fc0
     }
+
     80% {
         color: #006fc0
     }
+
     100% {
         color: transparent
     }
@@ -1169,7 +1177,7 @@ html {
 
 @media screen and (min-width: 750px) {
     #yellow .pcrlist .hdiv {
-        background: #fd8521;
+        background:#fd8521;
         color: #fff;
     }
 
@@ -1204,8 +1212,8 @@ html {
     }
 
     #yellow .zhiding {
-        background-image: linear-gradient(to right, #f9e0cb, #f9e1cc, #fdf4ec);
-        border-bottom: 1px #f2ceae solid !important;
+        background-image: linear-gradient(to right,#f9e0cb,#f9e1cc,#fdf4ec);
+        border-bottom: 1px #f2ceae solid!important;
     }
 
     #yellow .zhiding:before {
@@ -1244,7 +1252,7 @@ html {
     }
 
     #yellow .indexbtn i {
-        background: url(../img/index-PC.png) no-repeat center center #fd8521 !important;
+        background: url(../img/index-PC.png) no-repeat center center #fd8521!important;
     }
 
     #yellow .index-div a .zb_green:hover {
@@ -1260,7 +1268,7 @@ html {
     }
 
     #yellow .totop i {
-        background: url(../img/totop.png) no-repeat center center #fd8521 !important;
+        background: url(../img/totop.png) no-repeat center center #fd8521!important;
     }
 
     #yellow footer {
@@ -1361,7 +1369,7 @@ html {
 
 @media screen and (max-width: 750px) {
     #yellow .zhiding:before {
-        content: '';
+        content:'';
         background: url(../img/zd_img_w_r_yellow.png) no-repeat top left/33px 33px;
     }
 
@@ -1467,7 +1475,7 @@ html {
 
 @media screen and (max-width: 750px) {
     #yellow .gb_ad_an {
-        background: #fd8521;
+        background:#fd8521;
         border: 1px #fd8521 solid;
         color: #fff
     }
@@ -1475,7 +1483,7 @@ html {
 
 @media screen and (min-width: 750px) {
     #yellow .gb_ad_an {
-        background: #fd8521;
+        background:#fd8521;
         color: #fff
     }
 
@@ -1497,11 +1505,11 @@ html {
 
 @media screen and (max-width: 750px) {
     #yellow .bs_bt_title .bs_time_new {
-        color: #fd8521;
+        color:#fd8521;
     }
 }
 
-#yellow .zhti_qiehuan > li:hover {
+#yellow .zhti_qiehuan>li:hover {
     color: #fd8521;
 }
 

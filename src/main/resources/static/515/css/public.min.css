@@ -1,5 +1,4 @@
-@charset "utf-8";
-html {
+@charset "utf-8";html {
     background: #fff;
     overflow: auto;
     height: 100%;
@@ -8,7 +7,7 @@ html {
 
 body {
     font-size: 12px;
-    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+    font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
     font-weight: 400;
     color: #333;
     -webkit-font-smoothing: antialiased;
@@ -19,16 +18,7 @@ body {
     background: url(../img/background.png?r=2) no-repeat top center #f4f4f4;
     background-size: 100% auto
 }
-.close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 14px;
-    padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    display: inline-block;
-}
+
 a {
     color: #333;
     text-decoration: none;
@@ -36,32 +26,32 @@ a {
     transition: .2s all ease
 }
 
-blockquote, body, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, td, th, ul {
+blockquote,body,code,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,pre,td,th,ul {
     margin: 0;
     padding: 0
 }
 
-article, aside, details, dialog, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article,aside,details,dialog,figcaption,figure,footer,header,hgroup,menu,nav,section {
     display: block
 }
 
-dd, dl, dt, li, ol, ul {
+dd,dl,dt,li,ol,ul {
     list-style: none
 }
 
-fieldset, img {
+fieldset,img {
     border: 0
 }
 
-button, input, select, submit {
+button,input,select,submit {
     vertical-align: middle
 }
 
-button, submit {
+button,submit {
     cursor: pointer
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,h2,h3,h4,h5,h6 {
     font-size: inherit;
     font-weight: lighter
 }
@@ -79,7 +69,7 @@ sub {
     vertical-align: text-bottom
 }
 
-button, select {
+button,select {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -93,7 +83,7 @@ img {
     display: block
 }
 
-b, em, i {
+b,em,i {
     display: inline-block;
     font-weight: 400;
     font-style: normal
@@ -108,8 +98,7 @@ b, em, i {
 }
 
 .clearfix {
-    zoom: 1
-}
+    zoom:1}
 
 .fl {
     float: left
@@ -129,11 +118,11 @@ b, em, i {
 }
 
 .hide {
-    display: none !important
+    display: none!important
 }
 
 .show {
-    display: block !important
+    display: block!important
 }
 
 header {
@@ -195,7 +184,7 @@ header img {
     margin-right: 10px
 }
 
-.pc-app-box .word i, .pc-app-box .word span {
+.pc-app-box .word i,.pc-app-box .word span {
     display: inline-block;
     vertical-align: middle
 }
@@ -262,7 +251,7 @@ header img {
     margin-right: 10px
 }
 
-.pc-app-box .jifengbang i, .pc-app-box .jifengbang span {
+.pc-app-box .jifengbang i,.pc-app-box .jifengbang span {
     display: inline-block;
     vertical-align: middle
 }
@@ -287,10 +276,10 @@ header img {
     left: 0;
     width: 100%;
     height: 60px;
-    background-image: -webkit-gradient(linear, top left, bottom right, from(#3dbee7), to(#007bec));
-    background-image: -webkit-linear-gradient(top left, #3dbee7, #007bec);
-    background-image: -moz- oldlinear-gradient(top left, #3dbee7, #007bec);
-    background-image: linear-gradient(to bottom right, #3dbee7, #007bec)
+    background-image: -webkit-gradient(linear,top left,bottom right,from(#3dbee7),to(#007bec));
+    background-image: -webkit-linear-gradient(top left,#3dbee7,#007bec);
+    background-image: -moz- oldlinear-gradient(top left,#3dbee7,#007bec);
+    background-image: linear-gradient(to bottom right,#3dbee7,#007bec)
 }
 
 .wap-app-box .close-p {
@@ -468,7 +457,7 @@ header img {
     background: #aaa
 }
 
-.index-div a .video i, .index-div a .video span {
+.index-div a .video i,.index-div a .video span {
     display: inline-block;
     vertical-align: middle
 }
@@ -507,7 +496,7 @@ iframe {
     right: 160px
 }
 
-.signalcall button, .signalcall input, .signalcall span {
+.signalcall button,.signalcall input,.signalcall span {
     display: inline-block
 }
 
@@ -555,7 +544,7 @@ h2 {
     padding-left: .2rem
 }
 
-.singldl dd, .singldl dt {
+.singldl dd,.singldl dt {
     display: inline-block
 }
 
@@ -591,7 +580,7 @@ h2 {
     margin: 20px auto
 }
 
-.index-div section, .index-nav {
+.index-div section,.index-nav {
     max-width: 750px;
     min-width: 320px;
     margin: 0 auto
@@ -622,7 +611,7 @@ footer div {
     text-align: center
 }
 
-footer div a, footer div i {
+footer div a,footer div i {
     display: inline-block;
     vertical-align: middle;
     color: #7e7e7e
@@ -651,7 +640,7 @@ footer div a, footer div i {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    background-image: linear-gradient(to right bottom, #3ceae3, #00bcb4);
+    background-image: linear-gradient(to right bottom,#3ceae3,#00bcb4);
     box-sizing: border-box;
     padding-top: .5rem
 }
@@ -701,7 +690,7 @@ footer div a, footer div i {
     box-sizing: border-box
 }
 
-.app-intro h4, .app-screenshot h4 {
+.app-intro h4,.app-screenshot h4 {
     font-size: 18px;
     font-weight: 500;
     margin-left: 20px
@@ -767,7 +756,7 @@ footer div a, footer div i {
     line-height: 3rem
 }
 
-.headword .startp span, .wapheader .headword .startp i {
+.headword .startp span,.wapheader .headword .startp i {
     display: inline-block;
     vertical-align: middle;
     color: #999;
@@ -962,7 +951,7 @@ footer div a, footer div i {
     position: absolute;
     right: .5rem;
     bottom: .5rem;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0,0,0,.5);
     color: #fff;
     width: 2.5rem;
     height: 1.1rem;
@@ -1009,15 +998,15 @@ footer div a, footer div i {
 }
 
 .zhiding {
-    background-image: linear-gradient(to right, #d3f1eb, #d4f1eb, #f3fbfa);
-    border-bottom: 1px #c1e9e0 solid !important;
+    background-image: linear-gradient(to right,#d3f1eb,#d4f1eb,#f3fbfa);
+    border-bottom: 1px #c1e9e0 solid!important;
     position: relative;
     background-size: 100% 100%
 }
 
 .zhiding:before {
     content: '';
-    background: url(../img/zd_img.png) no-repeat top left/33px 33px;
+    background: url(../img/zd_img_w.png) no-repeat top left/33px 33px;
     position: absolute;
     top: 0;
     left: 0;
@@ -1116,7 +1105,7 @@ footer div a, footer div i {
     background: #aaa
 }
 
-.index-div_zd a .video i, .index-div_zd a .video span {
+.index-div_zd a .video i,.index-div_zd a .video span {
     display: inline-block;
     vertical-align: middle
 }
@@ -1172,6 +1161,10 @@ footer div a, footer div i {
 
 .index-nav .active i {
     background: #00bcb4
+}
+
+.no-active {
+    color: #9c9c9c;
 }
 
 .index-nav .active {
@@ -1231,7 +1224,7 @@ footer div a, footer div i {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
     background: #de1e30;
     font-size: 12px
 }
@@ -1240,7 +1233,7 @@ footer div a, footer div i {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0,0,0,.5);
     top: 0;
     left: 0;
     display: none;
@@ -1323,7 +1316,7 @@ footer div a, footer div i {
     height: 28px;
     text-align: center;
     line-height: 50px;
-    background: url(../img/shuaxing_n.png) no-repeat center center #00bcb4 !important;
+    background: url(../img/shuaxing_n.png) no-repeat center center #00bcb4!important;
     background-size: 100% 100%;
     display: block;
     margin: 10px auto 0
@@ -1377,7 +1370,7 @@ footer div a, footer div i {
 
 .main {
     min-height: 100%;
-    height: auto !important;
+    height: auto!important;
     height: 100%;
     position: relative;
     padding-bottom: 20rem
@@ -1393,7 +1386,7 @@ footer div a, footer div i {
 
 .zhuti {
     min-height: 100%;
-    height: auto !important;
+    height: auto!important;
     height: 100%;
     position: relative;
     padding-bottom: 150px
@@ -1414,7 +1407,7 @@ footer div a, footer div i {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0,0,0,.5);
     top: 0;
     left: 0;
     display: none;
@@ -1491,34 +1484,41 @@ footer div a, footer div i {
 }
 
 @keyframes move {
-    0%, 65% {
+    0%,65% {
         -webkit-transform: rotate(0);
         transform: rotate(0)
     }
+
     70% {
         -webkit-transform: rotate(6deg);
         transform: rotate(6deg)
     }
+
     75% {
         -webkit-transform: rotate(-6deg);
         transform: rotate(-6deg)
     }
+
     80% {
         -webkit-transform: rotate(6deg);
         transform: rotate(6deg)
     }
+
     85% {
         -webkit-transform: rotate(-6deg);
         transform: rotate(-6deg)
     }
+
     90% {
         -webkit-transform: rotate(6deg);
         transform: rotate(6deg)
     }
+
     95% {
         -webkit-transform: rotate(-6deg);
         transform: rotate(-6deg)
     }
+
     100% {
         -webkit-transform: rotate(0);
         transform: rotate(0)
@@ -1545,7 +1545,7 @@ footer div a, footer div i {
     padding: 0 10px
 }
 
-.bifeng, .changci {
+.bifeng,.changci {
     display: none
 }
 
@@ -1561,18 +1561,21 @@ footer div a, footer div i {
     0% {
         color: transparent
     }
+
     40% {
         color: #006fc0
     }
+
     80% {
         color: #006fc0
     }
+
     100% {
         color: transparent
     }
 }
 
-cite, em, i {
+cite,em,i {
     font-style: normal
 }
 
@@ -1590,7 +1593,7 @@ cite, em, i {
 
 @media screen and (min-width: 750px) {
     header img {
-        width: auto;
+        width:auto;
         height: 60px
     }
 
@@ -1666,7 +1669,7 @@ cite, em, i {
         height: 30px;
         line-height: 26px;
         font-size: 14px;
-        padding: 0 !important;
+        padding: 0!important;
         border-radius: 5px
     }
 
@@ -1777,7 +1780,7 @@ cite, em, i {
         line-height: 30px
     }
 
-    .headword .startp i, .headword .startp span {
+    .headword .startp i,.headword .startp span {
         display: inline-block;
         vertical-align: middle;
         color: #999;
@@ -2009,7 +2012,7 @@ cite, em, i {
         position: absolute;
         right: 5px;
         bottom: 5px;
-        background: rgba(0, 0, 0, .5);
+        background: rgba(0,0,0,.5);
         color: #fff;
         width: 30px;
         height: 11px;
@@ -2062,8 +2065,8 @@ cite, em, i {
     }
 
     .zhiding {
-        background-image: linear-gradient(to right, #d3f1eb, #d4f1eb, #f3fbfa);
-        border-bottom: 1px #c1e9e0 solid !important;
+        background-image: linear-gradient(to right,#d3f1eb,#d4f1eb,#f3fbfa);
+        border-bottom: 1px #c1e9e0 solid!important;
         position: relative;
         background-size: 100% 100%
     }
@@ -2074,7 +2077,7 @@ cite, em, i {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 2;
+        z-index: 0;
         width: 33px;
         height: 33px
     }
@@ -2088,7 +2091,7 @@ cite, em, i {
         height: 30px;
         line-height: 26px;
         font-size: 14px;
-        padding: 0 !important
+        padding: 0!important
     }
 
     .index-div_zd a .center .vsp {
@@ -2188,7 +2191,7 @@ cite, em, i {
     }
 
     .eventtime {
-        padding: 0 !important;
+        padding: 0!important;
         height: 25px;
         line-height: 25px
     }
@@ -2221,7 +2224,7 @@ cite, em, i {
         height: 28px;
         text-align: center;
         line-height: 50px;
-        background: url(../img/index-PC.png) no-repeat center center #00bcb4 !important;
+        /*background: url(../img/index-PC.png) no-repeat center center #00bcb4!important;*/
         background-size: 100% 100%;
         display: block;
         margin: 10px auto 0
@@ -2274,7 +2277,7 @@ cite, em, i {
         height: 32px;
         text-align: center;
         line-height: 50px;
-        background: url(../img/totop.png) no-repeat center center #00bcb4 !important;
+        background: url(../img/totop.png) no-repeat center center #00bcb4!important;
         background-size: 100% 100%;
         display: block;
         margin: 10px auto 0
@@ -2306,10 +2309,10 @@ cite, em, i {
 
     .main {
         min-height: 100%;
-        height: auto !important;
+        height: auto!important;
         height: 100%;
         position: relative;
-        padding-bottom: 200px !important;
+        padding-bottom: 200px!important;
         margin-top: 8px
     }
 
@@ -2324,7 +2327,7 @@ cite, em, i {
 
     .zhuti {
         min-height: 100%;
-        height: auto !important;
+        height: auto!important;
         height: 100%;
         position: relative;
         padding-bottom: 150px
@@ -2358,7 +2361,7 @@ cite, em, i {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%,-50%);
         background: #de1e30;
         font-size: 14px
     }
@@ -2459,7 +2462,7 @@ cite, em, i {
     }
 
     .jiabifeng {
-        max-width: 1200px !important;
+        max-width: 1200px!important;
         min-width: 320px;
         margin: 0 auto
     }
@@ -2534,10 +2537,10 @@ cite, em, i {
         width: 120px;
         height: 50px;
         line-height: 50px;
-        padding: 0 !important;
+        padding: 0!important;
         text-align: center;
-        font-size: 21px !important;
-        font-weight: 400 !important
+        font-size: 21px!important;
+        font-weight: 400!important
     }
 
     .jiabifeng .kedui {
@@ -2571,9 +2574,9 @@ cite, em, i {
         display: none
     }
 
-    .jiabifeng .zhudui p, .jiabifeng .zhudui span {
+    .jiabifeng .zhudui p,.jiabifeng .zhudui span {
         float: left;
-        margin-top: 20px !important
+        margin-top: 20px!important
     }
 
     .jiabifeng .zhudui span img {
@@ -2594,12 +2597,12 @@ cite, em, i {
         text-overflow: ellipsis;
         padding-left: 10px;
         float: left;
-        text-align: right !important
+        text-align: right!important
     }
 
-    .jiabifeng .kedui p, .jiabifeng .kedui span {
+    .jiabifeng .kedui p,.jiabifeng .kedui span {
         float: left;
-        margin-top: 20px !important
+        margin-top: 20px!important
     }
 
     .jiabifeng .kedui span img {
@@ -2619,7 +2622,7 @@ cite, em, i {
     }
 
     .jiabifeng .title {
-        width: 500px !important;
+        width: 500px!important;
         text-align: left;
         position: absolute;
         top: 0;
@@ -2628,11 +2631,11 @@ cite, em, i {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        padding: 0 !important
+        padding: 0!important
     }
 
-    .jiabifeng .titlematch_befeng, .jiabifeng .titlematch_changci {
-        display: none !important
+    .jiabifeng .titlematch_befeng,.jiabifeng .titlematch_changci {
+        display: none!important
     }
 
     .jiabifeng .changci span {
@@ -2665,7 +2668,7 @@ cite, em, i {
         font-style: normal
     }
 
-    .jiabifeng .kedui span, .jiabifeng .zhudui span {
+    .jiabifeng .kedui span,.jiabifeng .zhudui span {
         display: inline-block;
         width: 40px
     }
@@ -2699,26 +2702,34 @@ cite, em, i {
         25% {
             -webkit-transform: translateY(8px)
         }
-        100%, 50% {
+
+        100%,50% {
             -webkit-transform: translateY(0)
         }
+
         75% {
             -webkit-transform: translateY(-1px)
         }
-    }@keyframes bounce-up {
-         25% {
-             transform: translateY(8px)
-         }
-         100%, 50% {
-             transform: translateY(0)
-         }
-         75% {
-             transform: translateY(-1px)
-         }
-     }.jiabifeng .jingq_k p {
-          color: #00bcb4;
-          font-weight: 700
-      }
+    }
+
+    @keyframes bounce-up {
+        25% {
+            transform: translateY(8px)
+        }
+
+        100%,50% {
+            transform: translateY(0)
+        }
+
+        75% {
+            transform: translateY(-1px)
+        }
+    }
+
+    .jiabifeng .jingq_k p {
+        color: #00bcb4;
+        font-weight: 700
+    }
 
     .jiabifeng .jingq_k:after {
         content: '';
@@ -2834,9 +2845,9 @@ cite, em, i {
         width: 345px;
         height: 103px;
         display: none;
-        -webkit-box-shadow: 0 0 10px rgba(233, 214, 208, .5);
-        -moz-box-shadow: 0 0 10px rgba(233, 214, 208, .5);
-        box-shadow: 0 0 10px rgba(233, 214, 208, .5);
+        -webkit-box-shadow: 0 0 10px rgba(233,214,208,.5);
+        -moz-box-shadow: 0 0 10px rgba(233,214,208,.5);
+        box-shadow: 0 0 10px rgba(233,214,208,.5);
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
         border-radius: 4px;
@@ -3127,7 +3138,7 @@ cite, em, i {
         float: left
     }
 
-    .lanzhi_bg .zhongfen span, .zhishu_lan .lanzhi_bg .rangfen span {
+    .lanzhi_bg .zhongfen span,.zhishu_lan .lanzhi_bg .rangfen span {
         display: inline-block;
         width: 50%;
         text-align: center;
@@ -3287,7 +3298,7 @@ cite, em, i {
 
 @media screen and (max-width: 750px) {
     .head-main {
-        background-image: none
+        background-image:none
     }
 
     .head-main {
@@ -3308,7 +3319,7 @@ cite, em, i {
         position: absolute;
         top: 0;
         right: 0;
-        z-index: 2;
+        z-index: 0;
         width: 33px;
         height: 33px;
         left: auto
@@ -3375,8 +3386,8 @@ cite, em, i {
         width: 7.7rem;
         height: 2.2rem;
         line-height: 2.2rem;
-        padding: 0 !important;
-        font-size: 1.5rem !important
+        padding: 0!important;
+        font-size: 1.5rem!important
     }
 
     .jiabifeng .bifeng {
@@ -3386,7 +3397,7 @@ cite, em, i {
         margin-left: -5rem;
         height: 2.2rem;
         line-height: 2.2rem;
-        padding: 0 !important;
+        padding: 0!important;
         display: block;
         font-size: 1.6rem;
         text-align: center;
@@ -3403,19 +3414,19 @@ cite, em, i {
         position: absolute;
         top: 6rem;
         left: 50%;
-        margin-left: -5rem !important
+        margin-left: -5rem!important
     }
 
     .kedui {
-        float: right !important
+        float: right!important
     }
 
-    .jiabifeng .titlematch_befeng, .jiabifeng .titlematch_changci {
-        display: none !important
+    .jiabifeng .titlematch_befeng,.jiabifeng .titlematch_changci {
+        display: none!important
     }
 
     .jiabifeng .title {
-        width: 100% !important;
+        width: 100%!important;
         text-align: left;
         position: absolute;
         top: 3rem;
@@ -3434,7 +3445,7 @@ cite, em, i {
         position: absolute;
         top: 7.2rem;
         left: 50%;
-        margin-left: -5rem !important
+        margin-left: -5rem!important
     }
 
     .index-div a .video i {
@@ -3447,7 +3458,7 @@ cite, em, i {
         justify-content: center
     }
 
-    .jiabifeng a .kedui, .jiabifeng a .zhudui {
+    .jiabifeng a .kedui,.jiabifeng a .zhudui {
         margin-top: .7rem
     }
 
@@ -3460,7 +3471,7 @@ cite, em, i {
     }
 
     .jiabifeng .team span {
-        margin-top: 2.8rem !important;
+        margin-top: 2.8rem!important;
         margin-bottom: .4rem
     }
 
@@ -3495,26 +3506,34 @@ cite, em, i {
         25% {
             -webkit-transform: translateY(8px)
         }
-        100%, 50% {
+
+        100%,50% {
             -webkit-transform: translateY(0)
         }
+
         75% {
             -webkit-transform: translateY(-1px)
         }
-    }@keyframes bounce-up {
-         25% {
-             transform: translateY(8px)
-         }
-         100%, 50% {
-             transform: translateY(0)
-         }
-         75% {
-             transform: translateY(-1px)
-         }
-     }.jiabifeng .jingq_k p {
-          color: #00bcb4;
-          font-weight: 700
-      }
+    }
+
+    @keyframes bounce-up {
+        25% {
+            transform: translateY(8px)
+        }
+
+        100%,50% {
+            transform: translateY(0)
+        }
+
+        75% {
+            transform: translateY(-1px)
+        }
+    }
+
+    .jiabifeng .jingq_k p {
+        color: #00bcb4;
+        font-weight: 700
+    }
 
     .jiabifeng .jingq_k:after {
         content: '';
@@ -3559,7 +3578,7 @@ cite, em, i {
     }
 
     .jiabifeng .bifeng em {
-        font-weight: 700 !important
+        font-weight: 700!important
     }
 
     .jiabifeng .zhujingq p {
@@ -3853,7 +3872,7 @@ cite, em, i {
         float: left
     }
 
-    .bifeng_zhishu_lan .xq_fenlei_name span, .xq_fenlei_name cite {
+    .bifeng_zhishu_lan .xq_fenlei_name span,.xq_fenlei_name cite {
         display: inline-block;
         float: left
     }
@@ -3949,7 +3968,7 @@ cite, em, i {
         float: left
     }
 
-    .lanzhi_bg .zhongfen span, .zhishu_lan .lanzhi_bg .rangfen span {
+    .lanzhi_bg .zhongfen span,.zhishu_lan .lanzhi_bg .rangfen span {
         display: inline-block;
         width: 50%;
         text-align: center;
@@ -4212,7 +4231,7 @@ cite, em, i {
 
 @media screen and (max-width: 750px) {
     #tzpt {
-        margin-left: 20%
+        margin-left:20%
     }
 
     .mjtj_qh_mk {
@@ -4272,7 +4291,7 @@ cite, em, i {
         display: inline-block;
         position: relative;
         color: #fff;
-        background: rgba(0, 0, 0, .9);
+        background: rgba(0,0,0,.9);
         color: #fff;
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
@@ -4281,7 +4300,7 @@ cite, em, i {
 
     .bottomtip:after {
         border: 6px solid transparent;
-        border-top: 6px solid rgba(0, 0, 0, .9);
+        border-top: 6px solid rgba(0,0,0,.9);
         position: absolute;
         content: "";
         left: 50%;
@@ -4311,7 +4330,7 @@ cite, em, i {
         padding: 0 0 0 1rem
     }
 
-    .zhti_qiehuan_top > img {
+    .zhti_qiehuan_top>img {
         width: .7rem;
         height: auto;
         position: absolute;
@@ -4330,20 +4349,20 @@ cite, em, i {
         display: none
     }
 
-    .zhti_qiehuan > li {
+    .zhti_qiehuan>li {
         font-size: 1.1rem;
         line-height: 30px;
         cursor: pointer
     }
 
-    .zhti_qiehuan > li:hover {
+    .zhti_qiehuan>li:hover {
         color: #00bcb4
     }
 }
 
 @media screen and (min-width: 750px) {
     .mjtj_qh_mk {
-        width: 960px;
+        width:960px;
         margin: 0 auto
     }
 
@@ -4403,7 +4422,7 @@ cite, em, i {
         display: inline-block;
         position: relative;
         color: #fff;
-        background: rgba(0, 0, 0, .9);
+        background: rgba(0,0,0,.9);
         color: #fff;
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
@@ -4412,7 +4431,7 @@ cite, em, i {
 
     .bottomtip:after {
         border: 6px solid transparent;
-        border-top: 6px solid rgba(0, 0, 0, .9);
+        border-top: 6px solid rgba(0,0,0,.9);
         position: absolute;
         content: "";
         left: 50%;
@@ -4462,15 +4481,15 @@ cite, em, i {
         z-index: 99999;
         width: 100%;
         display: none;
-        box-shadow: 0 0 10px rgba(119, 119, 119, .5)
+        box-shadow: 0 0 10px rgba(119,119,119,.5)
     }
 
-    .zhti_qiehuan > li {
+    .zhti_qiehuan>li {
         line-height: 30px;
         cursor: pointer
     }
 
-    .zhti_qiehuan_top > img {
+    .zhti_qiehuan_top>img {
         width: 9px;
         height: auto;
         position: absolute;
@@ -4547,7 +4566,7 @@ cite, em, i {
 
 @media screen and (max-width: 750px) {
     .index_login_wrap {
-        background: url(../img/div_loding.gif) no-repeat center;
+        background:url(../img/div_loding.gif) no-repeat center;
         width: 5rem;
         height: 5rem;
         margin: 1.9rem auto
@@ -4684,9 +4703,11 @@ cite, em, i {
     25% {
         -webkit-transform: translateY(-10px)
     }
-    100%, 50% {
+
+    100%,50% {
         -webkit-transform: translateY(0)
     }
+
     75% {
         -webkit-transform: translateY(10px)
     }
@@ -4696,9 +4717,11 @@ cite, em, i {
     25% {
         transform: translateY(-10px)
     }
-    100%, 50% {
+
+    100%,50% {
         transform: translateY(0)
     }
+
     75% {
         transform: translateY(10px)
     }
@@ -4715,9 +4738,11 @@ cite, em, i {
     25% {
         -webkit-transform: translateY(10px)
     }
-    100%, 50% {
+
+    100%,50% {
         -webkit-transform: translateY(0)
     }
+
     75% {
         -webkit-transform: translateY(-10px)
     }
@@ -4727,15 +4752,17 @@ cite, em, i {
     25% {
         transform: translateY(10px)
     }
-    100%, 50% {
+
+    100%,50% {
         transform: translateY(0)
     }
+
     75% {
         transform: translateY(-10px)
     }
 }
 
-.zhti_qiehuan > li:hover {
+.zhti_qiehuan>li:hover {
     color: #00bcb4
 }
 
@@ -4751,7 +4778,7 @@ cite, em, i {
 
 @media screen and (max-width: 750px) {
     .oz_t_t a::after {
-        content: '';
+        content:'';
         position: absolute;
         width: 1.95rem;
         height: .9rem;
@@ -4764,7 +4791,7 @@ cite, em, i {
 
 @media screen and (min-width: 750px) {
     .navindex li a {
-        color: #00bcb4
+        color:#00bcb4
     }
 
     #red .navindex li a {
@@ -4780,7 +4807,7 @@ cite, em, i {
     }
 
     .navindex .active a {
-        color: #fff !important
+        color: #fff!important
     }
 
     .oz_t_t a::after {
@@ -4792,3 +4819,4 @@ cite, em, i {
         background: url(../img/hot.png)
     }
 }
+background_blue
