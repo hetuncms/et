@@ -7,6 +7,8 @@ import com.example.cms9cc.admin.AdminService;
 import com.example.cms9cc.template.bean.PaiHangBean;
 import com.example.cms9cc.template.service.IndexService;
 import com.example.cms9cc.tools.TemplateUtils;
+import com.example.cms9cc.tools.jsonparse.PJson;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import okhttp3.RequestBody;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +32,8 @@ public class Index {
     public static final int TYPE_FOOTBALL = 1;
     public static final int TYPE_TIYU = 3;
     OkHttpClient okHttpClient = new OkHttpClient();
-
+    @Autowired
+    PJson pjson;
     AdminService adminService;
     @Value("${spring.thymeleaf.prefix}")
     private String templatePath;
@@ -104,9 +107,12 @@ public class Index {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-        PaiHangBean paiHangBean = com.alibaba.fastjson2.JSON.parseObject(netData, PaiHangBean.class);
+        PaiHangBean paiHangBean;
+        try {
+            paiHangBean = pjson.getInstance().readValue(netData, PaiHangBean.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
         return paiHangBean;
     }
 

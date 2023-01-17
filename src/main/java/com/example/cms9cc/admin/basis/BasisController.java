@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class BasisController {
 
     private final RestartService restartService;

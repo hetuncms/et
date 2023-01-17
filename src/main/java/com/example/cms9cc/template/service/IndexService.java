@@ -27,7 +27,6 @@ public class IndexService {
     }
 
     public LiveBean.LiveItem getLiveItem(Long id) {
-
         try {
             return netInterface.getLiveItem(id).execute().body();
         } catch (IOException e) {

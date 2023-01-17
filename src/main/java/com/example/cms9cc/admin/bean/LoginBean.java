@@ -29,9 +29,12 @@ public class LoginBean {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof LoginBean loginBean)) return false;
-        return Objects.equals(getUsername(), loginBean.getUsername()) &&
-                Objects.equals(getPassword(), loginBean.getPassword());
+
+        if (!(o instanceof LoginBean))
+            return false;
+        LoginBean loginBean = (LoginBean) o;
+        if (!getUsername().equals(loginBean.getUsername())) return false;
+        return getPassword().equals(loginBean.getPassword());
     }
 
     @Override

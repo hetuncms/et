@@ -5,12 +5,22 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import java.util.List;
 
-@JsonIgnoreProperties(value = {"t", "a", "o"}, allowSetters = true)
 public class LiveBean {
+    public LiveBean() {
+    }
 
     private int status;
     private String info;
     private List<LiveItem> live_item;
+    private Long code;
+
+    public Long getCode() {
+        return code;
+    }
+
+    public void setCode(Long code) {
+        this.code = code;
+    }
 
     public int getStatus() {
         return status;
@@ -36,7 +46,7 @@ public class LiveBean {
         this.live_item = live_item;
     }
 
-    public class LiveItem {
+    public static class LiveItem {
 
         private long id;
         private String playid;
@@ -59,6 +69,15 @@ public class LiveBean {
         private String matchId;
 
         private Boolean liveStatus;
+        private Boolean isHot;
+
+        public Boolean getHot() {
+            return isHot;
+        }
+
+        public void setHot(Boolean hot) {
+            isHot = hot;
+        }
 
         public String getLiveId() {
             return liveId;
@@ -140,11 +159,11 @@ public class LiveBean {
             return new Date(this.getLongTime());
         }
 
-        public Boolean getTop() {
+        public Boolean getIsTop() {
             return isTop;
         }
 
-        public void setTop(Boolean isTop) {
+        public void setIsTop(Boolean isTop) {
             this.isTop = isTop;
         }
 

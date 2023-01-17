@@ -1,4 +1,4 @@
-package com.example.cms9cc.admin.ad.topad;
+package com.example.cms9cc.admin.ad;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class FloatAdController {
 
     private final FloatAdMapping floatAdMapping;

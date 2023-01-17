@@ -1,4 +1,4 @@
-package com.example.cms9cc.admin.ad.topad;
+package com.example.cms9cc.admin.ad;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class CoupletsAdController {
 
     private final CoupletsAdMapping coupletsAdMapping;

@@ -4,6 +4,7 @@ import com.example.cms9cc.tools.JWTUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +25,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         System.out.println(token);
 
 
-        if (handler instanceof HandlerMethod handlerMethod) {
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
             JwtIgnore jwtIgnore = handlerMethod.getMethodAnnotation(JwtIgnore.class);
             if (jwtIgnore != null) {
                 return true;
@@ -35,11 +37,11 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        if (JWTUtils.verify(token) == null) {
-            throw new RuntimeException();
-        } else {
+        if (StringUtils.hasText(token) && JWTUtils.verify(token) != null) {
             return true;
         }
+
+        return false;
     }
 
     /**

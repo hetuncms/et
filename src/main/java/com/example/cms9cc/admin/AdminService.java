@@ -54,8 +54,8 @@ public class AdminService {
         CoupletsMapBean coupletsMapBean = new CoupletsMapBean();
         topAdBeans.forEach(coupletsBean -> {
             switch (coupletsBean.getLocation()) {
-                case "对联左" -> coupletsMapBean.setLeftAd(coupletsBean);
-                case "对联右" -> coupletsMapBean.setRightAd(coupletsBean);
+                case "对联左" : coupletsMapBean.setLeftAd(coupletsBean);
+                case "对联右" : coupletsMapBean.setRightAd(coupletsBean);
             }
         });
         return coupletsMapBean;

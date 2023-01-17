@@ -1,5 +1,5 @@
 <a id="item_list"
-   th:class="${item.getTop().equals('1') ? 'clearfix zhiding':'clearfix'}" th:each="item,count:${list}"
+   th:class="${item.getIsTop().equals('1') ? 'clearfix zhiding':'clearfix'}" th:each="item,count:${list}"
    th:href="'/bofang/'+${item.getId()}">
 
     <section class="clearfix jiabifeng" wuyd="">

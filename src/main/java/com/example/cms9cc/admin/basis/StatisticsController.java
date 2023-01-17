@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.util.StringUtils;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class StatisticsController {
 
     StatisticsMapping statisticsMapping;
