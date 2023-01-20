@@ -8,11 +8,11 @@
 
 
                 <p class="date-p"
-                   th:if="${(item.getIsTop().equals('0') && count.index==0)
-                   || (item.getIsTop().equals('0') && count.index!=0  && #dates.day(item.date) - #dates.day(list.get(count.index-1).date)!=0)
-                   || (item.getIsTop().equals('0') && count.index!=0  && list.get(count.index-1).getIsTop().equals('1'))}"
+                   th:if="${(item.isTop().equals('0') && count.index==0)
+                   || (item.isTop().equals('0') && count.index!=0  && #dates.day(item.date) - #dates.day(list.get(count.index-1).date)!=0)
+                   || (item.isTop().equals('0') && count.index!=0  && list.get(count.index-1).isTop().equals('1'))}"
                    th:text="${#dates.format(item.date,'MM-dd')}"></p>
-                <a th:class="${item.getIsTop().equals('1') ? 'clearfix zhiding':'clearfix'}"
+                <a th:class="${item.isTop().equals('1') ? 'clearfix zhiding':'clearfix'}"
 
                    th:href="'/bofang/?iframelink='+${item.iframeLink}">
 

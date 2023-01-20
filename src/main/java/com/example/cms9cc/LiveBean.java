@@ -159,7 +159,7 @@ public class LiveBean {
             return new Date(this.getLongTime());
         }
 
-        public Boolean getIsTop() {
+        public Boolean isTop() {
             return isTop;
         }
 

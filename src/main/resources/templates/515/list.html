@@ -5,11 +5,11 @@
 
             <div id="item_list" th:each="item,count:${list}">
                 <p class="date-p"
-                   th:if="${(!item.getIsTop() && count.index==0)
-                   || (!item.getIsTop() && count.index!=0  && #dates.day(item.date) - #dates.day(list.get(count.index-1).date)!=0)
-                   || (!item.getIsTop() && count.index!=0  && list.get(count.index-1).getIsTop())}"
+                   th:if="${(!item.isTop() && count.index==0)
+                   || (!item.isTop() && count.index!=0  && #dates.day(item.date) - #dates.day(list.get(count.index-1).date)!=0)
+                   || (!item.isTop() && count.index!=0  && list.get(count.index-1).isTop())}"
                    th:text="${#dates.format(item.date,'MM-dd')}"></p>
-                <a th:class="${item.getIsTop() ? 'clearfix zhiding':'clearfix'}"
+                <a th:class="${item.isTop() ? 'clearfix zhiding':'clearfix'}"
 
                    th:href="'/bofang/'+${item.getId()}">
 

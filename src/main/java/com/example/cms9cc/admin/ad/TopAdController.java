@@ -1,6 +1,7 @@
 package com.example.cms9cc.admin.ad;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.cms9cc.admin.bean.ResultBean;
 import com.example.cms9cc.admin.bean.TopAdBean;
 import com.example.cms9cc.admin.mapper.TopAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,11 @@ public class TopAdController {
     public Integer delTopAd(@RequestBody TopAdBean topAdBean) {
         int i = topAdMapping.deleteById(topAdBean.getId());
         return i;
+    }
+
+    @PostMapping("/edittopad")
+    public ResultBean editTopAd(@RequestBody TopAdBean topAdBean){
+        int code = topAdMapping.updateById(topAdBean);
+        return new ResultBean.Builder().buildSucces(code);
     }
 }
