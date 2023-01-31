@@ -6,6 +6,7 @@ import com.example.cms9cc.net.NetService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Date;
 
 @Service
 public class IndexService {
@@ -20,7 +21,8 @@ public class IndexService {
 
     public LiveBean index(String requestBody) {
         try {
-            return netInterface.index(requestBody).execute().body();
+            LiveBean body = netInterface.index(requestBody).execute().body();
+            return body;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

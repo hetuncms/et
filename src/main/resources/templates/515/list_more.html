@@ -1,14 +1,13 @@
 <a id="item_list"
    th:class="${item.isTop().equals('1') ? 'clearfix zhiding':'clearfix'}" th:each="item,count:${list}"
    th:href="'/bofang/'+${item.getId()}">
-
     <section class="clearfix jiabifeng" wuyd="">
         <div class="changci" style="display: block;">
             <cite class="noks">&nbsp;</cite></div>
 
         <div class="bifeng">vs</div>
         <div class="team zhudui zhudui_wuyd">
-            <span><img alt="" class="" th:src="${item.leftImg}" onerror="javascript:this.remove()"></span>
+            <span><img alt="" class="" th:src="${item.leftImg}" onerror="this.remove()"></span>
             <p th:text="${item.leftName}">
             </p>
         </div>
@@ -19,8 +18,8 @@
                             </span>
                 <span><em th:text="${item.gameName}"></em> <i
                         style="white-space: nowrap; overflow: visible;"
-                        th:text="${item.date.before(#dates.createNow()) ? #dates.format(item.date,'HH:mm') : #dates.format(item.date,'MM-dd HH:mm')}">
-                              </i> </span></p>
+
+                        th:text="${(#dates.day(item.getDate()) - #dates.day(#dates.createToday())==0) ? #dates.format(item.getDate(),'HH:mm') : #dates.format(item.getDate(),'MM-dd HH:mm')}">               </i> </span></p>
             <p class="vsp">VS</p>
             <p th:class="${item.getLiveStatus()}?'video zb_green':'video'"><i
                     class="video-icon"></i>
@@ -30,7 +29,7 @@
         <div class="team kedui">
                             <span><img alt=""
                                        class=""
-                                       th:src="${item.rightImg}" onerror="javascript:this.remove()"></span>
+                                       th:src="${item.rightImg}" onerror="this.remove()"></span>
             <p th:text="${item.rightName}"></p>
         </div>
     </section>

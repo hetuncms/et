@@ -37,11 +37,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        if (StringUtils.hasText(token) && JWTUtils.verify(token) != null) {
-            return true;
-        }
-
-        return false;
+        return StringUtils.hasText(token) && JWTUtils.verify(token) != null;
     }
 
     /**
@@ -61,6 +57,7 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler, Exception ex) throws Exception {
-        System.out.println(ex);
+        assert ex != null;
+        ex.printStackTrace();
     }
 }
