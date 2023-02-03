@@ -11,12 +11,11 @@
                    th:text="${#dates.format(item.getDate(),'MM-dd')}"></p>
                 <a th:class="${item.isTop() ? 'clearfix zhiding':'clearfix'}"
 
-                   th:href="'/bofang/'+${item.getId()}">
+                   th:href="'/bofang/'+${item.getMatchId()}">
 
                     <section class="clearfix jiabifeng" wuyd="">
                         <div class="changci" style="display: block;">
                             <cite class="noks">&nbsp;</cite></div>
-
                         <div class="bifeng">vs</div>
                         <div class="team zhudui zhudui_wuyd">
                             <span><img alt="" class="" th:src="${item.leftImg}" onerror="this.remove()"></span>
@@ -33,7 +32,7 @@
                                         th:text="${(#dates.day(item.getDate()) - #dates.day(#dates.createToday())==0) ? #dates.format(item.getDate(),'HH:mm') : #dates.format(item.getDate(),'MM-dd HH:mm')}">
                               </i> </span></p>
                             <p class="vsp">VS</p>
-                            <p th:class="${item.getLiveStatus()}?'video zb_green':'video'"><i
+                            <p th:class="${item.getLiveing()}?'video zb_green':'video'"><i
                                     class="video-icon"></i>
                                 <span>视频直播</span>
                             </p>
@@ -87,5 +86,7 @@
                 }
             });
         }
+
+
     </script>
 </div>

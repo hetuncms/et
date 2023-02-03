@@ -1,6 +1,7 @@
 package com.example.cms9cc.net;
 
 import com.example.cms9cc.LiveBean;
+import com.example.cms9cc.template.bean.PlayInfoBean;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.*;
@@ -17,4 +18,7 @@ public interface NetInterface {
 
     @GET("getLiveItem")
     Call<LiveBean.LiveItem> getLiveItem(@Query("liveId") Long liveId);
+
+    @GET("getPlayInfo")
+    Call<PlayInfoBean> getPlayInfo(@Query("matchId") Long id);
 }

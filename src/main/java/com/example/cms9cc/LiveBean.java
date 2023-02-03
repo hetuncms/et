@@ -1,18 +1,15 @@
 package com.example.cms9cc;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.Date;
 import java.util.List;
 
 public class LiveBean {
-    public LiveBean() {
-    }
-
     private int status;
     private String info;
     private List<LiveItem> live_item;
     private Long code;
+    public LiveBean() {
+    }
 
     public Long getCode() {
         return code;
@@ -52,12 +49,28 @@ public class LiveBean {
         private String playid;
         private int liveType;
         private String iframeLink;
-
+private Boolean liveing;
         private Long longTime;
         private String title;
         private Date date;
 
         private String liveId;
+
+        public Boolean getLiveing() {
+            return liveing;
+        }
+
+        public void setLiveing(Boolean liveing) {
+            this.liveing = liveing;
+        }
+
+        public Boolean getTop() {
+            return isTop;
+        }
+
+        public void setTop(Boolean top) {
+            isTop = top;
+        }
 
         private Boolean isTop;
         private String leftName;
@@ -111,10 +124,6 @@ public class LiveBean {
             this.longTime = longTime;
         }
 
-        public void setDate(Date date) {
-            this.date = date;
-        }
-
         public long getId() {
             return id;
         }
@@ -156,7 +165,11 @@ public class LiveBean {
         }
 
         public Date getDate() {
-            return new Date(this.getLongTime()*1000);
+            return new Date(this.getLongTime() * 1000);
+        }
+
+        public void setDate(Date date) {
+            this.date = date;
         }
 
         public Boolean isTop() {

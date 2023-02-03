@@ -21,7 +21,7 @@
 
                         th:text="${(#dates.day(item.getDate()) - #dates.day(#dates.createToday())==0) ? #dates.format(item.getDate(),'HH:mm') : #dates.format(item.getDate(),'MM-dd HH:mm')}">               </i> </span></p>
             <p class="vsp">VS</p>
-            <p th:class="${item.getLiveStatus()}?'video zb_green':'video'"><i
+            <p th:class="${item.getLiveing()}?'video zb_green':'video'"><i
                     class="video-icon"></i>
                 <span>视频直播</span>
             </p>

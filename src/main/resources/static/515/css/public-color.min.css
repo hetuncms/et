@@ -354,7 +354,7 @@
     }
 
     #red .newyearr {
-        background: url(../img/logo_june_r_red.png?r=43);
+        background: url(../img/logo_june_l_red.png?r=43);
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
@@ -466,7 +466,7 @@
     }
 
     #red .newyearr {
-        background: url(../img/logo_june_r_w_red.png?r=43) no-repeat;
+        background: url(../img/logo_june_l_w_red.png?r=43) no-repeat;
         background-size: 100%;
     }
 }
@@ -848,7 +848,7 @@
     }
 
     #blue .newyearr {
-        background: url(../img/logo_june_r_blue.png?r=43);
+        background: url(../img/logo_june_l_blue.png?r=43);
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
@@ -959,7 +959,7 @@
     }
 
     #blue .newyearr {
-        background: url(../img/logo_june_r_w_blue.png?r=43) no-repeat;
+        background: url(../img/logo_june_l_w_blue.png?r=43) no-repeat;
         background-size: 100%;
     }
 }
@@ -1361,7 +1361,7 @@ html {
     }
 
     #yellow .newyearr {
-        background: url(../img/logo_june_r_yellow.png?r=43);
+        background: url(../img/logo_june_l_yellow.png?r=43);
         background-size: 100% 100%;
         background-repeat: no-repeat;
     }
@@ -1468,7 +1468,7 @@ html {
     }
 
     #yellow .newyearr {
-        background: url(../img/logo_june_r_w_yellow.png?r=43) no-repeat;
+        background: url(../img/logo_june_l_w_yellow.png?r=43) no-repeat;
         background-size: 100%;
     }
 }

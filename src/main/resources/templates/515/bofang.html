@@ -18,6 +18,14 @@
     <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/cmsapp.css}" type="text/css">
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+    <link href="https://unpkg.com/video.js@6.7.1/dist/video-js.css" rel="stylesheet">
+    <script src="https://unpkg.com/video.js@6.7.1/dist/video.js"></script>
+    <script src="https://unpkg.com/@videojs/http-streaming@0.9.0/dist/videojs-http-streaming.js"></script>
+
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
 </head>
 <body>
 
@@ -53,7 +61,8 @@
 
         .main-two {
             background: #26262b !important;
-            color: #ddd
+            color: #ddd;
+            height: 64%;
         }
 
     }
@@ -146,10 +155,11 @@
 
 
     <div class="main-two">
-        <iframe scrolling="no" style="background:transparent;"
-                th:src="${iframelink}" width="100%" allowfullscreen="allowfullscreen"
-                mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"></iframe>
-    </div>
+
+        <video-js id="my_video_1" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls preload="auto" width="640" height="268">
+            <source th:each="item:${playurl}" th:src="${item.getUrl()}" type="application/x-mpegURL">
+        </video-js>
+ </div>
 </div>
 <div class="pcrlist">
     <div class="once appbtn hide">
@@ -294,8 +304,6 @@
 
             } else {
             }
-
-
         }
 
         function myBrowser() {
@@ -308,57 +316,68 @@
                 return "noSafari";
             }
         }
-
-        /* $('.iosKJ-safari').click(function(){
-            $('.iosKJ_nosafsai').show();
-        })
-        $('.close_safari').on("click",function(){
-            $('.iosKJ_nosafsai').hide();
-        }) */
-
-        /* var clipboard = new Clipboard('.btn');
-        clipboard.on('success', function(e){
-            $(".fuzhi_ts").show()
-            document.getElementById('copy_zt').innerHTML = '复制成功';
-            document.getElementById('taokouling').blur();
-            setTimeout(function(){
-                $(".fuzhi_ts").hide()
-                $(".iosKJ").hide()
-            },2000)
-        });
-        clipboard.on('error', function(e){
-            document.getElementById('copy_zt').innerHTML = '复制失败，请长按复制';
-            setTimeout(function(){
-                $(".fuzhi_ts").hide()
-                $(".iosKJ").hide()
-            },2000)
-        }); */
-        /* if(("standalone" in window.navigator) && window.navigator.standalone){
-            // If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
-            var noddy, remotes = false;
-            $(".quwangapptg").hide();
-            $('#safari').hide()
-            $('.iosKJ').hide();
-            $('.iosKJ-safari').css("display","none");
-            document.addEventListener('click', function(event) {
-                noddy = event.target;
-                // Bubble up until we hit link or top HTML element. Warning: BODY element is not compulsory so better to stop on HTML
-                while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
-                    noddy = noddy.parentNode;
-                }
-
-                if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes))
-                {
-                    event.preventDefault();
-                    document.location.href = noddy.href;
-                }
-
-            },false);
-        } */
     </script>
+
+
 </footer>
 
 <div th:replace="~{base_ad::left_ad}"></div>
 <div th:replace="~{base_ad::right_ad}"></div>
+
+<script>
+    window.myVideo = videojs('my_video_1');
+    videoUrls = [(${playurl})]
+    urlsStr=''
+    for(var i=0;i<videoUrls.length;++i){
+        urlsStr+='<li class="vjs-menu-item" tabindex="-1" role="menuitemcheckbox" type="1"  οnclick="changeVideo('+i+1+')">'+videoUrls[i].name+'</li>'
+    }
+    var videoPanelMenu = $('.vjs-fullscreen-control')
+    videoPanelMenu.before('<div class="vjs-subs-caps-button  vjs-menu-button vjs-menu-button-popup vjs-control vjs-button"  aria-live="polite" aria-expanded="false" aria-haspopup="true">'
+        + '<div class="vjs-menu" role="presentation">'
+        + '<ul class="vjs-menu-content" role="menu">'
+        + urlsStr
+        + '</ul></div>'
+        +'  <button class="vjs-subs-caps-button vjs-control vjs-button" type="button" aria-live="polite" title="清晰度切换" aria-disabled="false">'
+        +'      <span aria-hidden="true" class="vjs-icon-placeholder" type="qxd"></span><span class="vjs-control-text">清晰度切换</span>'
+        +'  </button>'
+        +'</div>'
+    );
+
+    $('.vjs-menu-item').on('click', (e)=> {
+        e.stopPropagation()
+        let status = e.target.getAttribute('type')
+        var ctime= window.myVideo.currentTime();
+        let src = ''
+        switch(status) {
+            case '1':
+                src = videoUrls[0].url
+                break;
+            case '2':
+                src = videoUrls[1].url
+                // window.videojs("liveVideo").src([{type: "application/x-mpegURL", src: this.props.video.get('m3u8_lsd_url')}]);
+                // window.videojs("liveVideo").play();
+                break;
+            case '3':
+                src = videoUrls[2].url
+                // window.videojs("liveVideo").src([{type: "application/x-mpegURL", src: this.props.video.get('m3u8_lhd_url')}]);
+                // window.videojs("liveVideo").play();
+                break;
+            case '4':
+                src = videoUrls[3].url
+                // window.videojs("liveVideo").src([{type: "application/x-mpegURL", src: this.props.video.get('m3u8_lud_url')}]);
+                // window.videojs("liveVideo").play();
+                break;
+        }
+        window.myVideo.reset()
+        window.myVideo.src({type: 'application/x-mpegURL', src})
+        window.myVideo.load(src);
+        window.myVideo.on('loadedmetadata', function() {
+            window.myVideo.play()
+            setTimeout(()=> {
+                window.myVideo.currentTime(ctime)
+            },2000)
+        })
+    })
+</script>
 </body>
 </html>

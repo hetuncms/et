@@ -4,7 +4,9 @@ package com.example.cms9cc.template;
 import com.example.cms9cc.Config;
 import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.admin.AdminService;
+import com.example.cms9cc.template.bean.DPlayerQualityBean;
 import com.example.cms9cc.template.bean.PaiHangBean;
+import com.example.cms9cc.template.bean.PlayInfoBean;
 import com.example.cms9cc.template.service.IndexService;
 import com.example.cms9cc.tools.TemplateUtils;
 import com.example.cms9cc.tools.jsonparse.PJson;
@@ -22,7 +24,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @Controller
 public class Index {
@@ -35,12 +41,10 @@ public class Index {
     @Autowired
     PJson pjson;
     AdminService adminService;
-    @Value("${spring.thymeleaf.prefix}")
-    private String templatePath;
-
-
     IndexService indexService;
     Config config;
+    @Value("${spring.thymeleaf.prefix}")
+    private String templatePath;
 
     @Autowired
     public Index(AdminService adminService, Config config, IndexService indexService) {
@@ -51,11 +55,10 @@ public class Index {
 
     @PostMapping("/loadmore")
     @org.springframework.web.bind.annotation.ResponseBody
-    private String loadMore(HttpServletRequest request, HttpServletResponse response,
-                            @org.springframework.web.bind.annotation.RequestBody String reqBody) {
+    private String loadMore(HttpServletRequest request, HttpServletResponse response, @org.springframework.web.bind.annotation.RequestBody String reqBody) {
         LiveBean liveBean = requestData(reqBody);
 
-        if (liveBean.getStatus() == -1 || liveBean.getLive_item()==null ||liveBean.getLive_item().isEmpty()) {
+        if (liveBean.getStatus() == -1 || liveBean.getLive_item() == null || liveBean.getLive_item().isEmpty()) {
             return "";
         }
 
@@ -157,11 +160,58 @@ public class Index {
 
 
     @GetMapping("/bofang/{id}")
-    public String bofang(Model model, @PathVariable("id") Long  id) {
+    public String bofang(Model model, @PathVariable("id") Long id) {
 
-        model.addAttribute("item", indexService.getLiveItem(id));
         model.addAttribute("config", adminService.getAllConfig());
 //        model.addAttribute("item", item);
+        PlayInfoBean liveInfo = indexService.getLiveInfo(id);
+
+
+        PlayInfoBean.Result liveInfoBean = liveInfo.getLiveInfoBean();
+        PlayInfoBean.LiveStreams liveStreams = null;
+
+        List<DPlayerQualityBean> collect = liveInfoBean.getLive_streams().stream().filter(new Predicate<PlayInfoBean.LiveStreams>() {
+            @Override
+            public boolean test(PlayInfoBean.LiveStreams liveStreams) {
+                return liveStreams.getFormat() != 4;
+            }
+        }).map(new Function<PlayInfoBean.LiveStreams, DPlayerQualityBean>() {
+            @Override
+            public DPlayerQualityBean apply(PlayInfoBean.LiveStreams liveStreams) {
+                DPlayerQualityBean dPlayerQualityBean = new DPlayerQualityBean();
+                switch (liveStreams.getType()) {
+                    case 1:
+                        dPlayerQualityBean.setName("卫星/标清");
+                        break;
+                    case 2:
+                        dPlayerQualityBean.setName("标清中文");
+                        break;
+                    case 3:
+                        dPlayerQualityBean.setName("高清原声");
+                        break;
+                    case 4:
+                        dPlayerQualityBean.setName("高清中文");
+                        break;
+                }
+
+                switch (liveStreams.getFormat()) {
+                    case 2:
+                        dPlayerQualityBean.setType("application/x-mpegURL");
+                        break;
+                    case 3:
+                        dPlayerQualityBean.setType("flv");
+                }
+                dPlayerQualityBean.setUrl(liveStreams.getUrl());
+                return dPlayerQualityBean;
+            }
+
+        }).collect(Collectors.toList());
+
+        if (collect != null) {
+            model.addAttribute("playurl", collect);
+        }
+
+        model.addAttribute("item", liveInfo.getData());
 
         return "bofang";
     }
