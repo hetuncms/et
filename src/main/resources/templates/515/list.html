@@ -11,7 +11,7 @@
                    th:text="${#dates.format(item.getDate(),'MM-dd')}"></p>
                 <a th:class="${item.isTop() ? 'clearfix zhiding':'clearfix'}"
 
-                   th:href="'/bofang/'+${item.getMatchId()}">
+                   th:href="'/bofang/'+${item.getId()}">
 
                     <section class="clearfix jiabifeng" wuyd="">
                         <div class="changci" style="display: block;">

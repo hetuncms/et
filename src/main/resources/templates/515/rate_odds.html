@@ -1,0 +1,167 @@
+<div class="zhulanzhishu" th:fragment="basketball_rate">
+    <div class="zhishu_lan" style="display: block;">
+        <ul class="lanzhi_bg">
+            <li class="lan_zhi_bt clearfix btbjs">
+                <div class="duiwu">主队/客队</div>
+                <div class="changcibf">
+                    <span>1</span> <span>2</span> <span>3</span> <span>4</span> <span>OT</span>
+                </div>
+                <div class="quchang">全场</div>
+                <div class="ouzhi">欧指</div>
+                <div class="rangfen">让分</div>
+                <div class="zhongfen">总分</div>
+            </li>
+            <li class="lan_zhi_bt clearfix zhudui">
+                <div class="duiwu" th:text="${item.getLeftName()}"></div>
+                <div class="changcibf">
+                    <span class="c_one" th:text="${item.getLeftTeamScore().get(1)}"></span>
+                    <span class="c_two" th:text="${item.getLeftTeamScore().get(2)}"></span>
+                    <span class="c_three" th:text="${item.getLeftTeamScore().get(3)}"></span>
+                    <span class="c_four" th:text="${item.getLeftTeamScore().get(4)}"></span>
+                    <span class="c_add" th:text="${item.getLeftTeamScore().get(5)}"></span>
+                </div>
+                <div class="quchang qcred" th:text="${item.getLeftTeamScore().get(0)}"></div>
+                <div class="ouzhi"><i class="" th:text="${ouzhi!=null?ouzhi.getOption().get(2).getRate():'-'}"></i></div>
+                <div class="rangfen">
+                    <span class="rfone"><i>-</i></span>
+                    <span class="rftwo"><i class="right_yazhou_rangfen" th:text="${yazhou!=null?yazhou.getOption().get(1).getRate():'-'}"></i></span>
+                </div>
+                <div class="zhongfen">
+                    <span class="rfone"><i class="" th:text="${daxiaopan!=null?'小'+daxiaopan.getPoint():'-'}"></i></span>
+                    <span class="rftwo"><i class="" th:text="${daxiaopan!=null?daxiaopan.getOption().get(1).getRate():'-'}"></i></span>
+                </div>
+            </li>
+            <li class="lan_zhi_bt clearfix keui">
+                <div class="duiwu" th:text="${item.getRightName()}"></div>
+                <div class="changcibf">
+                    <span class="c_one" th:text="${item.getRightTeamScore().get(1)}"></span>
+                    <span class="c_two" th:text="${item.getRightTeamScore().get(2)}"></span>
+                    <span class="c_three" th:text="${item.getRightTeamScore().get(3)}"></span>
+                    <span class="c_four" th:text="${item.getRightTeamScore().get(4)}"></span>
+                    <span class="c_add" th:text="${item.getRightTeamScore().get(5)}"></span>
+                </div>
+                <div class="quchang qcred" th:text="${item.getRightTeamScore().get(0)}"></div>
+                <div class="ouzhi"><i class="" th:text="${ouzhi!=null?ouzhi.getOption().get(0).getRate():'-'}"></i></div>
+                <div class="rangfen">
+                    <span class="rfone"><i>-</i></span>
+                    <span class="rftwo"><i class="left_yazhou_rangfen" th:text="${yazhou!=null?yazhou.getOption().get(0).getRate():'-'}"></i></span>
+                </div>
+                <div class="zhongfen">
+                    <span class="rfone"><i class="" th:text="${daxiaopan!=null?'大'+daxiaopan.getPoint():'-'}"></i></span>
+                    <span class="rftwo"><i class="" th:text="${daxiaopan!=null?daxiaopan.getOption().get(1).getRate():'-'}"></i></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+
+        var currentId = window.location.pathname.slice(8)
+        function updateRate(obj){
+            var item = obj.list[0].option;
+
+            if (currentId == obj.match_id) {
+                $(".left_yazhou_rangfen").text(item[0].rate)
+                $(".right_yazhou_rangfen").text(item[1].rate)
+            }
+        }
+        var socket = new SockJS('/socket/match')
+        var stompClient = Stomp.over(socket);
+        stompClient.debug = null
+        stompClient.connect({}, function (frame) {
+            stompClient.subscribe('/rate_odds', function (msg) {
+                updateRate(JSON.parse(msg.body))
+            });
+        },function (msg) {
+            console.log("msg:"+msg)
+        })
+    </script>
+</div>
+
+
+<div class="zhulanzhishu" th:if="${rateodds}" th:fragment="football_rate">
+    <div class="bifeng_pei bifeng_pei_new" th:if="${item.getLiveType()==1}">
+        <p class="zhu_peiqiu redyellow_p" style="display: block;">
+            <span class="jiaoq"><i><img th:src="@{/515/img/jiao.png}"></i> <em class="no" id="main_jiaoq">-</em></span>
+            <span class="redp"><i><img th:src="@{/515/img/redpei.png}"></i><em class="no" id="main_redp">-</em></span>
+            <span class="yellowp"><i><img th:src="@{/515/img/yellow.png}"></i><em class="no" id="main_yellowp">-</em></span>
+        </p>
+        <!-- <p class="bs_befeng"></p> -->
+        <p class="ke_peiqiu redyellow_p" style="display: block;">
+            <span class="yellowp"><em class="no" id="visiting_yellow">-</em><i><img th:src="@{/515/img/yellow.png}"></i></span>
+            <span class="redp"><em class="no" id="visiting_redp">-</em><i><img th:src="@{/515/img/redpei.png}"></i></span>
+            <span class="jiaoq"><em class="no" id="visiting_jiaoq">-</em><i><img th:src="@{/515/img/jiao.png}"></i> </span>
+        </p>
+    </div>
+    <div class="zhishu">
+        <div class="jscs_num oupei_z">
+            <span>欧指</span>
+            <p class="oz_num">
+                <cite class="ouzhi1" th:text="${ouzhi!=null?ouzhi.getOption().get(0).getRate():'-'}"></cite>
+                <cite class="ouzhi2" th:text="${ouzhi!=null?ouzhi.getOption().get(1).getRate():'-'}"></cite>
+                <cite class="ouzhi3" th:text="${ouzhi!=null?ouzhi.getOption().get(2).getRate():'-'}"></cite></p>
+            <p class="oz_fpan" style="display: none;"></p>
+        </div>
+        <div class="jscs_num yapan_z">
+            <span>亚盘</span>
+            <p class="oz_num"><cite class="yazhou1" th:text="${yazhou!=null?yazhou.getOption().get(0).getRate():'-'}"></cite>
+                <cite class="yazhou2">-</cite>
+                <cite class="yazhou3" th:text="${yazhou!=null?yazhou.getOption().get(1).getRate():'-'}"></cite></p>
+            <p class="oz_fpan" style="display: none;"></p>
+        </div>
+        <div class="jscs_num daxiao_z">
+            <span>大小盘</span>
+            <p class="oz_num"><cite class="daxiao1" th:text="${daxiaopan!=null?daxiaopan.getOption().get(0).getRate():'-'}"></cite>
+                <cite class="daxiao2" th:text="${daxiaopan!=null?daxiaopan.getOption().get(1).getRate():'-'}"></cite></p>
+            <p class="oz_fpan" style="display: none;"></p>
+        </div>
+    </div>
+
+    <script>
+        const currentId = window.location.pathname.slice(8);
+
+        function updateRate(obj){
+            const item = obj.list[0];
+            const option = item.option;
+            if (currentId == obj.match_id) {
+
+                if (obj.type == 1) {
+                    $(".ouzhi1").text(option[0].rate)
+                    $(".ouzhi2").text(option[1].rate)
+                    $(".ouzhi3").text(option[2].rate)
+                } else if (obj.type == 2) {
+                    $(".yazhou1").text(option[0].rate)
+                    $(".yazhou2").text(option[1].rate)
+                    $(".yazhou3").text(option[2].rate)
+                } else if (obj.type == 3) {
+                    $(".daxiao1").text(option[0].rate)
+                    $(".daxiao2").text(option[1].rate)
+                }
+            }
+        }
+
+        function updateSoccerInfo(obj) {
+            mainTeam = obj.team[0]
+            visitingTeam = obj.team[1]
+
+            $("#visiting_jiaoq").text(visitingTeam.corner)
+            $("#visiting_redp").text(visitingTeam.red)
+            $("#visiting_yellow").text(visitingTeam.yellow)
+            $("#main_jiaoq").text(mainTeam.corner)
+            $("#main_redp").text(mainTeam.red)
+            $("#main_yellowp").text(mainTeam.yellow)
+        }
+        var socket = new SockJS('/socket/match')
+        var stompClient = Stomp.over(socket);
+        stompClient.debug = null
+        stompClient.connect({}, function (frame) {
+            stompClient.subscribe('/topic/match'+currentId, function (msg) {
+                updateRate(JSON.parse(msg.body))
+            });
+            stompClient.subscribe('/topic/soccerInfo'+currentId, function (msg) {
+                updateSoccerInfo(JSON.parse(msg.body))
+            });
+        },function (msg) {
+            console.log("msg:"+msg)
+        })
+    </script>
+</div>

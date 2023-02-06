@@ -4,9 +4,7 @@ package com.example.cms9cc.template;
 import com.example.cms9cc.Config;
 import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.admin.AdminService;
-import com.example.cms9cc.template.bean.DPlayerQualityBean;
-import com.example.cms9cc.template.bean.PaiHangBean;
-import com.example.cms9cc.template.bean.PlayInfoBean;
+import com.example.cms9cc.template.bean.*;
 import com.example.cms9cc.template.service.IndexService;
 import com.example.cms9cc.tools.TemplateUtils;
 import com.example.cms9cc.tools.jsonparse.PJson;
@@ -28,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Controller
@@ -163,17 +162,68 @@ public class Index {
     public String bofang(Model model, @PathVariable("id") Long id) {
 
         model.addAttribute("config", adminService.getAllConfig());
-//        model.addAttribute("item", item);
+
         PlayInfoBean liveInfo = indexService.getLiveInfo(id);
 
+        MatchLeague footballLeague = liveInfo.getFootballLeague();
+
+        model.addAttribute("footballLeague", footballLeague);
 
         PlayInfoBean.Result liveInfoBean = liveInfo.getLiveInfoBean();
-        PlayInfoBean.LiveStreams liveStreams = null;
+
+        LiveBean.LiveItem liveItem = liveInfo.getData();
+
+        String liveTypeText = switch (liveItem.getLiveType()) {
+            case 1 -> "足球";
+            case 2 -> "篮球";
+            default -> "未知";
+        };
+
+        List<RateOddsItem> oddsItem = liveInfo.getOddsItem();
+        if (oddsItem != null && !oddsItem.isEmpty()) {
+            model.addAttribute("rateodds", oddsItem.get(0).getList().get(0));
+
+            final String[] companyName = {"BET365"};
+            final String finalCompanyName = "BET365";
+            for (RateOddsItem rateOddsItem : oddsItem) {
+
+                List<RateOddsItem.OddsItem> oddsItems = rateOddsItem.getList();
+                RateOddsItem.OddsItem oddsrateItems = rateOddsItem.getList().stream().filter(new Predicate<RateOddsItem.OddsItem>() {
+                    @Override
+                    public boolean test(RateOddsItem.OddsItem oddsItem) {
+                        return oddsItem.getCompanyName().startsWith(companyName[0]);
+                    }
+                }).findFirst().orElseGet(() -> {
+                    RateOddsItem.OddsItem oddsItem1 = oddsItems.get(0);
+                    companyName[0] = oddsItem1.getCompanyName();
+                    return oddsItem1;
+                });
+
+                if (rateOddsItem.getType() == 1) {
+                    // 欧指
+                    model.addAttribute("ouzhi", oddsrateItems);
+                } else if (rateOddsItem.getType() == 2) {
+                    // 亚洲
+                    model.addAttribute("yazhou", oddsrateItems);
+                } else if (rateOddsItem.getType() == 3) {
+                    // 大小盘
+                    model.addAttribute("daxiaopan", oddsrateItems);
+                }
+            }
+        }
+
+        model.addAttribute("item", liveItem);
+        model.addAttribute("liveTypeText", liveTypeText);
+        // 如果infobean 没有说明没有播放链接，只返回比赛信息就可以
+        if (liveInfoBean == null) {
+            return "bofang";
+        }
+        List<PlayInfoBean.LiveStreams> liveStreams = liveInfoBean.getLive_streams();
 
         List<DPlayerQualityBean> collect = liveInfoBean.getLive_streams().stream().filter(new Predicate<PlayInfoBean.LiveStreams>() {
             @Override
             public boolean test(PlayInfoBean.LiveStreams liveStreams) {
-                return liveStreams.getFormat() != 4;
+                return liveStreams.getFormat() == 2;
             }
         }).map(new Function<PlayInfoBean.LiveStreams, DPlayerQualityBean>() {
             @Override
@@ -209,9 +259,9 @@ public class Index {
 
         if (collect != null) {
             model.addAttribute("playurl", collect);
+            model.addAttribute("playUrls", liveStreams);
         }
 
-        model.addAttribute("item", liveInfo.getData());
 
         return "bofang";
     }

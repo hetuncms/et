@@ -8,6 +8,7 @@ public class LiveBean {
     private String info;
     private List<LiveItem> live_item;
     private Long code;
+
     public LiveBean() {
     }
 
@@ -49,12 +50,65 @@ public class LiveBean {
         private String playid;
         private int liveType;
         private String iframeLink;
-private Boolean liveing;
-        private Long longTime;
+        private List<Integer> visitingScore;
+        private List<Integer> mainScore;
+        private Boolean liveing;
+        private Long matchStartTime;
         private String title;
         private Date date;
-
         private String liveId;
+        private Integer hasOdds;
+        private List<Integer> leftTeamScore;
+        private List<Integer> rightTeamScore;
+        private Boolean isTop;
+        private String leftName;
+        private String rightName;
+        private String leftImg;
+        private String rightImg;
+        private String gameName;
+        private String matchId;
+        private Integer liveStatus;
+        private Boolean isHot;
+
+        public List<Integer> getVisitingScore() {
+            return visitingScore;
+        }
+
+        public void setVisitingScore(List<Integer> visitingScore) {
+            this.visitingScore = visitingScore;
+        }
+
+        public List<Integer> getMainScore() {
+            return mainScore;
+        }
+
+        public void setMainScore(List<Integer> mainScore) {
+            this.mainScore = mainScore;
+        }
+
+        public Integer getHasOdds() {
+            return hasOdds;
+        }
+
+        public void setHasOdds(Integer hasOdds) {
+            this.hasOdds = hasOdds;
+        }
+
+        public List<Integer> getLeftTeamScore() {
+            return leftTeamScore;
+        }
+
+        public void setLeftTeamScore(List<Integer> leftTeamScore) {
+            this.leftTeamScore = leftTeamScore;
+        }
+
+        public List<Integer> getRightTeamScore() {
+            return rightTeamScore;
+        }
+
+        public void setRightTeamScore(List<Integer> rightTeamScore) {
+            this.rightTeamScore = rightTeamScore;
+        }
 
         public Boolean getLiveing() {
             return liveing;
@@ -72,18 +126,6 @@ private Boolean liveing;
             isTop = top;
         }
 
-        private Boolean isTop;
-        private String leftName;
-        private String rightName;
-        private String leftImg;
-        private String rightImg;
-        private String gameName;
-
-        private String matchId;
-
-        private Boolean liveStatus;
-        private Boolean isHot;
-
         public Boolean getHot() {
             return isHot;
         }
@@ -100,11 +142,11 @@ private Boolean liveing;
             this.liveId = liveId;
         }
 
-        public Boolean getLiveStatus() {
+        public Integer getLiveStatus() {
             return liveStatus;
         }
 
-        public void setLiveStatus(Boolean liveStatus) {
+        public void setLiveStatus(Integer liveStatus) {
             this.liveStatus = liveStatus;
         }
 
@@ -116,12 +158,12 @@ private Boolean liveing;
             this.matchId = matchId;
         }
 
-        public Long getLongTime() {
-            return longTime;
+        public Long getMatchStartTime() {
+            return matchStartTime;
         }
 
-        public void setLongTime(Long longTime) {
-            this.longTime = longTime;
+        public void setMatchStartTime(Long matchStartTime) {
+            this.matchStartTime = matchStartTime;
         }
 
         public long getId() {
@@ -165,7 +207,7 @@ private Boolean liveing;
         }
 
         public Date getDate() {
-            return new Date(this.getLongTime() * 1000);
+            return new Date(this.getMatchStartTime() * 1000);
         }
 
         public void setDate(Date date) {

@@ -19,13 +19,12 @@
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/cmsapp.css}" type="text/css">
 
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+    <script type="text/javascript" th:src="@{/base/js/stomp.min.js}" charset="utf-8"></script>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-
-    <link href="https://unpkg.com/video.js@6.7.1/dist/video-js.css" rel="stylesheet">
-    <script src="https://unpkg.com/video.js@6.7.1/dist/video.js"></script>
-    <script src="https://unpkg.com/@videojs/http-streaming@0.9.0/dist/videojs-http-streaming.js"></script>
-
-    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/base/css/ckplayer.css}">
+    <script type="text/javascript" th:src="@{/base/js/ckplayer.min.js}" charset="utf-8"></script>
 </head>
 <body>
 
@@ -102,64 +101,45 @@
 <!--detail-->
 <div class="zhuti bifeng_xq" style="padding-bottom: 0px;">
     <div class="bifeng_zhishu">
-        <div class="bifeng_switch" style="display: none;">
-            <div class="bfonoff">
-                <div class="btnn" isopen="false"></div>
+        <div class="bifeng_switch" style="display: block;">
+            <div th:if="${rateodds}" class="bfonoff bifeng_kai">
+                <div isopen="false" class="btnn"></div>
             </div>
         </div>
         <div class="bifeng_zhishu_zhu" style="display: block;">
             <div class="bifeng_shuju">
-                <p class="bs_fenl_sj bs_fenl_sj_new" style="display: none;">
-                    <span class="xq_fenlei_img"><img src="http://www.515.tv/~static/www/img/fenlei_1.png"> </span>
-                    <span class="xq_fenlei_name">欧青联&nbsp;&nbsp;22:00 </span>
+                <p class="bs_fenl_sj bs_fenl_sj_new">
+                    <span class="xq_fenlei_img"><img th:src="${item.getLiveType()==1?'/515/img/fenlei_1.png':'/515/img/fenlei_2.png'}"> </span>
+                    <span class="xq_fenlei_name" th:text="${footballLeague.getName_zh_full()}"></span>
                 </p>
                 <p class="bs_time"></p>
                 <div class="bs_bt_title">
-                    <p class="weikan">[[${item.getLeftName()}]]<span>vs</span>[[${item.getRightName()}]]</p>
-                    <div class="yikaisai yikaisai_new" style="display: none;">
-                        <cite class="ks_zhumc">里斯本竞技U19</cite>
-                        <div class="ks_vs_new_wrap">
-                            <span class="bs_time_new" style="display: none;">未</span>
-                            <span class="ks_vs ks_vs_new"><em>0 : 0</em></span>
+                    <p class="weikan" style="display: none;"> 纳夫特<span>vs</span> 波斯波利斯<span>(伊朗超)</span></p>
+                    <div class="yikaisai yikaisai_new">
+                        <cite class="ks_zhumc" th:text="${item.getLeftName()}"></cite>
+                        <div class="ks_vs_new_wrap" th:if="${item.getLiveType==1}">
+                            <span class="bs_time_new" style="display: inline;">90<cite class="clock-d">'</cite></span>
+                            <span
+                                    class="ks_vs ks_vs_new"><em th:if="${rateodds}"
+                                                                th:text="${rateodds.getScore().get(0)+' : '+rateodds.getScore().get(1)
+                                }"></em></span>
                         </div>
-                        <cite class="ks_kemc">马赛U19</cite>
+                        <div th:if="${item.getLiveType==2}"> VS </div>
+                        <cite class="ks_kemc" th:text="${item.getRightName()}"></cite>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
         <!--指数 begin-->
-        <div class="zhulanzhishu">
-            <div class="zhishu" style="color: rgb(186, 186, 186);">
-                <div class="jscs_num oupei_z">
-                    <span>欧指</span>
-                    <p class="oz_num"><cite class="">1.2</cite><cite>6.0</cite><cite class="">12.0</cite></p>
-                    <p class="oz_fpan" style="display: none;"></p>
-                </div>
-                <div class="jscs_num yapan_z">
-                    <span>亚盘</span>
-                    <p class="oz_num"><cite class="">0.78</cite><cite>两球</cite><cite class="">1.02</cite></p>
-                    <p class="oz_fpan" style="display: none;"></p>
-                </div>
-                <div class="jscs_num daxiao_z">
-                    <span>大小盘</span>
-                    <p class="oz_num"><cite class="">0.9</cite><cite>3.5</cite><cite class="">0.9</cite></p>
-                    <p class="oz_fpan" style="display: none;"></p>
-                </div>
-            </div>
-            <!--指数 end-->
-        </div>
+        <div th:if="${item.getLiveType()==1}" th:include="~{rate_odds::football_rate}"></div>
+        <div th:if="${item.getLiveType()==2}" th:include="~{rate_odds::basketball_rate}"></div>
     </div>
 
-
     <div class="main-two">
-
-        <video-js id="my_video_1" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls preload="auto" width="640" height="268">
-            <source th:each="item:${playurl}" th:src="${item.getUrl()}" type="application/x-mpegURL">
-        </video-js>
- </div>
+        <div th:unless="${item.getLiveing()}" th:include="~{preplay::preplay}"></div>
+        <div th:if="${item.getLiveing()}" th:include="~{playing::playing}"></div>
+    </div>
 </div>
 <div class="pcrlist">
     <div class="once appbtn hide">
@@ -229,155 +209,28 @@
         <span>Copyright©2020 515直播</span><i></i>
         <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
     </div>
-    <script type="text/javascript">
-        //旧
-        if (/iPhone|iPod|iphone os|ipad/i.test(navigator.userAgent) && window.location.pathname.length < 3 && window.navigator.standalone == false) {
-
-        } else {
-
-        }
-        //		$('.iosKJ-btn').click(function(){
-        //			$('.iosKJ').show();
-        //		})
-        $('.iosKJ p').click(function () {
-            $('.iosKJ').hide();
-        })
-        $('.iosKJ').click(function () {
-            $('.iosKJ').hide();
-        })
-        $('.iosKJ img').click(function (e) {
-            $('.iosKJ').show();
-            e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true;
-        })
-        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            $('.wap-app-box').show();
-            $('.pc-app-box').hide();
-            $(".quwangapptg").show();
-        } else {
-            $('.wap-app-box').hide();
-            $(".quwangapptg").hide();
-            $('.pc-app-box').show();
-        }
-        $('.close-p').click(function () {
-            $('.wap-app-box').hide();
-        })
-
-
-        var dqurl = window.location.href
-
-        /* if(dqurl.indexOf('#app') > -1){
-            zmkjfs()
-        }else{
-            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-                var mb = myBrowser();
-                if ("Safari" == mb) {
-                    $('.iosKJ-safari').hide();
-                    $('.iosKJ').hide();
-
-                }else{
-                    $('.iosKJ-safari').show();
-                    $('.iosKJ').hide();
-
-                }
-            } else if (/(Android)/i.test(navigator.userAgent)) {
-                $('.iosKJ').hide();
-                $('.iosKJ-safari').hide();
-
-            } else {
-            };
-        } */
-        function zmkjfs() {
-            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-                var mb = myBrowser();
-                if ("Safari" == mb) {
-                    $('.iosKJ-safari').hide();
-                    $('.iosKJ').show();
-
-                } else {
-                    $('.iosKJ-safari').show();
-                    $('.iosKJ').hide();
-
-                }
-            } else if (/(Android)/i.test(navigator.userAgent)) {
-                $('.iosKJ').hide();
-                $('.iosKJ-safari').hide();
-
-            } else {
-            }
-        }
-
-        function myBrowser() {
-            var ua = navigator.userAgent.toLowerCase();
-            if (ua.indexOf('applewebkit') > -1 && ua.indexOf('mobile') > -1 && ua.indexOf('safari') > -1 &&
-                ua.indexOf('linux') === -1 && ua.indexOf('android') === -1 && ua.indexOf('chrome') === -1 &&
-                ua.indexOf('ios') === -1 && ua.indexOf('browser') === -1) {
-                return "Safari";
-            } else {
-                return "noSafari";
-            }
-        }
-    </script>
 
 
 </footer>
+<script type="text/javascript" th:src="@{/515/js/websocket_client.js}">
 
+</script>
 <div th:replace="~{base_ad::left_ad}"></div>
 <div th:replace="~{base_ad::right_ad}"></div>
-
-<script>
-    window.myVideo = videojs('my_video_1');
-    videoUrls = [(${playurl})]
-    urlsStr=''
-    for(var i=0;i<videoUrls.length;++i){
-        urlsStr+='<li class="vjs-menu-item" tabindex="-1" role="menuitemcheckbox" type="1"  οnclick="changeVideo('+i+1+')">'+videoUrls[i].name+'</li>'
-    }
-    var videoPanelMenu = $('.vjs-fullscreen-control')
-    videoPanelMenu.before('<div class="vjs-subs-caps-button  vjs-menu-button vjs-menu-button-popup vjs-control vjs-button"  aria-live="polite" aria-expanded="false" aria-haspopup="true">'
-        + '<div class="vjs-menu" role="presentation">'
-        + '<ul class="vjs-menu-content" role="menu">'
-        + urlsStr
-        + '</ul></div>'
-        +'  <button class="vjs-subs-caps-button vjs-control vjs-button" type="button" aria-live="polite" title="清晰度切换" aria-disabled="false">'
-        +'      <span aria-hidden="true" class="vjs-icon-placeholder" type="qxd"></span><span class="vjs-control-text">清晰度切换</span>'
-        +'  </button>'
-        +'</div>'
-    );
-
-    $('.vjs-menu-item').on('click', (e)=> {
-        e.stopPropagation()
-        let status = e.target.getAttribute('type')
-        var ctime= window.myVideo.currentTime();
-        let src = ''
-        switch(status) {
-            case '1':
-                src = videoUrls[0].url
-                break;
-            case '2':
-                src = videoUrls[1].url
-                // window.videojs("liveVideo").src([{type: "application/x-mpegURL", src: this.props.video.get('m3u8_lsd_url')}]);
-                // window.videojs("liveVideo").play();
-                break;
-            case '3':
-                src = videoUrls[2].url
-                // window.videojs("liveVideo").src([{type: "application/x-mpegURL", src: this.props.video.get('m3u8_lhd_url')}]);
-                // window.videojs("liveVideo").play();
-                break;
-            case '4':
-                src = videoUrls[3].url
-                // window.videojs("liveVideo").src([{type: "application/x-mpegURL", src: this.props.video.get('m3u8_lud_url')}]);
-                // window.videojs("liveVideo").play();
-                break;
-        }
-        window.myVideo.reset()
-        window.myVideo.src({type: 'application/x-mpegURL', src})
-        window.myVideo.load(src);
-        window.myVideo.on('loadedmetadata', function() {
-            window.myVideo.play()
-            setTimeout(()=> {
-                window.myVideo.currentTime(ctime)
-            },2000)
-        })
-    })
+<script type="text/javascript">
+    var isshow = true
+    $(document).ready(function () {
+        $("div.bfonoff").click(function () {
+            $("div.zhulanzhishu").toggle();
+            if (isshow) {
+                $("div.bfonoff").attr("class", "bfonoff")
+            } else {
+                $("div.bfonoff").attr("class", "bfonoff bifeng_kai")
+            }
+            isshow = !isshow
+        });
+    });
 </script>
+
 </body>
 </html>

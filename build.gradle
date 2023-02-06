@@ -18,7 +18,7 @@ repositories {
 }
 
 bootJar {
-    baseName="server"
+    baseName="hetuncms"
     version("")
 
     exclude("static/**")
@@ -40,6 +40,7 @@ dependencies {
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
 
     implementation 'org.springframework.cloud:spring-cloud-context:3.1.5'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
 
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     implementation 'com.auth0:java-jwt:4.2.1'

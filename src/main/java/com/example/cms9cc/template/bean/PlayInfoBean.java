@@ -10,6 +10,24 @@ public class PlayInfoBean {
     private String msg;
     private LiveBean.LiveItem data;
     private Result LiveInfoBean;
+    private List<RateOddsItem> oddsItem;
+    private MatchLeague footballLeague;
+
+    public MatchLeague getFootballLeague() {
+        return footballLeague;
+    }
+
+    public void setFootballLeague(MatchLeague footballLeague) {
+        this.footballLeague = footballLeague;
+    }
+
+    public List<RateOddsItem> getOddsItem() {
+        return oddsItem;
+    }
+
+    public void setOddsItem(List<RateOddsItem> oddsItem) {
+        this.oddsItem = oddsItem;
+    }
 
     public Integer getCode() {
         return code;
@@ -42,6 +60,7 @@ public class PlayInfoBean {
     public void setLiveInfoBean(Result liveInfoBean) {
         LiveInfoBean = liveInfoBean;
     }
+
     public static class Result {
         private long match_id;
         private List<LiveStreams> live_streams;

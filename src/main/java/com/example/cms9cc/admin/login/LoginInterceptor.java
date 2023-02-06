@@ -22,7 +22,6 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) {
         String token = request.getHeader("token");
-        System.out.println(token);
 
 
         if (handler instanceof HandlerMethod) {
@@ -47,7 +46,7 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void postHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println(modelAndView);
+
     }
 
     /**
