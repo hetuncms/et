@@ -1,22 +1,28 @@
 package com.example.cms9cc.admin.bean;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import jakarta.persistence.*;
 
-@TableName("couplets_ad")
+@Entity
+@Table(name = "couplets_ad")
 public class CoupletsBean {
-    @TableId(type = IdType.AUTO)
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
     private String location;
     private String url;
-    @TableField("pic_url")
     private String picUrl;
     private String status;
     private String tel;
-    @TableField(exist = false)
     private boolean update;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public boolean isUpdate() {
         return update;
@@ -24,14 +30,6 @@ public class CoupletsBean {
 
     public void setUpdate(boolean update) {
         this.update = update;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getLocation() {

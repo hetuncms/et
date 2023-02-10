@@ -1,9 +1,8 @@
 package com.example.cms9cc.admin.ad;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.cms9cc.admin.bean.BannerAdBean;
 import com.example.cms9cc.admin.bean.ResultBean;
-import com.example.cms9cc.admin.mapper.BannerAdMapping;
+import com.example.cms9cc.admin.repositories.BannerAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,25 +22,23 @@ public class BannerAdController {
 
     @GetMapping("/getbannerad")
     public List<BannerAdBean> getBannerAd() {
-        List<BannerAdBean> topAdBeans = bannerAdMapping.selectList(new QueryWrapper<>());
+        List<BannerAdBean> topAdBeans = bannerAdMapping.findAll();
         return topAdBeans;
     }
 
     @PostMapping("/addbannerad")
-    public Integer addBannerAd(@RequestBody BannerAdBean bannerAdBean) {
-        int insert = bannerAdMapping.insert(bannerAdBean);
-        return insert;
+    public BannerAdBean addBannerAd(@RequestBody BannerAdBean bannerAdBean) {
+        return bannerAdMapping.save(bannerAdBean);
     }
 
     @PostMapping("/editbannerad")
     public ResultBean editBannerAd(@RequestBody BannerAdBean bannerAdBean) {
-        int code = bannerAdMapping.updateById(bannerAdBean);
-        return new ResultBean.Builder().buildSucces(code);
+        BannerAdBean save = bannerAdMapping.save(bannerAdBean);
+        return new ResultBean.Builder().buildSucces();
     }
 
     @PostMapping("/delbannerad")
-    public Integer delBannerAd(@RequestBody BannerAdBean bannerAdBean) {
-        int i = bannerAdMapping.deleteById(bannerAdBean.getId());
-        return i;
+    public void delBannerAd(@RequestBody BannerAdBean bannerAdBean) {
+        bannerAdMapping.deleteById(bannerAdBean.getId());
     }
 }

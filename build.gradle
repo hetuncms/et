@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.4'
+    id 'org.springframework.boot' version '3.0.2'
     id 'io.spring.dependency-management' version '1.0.14.RELEASE'
     id 'java'
 }
@@ -18,7 +18,7 @@ repositories {
 }
 
 bootJar {
-    baseName="hetuncms"
+    baseName = "hetuncms"
     version("")
 
     exclude("static/**")
@@ -36,12 +36,15 @@ dependencies {
     implementation 'org.xerial:sqlite-jdbc'
     implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
     implementation 'p6spy:p6spy:3.9.1'
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
 
     implementation 'org.springframework.cloud:spring-cloud-context:3.1.5'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.xerial:sqlite-jdbc:3.21.0.1'
+    implementation 'org.hibernate.orm:hibernate-community-dialects:6.1.6.Final'
 
+    implementation 'com.vladmihalcea:hibernate-types-60:+'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     implementation 'com.auth0:java-jwt:4.2.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

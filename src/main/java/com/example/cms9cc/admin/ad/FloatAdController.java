@@ -1,9 +1,8 @@
 package com.example.cms9cc.admin.ad;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.cms9cc.admin.bean.FloatBean;
-import com.example.cms9cc.admin.mapper.FloatAdMapping;
+import com.example.cms9cc.admin.bean.ResultBean;
+import com.example.cms9cc.admin.repositories.FloatAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,13 +19,13 @@ public class FloatAdController {
 
     @GetMapping("/getfloatad")
     public FloatBean getFloatAd() {
-        FloatBean floatBean = floatAdMapping.selectOne(new QueryWrapper<>());
+        FloatBean floatBean = floatAdMapping.findAll().get(0);
         return floatBean;
     }
 
     @PostMapping("/editfloatad")
-    public Integer delFloatAd(@RequestBody FloatBean topAdBean) {
-        int update = floatAdMapping.update(topAdBean, new UpdateWrapper<>());
-        return update;
+    public ResultBean delFloatAd(@RequestBody FloatBean topAdBean) {
+       floatAdMapping.save(topAdBean);
+        return new ResultBean.Builder().buildSucces();
     }
 }

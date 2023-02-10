@@ -43,5 +43,8 @@ public class ResultBean {
         public ResultBean buildSucces(int code){
             return new ResultBean(code);
         }
+        public ResultBean buildSucces(){
+            return buildSucces(20000,"");
+        }
     }
 }

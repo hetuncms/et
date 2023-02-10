@@ -1,56 +1,57 @@
 package com.example.cms9cc.admin;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.cms9cc.admin.bean.*;
-import com.example.cms9cc.admin.mapper.*;
+import com.example.cms9cc.admin.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Service
 public class AdminService {
 
-    private final StatisticsMapping statisticsMapping;
+    private final StatisticsRepo statisticsMapping;
     private final BannerAdMapping bannerAdMapping;
     private final BasisMapping basisMapping;
     private final FloatAdMapping floatAdMapping;
     private final TopAdMapping topAdMapping;
     private final CoupletsAdMapping coupletsAdMapping;
-    private final JsAdMapping jsAdMapping;
+    private final JsAdRepo jsAdRepo;
 
     @Autowired
-    public AdminService(StatisticsMapping statisticsMapping, BannerAdMapping bannerAdMapping, BasisMapping basisMapping, FloatAdMapping floatAdMapping, TopAdMapping topAdMapping, CoupletsAdMapping coupletsAdMapping, JsAdMapping jsAdMapping) {
+    public AdminService(StatisticsRepo statisticsMapping,
+                        BannerAdMapping bannerAdMapping,
+                        BasisMapping basisMapping,
+                        FloatAdMapping floatAdMapping,
+                        TopAdMapping topAdMapping, CoupletsAdMapping coupletsAdMapping, JsAdRepo jsAdRepo) {
         this.statisticsMapping = statisticsMapping;
         this.bannerAdMapping = bannerAdMapping;
         this.basisMapping = basisMapping;
         this.floatAdMapping = floatAdMapping;
         this.topAdMapping = topAdMapping;
         this.coupletsAdMapping = coupletsAdMapping;
-        this.jsAdMapping = jsAdMapping;
+        this.jsAdRepo = jsAdRepo;
     }
 
     public BasisBean getBasis() {
-        return basisMapping.selectOne(new QueryWrapper<>());
+        return basisMapping.findAll().get(0);
     }
 
     public JsAdBean getJsAd() {
-        return jsAdMapping.selectOne(new QueryWrapper<>());
+        return jsAdRepo.findAll().get(0);
     }
 
-    public StatisticsBean getStatistics() {
-        return statisticsMapping.selectOne(new QueryWrapper<>());
-    }
+//    public StatisticsBean getStatistics() {
+//        return statisticsMapping.findAll().get(0);
+//    }
 
     public List<BannerAdBean> getBannerAd() {
 
-        return bannerAdMapping.selectList(getQueryWrapper());
+        return bannerAdMapping.findAll();
     }
 
     public CoupletsMapBean getCoupletsAd() {
-        List<CoupletsBean> topAdBeans = coupletsAdMapping.selectList(getQueryWrapper());
+        List<CoupletsBean> topAdBeans = coupletsAdMapping.findAll();
         CoupletsMapBean coupletsMapBean = new CoupletsMapBean();
         topAdBeans.forEach(coupletsBean -> {
             switch (coupletsBean.getLocation()) {
@@ -62,20 +63,14 @@ public class AdminService {
     }
 
     public FloatBean getFloatAd() {
-        return floatAdMapping.selectOne(getQueryWrapper());
+        return floatAdMapping.findAll().get(0);
     }
 
     public List<TopAdBean> getTopAd() {
-        return topAdMapping.selectList(getQueryWrapper());
-    }
-
-    private <T> QueryWrapper<T> getQueryWrapper() {
-
-        String today = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        return new QueryWrapper<T>().gt("status", today);
+        return topAdMapping.findAll();
     }
 
     public AllAdBean getAllConfig() {
-        return new AllAdBean(getBannerAd(), getBasis(), getCoupletsAd(), getFloatAd(), getJsAd(), getStatistics(), getTopAd());
+        return new AllAdBean(getBannerAd(), getBasis(), getCoupletsAd(), getFloatAd(), getJsAd(), null, getTopAd());
     }
 }

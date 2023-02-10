@@ -9,6 +9,8 @@ import com.example.cms9cc.template.service.IndexService;
 import com.example.cms9cc.tools.TemplateUtils;
 import com.example.cms9cc.tools.jsonparse.PJson;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import okhttp3.RequestBody;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +19,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.context.WebContext;
+import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Controller
@@ -64,7 +64,11 @@ public class Index {
         HashMap<String, Object> respData = new HashMap<>();
         respData.put("list", liveBean.getLive_item());
 
-        WebContext context = new WebContext(request, response, request.getServletContext(), response.getLocale(), respData);
+        JakartaServletWebApplication jakartaServletWebApplication = JakartaServletWebApplication.buildApplication(request.getServletContext());
+
+        WebContext context = new WebContext(jakartaServletWebApplication.buildExchange(request, response),
+                response.getLocale(),
+                respData);
         String process = TemplateUtils.process("list_more.html", context);
         return process;
     }

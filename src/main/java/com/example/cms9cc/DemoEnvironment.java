@@ -31,7 +31,13 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
             map.put(k, v);
         });
         String templatePath = map.get("template.path").toString();
-        map.replace("spring.thymeleaf.prefix", templatePath + getTemplate(map.get("spring.datasource.url").toString()) + File.separator);
+        if (map != null) {
+            Object o = map.get("spring.datasource.url");
+            if (o != null) {
+
+                map.replace("spring.thymeleaf.prefix", templatePath + getTemplate(o.toString()) + File.separator);
+            }
+        }
         System.out.println("===============" + map.get("spring.thymeleaf.prefix"));
         environment.getPropertySources().replace(name, new MapPropertySource(name, map));
     }

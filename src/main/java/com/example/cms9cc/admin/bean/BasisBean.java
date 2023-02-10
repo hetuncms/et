@@ -1,31 +1,58 @@
 package com.example.cms9cc.admin.bean;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-@TableName("basis")
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.vladmihalcea.hibernate.type.json.JsonType;
+import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
+
+import java.util.List;
+
+@Entity
+@Table(name="basis")
 public class BasisBean {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
     @JsonProperty("current_template")
-    @TableField("current_template")
     private String currentTemplate;
-    @TableField(exist = false)
-    private String[] templates;
+    @Type(JsonType.class)
+    @Transient
+    private List<String> templates;
     @JsonProperty("site_name")
-    @TableField("site_name")
     private String siteName;
-    @TableField("key_words")
     @JsonProperty("key_words")
     private String keyWords;
-    @TableField("describe")
     private String describe;
-    @TableField("announcement")
     private String announcement;
-    @TableField("logo")
     private String logo;
-    @TableField("email")
     private String email;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCurrentTemplate() {
+        return currentTemplate;
+    }
+
+    public void setCurrentTemplate(String currentTemplate) {
+        this.currentTemplate = currentTemplate;
+    }
+
+    public List<String> getTemplates() {
+        return templates;
+    }
+
+    public void setTemplates(List<String> templates) {
+        this.templates = templates;
+    }
 
     public String getSiteName() {
         return siteName;
@@ -51,14 +78,6 @@ public class BasisBean {
         this.describe = describe;
     }
 
-    public String[] getTemplates() {
-        return templates;
-    }
-
-    public void setTemplates(String[] templates) {
-        this.templates = templates;
-    }
-
     public String getAnnouncement() {
         return announcement;
     }
@@ -81,13 +100,5 @@ public class BasisBean {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getCurrentTemplate() {
-        return currentTemplate;
-    }
-
-    public void setCurrentTemplate(String currentTemplate) {
-        this.currentTemplate = currentTemplate;
     }
 }

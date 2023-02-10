@@ -1,22 +1,29 @@
 package com.example.cms9cc.admin.bean;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import jakarta.persistence.*;
 
-@TableName("float_ad")
+@Entity
+@Table(name="float_ad")
 public class FloatBean {
-    @TableId(type = IdType.AUTO)
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
     private String location;
     private String url;
-    @TableField("pic_url")
     private String picUrl;
     private String status;
     private String tel;
-    @TableField(exist = false)
     private boolean update;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public boolean isUpdate() {
         return update;
@@ -24,14 +31,6 @@ public class FloatBean {
 
     public void setUpdate(boolean update) {
         this.update = update;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getLocation() {

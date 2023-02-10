@@ -1,9 +1,8 @@
 package com.example.cms9cc.admin.ad;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.cms9cc.admin.bean.ResultBean;
 import com.example.cms9cc.admin.bean.TopAdBean;
-import com.example.cms9cc.admin.mapper.TopAdMapping;
+import com.example.cms9cc.admin.repositories.TopAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,25 +22,25 @@ public class TopAdController {
 
     @GetMapping("/gettopad")
     public List<TopAdBean> getTopAd() {
-        List<TopAdBean> topAdBeans = topAdMapping.selectList(new QueryWrapper<>());
+        List<TopAdBean> topAdBeans = topAdMapping.findAll();
         return topAdBeans;
     }
 
     @PostMapping("/addtopad")
-    public Integer addTopAd(@RequestBody TopAdBean topAdBean) {
-        int insert = topAdMapping.insert(topAdBean);
-        return insert;
+    public ResultBean addTopAd(@RequestBody TopAdBean topAdBean) {
+        topAdMapping.save(topAdBean);
+        return new ResultBean.Builder().buildSucces();
     }
 
     @PostMapping("/deltopad")
-    public Integer delTopAd(@RequestBody TopAdBean topAdBean) {
-        int i = topAdMapping.deleteById(topAdBean.getId());
-        return i;
+    public ResultBean delTopAd(@RequestBody TopAdBean topAdBean) {
+     topAdMapping.deleteById(topAdBean.getId());
+        return new ResultBean.Builder().buildSucces();
     }
 
     @PostMapping("/edittopad")
     public ResultBean editTopAd(@RequestBody TopAdBean topAdBean){
-        int code = topAdMapping.updateById(topAdBean);
-        return new ResultBean.Builder().buildSucces(code);
+        topAdMapping.save(topAdBean);
+        return new ResultBean.Builder().buildSucces();
     }
 }

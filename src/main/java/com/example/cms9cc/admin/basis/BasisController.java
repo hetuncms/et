@@ -1,9 +1,7 @@
 package com.example.cms9cc.admin.basis;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.example.cms9cc.admin.bean.BasisBean;
-import com.example.cms9cc.admin.mapper.BasisMapping;
+import com.example.cms9cc.admin.repositories.BasisMapping;
 import com.example.cms9cc.tools.RestartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.Arrays;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -32,16 +30,15 @@ public class BasisController {
 
     @GetMapping("/getbasis")
     public BasisBean getBasis() {
-        BasisBean basisBean = basisMapping.selectOne(new QueryWrapper<>());
-        basisBean.setTemplates(getTemplates());
+        BasisBean basisBean = basisMapping.findAll().get(0);
+        basisBean.setTemplates(Arrays.asList(getTemplates()));
         return basisBean;
     }
 
     @PostMapping("/editbasis")
-    public Integer editBasis(@RequestBody BasisBean basisBean) {
-        int update = basisMapping.update(basisBean, new UpdateWrapper<>());
+    public void editBasis(@RequestBody BasisBean basisBean) {
+    basisMapping.save(basisBean);
         restartService.restartApp();
-        return update;
     }
 
     private String[] getTemplates() {

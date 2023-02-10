@@ -1,21 +1,18 @@
 package com.example.cms9cc.admin.bean;
+import jakarta.persistence.*;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-
-@TableName("top_ad")
+@Entity
+@Table(name="top_ad")
 public class TopAdBean {
-    @TableId(type = IdType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Integer id;
+
     private Integer sort;
     private String url;
-    @TableField("pic_url")
     private String picUrl;
-    @TableField("pic_width")
     private String picWidth;
-    @TableField("pic_height")
     private String picHeight;
     private String status;
     private String tel;
