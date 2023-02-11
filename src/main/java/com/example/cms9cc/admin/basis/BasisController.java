@@ -5,11 +5,11 @@ import com.example.cms9cc.admin.repositories.BasisMapping;
 import com.example.cms9cc.tools.RestartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 @RestController
@@ -37,15 +37,15 @@ public class BasisController {
 
     @PostMapping("/editbasis")
     public void editBasis(@RequestBody BasisBean basisBean) {
-    basisMapping.save(basisBean);
+        basisMapping.save(basisBean);
         restartService.restartApp();
     }
 
     private String[] getTemplates() {
         File file = null;
         try {
-            file = new File(new URI(templatePath).getSchemeSpecificPart());
-        } catch (URISyntaxException e) {
+            file = ResourceUtils.getFile(templatePath);
+        } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         return file.list();

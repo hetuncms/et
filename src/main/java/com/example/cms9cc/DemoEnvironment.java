@@ -35,7 +35,7 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
             Object o = map.get("spring.datasource.url");
             if (o != null) {
 
-                map.replace("spring.thymeleaf.prefix", templatePath + getTemplate(o.toString()) + File.separator);
+                map.replace("spring.thymeleaf.prefix", templatePath +File.separator+ getTemplate(o.toString()) + File.separator);
             }
         }
         System.out.println("===============" + map.get("spring.thymeleaf.prefix"));
@@ -46,7 +46,7 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
         try {
             Connection connection = DriverManager.getConnection(sqlPath);
             Statement statement = connection.createStatement();
-            ResultSet select_current_template_from_basis = statement.executeQuery("select current_template from basis");
+            ResultSet select_current_template_from_basis = statement.executeQuery("select current_template from basis_table");
             while (select_current_template_from_basis.next()) {
                 String result = select_current_template_from_basis.getString(1);
                 statement.close();
