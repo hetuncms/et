@@ -3761,6 +3761,7 @@ cite,em,i {
         font-size: 14px;
         color: #59596c;
         margin-top: .9rem;
+        display: flex;
         justify-content: space-around;
         align-items: center
     }

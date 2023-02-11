@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "couplets_ad")
 public class CoupletsBean {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;
     private String location;
@@ -14,6 +13,7 @@ public class CoupletsBean {
     private String picUrl;
     private String status;
     private String tel;
+    @Transient
     private boolean update;
 
     public int getId() {

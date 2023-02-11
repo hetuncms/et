@@ -18,7 +18,6 @@ public class AdJsController {
 
     @PostMapping("/changejsad")
     public JsAdBean changeAdJs(@RequestBody JsAdBean jsAdBean) {
-
         return jsAdMapping.save(jsAdBean);
     }
 

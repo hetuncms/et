@@ -31,14 +31,12 @@ public class StompClientConfiguration {
         ArrayList<Transport> transports = new ArrayList<>();
         transports.add(webSocketTransport);
         WebSocketClient client = new SockJsClient(transports);
-
         WebSocketStompClient stompClient = new WebSocketStompClient(client);
 
         stompClient.setMessageConverter(new MappingJackson2MessageConverter());
         ListenableFuture<StompSession> connect;
         try {
             connect = stompClient.connect("ws://localhost:8081/match", new RootStompHandler());
-
         } catch (Exception e) {
             e.printStackTrace();
             return;

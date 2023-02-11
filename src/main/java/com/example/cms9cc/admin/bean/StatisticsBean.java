@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 @Table(name = "statistics")
 public class StatisticsBean {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;
 

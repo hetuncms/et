@@ -9,7 +9,7 @@ import org.hibernate.annotations.Type;
 import java.util.List;
 
 @Entity
-@Table(name="basis")
+@Table(name="basis_table")
 public class BasisBean {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

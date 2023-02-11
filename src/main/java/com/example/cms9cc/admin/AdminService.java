@@ -41,9 +41,9 @@ public class AdminService {
         return jsAdRepo.findAll().get(0);
     }
 
-//    public StatisticsBean getStatistics() {
-//        return statisticsMapping.findAll().get(0);
-//    }
+    public StatisticsBean getStatistics() {
+        return statisticsMapping.findAll().get(0);
+    }
 
     public List<BannerAdBean> getBannerAd() {
 
@@ -71,6 +71,6 @@ public class AdminService {
     }
 
     public AllAdBean getAllConfig() {
-        return new AllAdBean(getBannerAd(), getBasis(), getCoupletsAd(), getFloatAd(), getJsAd(), null, getTopAd());
+        return new AllAdBean(getBannerAd(), getBasis(), getCoupletsAd(), getFloatAd(), getJsAd(), getStatistics(), getTopAd());
     }
 }

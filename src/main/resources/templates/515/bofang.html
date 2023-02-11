@@ -120,7 +120,7 @@
                         <div class="ks_vs_new_wrap" th:if="${item.getLiveType==1}">
                             <span class="bs_time_new" style="display: inline;">90<cite class="clock-d">'</cite></span>
                             <span
-                                    class="ks_vs ks_vs_new"><em th:if="${rateodds}"
+                                    class="ks_vs ks_vs_new"><em th:if="${rateodds && rateodds.getScore() && rateodds.getScore().size()==2}"
                                                                 th:text="${rateodds.getScore().get(0)+' : '+rateodds.getScore().get(1)
                                 }"></em></span>
                         </div>
@@ -132,13 +132,13 @@
         </div>
 
         <!--指数 begin-->
-        <div th:if="${item.getLiveType()==1}" th:include="~{rate_odds::football_rate}"></div>
-        <div th:if="${item.getLiveType()==2}" th:include="~{rate_odds::basketball_rate}"></div>
+        <div th:if="${item.getLiveType()==1}" th:replace="~{rate_odds::football_rate}"></div>
+        <div th:if="${item.getLiveType()==2}" th:replace="~{rate_odds::basketball_rate}"></div>
     </div>
 
     <div class="main-two">
-        <div th:unless="${item.getLiveing()}" th:include="~{preplay::preplay}"></div>
-        <div th:if="${item.getLiveing()}" th:include="~{playing::playing}"></div>
+        <div th:unless="${item.getLiveing()}" th:replace="~{preplay::preplay}"></div>
+        <div th:if="${item.getLiveing()}" th:replace="~{playing::playing}"></div>
     </div>
 </div>
 <div class="pcrlist">

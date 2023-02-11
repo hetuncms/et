@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name="float_ad")
 public class FloatBean {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -15,6 +14,7 @@ public class FloatBean {
     private String picUrl;
     private String status;
     private String tel;
+    @Transient
     private boolean update;
 
     public Long getId() {

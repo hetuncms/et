@@ -23,10 +23,12 @@ public class StatisticsController {
     }
 
     @PostMapping("/editstatistics")
-    public Integer editStatistics(@RequestBody StatisticsBean statisticsBean) {
-
+    public StatisticsBean editStatistics(@RequestBody StatisticsBean statisticsBean) {
         if (statisticsBean != null && !StringUtils.isEmpty(statisticsBean.getJsUrl())) {
-            statisticsMapping.save(statisticsBean);
+            statisticsBean.setId(1);
+            StatisticsBean save = statisticsMapping.save(statisticsBean);
+            System.out.println("save = " + save);
+            return save;
         }
         return null;
     }

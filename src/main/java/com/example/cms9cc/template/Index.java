@@ -130,35 +130,44 @@ public class Index {
         return indexService.getIframeLinkByid(id);
     }
 
-    public String to(Integer listType, Model model) {
+    public String to(
+            HttpServletRequest request,Integer listType, Model model) {
         String reqBody = "s=0&t=1&a=" + listType + "&g=0";
         LiveBean liveBean = requestData(reqBody);
+
         if (liveBean != null) {
             model.addAttribute("list", liveBean.getLive_item());
         }
+
         model.addAttribute("config", adminService.getAllConfig());
         model.addAttribute("listtype", listType);
+        model.addAttribute("requestUrl",request.getRequestURL());
+//        model.addAttribute("servletPath", request.getServletPath());
         return "index";
     }
 
     @GetMapping("/")
-    public String index(@RequestHeader Map<String, String> header, Model model) {
-        return to(TYPE_HOT, model);
+    public String index(
+            HttpServletRequest request,
+            HttpServletResponse response,@RequestHeader Map<String, String> header, Model model) {
+        return to(request,TYPE_HOT, model);
     }
 
     @GetMapping("/football")
-    public String football(@RequestHeader Map<String, String> header, Model model) {
-        return to(TYPE_FOOTBALL, model);
+    public String football(
+            HttpServletRequest request,@RequestHeader Map<String, String> header, Model model) {
+        return to(request,TYPE_FOOTBALL, model);
     }
 
     @GetMapping("/basketball")
-    public String basketball(@RequestHeader Map<String, String> header, Model model) {
-        return to(TYPE_BASKETBALL, model);
+    public String basketball(
+            HttpServletRequest request,@RequestHeader Map<String, String> header, Model model) {
+        return to(request,TYPE_BASKETBALL, model);
     }
 
     @GetMapping("/tiyu")
-    public String tiyu(@RequestHeader Map<String, String> header, Model model) {
-        return to(TYPE_TIYU, model);
+    public String tiyu(HttpServletRequest request,@RequestHeader Map<String, String> header, Model model) {
+        return to(request,TYPE_TIYU, model);
     }
 
 

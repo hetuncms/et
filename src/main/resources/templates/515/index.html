@@ -53,21 +53,21 @@
         <span class="newyearl"></span>
         <ul class="index-nav clearfix navindex">
 
-                <li i-cbd-d="0" th:class="${#httpServletRequest.requestURI == '/'?'active':''}">
-                    <a href="/" th:class="${#httpServletRequest.requestURI == '/'?'active':'no-active'}">
+                <li i-cbd-d="0" th:class="${requestUrl == '/'?'active':''}">
+                    <a href="/" th:class="${requestUrl == '/'?'active':'no-active'}">
                         <i></i><span>热门</span>
                     </a>
                 </li>
 
 
-            <li class="" th:class="${#httpServletRequest.requestURI == '/football'?'active':''}">
-                <a href="/football" th:class="${#httpServletRequest.requestURI == '/football'?'active':'no-active'}"><i></i><span>足球</span> </a></li>
+            <li class="" th:class="${requestUrl == '/football'?'active':''}">
+                <a href="/football" th:class="${requestUrl == '/football'?'active':'no-active'}"><i></i><span>足球</span> </a></li>
 
 
-                <li th:class="${#httpServletRequest.requestURI == '/basketball'?'active':''}"><a href="/basketball" th:class="${#httpServletRequest.requestURI == '/basketball'?'active':'no-active'}" ><i></i><span>篮球</span></a></li>
+                <li th:class="${requestUrl == '/basketball'?'active':''}"><a href="/basketball" th:class="${requestUrl == '/basketball'?'active':'no-active'}" ><i></i><span>篮球</span></a></li>
 
 
-                <li i-cbd-d="3" th:class="${#httpServletRequest.requestURI=='/tiyu'?'active':''}"><a href="/tiyu" th:class="${#httpServletRequest.requestURI == '/tiyu'?'active':'no-active'}"><i></i><span>体育</span> </a></li>
+                <li i-cbd-d="3" th:class="${requestUrl=='/tiyu'?'active':''}"><a href="/tiyu" th:class="${requestUrl == '/tiyu'?'active':'no-active'}"><i></i><span>体育</span> </a></li>
 
         </ul>
         <span class="newyearr"></span>
