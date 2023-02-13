@@ -1,5 +1,6 @@
 package com.example.cms9cc.admin.ad;
 
+import com.example.cms9cc.admin.bean.BaseAdminBean;
 import com.example.cms9cc.admin.bean.CoupletsBean;
 import com.example.cms9cc.admin.repositories.CoupletsAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,15 @@ public class CoupletsAdController {
     }
 
     @GetMapping("/getcoupletsad")
-    public List<CoupletsBean> getCoupletsAd() {
+    public BaseAdminBean<List<CoupletsBean>> getCoupletsAd() {
         List<CoupletsBean> topAdBeans = coupletsAdMapping.findAll();
-        return topAdBeans;
+
+        return new BaseAdminBean.Builder<List<CoupletsBean>>().buildSucces(topAdBeans);
     }
 
     @PostMapping("/editcoupletsad")
-    public CoupletsBean editCoupletsad(@RequestBody CoupletsBean coupletsBean) {
-       return coupletsAdMapping.save(coupletsBean);
+    public BaseAdminBean<CoupletsBean> editCoupletsad(@RequestBody CoupletsBean coupletsBean) {
+        CoupletsBean save = coupletsAdMapping.save(coupletsBean);
+        return new BaseAdminBean.Builder<CoupletsBean>().buildSucces(save);
     }
 }

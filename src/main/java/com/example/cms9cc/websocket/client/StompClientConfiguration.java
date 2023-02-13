@@ -36,18 +36,20 @@ public class StompClientConfiguration {
         stompClient.setMessageConverter(new MappingJackson2MessageConverter());
         ListenableFuture<StompSession> connect;
         try {
-            connect = stompClient.connect("ws://localhost:8081/match", new RootStompHandler());
+            connect = stompClient.connect("ws://154.23.238.34/socket/match", new RootStompHandler());
         } catch (Exception e) {
             e.printStackTrace();
             return;
         }
-        StompSession stompSession;
+        StompSession stompSession = null;
         try {
             stompSession = connect.get();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        } catch (ExecutionException e) {
-            throw new RuntimeException(e);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        if (stompSession == null) {
+            System.out.println("连接数据中心失败");
+            return;
         }
         stompSession.subscribe("/topic/rate_odds", new StompFrameHandler() {
             @Override

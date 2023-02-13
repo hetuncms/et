@@ -5,6 +5,6 @@
 </div>
 <div class="couplet_right_ad" th:fragment="right_ad"
      th:if="${config.getCouplets()}">
-    <img class="couplet_righ_img_ad" th:if="${config.getCouplets().getLeftAd()}"
-         th:src="${config.getCouplets().getLeftAd().getPicUrl()}"/>
+    <img class="couplet_righ_img_ad" th:if="${config.getCouplets().getRightAd()}"
+         th:src="${config.getCouplets().getRightAd().getPicUrl()}"/>
 </div>

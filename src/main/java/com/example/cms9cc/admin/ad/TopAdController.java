@@ -1,5 +1,6 @@
 package com.example.cms9cc.admin.ad;
 
+import com.example.cms9cc.admin.bean.BaseAdminBean;
 import com.example.cms9cc.admin.bean.ResultBean;
 import com.example.cms9cc.admin.bean.TopAdBean;
 import com.example.cms9cc.admin.repositories.TopAdMapping;
@@ -21,9 +22,9 @@ public class TopAdController {
     }
 
     @GetMapping("/gettopad")
-    public List<TopAdBean> getTopAd() {
+    public BaseAdminBean<List<TopAdBean>> getTopAd() {
         List<TopAdBean> topAdBeans = topAdMapping.findAll();
-        return topAdBeans;
+        return new BaseAdminBean.Builder<List<TopAdBean>>().buildSucces(topAdBeans);
     }
 
     @PostMapping("/addtopad")
@@ -34,12 +35,12 @@ public class TopAdController {
 
     @PostMapping("/deltopad")
     public ResultBean delTopAd(@RequestBody TopAdBean topAdBean) {
-     topAdMapping.deleteById(topAdBean.getId());
+        topAdMapping.deleteById(topAdBean.getId());
         return new ResultBean.Builder().buildSucces();
     }
 
     @PostMapping("/edittopad")
-    public ResultBean editTopAd(@RequestBody TopAdBean topAdBean){
+    public ResultBean editTopAd(@RequestBody TopAdBean topAdBean) {
         topAdMapping.save(topAdBean);
         return new ResultBean.Builder().buildSucces();
     }

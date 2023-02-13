@@ -134,14 +134,13 @@ public class Index {
             HttpServletRequest request,Integer listType, Model model) {
         String reqBody = "s=0&t=1&a=" + listType + "&g=0";
         LiveBean liveBean = requestData(reqBody);
-
         if (liveBean != null) {
             model.addAttribute("list", liveBean.getLive_item());
         }
 
         model.addAttribute("config", adminService.getAllConfig());
         model.addAttribute("listtype", listType);
-        model.addAttribute("requestUrl",request.getRequestURL());
+        model.addAttribute("requestUrl",request.getRequestURI());
 //        model.addAttribute("servletPath", request.getServletPath());
         return "index";
     }
