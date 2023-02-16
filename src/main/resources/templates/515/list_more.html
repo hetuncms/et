@@ -1,5 +1,5 @@
 <a id="item_list"
-   th:class="${item.isTop().equals('1') ? 'clearfix zhiding':'clearfix'}" th:each="item,count:${list}"
+   th:class="${item.getTop().equals('1') ? 'clearfix zhiding':'clearfix'}" th:each="item,count:${list}"
    th:href="'/bofang/'+${item.getId()}">
     <section class="clearfix jiabifeng" wuyd="">
         <div class="changci" style="display: block;">
@@ -19,7 +19,8 @@
                 <span><em th:text="${item.gameName}"></em> <i
                         style="white-space: nowrap; overflow: visible;"
 
-                        th:text="${(#dates.day(item.getDate()) - #dates.day(#dates.createToday())==0) ? #dates.format(item.getDate(),'HH:mm') : #dates.format(item.getDate(),'MM-dd HH:mm')}">               </i> </span></p>
+                        th:text="${(#dates.day(item.getDate()) - #dates.day(#dates.createToday())==0) ? #dates.format(item.getDate(),'HH:mm') : #dates.format(item.getDate(),'MM-dd HH:mm')}">               </i> </span>
+            </p>
             <p class="vsp">VS</p>
             <p th:class="${item.getLiveing()}?'video zb_green':'video'"><i
                     class="video-icon"></i>

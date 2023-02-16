@@ -1,6 +1,7 @@
 package com.example.cms9cc.template;
 
 
+import com.example.cms9cc.BaseBean;
 import com.example.cms9cc.Config;
 import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.admin.AdminService;
@@ -51,18 +52,17 @@ public class Index {
         this.config = config;
         this.indexService = indexService;
     }
-
     @GetMapping("/loadmore")
     @org.springframework.web.bind.annotation.ResponseBody
     private String loadMore(HttpServletRequest request, HttpServletResponse response,@RequestParam("liveType") Integer liveType, @RequestParam("page") int page) {
-        LiveBean liveBean = requestData(liveType,page);
+        BaseBean<List<LiveBean.LiveItem>> liveBean = requestData(liveType, page);
 
-        if (liveBean.getStatus() == -1 || liveBean.getLive_item() == null || liveBean.getLive_item().isEmpty()) {
+        if (liveBean.getData() == null || liveBean.getData().isEmpty()) {
             return "";
         }
 
         HashMap<String, Object> respData = new HashMap<>();
-        respData.put("list", liveBean.getLive_item());
+        respData.put("list", liveBean.getData());
 
         JakartaServletWebApplication jakartaServletWebApplication = JakartaServletWebApplication.buildApplication(request.getServletContext());
 
@@ -122,16 +122,16 @@ public class Index {
         return paiHangBean;
     }
 
-    private LiveBean requestData(int liveType,int page) {
+    private BaseBean<List<LiveBean.LiveItem>> requestData(int liveType, int page) {
         return indexService.index(liveType,page);
     }
 
     public String to(
             HttpServletRequest request,Integer listType, Model model) {
         String reqBody = "s=0&t=1&a=" + listType + "&g=0";
-        LiveBean liveBean = requestData(listType,0);
-        if (liveBean != null) {
-            model.addAttribute("list", liveBean.getLive_item());
+        BaseBean<List<LiveBean.LiveItem>> liveItemBaseBean = requestData(listType, 0);
+        if (liveItemBaseBean != null) {
+            model.addAttribute("list", liveItemBaseBean.getData());
         }
 
         model.addAttribute("config", adminService.getAllConfig());
@@ -140,7 +140,6 @@ public class Index {
 //        model.addAttribute("servletPath", request.getServletPath());
         return "index";
     }
-
     @GetMapping("/")
     public String index(
             HttpServletRequest request,

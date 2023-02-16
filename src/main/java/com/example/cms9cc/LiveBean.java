@@ -60,7 +60,7 @@ public class LiveBean {
         private Integer hasOdds;
         private List<Integer> leftTeamScore;
         private List<Integer> rightTeamScore;
-        private Boolean isTop;
+        private Boolean top;
         private String leftName;
         private String rightName;
         private String leftImg;
@@ -68,7 +68,7 @@ public class LiveBean {
         private String gameName;
         private String matchId;
         private Integer liveStatus;
-        private Boolean isHot;
+        private Boolean hot;
 
         public List<Integer> getVisitingScore() {
             return visitingScore;
@@ -119,19 +119,19 @@ public class LiveBean {
         }
 
         public Boolean getTop() {
-            return isTop;
+            return top;
         }
 
         public void setTop(Boolean top) {
-            isTop = top;
+            this.top = top;
         }
 
         public Boolean getHot() {
-            return isHot;
+            return hot;
         }
 
         public void setHot(Boolean hot) {
-            isHot = hot;
+            this.hot = hot;
         }
 
         public String getLiveId() {
@@ -214,13 +214,6 @@ public class LiveBean {
             this.date = date;
         }
 
-        public Boolean isTop() {
-            return isTop;
-        }
-
-        public void setIsTop(Boolean isTop) {
-            this.isTop = isTop;
-        }
 
         public String getLeftName() {
             return leftName;
