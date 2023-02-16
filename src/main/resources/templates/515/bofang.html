@@ -42,58 +42,6 @@
 
 <div th:replace="~{header::head}"></div>
 
-<style>
-    @media screen and (min-width: 750px) {
-        .indexbtn {
-            display: block
-        }
-
-        body {
-            background: #191919 !important;
-        }
-
-        footer {
-            background: #fff !important;
-            color: #7e7e7e;
-            border-top: 0px;
-        }
-
-        .main-two {
-            background: #26262b !important;
-            color: #ddd;
-            height: 64%;
-        }
-
-    }
-
-    @media screen and (max-width: 750px) {
-        .waplist {
-            bottom: 10rem;
-        }
-
-        iframe {
-            height: 35rem;
-        }
-    }
-
-    .waplist .indexwap {
-        display: block
-    }
-
-    .biaoti {
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 36px;
-        padding-left: 10px;
-        width: 96%;
-        padding-top: 16px
-    }
-
-    .totop {
-        display: none
-    }
-
-</style>
 <a target="_blank" th:each="item:${config.getBannerAd()}" th:href="${item.getUrl()}">
     <img th:src="${item.getPicUrl()}"
          th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin: auto;'"/>
@@ -114,15 +62,14 @@
                 </p>
                 <p class="bs_time"></p>
                 <div class="bs_bt_title">
-                    <p class="weikan" style="display: none;"> 纳夫特<span>vs</span> 波斯波利斯<span>(伊朗超)</span></p>
+                    <p class="weikan" style="display: none;"><span>vs</span><span></span></p>
                     <div class="yikaisai yikaisai_new">
                         <cite class="ks_zhumc" th:text="${item.getLeftName()}"></cite>
                         <div class="ks_vs_new_wrap" th:if="${item.getLiveType==1}">
                             <span class="bs_time_new" style="display: inline;">90<cite class="clock-d">'</cite></span>
                             <span
-                                    class="ks_vs ks_vs_new"><em th:if="${rateodds && rateodds.getScore() && rateodds.getScore().size()==2}"
-                                                                th:text="${rateodds.getScore().get(0)+' : '+rateodds.getScore().get(1)
-                                }"></em></span>
+                                    class="ks_vs ks_vs_new"><em th:if="${rateodds != null && rateodds.getScore() && rateodds.getScore().size()==2}"
+                                                                th:text="${rateodds.getScore().get(0)+' : '+rateodds.getScore().get(1)}"></em></span>
                         </div>
                         <div th:if="${item.getLiveType==2}"> VS </div>
                         <cite class="ks_kemc" th:text="${item.getRightName()}"></cite>
@@ -137,8 +84,8 @@
     </div>
 
     <div class="main-two">
-        <div th:unless="${item.getLiveing()}" th:replace="~{preplay::preplay}"></div>
-        <div th:if="${item.getLiveing()}" th:replace="~{playing::playing}"></div>
+        <div th:if="${not item.getLiveing()}" th:insert="~{preplay::preplay}"></div>
+        <div th:if="${item.getLiveing()}" th:insert="~{playing::playing}"></div>
     </div>
 </div>
 <div class="pcrlist">
@@ -209,8 +156,6 @@
         <span>Copyright©2020 515直播</span><i></i>
         <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
     </div>
-
-
 </footer>
 <script type="text/javascript" th:src="@{/515/js/websocket_client.js}">
 

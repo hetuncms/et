@@ -10,12 +10,8 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 
 public interface NetInterface {
-    @POST("index")
-    Call<LiveBean> index(@Body String requestBody);
-    @FormUrlEncoded
-    @POST("get_iframe_link_byid")
-    Call<ResponseBody> getIframeLinkByid(@Field("id") String id);
-
+    @GET("index")
+    Call<LiveBean> index(@Query("liveType") int liveType,@Query("page") int page);
     @GET("getLiveItem")
     Call<LiveBean.LiveItem> getLiveItem(@Query("liveId") Long liveId);
 

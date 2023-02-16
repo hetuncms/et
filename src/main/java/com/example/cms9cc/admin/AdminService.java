@@ -1,5 +1,6 @@
 package com.example.cms9cc.admin;
 
+import com.example.cms9cc.admin.ad.service.TopAdService;
 import com.example.cms9cc.admin.bean.*;
 import com.example.cms9cc.admin.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +15,21 @@ public class AdminService {
     private final BannerAdMapping bannerAdMapping;
     private final BasisMapping basisMapping;
     private final FloatAdMapping floatAdMapping;
-    private final TopAdMapping topAdMapping;
     private final CoupletsAdMapping coupletsAdMapping;
     private final JsAdRepo jsAdRepo;
+    private final TopAdService topAdService;
 
     @Autowired
     public AdminService(StatisticsRepo statisticsMapping,
                         BannerAdMapping bannerAdMapping,
                         BasisMapping basisMapping,
                         FloatAdMapping floatAdMapping,
-                        TopAdMapping topAdMapping, CoupletsAdMapping coupletsAdMapping, JsAdRepo jsAdRepo) {
+                        TopAdService topAdService, CoupletsAdMapping coupletsAdMapping, JsAdRepo jsAdRepo) {
         this.statisticsMapping = statisticsMapping;
         this.bannerAdMapping = bannerAdMapping;
         this.basisMapping = basisMapping;
         this.floatAdMapping = floatAdMapping;
-        this.topAdMapping = topAdMapping;
+        this.topAdService = topAdService;
         this.coupletsAdMapping = coupletsAdMapping;
         this.jsAdRepo = jsAdRepo;
     }
@@ -66,11 +67,8 @@ public class AdminService {
         return floatAdMapping.findAll().get(0);
     }
 
-    public List<TopAdBean> getTopAd() {
-        return topAdMapping.findAll();
-    }
 
     public AllAdBean getAllConfig() {
-        return new AllAdBean(getBannerAd(), getBasis(), getCoupletsAd(), getFloatAd(), getJsAd(), getStatistics(), getTopAd());
+        return new AllAdBean(getBannerAd(), getBasis(), getCoupletsAd(), getFloatAd(), getJsAd(), getStatistics(),topAdService.getTopAdList());
     }
 }

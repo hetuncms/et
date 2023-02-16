@@ -18,6 +18,7 @@ import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Configuration
@@ -34,46 +35,48 @@ public class StompClientConfiguration {
         WebSocketStompClient stompClient = new WebSocketStompClient(client);
 
         stompClient.setMessageConverter(new MappingJackson2MessageConverter());
-        ListenableFuture<StompSession> connect;
-        try {
-            connect = stompClient.connect("ws://154.23.238.34/socket/match", new RootStompHandler());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return;
-        }
-        StompSession stompSession = null;
-        try {
-            stompSession = connect.get();
-        } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
-        }
-        if (stompSession == null) {
-            System.out.println("连接数据中心失败");
-            return;
-        }
-        stompSession.subscribe("/topic/rate_odds", new StompFrameHandler() {
-            @Override
-            public Type getPayloadType(StompHeaders headers) {
-                return RateOddsItem.class;
-            }
 
-            @Override
-            public void handleFrame(StompHeaders headers, Object payload) {
-                RateOddsItem rateOddsItem = (RateOddsItem) payload;
-                simpMessagingTemplate.convertAndSend("/topic/match" + rateOddsItem.getMatch_id(), rateOddsItem);
-            }
-        });
-        stompSession.subscribe("/topic/soccerInfo", new StompFrameHandler() {
-            @Override
-            public Type getPayloadType(StompHeaders headers) {
-                return SoccerInfoRealTime.class;
-            }
+     new Thread(new Runnable() {
+         @Override
+         public void run() {
+             StompSession stompSession = null;
 
-            @Override
-            public void handleFrame(StompHeaders headers, Object payload) {
-                SoccerInfoRealTime soccerInfoRealTime = (SoccerInfoRealTime) payload;
-                simpMessagingTemplate.convertAndSend("/topic/soccerInfo" + soccerInfoRealTime.getMatch_id(), soccerInfoRealTime);
-            }
-        });
+             CompletableFuture<StompSession> stompSessionCompletableFuture =
+                     stompClient.connectAsync("ws://154.23.238.34/socket/match", new RootStompHandler());
+             try {
+                 stompSession = stompSessionCompletableFuture.get();
+             } catch (InterruptedException | ExecutionException e) {
+                 e.printStackTrace();
+             }
+             if (stompSession == null) {
+                 System.out.println("连接数据中心失败");
+                 return;
+             }
+             stompSession.subscribe("/topic/rate_odds", new StompFrameHandler() {
+                 @Override
+                 public Type getPayloadType(StompHeaders headers) {
+                     return RateOddsItem.class;
+                 }
+
+                 @Override
+                 public void handleFrame(StompHeaders headers, Object payload) {
+                     RateOddsItem rateOddsItem = (RateOddsItem) payload;
+                     simpMessagingTemplate.convertAndSend("/topic/match" + rateOddsItem.getMatch_id(), rateOddsItem);
+                 }
+             });
+             stompSession.subscribe("/topic/soccerInfo", new StompFrameHandler() {
+                 @Override
+                 public Type getPayloadType(StompHeaders headers) {
+                     return SoccerInfoRealTime.class;
+                 }
+
+                 @Override
+                 public void handleFrame(StompHeaders headers, Object payload) {
+                     SoccerInfoRealTime soccerInfoRealTime = (SoccerInfoRealTime) payload;
+                     simpMessagingTemplate.convertAndSend("/topic/soccerInfo" + soccerInfoRealTime.getMatch_id(), soccerInfoRealTime);
+                 }
+             });
+         }
+     }).start();
     }
 }

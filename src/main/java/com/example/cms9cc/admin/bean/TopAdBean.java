@@ -1,6 +1,8 @@
 package com.example.cms9cc.admin.bean;
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name="top_ad")
 public class TopAdBean {
@@ -14,7 +16,7 @@ public class TopAdBean {
     private String picUrl;
     private String picWidth;
     private String picHeight;
-    private String status;
+    private Date statusTime;
     private String tel;
 
     public Integer getId() {
@@ -65,12 +67,12 @@ public class TopAdBean {
         this.picHeight = picHeight;
     }
 
-    public String getStatus() {
-        return status;
+    public Date getStatusTime() {
+        return statusTime;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusTime(Date statusTime) {
+        this.statusTime = statusTime;
     }
 
     public String getTel() {

@@ -28,22 +28,20 @@ bootJar {
 }
 
 dependencies {
-
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     implementation 'org.xerial:sqlite-jdbc'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
-    implementation 'p6spy:p6spy:3.9.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
-
     implementation 'org.springframework.cloud:spring-cloud-context:3.1.5'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'org.xerial:sqlite-jdbc:3.21.0.1'
     implementation 'org.hibernate.orm:hibernate-community-dialects:6.1.6.Final'
-
     implementation 'com.vladmihalcea:hibernate-types-60:+'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     implementation 'com.auth0:java-jwt:4.2.1'

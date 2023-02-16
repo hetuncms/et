@@ -6,6 +6,7 @@ import com.example.cms9cc.admin.repositories.BannerAdMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -22,8 +23,7 @@ public class BannerAdController {
 
     @GetMapping("/getbannerad")
     public BaseAdminBean<List<BannerAdBean>> getBannerAd() {
-        List<BannerAdBean> topAdBeans = bannerAdMapping.findAll();
-
+        List<BannerAdBean> topAdBeans = bannerAdMapping.findAllByStatusTimeAfterOrderBySort(new Date(System.currentTimeMillis()));
         return new BaseAdminBean.Builder<List<BannerAdBean>>().buildSucces(topAdBeans);
     }
 

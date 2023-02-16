@@ -53,27 +53,18 @@
     <div class="top-div">
         <span class="newyearl"></span>
         <ul class="index-nav clearfix navindex">
-[[${requestUrl}]]
                 <li i-cbd-d="0" th:class="${requestUrl == '/'?'active':''}">
                     <a href="/" th:class="${requestUrl == '/'?'active':'no-active'}">
                         <i></i><span>热门</span>
                     </a>
                 </li>
-
-
             <li class="" th:class="${requestUrl == '/football'?'active':''}">
                 <a href="/football" th:class="${requestUrl == '/football'?'active':'no-active'}"><i></i><span>足球</span> </a></li>
-
-
                 <li th:class="${requestUrl == '/basketball'?'active':''}"><a href="/basketball" th:class="${requestUrl == '/basketball'?'active':'no-active'}" ><i></i><span>篮球</span></a></li>
-
-
                 <li i-cbd-d="3" th:class="${requestUrl=='/tiyu'?'active':''}"><a href="/tiyu" th:class="${requestUrl == '/tiyu'?'active':'no-active'}"><i></i><span>体育</span> </a></li>
-
         </ul>
         <span class="newyearr"></span>
     </div>
-
     <div th:insert="~{list::listFragment}"></div>
     <div class="iosKJ">
         <span class="iostipimg"></span>
@@ -124,7 +115,6 @@
             <i></i>
             <p>首页</p>
         </a>
-
     </div>
     <div class="once refreshwap" onclick="location.reload()">
         <i></i>
@@ -135,9 +125,7 @@
     </div>
 </div>
 
-
 <div th:replace="~{footer::foot}"></div>
-
 <div th:replace="~{base_ad::left_ad}"></div>
 <div th:replace="~{base_ad::right_ad}"></div>
 <div th:replace="~{../base/cms_base_ad}"></div>

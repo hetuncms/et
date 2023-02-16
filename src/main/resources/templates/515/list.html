@@ -46,7 +46,6 @@
                     </section>
                 </a>
             </div>
-
         </div>
         <div class="clcik_more" th:unless="${list.isEmpty()}" th:onclick="loadmore([[${listtype}]])">点击加载更多</div>
         <div class="more_animate" style="display: none;">︾</div>
@@ -70,10 +69,10 @@
             count++;
             $.ajax({
                 url: "/loadmore",
-                type: "POST",
+                type: "GET",
                 contentType: "application/html",
                 dataType: "html",
-                data: "s=0&t=1&a=" + type + "&g=" + count,
+                data: {liveType:type,page:count},
                 success: function (result) {
                     if(result){
                         $("#list").append(result)

@@ -52,10 +52,10 @@ public class Index {
         this.indexService = indexService;
     }
 
-    @PostMapping("/loadmore")
+    @GetMapping("/loadmore")
     @org.springframework.web.bind.annotation.ResponseBody
-    private String loadMore(HttpServletRequest request, HttpServletResponse response, @org.springframework.web.bind.annotation.RequestBody String reqBody) {
-        LiveBean liveBean = requestData(reqBody);
+    private String loadMore(HttpServletRequest request, HttpServletResponse response,@RequestParam("liveType") Integer liveType, @RequestParam("page") int page) {
+        LiveBean liveBean = requestData(liveType,page);
 
         if (liveBean.getStatus() == -1 || liveBean.getLive_item() == null || liveBean.getLive_item().isEmpty()) {
             return "";
@@ -122,18 +122,14 @@ public class Index {
         return paiHangBean;
     }
 
-    private LiveBean requestData(String requstbody) {
-        return indexService.index(requstbody);
-    }
-
-    private String requestM3u8Url(String id) {
-        return indexService.getIframeLinkByid(id);
+    private LiveBean requestData(int liveType,int page) {
+        return indexService.index(liveType,page);
     }
 
     public String to(
             HttpServletRequest request,Integer listType, Model model) {
         String reqBody = "s=0&t=1&a=" + listType + "&g=0";
-        LiveBean liveBean = requestData(reqBody);
+        LiveBean liveBean = requestData(listType,0);
         if (liveBean != null) {
             model.addAttribute("list", liveBean.getLive_item());
         }

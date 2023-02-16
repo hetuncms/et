@@ -21,9 +21,9 @@ public class IndexService {
         netInterface = netService.getRetrofit().create(NetInterface.class);
     }
 
-    public LiveBean index(String requestBody) {
+    public LiveBean index(int liveType,int page) {
         try {
-            LiveBean body = netInterface.index(requestBody).execute().body();
+            LiveBean body = netInterface.index(liveType,page).execute().body();
             return body;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -34,16 +34,9 @@ public class IndexService {
         try {
             return netInterface.getLiveItem(id).execute().body();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-    }
-
-    public String getIframeLinkByid(String id) {
-        try {
-            return netInterface.getIframeLinkByid(id).execute().body().string();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return null;
     }
 
     public PlayInfoBean getLiveInfo(Long id) {

@@ -1,5 +1,5 @@
 <div class="zhulanzhishu" th:fragment="basketball_rate">
-    <div class="zhishu_lan" style="display: block;">
+    <div class="zhishu_lan" style="display: block;" th:if="${not #lists.isEmpty(item.getLeftTeamScore())}">
         <ul class="lanzhi_bg">
             <li class="lan_zhi_bt clearfix btbjs">
                 <div class="duiwu">主队/客队</div>

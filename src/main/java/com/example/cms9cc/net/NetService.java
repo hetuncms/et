@@ -11,18 +11,24 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class NetService {
 
     Config config;
+    Retrofit retrofit;
+
     @Autowired
     public NetService(Config config) {
         this.config = config;
-        retrofit = new Retrofit.Builder()
+        Retrofit.Builder builder = new Retrofit.Builder()
                 .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(JacksonConverterFactory.create())
+                .addConverterFactory(JacksonConverterFactory.create());
+
+//            java.net.Proxy proxy = new Proxy(Proxy.Type.HTTP,  new InetSocketAddress("localhost", 10809));
+//        OkHttpClient.Builder proxy1 = new OkHttpClient.Builder().proxy(proxy);
+//        builder.client(proxy1.build());
+        retrofit = builder
                 .baseUrl(config.getBaseUrl())
                 .build();
     }
 
-    Retrofit retrofit;
-    public Retrofit getRetrofit(){
+    public Retrofit getRetrofit() {
         return retrofit;
     }
 }
