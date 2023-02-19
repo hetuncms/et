@@ -22,6 +22,7 @@
 
     <link rel="stylesheet" th:href="@{/515/css/public.min.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/515/css/public-color.min.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/515/css/ranks.min.css}" type="text/css">
 
     <link rel="stylesheet" th:href="@{/css/cmsapp.css}" type="text/css">
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
@@ -53,19 +54,29 @@
     <div class="top-div">
         <span class="newyearl"></span>
         <ul class="index-nav clearfix navindex">
-                <li i-cbd-d="0" th:class="${requestUrl == '/'?'active':''}">
-                    <a href="/" th:class="${requestUrl == '/'?'active':'no-active'}">
-                        <i></i><span>热门</span>
-                    </a>
-                </li>
+            <li i-cbd-d="0" th:class="${requestUrl == '/'?'active':''}">
+                <a href="/" th:class="${requestUrl == '/'?'active':'no-active'}">
+                    <i></i><span>热门</span>
+                </a>
+            </li>
             <li class="" th:class="${requestUrl == '/football'?'active':''}">
-                <a href="/football" th:class="${requestUrl == '/football'?'active':'no-active'}"><i></i><span>足球</span> </a></li>
-                <li th:class="${requestUrl == '/basketball'?'active':''}"><a href="/basketball" th:class="${requestUrl == '/basketball'?'active':'no-active'}" ><i></i><span>篮球</span></a></li>
-                <li i-cbd-d="3" th:class="${requestUrl=='/tiyu'?'active':''}"><a href="/tiyu" th:class="${requestUrl == '/tiyu'?'active':'no-active'}"><i></i><span>体育</span> </a></li>
+                <a href="/football" th:class="${requestUrl == '/football'?'active':'no-active'}"><i></i><span>足球</span> </a>
+            </li>
+            <li th:class="${requestUrl == '/basketball'?'active':''}">
+                <a href="/basketball"
+                   th:class="${requestUrl == '/basketball'?'active':'no-active'}"><i></i><span>篮球</span></a>
+            </li>
+            <li i-cbd-d="3" th:class="${requestUrl=='/tiyu'?'active':''}">
+                <a href="/predict"
+                   th:class="${requestUrl == '/predict'?'active':'no-active'}"><i></i><span>预测</span>
+                </a>
+            </li>
         </ul>
         <span class="newyearr"></span>
     </div>
-    <div th:insert="~{list::listFragment}"></div>
+    <div th:if="${showType eq 0}" th:insert="~{list::listFragment}"></div>
+    <div th:if="${showType eq 1}" th:insert="~{predict_list::predict}"></div>
+    <div th:if="${#lists.isEmpty(list)}" th:insert="~{no_data::nodata}"></div>
     <div class="iosKJ">
         <span class="iostipimg"></span>
         <p>×</p>
@@ -101,11 +112,10 @@
             <button class="btn" data-clipboard-action="copy" data-clipboard-target="#taokouling" id="copyCode">
                 点击复制
             </button>
-
-
         </div>
     </div>
 </div>
+
 <div class="fuzhi_ts" id="copy_zt">复制成功</div>
 <!--非safari end-->
 

@@ -2,11 +2,13 @@ package com.example.cms9cc.template;
 
 
 import com.example.cms9cc.BaseBean;
+import com.example.cms9cc.BaseListBean;
 import com.example.cms9cc.Config;
 import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.admin.AdminService;
 import com.example.cms9cc.template.bean.*;
 import com.example.cms9cc.template.service.IndexService;
+import com.example.cms9cc.tools.DateUtils;
 import com.example.cms9cc.tools.TemplateUtils;
 import com.example.cms9cc.tools.jsonparse.PJson;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,6 +25,9 @@ import org.thymeleaf.context.WebContext;
 import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +41,7 @@ public class Index {
     public static final int TYPE_HOT = 0;
     public static final int TYPE_BASKETBALL = 2;
     public static final int TYPE_FOOTBALL = 1;
-    public static final int TYPE_TIYU = 3;
+    public static final int TYPE_PREDICT = 3;
     OkHttpClient okHttpClient = new OkHttpClient();
     @Autowired
     PJson pjson;
@@ -125,21 +130,32 @@ public class Index {
     private BaseBean<List<LiveBean.LiveItem>> requestData(int liveType, int page) {
         return indexService.index(liveType,page);
     }
-
     public String to(
             HttpServletRequest request,Integer listType, Model model) {
-        String reqBody = "s=0&t=1&a=" + listType + "&g=0";
+        return this.to(request,listType,model,0);
+    }
+    public String to(
+            HttpServletRequest request,Integer listType, Model model,int showType) {
         BaseBean<List<LiveBean.LiveItem>> liveItemBaseBean = requestData(listType, 0);
         if (liveItemBaseBean != null) {
             model.addAttribute("list", liveItemBaseBean.getData());
         }
 
-        model.addAttribute("config", adminService.getAllConfig());
         model.addAttribute("listtype", listType);
-        model.addAttribute("requestUrl",request.getRequestURI());
-//        model.addAttribute("servletPath", request.getServletPath());
+        getBaseModel(request, model, showType);
         return "index";
     }
+
+
+
+    public Model getBaseModel(HttpServletRequest request,Model model,int showType){
+        model.addAttribute("config", adminService.getAllConfig());
+        model.addAttribute("requestUrl",request.getRequestURI());
+        model.addAttribute("showType",showType);
+        return model;
+    }
+
+
     @GetMapping("/")
     public String index(
             HttpServletRequest request,
@@ -159,9 +175,37 @@ public class Index {
         return to(request,TYPE_BASKETBALL, model);
     }
 
-    @GetMapping("/tiyu")
-    public String tiyu(HttpServletRequest request,@RequestHeader Map<String, String> header, Model model) {
-        return to(request,TYPE_TIYU, model);
+    @GetMapping("/predict")
+    public String predict(HttpServletRequest request,
+                          @RequestHeader Map<String, String> header,
+                          Model model,
+                          @RequestParam(value = "date",required = false) String date) {
+        return toPredict(request, model,date);
+    }
+
+    private String toPredict(HttpServletRequest request, Model model, String date) {
+        getBaseModel(request, model, 1);
+        String today_date = DateUtils.getToday();
+        if (date == null) {
+            date = today_date;
+        }
+        try {
+            Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "500";
+        }
+        BaseListBean<PredictionsIndexBean> predict = indexService.getPredict(date);
+        PredictionsIndexBean data = predict.getData();
+        List<PredictionsBean> predictionsBeans = data.getPredictionsBeans();
+        List<Date> allStartTime = data.getAllStartTime();
+        model.addAttribute("list", predictionsBeans);
+        model.addAttribute("yesterday",DateUtils.getYesterday());
+        model.addAttribute("tomorrow", DateUtils.getTomorrow());
+        model.addAttribute("today_date", DateUtils.getToday());
+        model.addAttribute("current_select_date", date);
+        model.addAttribute("all_start_time",allStartTime);
+        return "index";
     }
 
 
@@ -175,7 +219,6 @@ public class Index {
         MatchLeague footballLeague = liveInfo.getFootballLeague();
 
         model.addAttribute("footballLeague", footballLeague);
-
         PlayInfoBean.Result liveInfoBean = liveInfo.getLiveInfoBean();
 
         LiveBean.LiveItem liveItem = liveInfo.getData();

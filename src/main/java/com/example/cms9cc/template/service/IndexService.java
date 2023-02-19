@@ -1,11 +1,12 @@
 package com.example.cms9cc.template.service;
 
-import com.example.cms9cc.BaseBean;
 import com.example.cms9cc.BaseListBean;
 import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.net.NetInterface;
 import com.example.cms9cc.net.NetService;
 import com.example.cms9cc.template.bean.PlayInfoBean;
+import com.example.cms9cc.template.bean.PredictionsBean;
+import com.example.cms9cc.template.bean.PredictionsIndexBean;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -52,5 +53,15 @@ public class IndexService {
         }
         PlayInfoBean body = execute.body();
         return body;
+    }
+
+    public BaseListBean<PredictionsIndexBean> getPredict(String date) {
+        Call<BaseListBean<PredictionsIndexBean>> predict = netInterface.getPredict(0,date);
+        try {
+            return predict.execute().body();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

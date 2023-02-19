@@ -49,16 +49,7 @@
         </div>
         <div class="clcik_more" th:unless="${list.isEmpty()}" th:onclick="loadmore([[${listtype}]])">点击加载更多</div>
         <div class="more_animate" style="display: none;">︾</div>
-        <div th:if="${list.isEmpty()}">
-            <div class="list_wrap" style="display: block;" yn="0">
-                <div class="list_content">
-                    <div class="no-data">
-                        <div class="zwsig"></div>
-                        <p>当前暂无数据</p></div>
-                </div>
-                <div class="more_animate" style="display: none;">︾</div>
-            </div>
-        </div>
+
     </div>
 
 

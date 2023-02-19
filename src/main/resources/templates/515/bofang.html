@@ -58,7 +58,7 @@
             <div class="bifeng_shuju">
                 <p class="bs_fenl_sj bs_fenl_sj_new">
                     <span class="xq_fenlei_img"><img th:src="${item.getLiveType()==1?'/515/img/fenlei_1.png':'/515/img/fenlei_2.png'}"> </span>
-                    <span class="xq_fenlei_name" th:text="${footballLeague.getName_zh_full()}"></span>
+                    <span class="xq_fenlei_name" th:if="${footballLeague}" th:text="${footballLeague.getName_zh_full()}"></span>
                 </p>
                 <p class="bs_time"></p>
                 <div class="bs_bt_title">

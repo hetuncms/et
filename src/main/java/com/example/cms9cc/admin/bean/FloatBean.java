@@ -9,7 +9,6 @@ public class FloatBean {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String location;
     private String url;
     private String picUrl;
     private String status;
@@ -33,13 +32,6 @@ public class FloatBean {
         this.update = update;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     public String getUrl() {
         return url;
