@@ -1,38 +1,672 @@
 <div th:fragment="preplay" class="nosing-div">
-  <style type="text/css">
-    html{height:96%}body{height:100%;margin-left:0;margin-right:0}h2{font-size:1rem;font-weight:500;line-height:36px}.box{padding-left:.2rem;max-width:1200px;height:100%;padding-top:10px}.singldl{margin:0;max-height:64px;overflow:hidden;padding-left:4.8rem;box-sizing:border-box}.singldl dd,.singldl dt{display:inline-block;float:left}.singldl dt{font-size:.9rem;position:absolute;left:10px;margin-top:.2rem}.singldl dd{font-size:14px;padding:.2rem .4rem;color:#333;margin:0 .2rem;border-radius:2px;cursor:pointer;margin-top:.2rem;max-width:4rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;background:#f5f5f5;}.singldl .active{background:#e50b1a;color:#fff}.bf-img{width:100%;height:100%;background:url(http://www.515.tv/~static/www/img/jumpvideo.png) no-repeat center #000;cursor:pointer}#a1{width:100%;min-height:18rem;max-height:28rem}#iframeplayer{height:86%}.nosing-div{width:100%;height:15rem;background:#2b2b2b;margin:0 auto 3rem;text-align:center;box-sizing:border-box;color:#fff}.nosing-div img{width:80px;height:80px;margin:10px auto;border-radius:50%;background:#fff}.nosing-div .center,.nosing-div .team{width:33.33%;float:left}.nosing-div .vs-p{font-size:18px;margin:1.7rem auto;padding:1rem 0}.nosing-div .status{min-width:100px;max-width:110px;height:32px;line-height:32px;background:#e50b1a;margin:0 auto;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}.nosing-div .title{margin:40px auto;text-align:center;font-size:18px}.clearfix:after{content:'';display:block;clear:both;visibility:hidden}.shuaxing_xh{width:27px;height:27px;background:0 0;margin:0;margin-left:35px;display:inline-block;background:#ef584c;-webkit-border-radius:25em;-moz-border-radius:25em;border-radius:25em;float:left;margin-top:4px}.shuaxing_xh img{width:15px;height:15px;margin:6px 0 0 6px}.shuaxing_xh:hover{background:#f57066}.xhxscg{display:none;background:#4c4c4c;color:#fff;height:2rem;line-height:2rem;width:7rem;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;position:absolute;bottom:.3rem;left:50%;margin-left:-71px;text-align:center;font-size:14px}.character360{display:block;margin:6px 0 0 6px;width:15px;height:15px;background:no-repeat url(http://www.515.tv/~static/www/img/shuaxing.png) left top;-webkit-background-size:15px 15px;-moz-background-size:15px 15px;background-size:15px 15px;-webkit-border-radius:15px;border-radius:15px}.dhua{-webkit-transition:-webkit-transform 1s ease-out;-moz-transition:-moz-transform 1s ease-out;-o-transition:-o-transform 1s ease-out;-ms-transition:-ms-transform 1s ease-out;-webkit-transform:rotateZ(360deg);-moz-transform:rotateZ(360deg);-o-transform:rotateZ(360deg);-ms-transform:rotateZ(360deg);transform:rotateZ(360deg)}.shuaxing_xh_sh{width:27px;height:27px;background:0 0;margin:0;margin-left:100px;display:inline-block;background:#ef584c;-webkit-border-radius:25em;-moz-border-radius:25em;border-radius:25em;float:left;margin-top:4px}.shuaxing_xh_sh img{width:15px;height:15px;margin:6px 0 0 6px}.shuaxing_xh_sh:hover{background:#d94a3e}*{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none}.event-div{color:#999}.bsxx{color:#ef584c;font-size:1rem;height:20px;line-height:20px;padding-left:10px;margin-top:0}.box{padding-left:0}.nosing-div .team{font-size:.8rem}.nosing-div .vs-p{margin:1rem auto;font-size:2rem}.event-div span{display:block}.tiaochu{height:100%}.tiaochu a{color:#999;text-decoration:none}.jump_video{height:100%;background:#3c3c3c;position:relative;padding-top:.5rem}.jump_video span{padding-left:.5rem;color:#999;font-size:12px}.jump_videoan{text-align:center;display:flex;align-items:center;justify-content:center;height:2rem;width:6rem;color:#fff;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;position:absolute;top:9rem;left:50%;transform:translate(-50%,-50%);background:#de1e30;font-size:12px}@media screen and (min-width:750px){h2{font-size:20px}.singldl dt{font-size:18px}#a1{height:640px;width:100%}#iframeplayer{height:560px}.nosing-div{height:500px;background:#000;margin:0 auto 3rem}.shuaxing_xh{width:27px;height:27px;background:0 0;margin:0;margin-left:35px;display:inline-block;background:#ef584c;-webkit-border-radius:25em;-moz-border-radius:25em;border-radius:25em;float:left;margin-top:2px}.shuaxing_xh img{width:15px;height:15px;margin:6px 0 0 6px}.shuaxing_xh:hover{background:#f57066}.xhxscg{display:none;background:#4c4c4c;color:#fff;height:2rem;line-height:2rem;width:7rem;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;position:absolute;bottom:0;left:50%;margin-left:-71px;text-align:center;font-size:14px}html{height:96%}body{height:100%;margin-left:0;margin-right:0;background:#26262b}h2{font-size:1rem;font-weight:500;line-height:36px}.box{max-width:1200px;background:#26262b;height:100%;padding-top:10px;padding-left:0}.singldl{margin:0;max-height:64px;overflow:hidden;padding-left:4.8rem;box-sizing:border-box}.singldl dd,.singldl dt{display:inline-block;float:left}.singldl dt{font-size:.9rem;position:absolute;left:10px;margin-top:.2rem;color:#999}.singldl dd{font-size:14px;padding:.2rem .6rem;color:#333333;background:#f5f5f5;margin:0 .2rem 0 .8rem;border-radius:2px;cursor:pointer;margin-top:.2rem;max-width:4rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.nosing-div .vs-p{font-size:32px;margin:23px auto;padding:1rem 0;font-family:"微软雅黑";color:#999}.bs_xingxi{width:750px;margin:0 auto}.nosing-div .team{font-size:20px}.event-div span{display:inline}.bsxx{color:#ef584c;height:20px;line-height:20px;font-size:16px;padding-left:10px;margin-top:0}.tiaochu{height:100%}.tiaochu a{color:#999;text-decoration:none}.jump_video{height:560px;background:#3c3c3c;position:relative;padding-top:20px}.jump_video span{padding-left:20px;color:#999;font-size:16px}.jump_videoan{text-align:center;display:flex;align-items:center;justify-content:center;height:40px;line-height:40px;width:150px;color:#fff;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#de1e30;font-size:14px}}#cnzz_stat_icon_1279756755{display:none}.jumpbf{ font-size: 16px; color: #f46263;padding:30px;}.box{ display: none}.tiaochu{display: none}
-    @media screen and (max-width:750px){#tzpt{margin-left:20%}
-      .bf-img{background-size: 4.5rem 4.5rem; background-position: center 40%}
-      .jumpbf{ font-size: 16px; color: #f46263;padding:10px;}
-    }
-    .player_loding_wrap{display:block;margin:0 auto;margin-top:79px;position:relative;width: 70px;height: 70px;}.player_loding_key {display:block;border-radius: 50%;border: 3px solid #f3f3f3;border-top: 3px solid #a6aaaa;width: 70px;height: 70px;-webkit-animation: spin 2s linear infinite;animation: spin 1s linear infinite;position: absolute;top:0;left:0;box-sizing:border-box;}.player_loding_wrap img{position:absolute;top:11px;left:11px;width:47px;height:47px;}@keyframes spin {0% {transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg);}100% {transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg);}}@-webkit-keyframes spin {0% {transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg);}100% {transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg);}}@-moz-keyframes spin {0% {transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg);}100% {transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg);}}@-o-keyframes spin {0% {transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg);}100% {transform:rotate(360deg);-ms-transform:rotate(360deg);-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);-o-transform:rotate(360deg);}}.player_loding_wrap p{font-size:16px;color:#a6aaaa;position:absolute;bottom:-30px;margin:0;padding:0;}
-    /* .singldl .diss:nth-of-type(2){display:none;}.singldl .diss:nth-of-type(3){display:none;}.singldl .diss:nth-of-type(5){display:none;} */
-    /* #red .nosing-div .status{background:#e60640;}
-    #yellow .nosing-div .status{background:#fd8521;}
-    #blue .nosing-div .status{background:#006bb7;}
-    #red .singldl .active{background:#e60640;}
-    #yellow .singldl .active{background:#fd8521;}
-    #blue .singldl .active{background:#006bb7;} */
-  </style>
-  <div class="box" style="display: block;">
-    <p class="bsxx">比赛还未开赛，暂无网友分享</p>
-    <div class="nosing-div">
-      <div class="event-div"><span th:text="${liveTypeText}"></span> <span th:text="${#dates.format(item.getDate(),'MM-dd')}"></span>
-      </div>
-      <div class="clearfix bs_xingxi">
-        <div class="team">
-          <img th:src="${item.getLeftImg()}">
-          <p th:text="${item.getLeftName()}"></p>
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin-left: 0;
+            margin-right: 0
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 36px
+        }
+
+        .box {
+            padding-left: .2rem;
+            max-width: 1200px;
+            height: 100%;
+            padding-top: 10px
+        }
+
+        .singldl {
+            margin: 0;
+            max-height: 64px;
+            overflow: hidden;
+            padding-left: 4.8rem;
+            box-sizing: border-box
+        }
+
+        .singldl dd, .singldl dt {
+            display: inline-block;
+            float: left
+        }
+
+        .singldl dt {
+            font-size: .9rem;
+            position: absolute;
+            left: 10px;
+            margin-top: .2rem
+        }
+
+        .singldl dd {
+            font-size: 14px;
+            padding: .2rem .4rem;
+            color: #333;
+            margin: 0 .2rem;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: .2rem;
+            max-width: 4rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            background: #f5f5f5;
+        }
+
+        .singldl .active {
+            background: #e50b1a;
+            color: #fff
+        }
+
+        .bf-img {
+            width: 100%;
+            height: 100%;
+            background: url(http://www.515.tv/~static/www/img/jumpvideo.png) no-repeat center #000;
+            cursor: pointer
+        }
+
+        #a1 {
+            width: 100%;
+            min-height: 18rem;
+            max-height: 28rem
+        }
+
+        #iframeplayer {
+            height: 86%
+        }
+
+        .nosing-div {
+            width: 100%;
+            height: 15rem;
+            background: #2b2b2b;
+            margin: 0 auto 3rem;
+            text-align: center;
+            box-sizing: border-box;
+            color: #fff
+        }
+
+        .nosing-div img {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto;
+            border-radius: 50%;
+            background: #fff
+        }
+
+        .nosing-div .center, .nosing-div .team {
+            width: 33.33%;
+            float: left
+        }
+
+        .nosing-div .vs-p {
+            font-size: 18px;
+            margin: 1.7rem auto;
+            padding: 1rem 0
+        }
+
+        .nosing-div .status {
+            min-width: 100px;
+            max-width: 110px;
+            height: 32px;
+            line-height: 32px;
+            background: #e50b1a;
+            margin: 0 auto;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px
+        }
+
+        .nosing-div .title {
+            margin: 40px auto;
+            text-align: center;
+            font-size: 18px
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+            visibility: hidden
+        }
+
+        .shuaxing_xh {
+            width: 27px;
+            height: 27px;
+            background: 0 0;
+            margin: 0;
+            margin-left: 35px;
+            display: inline-block;
+            background: #ef584c;
+            -webkit-border-radius: 25em;
+            -moz-border-radius: 25em;
+            border-radius: 25em;
+            float: left;
+            margin-top: 4px
+        }
+
+        .shuaxing_xh img {
+            width: 15px;
+            height: 15px;
+            margin: 6px 0 0 6px
+        }
+
+        .shuaxing_xh:hover {
+            background: #f57066
+        }
+
+        .xhxscg {
+            display: none;
+            background: #4c4c4c;
+            color: #fff;
+            height: 2rem;
+            line-height: 2rem;
+            width: 7rem;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            position: absolute;
+            bottom: .3rem;
+            left: 50%;
+            margin-left: -71px;
+            text-align: center;
+            font-size: 14px
+        }
+
+        .character360 {
+            display: block;
+            margin: 6px 0 0 6px;
+            width: 15px;
+            height: 15px;
+            background: no-repeat url(http://www.515.tv/~static/www/img/shuaxing.png) left top;
+            -webkit-background-size: 15px 15px;
+            -moz-background-size: 15px 15px;
+            background-size: 15px 15px;
+            -webkit-border-radius: 15px;
+            border-radius: 15px
+        }
+
+        .dhua {
+            -webkit-transition: -webkit-transform 1s ease-out;
+            -moz-transition: -moz-transform 1s ease-out;
+            -o-transition: -o-transform 1s ease-out;
+            -ms-transition: -ms-transform 1s ease-out;
+            -webkit-transform: rotateZ(360deg);
+            -moz-transform: rotateZ(360deg);
+            -o-transform: rotateZ(360deg);
+            -ms-transform: rotateZ(360deg);
+            transform: rotateZ(360deg)
+        }
+
+        .shuaxing_xh_sh {
+            width: 27px;
+            height: 27px;
+            background: 0 0;
+            margin: 0;
+            margin-left: 100px;
+            display: inline-block;
+            background: #ef584c;
+            -webkit-border-radius: 25em;
+            -moz-border-radius: 25em;
+            border-radius: 25em;
+            float: left;
+            margin-top: 4px
+        }
+
+        .shuaxing_xh_sh img {
+            width: 15px;
+            height: 15px;
+            margin: 6px 0 0 6px
+        }
+
+        .shuaxing_xh_sh:hover {
+            background: #d94a3e
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none
+        }
+
+        .event-div {
+            color: #999
+        }
+
+        .bsxx {
+            color: #ef584c;
+            font-size: 1rem;
+            height: 20px;
+            line-height: 20px;
+            padding-left: 10px;
+            margin-top: 0
+        }
+
+        .box {
+            padding-left: 0
+        }
+
+        .nosing-div .team {
+            font-size: .8rem
+        }
+
+        .nosing-div .vs-p {
+            margin: 1rem auto;
+            font-size: 2rem
+        }
+
+        .event-div span {
+            display: block
+        }
+
+        .tiaochu {
+            height: 100%
+        }
+
+        .tiaochu a {
+            color: #999;
+            text-decoration: none
+        }
+
+        .jump_video {
+            height: 100%;
+            background: #3c3c3c;
+            position: relative;
+            padding-top: .5rem
+        }
+
+        .jump_video span {
+            padding-left: .5rem;
+            color: #999;
+            font-size: 12px
+        }
+
+        .jump_videoan {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2rem;
+            width: 6rem;
+            color: #fff;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            position: absolute;
+            top: 9rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #de1e30;
+            font-size: 12px
+        }
+
+        @media screen and (min-width: 750px) {
+            h2 {
+                font-size: 20px
+            }
+
+            .singldl dt {
+                font-size: 18px
+            }
+
+            #a1 {
+                height: 640px;
+                width: 100%
+            }
+
+            #iframeplayer {
+                height: 560px
+            }
+
+            .nosing-div {
+                background: #000;
+                margin: 0 auto 3rem
+            }
+
+            .shuaxing_xh {
+                width: 27px;
+                height: 27px;
+                background: 0 0;
+                margin: 0;
+                margin-left: 35px;
+                display: inline-block;
+                background: #ef584c;
+                -webkit-border-radius: 25em;
+                -moz-border-radius: 25em;
+                border-radius: 25em;
+                float: left;
+                margin-top: 2px
+            }
+
+            .shuaxing_xh img {
+                width: 15px;
+                height: 15px;
+                margin: 6px 0 0 6px
+            }
+
+            .shuaxing_xh:hover {
+                background: #f57066
+            }
+
+            .xhxscg {
+                display: none;
+                background: #4c4c4c;
+                color: #fff;
+                height: 2rem;
+                line-height: 2rem;
+                width: 7rem;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: -71px;
+                text-align: center;
+                font-size: 14px
+            }
+
+            html {
+                height: 100%
+            }
+
+            body {
+                height: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            h2 {
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: 36px
+            }
+
+            .box {
+                max-width: 1200px;
+                background: #26262b;
+                height: 100%;
+                padding-top: 10px;
+                padding-left: 0
+            }
+
+            .singldl {
+                margin: 0;
+                max-height: 64px;
+                overflow: hidden;
+                padding-left: 4.8rem;
+                box-sizing: border-box
+            }
+
+            .singldl dd, .singldl dt {
+                display: inline-block;
+                float: left
+            }
+
+            .singldl dt {
+                font-size: .9rem;
+                position: absolute;
+                left: 10px;
+                margin-top: .2rem;
+                color: #999
+            }
+
+            .singldl dd {
+                font-size: 14px;
+                padding: .2rem .6rem;
+                color: #333333;
+                background: #f5f5f5;
+                margin: 0 .2rem 0 .8rem;
+                border-radius: 2px;
+                cursor: pointer;
+                margin-top: .2rem;
+                max-width: 4rem;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis
+            }
+
+            .nosing-div .vs-p {
+                font-size: 32px;
+                margin: 23px auto;
+                padding: 1rem 0;
+                font-family: "微软雅黑";
+                color: #999
+            }
+
+            .bs_xingxi {
+                width: 750px;
+                margin: 0 auto
+            }
+
+            .nosing-div .team {
+                font-size: 20px
+            }
+
+            .event-div span {
+                display: inline
+            }
+
+            .bsxx {
+                color: #ef584c;
+                height: 20px;
+                line-height: 20px;
+                font-size: 16px;
+                padding-left: 10px;
+                margin-top: 0
+            }
+
+            .tiaochu {
+                height: 100%
+            }
+
+            .tiaochu a {
+                color: #999;
+                text-decoration: none
+            }
+
+            .jump_video {
+                height: 560px;
+                background: #3c3c3c;
+                position: relative;
+                padding-top: 20px
+            }
+
+            .jump_video span {
+                padding-left: 20px;
+                color: #999;
+                font-size: 16px
+            }
+
+            .jump_videoan {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                line-height: 40px;
+                width: 150px;
+                color: #fff;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #de1e30;
+                font-size: 14px
+            }
+        }
+
+        #cnzz_stat_icon_1279756755 {
+            display: none
+        }
+
+        .jumpbf {
+            font-size: 16px;
+            color: #f46263;
+            padding: 30px;
+        }
+
+        .box {
+            display: none
+        }
+
+        .tiaochu {
+            display: none
+        }
+
+        @media screen and (max-width: 750px) {
+            #tzpt {
+                margin-left: 20%
+            }
+
+            .bf-img {
+                background-size: 4.5rem 4.5rem;
+                background-position: center 40%
+            }
+
+            .jumpbf {
+                font-size: 16px;
+                color: #f46263;
+                padding: 10px;
+            }
+        }
+
+        .player_loding_wrap {
+            display: block;
+            margin: 0 auto;
+            margin-top: 79px;
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+
+        .player_loding_key {
+            display: block;
+            border-radius: 50%;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #a6aaaa;
+            width: 70px;
+            height: 70px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+        }
+
+        .player_loding_wrap img {
+            position: absolute;
+            top: 11px;
+            left: 11px;
+            width: 47px;
+            height: 47px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes spin {
+            0% {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes spin {
+            0% {
+                transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        .player_loding_wrap p {
+            font-size: 16px;
+            color: #a6aaaa;
+            position: absolute;
+            bottom: -30px;
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+    <div class="box" style="display: block;">
+        <p class="bsxx">比赛还未开赛，暂无网友分享</p>
+        <div class="nosing-div" style="display: flex;flex-direction:column;justify-content: center">
+            <div class="event-div"><span th:text="${liveTypeText}"></span> <span th:text="${#dates.format(item.getDate(),'MM-dd')}"></span>
+            </div>
+            <div class="clearfix bs_xingxi">
+                <div class="team">
+                    <img th:src="${item.getLeftImg()}">
+                    <p th:text="${item.getLeftName()}"></p>
+                </div>
+                <div class="center">
+                    <p class="vs-p">vs</p>
+                    <p class="status">未开赛</p>
+                </div>
+                <div class="team">
+                    <img th:src="${item.getRightImg()}">
+                    <p th:text="${item.getRightName()}"></p>
+                </div>
+            </div>
         </div>
-        <div class="center">
-          <p class="vs-p">vs</p>
-          <p class="status">未开赛</p>
-        </div>
-        <div class="team">
-          <img th:src="${item.getRightImg()}">
-          <p th:text="${item.getRightName()}"></p>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

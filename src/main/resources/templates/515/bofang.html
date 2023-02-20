@@ -42,12 +42,13 @@
 
 <div th:replace="~{header::head}"></div>
 
-<a target="_blank" th:each="item:${config.getBannerAd()}" th:href="${item.getUrl()}">
-    <img th:src="${item.getPicUrl()}"
-         th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin: auto;'"/>
-</a>
 <!--detail-->
 <div class="zhuti bifeng_xq" style="padding-bottom: 0px;">
+
+    <a target="_blank" th:each="item:${config.getBannerAd()}" th:href="${item.getUrl()}">
+        <img th:src="${item.getPicUrl()}"
+             th:style="'width:'+${item.getPicWidth()}+';+'+'height:'+ ${item.getPicHeight()}+';margin: auto;'"/>
+    </a>
     <div class="bifeng_zhishu">
         <div class="bifeng_switch" style="display: block;">
             <div th:if="${rateodds}" class="bfonoff bifeng_kai">
@@ -71,7 +72,7 @@
                                     class="ks_vs ks_vs_new"><em th:if="${rateodds != null && rateodds.getScore() && rateodds.getScore().size()==2}"
                                                                 th:text="${rateodds.getScore().get(0)+' : '+rateodds.getScore().get(1)}"></em></span>
                         </div>
-                        <div th:if="${item.getLiveType==2}"> VS </div>
+                        <div> VS </div>
                         <cite class="ks_kemc" th:text="${item.getRightName()}"></cite>
                     </div>
                 </div>
@@ -84,10 +85,12 @@
     </div>
 
     <div class="main-two">
+
         <div th:if="${not item.getLiveing()}" th:insert="~{preplay::preplay}"></div>
         <div th:if="${item.getLiveing()}" th:insert="~{playing::playing}"></div>
     </div>
 </div>
+
 <div class="pcrlist">
     <div class="once appbtn hide">
         <i></i>
@@ -111,7 +114,7 @@
     <i class="close_safari"></i>
     <div class="smtp">
         <div class="copy_wz">
-            <span>515直播：</span>
+            <span>河豚直播：</span>
             <input id="taokouling" readonly="readonly" type="text">
             <button class="btn" data-clipboard-action="copy" data-clipboard-target="#taokouling" id="copyCode">
                 点击复制
@@ -145,15 +148,15 @@
     </div>
 </div>
 <div class="footer-wap" style="position: static;">
-    <p>515直播——体育直播网站</p>
+    <p>河豚直播——体育直播网站</p>
     <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
 </div>
 <div class="quwangapptg" style="display: none;">
 
 </div>
-<footer style="position: static;">
+<footer style="width: 100%">
     <div>
-        <span>Copyright©2020 515直播</span><i></i>
+        <span>Copyright©2020 河豚直播</span><i></i>
         <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
     </div>
 </footer>

@@ -13,5 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PredictionsIndexBean {
     private List<Date> allStartTime;
+
+    private Date currentShowDate;
     List<PredictionsBean> predictionsBeans;
 }

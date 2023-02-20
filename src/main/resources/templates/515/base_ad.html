@@ -1,10 +1,9 @@
 <div class="couplet_left_ad" th:fragment="left_ad"
-     th:if="${config.getCouplets()}">
+     th:if="${config.getCouplets()} and ${not config.getCouplets().getLeftAd().getPicUrl().isEmpty()}">
     <img class="couplet_left_img_ad" th:if="${config.getCouplets().getLeftAd()}"
          th:src="${config.getCouplets().getLeftAd().getPicUrl()}"/>
 </div>
 <div class="couplet_right_ad" th:fragment="right_ad"
-     th:if="${config.getCouplets()}">
-    <img class="couplet_righ_img_ad" th:if="${config.getCouplets().getRightAd()}"
-         th:src="${config.getCouplets().getRightAd().getPicUrl()}"/>
+     th:if="${config.getCouplets()} and ${not config.getCouplets().getRightAd().getPicUrl().isEmpty()}">
+    <img class="couplet_righ_img_ad" th:src="${config.getCouplets().getRightAd().getPicUrl()}"/>
 </div>

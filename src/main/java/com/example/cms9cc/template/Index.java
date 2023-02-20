@@ -189,21 +189,17 @@ public class Index {
         if (date == null) {
             date = today_date;
         }
-        try {
-            Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return "500";
-        }
         BaseListBean<PredictionsIndexBean> predict = indexService.getPredict(date);
         PredictionsIndexBean data = predict.getData();
         List<PredictionsBean> predictionsBeans = data.getPredictionsBeans();
         List<Date> allStartTime = data.getAllStartTime();
+
+
         model.addAttribute("list", predictionsBeans);
         model.addAttribute("yesterday",DateUtils.getYesterday());
         model.addAttribute("tomorrow", DateUtils.getTomorrow());
         model.addAttribute("today_date", DateUtils.getToday());
-        model.addAttribute("current_select_date", date);
+        model.addAttribute("current_select_date", (new SimpleDateFormat("yyyy-MM-dd")).format(data.getCurrentShowDate()));
         model.addAttribute("all_start_time",allStartTime);
         return "index";
     }
@@ -213,7 +209,6 @@ public class Index {
     public String bofang(Model model, @PathVariable("id") Long id) {
 
         model.addAttribute("config", adminService.getAllConfig());
-
         PlayInfoBean liveInfo = indexService.getLiveInfo(id);
 
         MatchLeague footballLeague = liveInfo.getFootballLeague();
