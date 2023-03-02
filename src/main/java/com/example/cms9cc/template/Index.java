@@ -189,16 +189,19 @@ public class Index {
         if (date == null) {
             date = today_date;
         }
+
+        model.addAttribute("yesterday",DateUtils.getYesterday());
+        model.addAttribute("tomorrow", DateUtils.getTomorrow());
+        model.addAttribute("today_date", DateUtils.getToday());
         BaseListBean<PredictionsIndexBean> predict = indexService.getPredict(date);
+        if (predict == null) {
+            return "index";
+        }
         PredictionsIndexBean data = predict.getData();
         List<PredictionsBean> predictionsBeans = data.getPredictionsBeans();
         List<Date> allStartTime = data.getAllStartTime();
 
-
         model.addAttribute("list", predictionsBeans);
-        model.addAttribute("yesterday",DateUtils.getYesterday());
-        model.addAttribute("tomorrow", DateUtils.getTomorrow());
-        model.addAttribute("today_date", DateUtils.getToday());
         model.addAttribute("current_select_date", (new SimpleDateFormat("yyyy-MM-dd")).format(data.getCurrentShowDate()));
         model.addAttribute("all_start_time",allStartTime);
         return "index";

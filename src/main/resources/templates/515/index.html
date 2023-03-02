@@ -48,7 +48,7 @@
     </div>
 
     <marquee align=middle behavior=alternate direction=left style="font-size: 40px;"
-             th:if="${config.getBasis().getAnnouncement()!=null && !config.getBasis().getAnnouncement().isEmpty()}"
+             th:if="${#strings.isEmpty(config.getBasis().getAnnouncement())}"
              th:text="${config.getBasis().getAnnouncement()}"></marquee>
     <div class="top-div">
         <span class="newyearl"></span>

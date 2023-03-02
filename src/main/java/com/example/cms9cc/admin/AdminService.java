@@ -47,7 +47,6 @@ public class AdminService {
     }
 
     public List<BannerAdBean> getBannerAd() {
-
         return bannerAdMapping.findAll();
     }
 

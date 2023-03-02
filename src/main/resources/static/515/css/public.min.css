@@ -31,6 +31,10 @@ blockquote,body,code,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,l
     padding: 0
 }
 
+.date_li{
+    display: list-item;
+}
+
 article,aside,details,dialog,figcaption,figure,footer,header,hgroup,menu,nav,section {
     display: block
 }
@@ -2331,6 +2335,7 @@ cite,em,i {
         position: relative;
         padding-bottom: 150px
     }
+
 
     .jump_video {
         height: 560px;

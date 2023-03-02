@@ -7,19 +7,17 @@ plugins {
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
-
 repositories {
     maven { url 'https://maven.aliyun.com/repository/public/' }
     maven { url 'https://maven.aliyun.com/repository/spring/' }
     mavenLocal()
     mavenCentral()
-
     maven { url 'https://jitpack.io' }
 }
 
 bootJar {
-    baseName = "hetuncms"
-    version("")
+    archivesBaseName("hetuncms")
+    version("2")
 
     exclude("static/**")
     exclude("templates/**")
@@ -51,5 +49,3 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-

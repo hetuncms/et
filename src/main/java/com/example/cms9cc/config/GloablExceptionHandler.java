@@ -1,4 +1,4 @@
-package com.example.cms9cc.admin;
+package com.example.cms9cc.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

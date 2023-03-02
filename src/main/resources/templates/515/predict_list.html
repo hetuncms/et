@@ -1,53 +1,55 @@
 <div th:fragment="predict">
-
     <div class="jf_title_lb">
         <a th:each="item:${all_start_time}" th:href="${'/predict?date='+#dates.format(item,'yyyy-MM-dd')}">
-            <li data-type="1" data-catid="1" ht="jifenbang" th:class="${current_select_date eq #dates.format(item,'yyyy-MM-dd')?'jf_hover':''}"
-                style="display: list-item;" th:text="${#dates.format(item,'yyyy-MM-dd')}">
+            <li data-type="1" data-catid="1" ht="jifenbang"
+                th:class="${current_select_date eq #dates.format(item,'yyyy-MM-dd')?'jf_hover':''}"
+                style="display: list-item">
+                <span th:text="${#dates.format(item,'MM-dd')}"></span>
+                <span th:text="${'周'+#dates.dayOfWeek(item)}"></span>
             </li>
         </a>
     </div>
     <div class="biaolist jqqh_lb qtbdlb duo_quyu">
         <ul class="biaotitle jifeng" id="dqlebiao_bt">
             <li>序号</li>
-            <li>队伍1</li>
-            <li>队伍2</li>
+            <li>主队</li>
+            <li>客队</li>
             <li>联赛</li>
-            <li>场次</li>
             <li>时间</li>
             <li>波胆</li>
             <li>独赢</li>
             <li>大球</li>
             <li>小球</li>
             <li>进球</li>
-            <li>双方均进球</li>
+            <li>投注</li>
         </ul>
         <div class="list_xq jifeng" id="dqlebiao">
             <ul class="biaonr" th:each="item:${list}">
                 <li>
                     <span class="rankimg" th:text="${item.getId()}"/>
                 </li>
-                <li>
-                    <div>
-                        <img alt="PSG" style="width: 100%"
-                             th:src="${item.getMainTeamImg()}">
-                        <span th:text="${item.getMainTeamName()}"></span>
-                    </div>
+                <li style="display: flex;flex-direction: column;align-items: center;justify-content: center;width: 100%;height: 100%">
+                    <img alt="PSG" style="max-width:75%;max-height: 50%" th:src="${item.getMainTeamImg()}">
+                    <div th:text="${item.getMainTeamName()}" style="max-height: 20%"></div>
                 </li>
-                <li>
-                    <img alt="PSG" style="width: 100%"
-                         th:src="${item.getVisitTeamImg()}">
-                    <span th:text="${item.getVisitTeamName()}"></span>
+                <li style="display: flex;flex-direction: column;align-items: center;justify-content: center;width: 100%;height: 100%">
+                    <img alt="PSG" style="max-width: 75%;max-height: 50%" th:src="${item.getVisitTeamImg()}">
+                    <span th:text="${item.getVisitTeamName()}" style="max-height: 20%"></span>
                 </li>
                 <li th:text="${item.getLeagueName()}"></li>
-                <li class="element" th:text="${item.getChangci()}"></li>
                 <li th:text="${#dates.format(item.getStartTime(),'HH:mm:ss')}"></li>
                 <li class="center_text" th:text="${item.getBoDan()}"></li>
                 <li th:text="${item.getDuYing()}"></li>
-                <li th:text="${item.getBigBall()}"></li>
-                <li th:text="${item.getSmallBall()}"></li>
+                <li th:text="${#strings.isEmpty(item.getBigBall())?'/':item.getBigBall()}"></li>
+                <li th:text="${#strings.isEmpty(item.getSmallBall())?'/':item.getSmallBall()}"></li>
                 <li th:text="${item.getGoal()}"></li>
-                <li th:text="${item.getGoalsFromBothSides()?'是':'否'}"></li>
+                <li>
+                    <a target="_blank" th:href="${item.getBetUrl()}">
+                        <div th:text="${item.getBet()+'aaa'}"></div>
+                    </a>
+<!--                <li th:text="${item.getBet()}"></li>-->
+                </a>
+                </li>
             </ul>
         </div>
     </div>

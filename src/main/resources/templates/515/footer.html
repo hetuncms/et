@@ -1,6 +1,6 @@
 <footer th:fragment="foot">
     <div>
-        <span>Copyright©2020 河豚直播    </span><span th:unless="${config.getBasis().getEmail().isEmpty()}"
+        <span>Copyright©2020 河豚直播    </span><span th:unless="${#strings.isEmpty(config.getBasis().getEmail())}"
                                                     th:text="'邮箱:'+${config.getBasis().getEmail()}"></span>
         <p>免责声明：本平台所有直播信号源均实时采集于互联网并作测试用途，本站不生产、不制作任何信号。</p>
     </div>

@@ -47,7 +47,7 @@
                 </a>
             </div>
         </div>
-        <div class="clcik_more" th:unless="${list.isEmpty()}" th:onclick="loadmore([[${listtype}]])">点击加载更多</div>
+        <div class="clcik_more" th:unless="${#lists.isEmpty(list)}" th:onclick="loadmore([[${listtype}]])">点击加载更多</div>
         <div class="more_animate" style="display: none;">︾</div>
 
     </div>

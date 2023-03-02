@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
+import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.sql.*;
@@ -33,9 +34,12 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
         String templatePath = map.get("template.path").toString();
         if (map != null) {
             Object o = map.get("spring.datasource.url");
-            if (o != null) {
-
-                map.replace("spring.thymeleaf.prefix", templatePath +File.separator+ getTemplate(o.toString()) + File.separator);
+            if (o != null)
+            {
+                String curTemplates = getTemplate(o.toString());
+                if (StringUtils.hasText(curTemplates)) {
+                    map.replace("spring.thymeleaf.prefix", templatePath +File.separator+ getTemplate(o.toString()) + File.separator);
+                }
             }
         }
         System.out.println("===============" + map.get("spring.thymeleaf.prefix"));
@@ -54,7 +58,7 @@ public class DemoEnvironment implements EnvironmentPostProcessor {
                 return result;
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return null;
     }

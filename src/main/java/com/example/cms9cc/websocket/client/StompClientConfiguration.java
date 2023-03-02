@@ -43,15 +43,18 @@ public class StompClientConfiguration {
 
              CompletableFuture<StompSession> stompSessionCompletableFuture =
                      stompClient.connectAsync("ws://154.23.238.34/socket/match", new RootStompHandler());
+
              try {
                  stompSession = stompSessionCompletableFuture.get();
              } catch (InterruptedException | ExecutionException e) {
                  e.printStackTrace();
              }
+
              if (stompSession == null) {
                  System.out.println("连接数据中心失败");
                  return;
              }
+             
              stompSession.subscribe("/topic/rate_odds", new StompFrameHandler() {
                  @Override
                  public Type getPayloadType(StompHeaders headers) {
