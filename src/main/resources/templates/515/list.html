@@ -27,8 +27,8 @@
                             <span class="feleimg">
                                 <img th:src="${item.getLiveType()==1?'/515/img/fenlei_1.png':'/515/img/fenlei_2.png'}"/>
                             </span>
-                                <span><em th:text="${item.gameName}"></em> <i
-                                        style="white-space: nowrap; overflow: visible;"
+                                <span><em th:text="${item.gameName}"></em>
+                                    <i style="white-space: nowrap; overflow: visible;"
                                         th:text="${(#dates.day(item.getDate()) - #dates.day(#dates.createToday())==0) ? #dates.format(item.getDate(),'HH:mm') : #dates.format(item.getDate(),'MM-dd HH:mm')}">
                               </i> </span></p>
                             <p class="vsp">VS</p>

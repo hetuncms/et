@@ -1,7 +1,8 @@
 plugins {
+    id 'java'
     id 'org.springframework.boot' version '3.0.2'
     id 'io.spring.dependency-management' version '1.0.14.RELEASE'
-    id 'java'
+    id 'org.graalvm.buildtools.native' version '0.9.18'
 }
 
 group = 'com.example'
@@ -17,8 +18,7 @@ repositories {
 
 bootJar {
     archivesBaseName("hetuncms")
-    version("2")
-
+    version("")
     exclude("static/**")
     exclude("templates/**")
     exclude("application.properties")
@@ -28,24 +28,44 @@ bootJar {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
-    implementation 'org.xerial:sqlite-jdbc'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
     implementation 'org.springframework.cloud:spring-cloud-context:3.1.5'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    implementation 'org.xerial:sqlite-jdbc:3.21.0.1'
-    implementation 'org.hibernate.orm:hibernate-community-dialects:6.1.6.Final'
-    implementation 'com.vladmihalcea:hibernate-types-60:+'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-    implementation 'com.auth0:java-jwt:4.2.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+
+    implementation 'org.xerial:sqlite-jdbc:3.41.0.0'
+    implementation 'org.hibernate.orm:hibernate-community-dialects:6.1.6.Final'
+    implementation 'com.vladmihalcea:hibernate-types-60:2.21.1'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
+    implementation 'com.auth0:java-jwt:4.2.1'
+
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+bootBuildImage {
+    imageName = "192.168.100.96:80/library/${project.name}:0.0.2" //发布到harbor的镜像名称
+    publish = false //是否发布
+    docker {
+        host = "tcp://localhost:2375" //中间docker宿主机的地址
+        tlsVerify = false
+//        certPath = "/home/users/.minikube/certs"
+        publishRegistry {
+            username = "admin" //harbor用户名
+            password = "Harbor12345" //harbor密码
+            url = "http://192.168.100.96" //harbor地址
+            email = "76775081@qq.com" //邮箱
+        }
+    }
 }

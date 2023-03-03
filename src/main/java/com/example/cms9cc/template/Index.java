@@ -200,7 +200,6 @@ public class Index {
         PredictionsIndexBean data = predict.getData();
         List<PredictionsBean> predictionsBeans = data.getPredictionsBeans();
         List<Date> allStartTime = data.getAllStartTime();
-
         model.addAttribute("list", predictionsBeans);
         model.addAttribute("current_select_date", (new SimpleDateFormat("yyyy-MM-dd")).format(data.getCurrentShowDate()));
         model.addAttribute("all_start_time",allStartTime);
