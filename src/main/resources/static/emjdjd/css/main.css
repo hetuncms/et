@@ -487,7 +487,6 @@ a:hover {
     flex-shrink: 0;
 }
 .main {
-    padding-top: 15px;
     padding-bottom: 30px;
 }
 .arrow-right {
@@ -1005,7 +1004,6 @@ body {
 .live-content {
     width: 1200px;
     margin: 0 auto;
-    margin-top: 20px;
 }
 .live-content .live-list {
     background: #fff;

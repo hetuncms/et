@@ -23,39 +23,47 @@
     <div class="logo-box">
         <div class="nav-box">
             <h1 class="logo">
-                9球体育直播 <a href="/" title="9球体育直播">
-                <img src="/Public/static/logo/jiuqiu_logo.png" alt="9球体育直播">
+                9球体育直播 <a href="/static" title="9球体育直播">
+                <img th:src="@{/emjdjd/img/jiuqiu_logo.jpg}" alt="9球体育直播">
             </a>
             </h1>
             <nav class="nav">
                 <ul>
-                    <li class="active">
+                    <li th:class="${not requestUrl.startsWith('/basketball') and not requestUrl.startsWith('/football')?'active':''}">
                         <span class="nav-text"><a href="/" title="首页">首页</a></span>
                     </li>
-                    <li class="">
-                        <span class="nav-text"><a href="/lanqiu/nba" title="NBA直播">NBA直播</a></span>
+                    <li th:class="${requestUrl.startsWith('/basketball')?'active':''}">
+                        <span class="nav-text"><a href="/basketball" title="篮球">篮球</a></span>
                     </li>
-                    <li class="">
-                        <span class="nav-text"><a href="/zuqiu/yingchao" title="英超直播">英超直播</a></span>
-                    </li>
-                    <li class="">
-                        <span class="nav-text"><a href="/lanqiu" title="篮球">篮球</a></span>
-                    </li>
-                    <li class="">
-                        <span class="nav-text"><a href="/zuqiu" title="足球">足球</a></span>
-                    </li>
-                    <li class="">
-                        <span class="nav-text"><a href="/xwzx" title="新闻">新闻</a></span>
+                    <li th:class="${requestUrl.startsWith('/football')?'active':''}">
+                        <span class="nav-text"><a href="/football" title="足球">足球</a></span>
                     </li>
                 </ul>
             </nav>
         </div>
-        <p><a class="show-all-btn" href="/match/all" title="查看全部比赛">查看全部比赛</a></p>
     </div>
 </header>
 <main class="main">
-    <div class="flex-between live-content">
-        <div th:if="${showType eq 0}" th:insert="~{list::listFragment}"></div>
+    <div class="flex-between live-content" style="display: flex;flex-direction: column">
+        <div style="display: flex;justify-content: space-around;border: 1px solid #e2e3e8;border-radius: 4px;margin-bottom: 10px;margin-top: 10px">
+            <a th:each="date:${date_list}"
+               style="width: 76px;height: 60px;;display: flex;flex-direction: column;justify-content: center;align-items: center;margin-top: 5px;margin-bottom: 5px"
+               th:href="${list_type_url}+'/'+${#dates.format(date,'yyyy-MM-dd')}">
+                <div th:text="${#dates.format(date,'yyyy-MM-dd')}" style="background: no-repeat"/>
+                <th:block th:switch="${#dates.dayOfWeek(date)}">
+                    <span th:case="2" th:text="周一"></span>
+                    <span th:case="3" th:text="周二"></span>
+                    <span th:case="4" th:text="周三"></span>
+                    <span th:case="5" th:text="周四"></span>
+                    <span th:case="6" th:text="周五"></span>
+                    <span th:case="7" th:text="周六"></span>
+                    <span th:case="1" th:text="周日"></span>
+                </th:block>
+            </a>
+
+        </div>
+
+        <th:block th:if="${showType eq 0}" th:insert="~{list::listFragment}"></th:block>
     </div>
 </main>
 <footer class="footer">

@@ -20,8 +20,6 @@ public class BasisController {
     private final RestartService restartService;
 
     private final BasisMapping basisMapping;
-    @Value("${template.path}")
-    private String templatePath;
 
     @Autowired
     public BasisController(RestartService restartService, BasisMapping basisMapping) {
@@ -32,7 +30,6 @@ public class BasisController {
     @GetMapping("/getbasis")
     public BaseAdminBean<BasisBean> getBasis() {
         BasisBean basisBean = basisMapping.findAll().get(0);
-        basisBean.setTemplates(Arrays.asList(getTemplates()));
         return new BaseAdminBean.Builder<BasisBean>().buildSucces(basisBean);
     }
 
@@ -42,15 +39,5 @@ public class BasisController {
         restartService.restartApp();
 
         return new BaseAdminBean.Builder<BasisBean>().buildSucces(save);
-    }
-
-    private String[] getTemplates() {
-        File file = null;
-        try {
-            file = ResourceUtils.getFile(templatePath);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return file.list();
     }
 }

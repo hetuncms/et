@@ -1,5 +1,10 @@
 package com.example.cms9cc;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.core.annotation.Order;
+
 import java.util.Date;
 import java.util.List;
 
@@ -44,6 +49,8 @@ public class LiveBean {
         this.live_item = live_item;
     }
 
+    @Getter
+    @Setter
     public static class LiveItem {
 
         private long id;
@@ -53,7 +60,9 @@ public class LiveBean {
         private List<Integer> visitingScore;
         private List<Integer> mainScore;
         private Boolean liveing;
-        private Long matchStartTime;
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+        private Date matchStartTime;
         private String title;
         private Date date;
         private String liveId;
@@ -62,6 +71,23 @@ public class LiveBean {
         private List<Integer> rightTeamScore;
         private Boolean top;
         private String leftName;
+
+        public Date getMatchStartTime() {
+            return matchStartTime;
+        }
+
+        public void setMatchStartTime(Date matchStartTime) {
+            this.matchStartTime = matchStartTime;
+        }
+
+        public LeagueResult getLeagueResult() {
+            return leagueResult;
+        }
+
+        public void setLeagueResult(LeagueResult leagueResult) {
+            this.leagueResult = leagueResult;
+        }
+
         private String rightName;
         private String leftImg;
         private String rightImg;
@@ -69,7 +95,13 @@ public class LiveBean {
         private String matchId;
         private Integer liveStatus;
         private Boolean hot;
-
+        private LeagueResult leagueResult;
+        @Setter
+        @Getter
+        public static class LeagueResult {
+            private Integer id;
+            private String name_zh_abbr;
+        }
         public List<Integer> getVisitingScore() {
             return visitingScore;
         }
@@ -158,13 +190,6 @@ public class LiveBean {
             this.matchId = matchId;
         }
 
-        public Long getMatchStartTime() {
-            return matchStartTime;
-        }
-
-        public void setMatchStartTime(Long matchStartTime) {
-            this.matchStartTime = matchStartTime;
-        }
 
         public long getId() {
             return id;
@@ -205,15 +230,6 @@ public class LiveBean {
         public void setTitle(String title) {
             this.title = title;
         }
-
-        public Date getDate() {
-            return new Date(this.getMatchStartTime() * 1000);
-        }
-
-        public void setDate(Date date) {
-            this.date = date;
-        }
-
 
         public String getLeftName() {
             return leftName;

@@ -4,8 +4,8 @@ import com.example.cms9cc.BaseListBean;
 import com.example.cms9cc.LiveBean;
 import com.example.cms9cc.net.NetInterface;
 import com.example.cms9cc.net.NetService;
+import com.example.cms9cc.template.bean.BaseListDateBean;
 import com.example.cms9cc.template.bean.PlayInfoBean;
-import com.example.cms9cc.template.bean.PredictionsBean;
 import com.example.cms9cc.template.bean.PredictionsIndexBean;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
@@ -25,15 +25,15 @@ public class IndexService {
         netInterface = netService.getRetrofit().create(NetInterface.class);
     }
 
-    public BaseListBean<List<LiveBean.LiveItem>> index(int liveType, int page) {
+    public BaseListDateBean<List<LiveBean.LiveItem>> getDataByDate(int liveType, int page, String date) {
         try {
-            BaseListBean<List<LiveBean.LiveItem>> body = netInterface.index(liveType, page).execute().body();
+            BaseListDateBean<List<LiveBean.LiveItem>> body = netInterface.getDataAndDate(liveType, page,50,date).execute().body();
             return body;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+           e.printStackTrace();
         }
+        return null;
     }
-
     public LiveBean.LiveItem getLiveItem(Long id) {
         try {
             return netInterface.getLiveItem(id).execute().body();
