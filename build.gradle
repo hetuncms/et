@@ -18,11 +18,10 @@ repositories {
 
 bootJar {
     archivesBaseName("hetuncms")
-    version("")
+    version("2")
     exclude("static/**")
     exclude("templates/**")
     exclude("application.properties")
-    exclude("spy.properties")
 }
 
 dependencies {

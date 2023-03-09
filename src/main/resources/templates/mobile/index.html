@@ -30,7 +30,7 @@
             <nav class="nav">
                 <ul>
                     <li th:class="${not requestUrl.startsWith('/basketball') and not requestUrl.startsWith('/football')?'active':''}">
-                        <span class="nav-text"><a href="/static" title="首页">首页2</a></span>
+                        <span class="nav-text"><a href="/static" title="首页">首页1</a></span>
                     </li>
                     <li th:class="${requestUrl.startsWith('/basketball')?'active':''}">
                         <span class="nav-text"><a href="/basketball" title="篮球">篮球</a></span>
