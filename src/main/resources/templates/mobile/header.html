@@ -1,0 +1,33 @@
+
+<header class="header" th:fragment="header">
+  <h1 class="logo">
+    <div class="logo-box">
+      <a href="/" title="9球体育直播">
+        <img th:src="@{/emjdjd/img/wap_jiuqiu_logo.png}" alt="9球体育直播">
+        9球体育直播 </a>
+    </div>
+  </h1>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <ul>
+        <li th:class="${not requestUrl.startsWith('/basketball') and not requestUrl.startsWith('/football')?'active':''}">
+          <a href="/" title="首页">
+            <span>
+              首页
+            </span>
+          </a>
+        </li>
+        <li th:class="${requestUrl.startsWith('/basketball')?'active':''}">
+          <a href="/basketball" title="篮球直播">
+            <span>篮球直播</span>
+          </a>
+        </li>
+        <li th:class="${requestUrl.startsWith('/football')?'active':''}">
+          <a href="/football" title="足球直播">
+            <span>足球直播</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

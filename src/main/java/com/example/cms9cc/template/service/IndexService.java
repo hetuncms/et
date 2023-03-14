@@ -25,15 +25,16 @@ public class IndexService {
         netInterface = netService.getRetrofit().create(NetInterface.class);
     }
 
-    public BaseListDateBean<List<LiveBean.LiveItem>> getDataByDate(int liveType, int page, String date) {
+    public BaseListDateBean<List<LiveBean.LiveItem>> getDataByDate(int liveType, int page, String date,int limit) {
         try {
-            BaseListDateBean<List<LiveBean.LiveItem>> body = netInterface.getDataAndDate(liveType, page,50,date).execute().body();
+            BaseListDateBean<List<LiveBean.LiveItem>> body = netInterface.getDataAndDate(liveType, page,limit,date).execute().body();
             return body;
         } catch (IOException e) {
            e.printStackTrace();
         }
         return null;
     }
+
     public LiveBean.LiveItem getLiveItem(Long id) {
         try {
             return netInterface.getLiveItem(id).execute().body();

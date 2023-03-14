@@ -1,4 +1,4 @@
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
@@ -9,67 +9,46 @@
     <meta name="description"
           content="9球体育直播全程提供NBA直播,CBA直播,中超直播,五大联赛直播,CCTV5在线直播等热门体育赛事免费高清视频直播信号，看比赛上9球直播nba在线观看！">
     <link rel="shortcut icon" href="/Public/static/ico/favorite_jiuqiu.png" type="image/x-icon">
-    <link th:href="@{/emjdjd/css/main.css}" type="text/css" rel="stylesheet">
+    <link th:href="@{/emjdjd/css/wap.css}" type="text/css" rel="stylesheet">
     <script type="text/javascript" charset="UTF-8" async="" src="https://sdk.51.la/js-sdk-pro.min.js" id="LA_COLLECT"></script>
     <script>
         var sqdapi = 'https://shuoqiudi10.com'
     </script>
-    <link rel="stylesheet" th:href="@{/emjdjd/css/swiper.min.css}">
+    <link rel="stylesheet" href="/Public/static/css/swiper.min.css">
+    <script src="/Public/static/js/swiper.min.js"></script>
 </head>
 
 
 <body>
-<header class="header">
-    <div class="logo-box">
-        <div class="nav-box">
-            <h1 class="logo">
-                9球体育直播 <a href="/static" title="9球体育直播">
-                <img th:src="@{/emjdjd/img/jiuqiu_logo.jpg}" alt="9球体育直播">
-            </a>
-            </h1>
-            <nav class="nav">
-                <ul>
-                    <li th:class="${not requestUrl.startsWith('/basketball') and not requestUrl.startsWith('/football')?'active':''}">
-                        <span class="nav-text"><a href="/static" title="首页">首页1</a></span>
-                    </li>
-                    <li th:class="${requestUrl.startsWith('/basketball')?'active':''}">
-                        <span class="nav-text"><a href="/basketball" title="篮球">篮球</a></span>
-                    </li>
-                    <li th:class="${requestUrl.startsWith('/football')?'active':''}">
-                        <span class="nav-text"><a href="/football" title="足球">足球</a></span>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+<th:block th:insert="mobile/header::header"></th:block>
 <main class="main">
-    <div class="flex-between live-content" style="display: flex;flex-direction: column">
-        <div style="display: flex;justify-content: space-around;border: 1px solid #e2e3e8;border-radius: 4px;margin-bottom: 10px;margin-top: 10px">
-            <a th:each="date:${date_list}"
-               style="width: 76px;height: 60px;;display: flex;flex-direction: column;justify-content: center;align-items: center;margin-top: 5px;margin-bottom: 5px"
-               th:href="${list_type_url}+'/'+${#dates.format(date,'yyyy-MM-dd')}">
-                <div th:text="${#dates.format(date,'yyyy-MM-dd')}" style="background: no-repeat"/>
-                <th:block th:switch="${#dates.dayOfWeek(date)}">
-                    <span th:case="2" th:text="周一"></span>
-                    <span th:case="3" th:text="周二"></span>
-                    <span th:case="4" th:text="周三"></span>
-                    <span th:case="5" th:text="周四"></span>
-                    <span th:case="6" th:text="周五"></span>
-                    <span th:case="7" th:text="周六"></span>
-                    <span th:case="1" th:text="周日"></span>
-                </th:block>
-            </a>
+    <div style="display: flex;justify-content: space-around;border: 1px solid #e2e3e8;border-radius: 4px;margin-bottom: 10px;margin-top: 10px">
 
-        </div>
+    <a th:each="date:${date_list}"
+       style="width: 76px;height: 60px;;display: flex;flex-direction: column;justify-content: center;align-items: center;margin-top: 5px;margin-bottom: 5px"
+       th:href="${list_type_url}+'/'+${#dates.format(date,'yyyy-MM-dd')}">
+        <div th:text="${#dates.format(date,'MM-dd')}" style="background: no-repeat"/>
+        <th:block th:switch="${#dates.dayOfWeek(date)}">
+            <span th:case="2" th:text="周一"></span>
+            <span th:case="3" th:text="周二"></span>
+            <span th:case="4" th:text="周三"></span>
+            <span th:case="5" th:text="周四"></span>
+            <span th:case="6" th:text="周五"></span>
+            <span th:case="7" th:text="周六"></span>
+            <span th:case="1" th:text="周日"></span>
+        </th:block>
+    </a></div>
+    <div >
+        <th:block th:insert="~{mobile/listwap::listFragment}">
+        </th:block>
 
-        <th:block th:if="${showType eq 0}" th:insert="~{list::listFragment}"></th:block>
     </div>
 </main>
+<div class="toTop"></div>
 <footer class="footer">
-    <div class="m-width">
+    <div class="m-footer-content">
         <div class="site-nav">
-            <div>网站导航：</div>
+            <div class="f-text">网站导航：</div>
             <ul>
                 <li>
                     <a target="_blank" href="/lanqiu/nba" title="NBA">
@@ -125,55 +104,58 @@
         </div>
     </div>
 </footer>
-
-<script src="https://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="/Public/static/js/jquery.lazyload.min.js"></script>
 <script type="text/javascript" src="/Public/static/js/global.js"></script>
+<script>
+
+</script>
 <script>
     $(function () {
         $("img").lazyload({
             failure_limit: 10,
+            effect: "fadeIn"
         });
     })
 </script>
 <script>
-    !function (p) {
-        "use strict";
-        !function (t) {
+    !(function (p) {
+        'use strict';
+        !(function (t) {
             var s = window,
                 e = document,
                 i = p,
-                c = "".concat("https:" === e.location.protocol ? "https://" : "http://", "sdk.51.la/js-sdk-pro.min.js"),
-                n = e.createElement("script"),
-                r = e.getElementsByTagName("script")[0];
-            n.type = "text/javascript", n.setAttribute("charset", "UTF-8"), n.async = !0, n.src = c, n.id = "LA_COLLECT", i
-                .d = n;
+                c = ''.concat('https:' === e.location.protocol ? 'https://' : 'http://', 'sdk.51.la/js-sdk-pro.min.js'),
+                n = e.createElement('script'),
+                r = e.getElementsByTagName('script')[0];
+            (n.type = 'text/javascript'),
+                n.setAttribute('charset', 'UTF-8'),
+                (n.async = !0),
+                (n.src = c),
+                (n.id = 'LA_COLLECT'),
+                (i.d = n)
             var o = function () {
                 s.LA.ids.push(i)
-            };
-            s.LA ? s.LA.ids && o() : (s.LA = p, s.LA.ids = [], o()), r.parentNode.insertBefore(n, r)
-        }()
-    }({
-        id: "JLHwWhMeGRhN3eot",
-        ck: "JLHwWhMeGRhN3eot"
-    });
+            }
+            s.LA ? s.LA.ids && o() : ((s.LA = p), (s.LA.ids = []), o()), r.parentNode.insertBefore(n, r)
+        })()
+    })({
+        id: 'JLHwWhMeGRhN3eot',
+        ck: 'JLHwWhMeGRhN3eot'
+    })
 </script>
-<script th:src="@{/emjdjd/js/swiper.min.js}"></script>
+<script src="/Public/static/js/swiper.min.js"></script>
 <script>
     $(function () {
-        var swiper = new Swiper(".mySwiper", {
-            lazy: true,
-            slidesPerView: 4,
-            spaceBetween: 30,
-            slidesPerGroup: 4,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
         $('.live-list img').lazyload({
-            failure_limit: 10,
+            failure_limit: 10
+        })
+        var mySwiper = new Swiper('.mySwiper', {
+            lazy: true,
+            autoplay: false, // 循环模式选项
+            slidesPerView: 2,
+            spaceBetween: 10,
+            freeMode: true
         })
     })
 </script>

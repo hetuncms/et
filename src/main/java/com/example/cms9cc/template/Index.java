@@ -55,7 +55,7 @@ public class Index {
 
     public String to(HttpServletRequest request, String date, Integer page, Integer listType, Model model, int showType) {
         BaseListDateBean<List<LiveBean.LiveItem>> liveItemBaseBean;
-        liveItemBaseBean = indexService.getDataByDate(listType, page, date);
+        liveItemBaseBean = indexService.getDataByDate(listType, page, date,50);
 
         if (liveItemBaseBean != null) {
             model.addAttribute("list", liveItemBaseBean.getData());
@@ -74,6 +74,8 @@ public class Index {
             model.addAttribute("data_base_url", request.getRequestURI());
         }
         model.addAttribute("listtype", listType);
+        model.addAttribute("cur_date",date);
+        model.addAttribute("cur_page",page);
         model.addAttribute("list_type_url", listType==TYPE_HOT?"":
                 listType==TYPE_FOOTBALL?"/football":listType==TYPE_BASKETBALL?"/basketball":"");
         getBaseModel(request, model, showType);
@@ -271,4 +273,6 @@ public class Index {
 
         return "bofang";
     }
+
+
 }

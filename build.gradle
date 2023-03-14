@@ -19,8 +19,8 @@ repositories {
 bootJar {
     archivesBaseName("hetuncms")
     version("2")
-    exclude("static/**")
-    exclude("templates/**")
+//    exclude("static/**")
+//    exclude("templates/**")
     exclude("application.properties")
 }
 

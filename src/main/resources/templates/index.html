@@ -10,39 +10,16 @@
           content="9球体育直播全程提供NBA直播,CBA直播,中超直播,五大联赛直播,CCTV5在线直播等热门体育赛事免费高清视频直播信号，看比赛上9球直播nba在线观看！">
     <link rel="shortcut icon" href="/Public/static/ico/favorite_jiuqiu.png" type="image/x-icon">
     <link th:href="@{/emjdjd/css/main.css}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/emjdjd/css/swiper.min.css}">
     <script type="text/javascript" charset="UTF-8" async="" src="https://sdk.51.la/js-sdk-pro.min.js" id="LA_COLLECT"></script>
     <script>
         var sqdapi = 'https://shuoqiudi10.com'
     </script>
-    <link rel="stylesheet" th:href="@{/emjdjd/css/swiper.min.css}">
 </head>
 
 
 <body>
-<header class="header">
-    <div class="logo-box">
-        <div class="nav-box">
-            <h1 class="logo">
-                9球体育直播 <a href="/static" title="9球体育直播">
-                <img th:src="@{/emjdjd/img/jiuqiu_logo.jpg}" alt="9球体育直播">
-            </a>
-            </h1>
-            <nav class="nav">
-                <ul>
-                    <li th:class="${not requestUrl.startsWith('/basketball') and not requestUrl.startsWith('/football')?'active':''}">
-                        <span class="nav-text"><a href="/static" title="首页">首页2</a></span>
-                    </li>
-                    <li th:class="${requestUrl.startsWith('/basketball')?'active':''}">
-                        <span class="nav-text"><a href="/basketball" title="篮球">篮球</a></span>
-                    </li>
-                    <li th:class="${requestUrl.startsWith('/football')?'active':''}">
-                        <span class="nav-text"><a href="/football" title="足球">足球</a></span>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+<th:block th:insert="~{header::header}"/>
 <main class="main">
     <div class="flex-between live-content" style="display: flex;flex-direction: column">
         <div style="display: flex;justify-content: space-around;border: 1px solid #e2e3e8;border-radius: 4px;margin-bottom: 10px;margin-top: 10px">
