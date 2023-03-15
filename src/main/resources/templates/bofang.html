@@ -25,7 +25,10 @@
                         <div class="noLive">
                             <div class="matchNostart">上半场</div>
                         </div>
-                        <p class="score">1-0</p>
+
+                        <p class="score" th:if="${not #lists.isEmpty(live_info.getData().getVisitingScore())}"
+                           th:text="${live_info.getData().getVisitingScore().get(live_info.getData().getVisitingScore().size()-1)}+':'
+                                    + ${live_info.getData().getMainScore().get(live_info.getData().getMainScore().size()-1)}">></p>
                     </div>
                     <div class="team away">
                         <img class="t-logo" src="https://cdn.sportnanoapi.com/football/team/c8fd873ce70869e03c201131166b6229.png" alt="济州联队">
