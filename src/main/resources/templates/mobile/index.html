@@ -12,7 +12,7 @@
 
 
 <body>
-<th:block th:insert="mobile/header"></th:block>
+<th:block th:insert="~{mobile/header}"></th:block>
 <main class="main">
     <div th:replace="~{ad/top_ad}"></div>
     <div th:replace="~{ad/announcement_ad}"></div>
@@ -38,15 +38,15 @@
 
     </div>
 </main>
-<th:block th:insert="mobile/footer"></th:block>
+<th:block th:insert="~{mobile/footer}"></th:block>
 <div class="back_top" onclick="window.scrollTo(0,0)">
     <p></p>
     <span>顶部</span>
 </div>
-<!--<div th:replace="~{ad/between_ad::left_ad}"></div>-->
-<!--<div th:replace="~{ad/between_ad::right_ad}"></div>-->
-<!--<div th:replace="~{ad/bottom_ad}"></div>-->
-<!--<div th:replace="~{ad/js_ad}"></div>-->
+<div th:replace="~{ad/between_ad::left_ad}"></div>
+<div th:replace="~{ad/between_ad::right_ad}"></div>
+<div th:replace="~{ad/bottom_ad}"></div>
+<div th:replace="~{ad/js_ad}"></div>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script src="/Public/static/js/jquery.lazyload.min.js"></script>
 <script type="text/javascript" src="/Public/static/js/global.js"></script>

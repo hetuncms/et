@@ -32,11 +32,12 @@ public class PlayController {
         return "bofang";
     }
 
-    public String playFootBall(@PathVariable Integer id) {
+    public String playFootBall(@PathVariable Integer id){
         return "bofang";
     }
 
     public Model getBaseModel(Model model) {
+
         model.addAttribute("config", adminService.getAllConfig().getBannerAd());
         return model;
     }

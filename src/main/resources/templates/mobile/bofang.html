@@ -17,8 +17,8 @@
     <link th:href="@{/emjdjd/css/matchList.css}" type="text/css" rel="stylesheet">
 </head>
 <body>
-<th:block th:insert="mobile/header"></th:block>
-<!--<th:block th:insert="ad/banner_ad"></th:block>-->
+<th:block th:insert="~{mobile/header}"></th:block>
+<th:block th:insert="~{ad/banner_ad}"></th:block>
 <div class="live-content" style="width: 100%">
     <div class="live-main">
         <div class="live-inner">
@@ -52,6 +52,6 @@
         </div>
     </div>
 </div>
-<th:block th:insert="mobile/footer"></th:block>
+<th:block th:insert="~{mobile/footer}"></th:block>
 </body>
 </html>
