@@ -2,13 +2,14 @@
     <div class="live-list">
         <li class="item status-0" th:each="item,count:${list}">
             <a th:href="'/live/'+${item.getId()}">
-
-                <div>
+                <div style="display: inline-flex;align-items: center;">
                     <img th:src="@{/base/img/flimg_3.png}" style="margin-right: 5px;"/>
+                    <span class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}"></span>
+                    <span th:if="${item.getLeagueResult()}"
+                          th:text="${item.getLeagueResult().getName_zh_abbr()}"
+                          style="display: inline-block;width: 7em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
+                </span>
                 </div>
-                <div class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}"></div>
-                <div th:if="${item.getLeagueResult()}"
-                     th:text="${item.getLeagueResult().getName_zh_abbr()}"></div>
                 <div class="duizhen">
                     <a class="flex" title="" target="_blank">
                         <div class="f-right" style="margin-left: 30px;width: max-content;">
