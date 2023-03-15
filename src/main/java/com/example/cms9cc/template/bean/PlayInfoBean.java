@@ -1,9 +1,10 @@
 package com.example.cms9cc.template.bean;
 
 import com.example.cms9cc.LiveBean;
+import lombok.ToString;
 
 import java.util.List;
-
+@ToString
 public class PlayInfoBean {
 
     private Integer code;
@@ -60,7 +61,7 @@ public class PlayInfoBean {
     public void setLiveInfoBean(Result liveInfoBean) {
         LiveInfoBean = liveInfoBean;
     }
-
+@ToString
     public static class Result {
         private long match_id;
         private List<LiveStreams> live_streams;

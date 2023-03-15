@@ -3,6 +3,7 @@ package com.example.cms9cc;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.core.annotation.Order;
 
 import java.util.Date;
@@ -51,6 +52,7 @@ public class LiveBean {
 
     @Getter
     @Setter
+    @ToString
     public static class LiveItem {
 
         private long id;
@@ -98,6 +100,7 @@ public class LiveBean {
         private LeagueResult leagueResult;
         @Setter
         @Getter
+        @ToString
         public static class LeagueResult {
             private Integer id;
             private String name_zh_abbr;
