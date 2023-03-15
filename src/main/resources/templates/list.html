@@ -1,85 +1,101 @@
 <div th:fragment="listFragment" style="width: 100%">
-  <div class="live-list">
-    <li class="item status-0" th:each="item,count:${list}">
-      <div>
-        <img th:src="@{/base/img/flimg_3.png}" style="margin-right: 5px;"/>
-      </div>
-      <div class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}"></div>
-      <a class="live-link mark">NBA</a>
-      <div class="duizhen">
-        <a class="flex" href="/zuqiu/3855577" title="" target="_blank">
-          <div class="f-right" style="margin-left: 30px;width: max-content;">
-            <a class="live-link" th:text="${item.leftName}"></a>
-          </div>
-          <div class="score-wrap">
-            <span class="score">vs</span>
-          </div>
-          <div class="f-left" style="width: max-content;">
-            <a class="live-link" th:text="${item.rightName}"></a>
-          </div>
-        </a>
-      </div>
-      <a class="live-link button" th:title="${item.gameName}" href="/zuqiu/">
-        <img th:src="@{/base/img/zbvideo.png}"/>高清直播
-      </a>
-    </li>
-  </div>
-  <div th:if="${page_count>1}" style="display: flex;justify-content: center">
-    <ul class="pagination">
-      <li th:each="i: ${#numbers.sequence(1, page_count)}">
-        <a th:href="${data_base_url}+'/'+${i}" th:text="${i}"></a>
-      </li>
-    </ul>
-  </div>
-  <style>
-    ul.pagination {
-      display: inline-block;
-      padding: 0;
-      margin: 0;
-    }
+    <div class="live-list">
+        <li class="item status-0" th:each="item,count:${list}">
+            <a th:href="'/live/'+${item.getId()}">
 
-    ul.pagination li {display: inline;}
-    ul.pagination li a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
+                <div>
+                    <img th:src="@{/base/img/flimg_3.png}" style="margin-right: 5px;"/>
+                </div>
+                <div class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}"></div>
+                <div th:if="${item.getLeagueResult()}"
+                     th:text="${item.getLeagueResult().getName_zh_abbr()}"></div>
+                <div class="duizhen">
+                    <a class="flex" title="" target="_blank">
+                        <div class="f-right" style="margin-left: 30px;width: max-content;">
+                            <a class="live-link" th:text="${item.leftName}"></a>
+                        </div>
+                        <div class="score-wrap">
+                            <span class="score">vs</span>
+                        </div>
+                        <div class="f-left" style="width: max-content;">
+                            <a class="live-link" th:text="${item.rightName}"></a>
+                        </div>
+                    </a>
+                </div>
+                <a class="live-link button" th:title="${item.gameName}">
+                    <img th:src="@{/base/img/zbvideo.png}"/>高清直播
+                </a>
+            </a>
+        </li>
+    </div>
+    <div th:if="${page_count>1}" style="display: flex;justify-content: center">
+        <ul class="pagination">
+            <li th:each="i: ${#numbers.sequence(1, page_count)}">
+                <a th:href="${data_base_url}+'/'+${i}" th:text="${i}"></a>
+            </li>
+        </ul>
+    </div>
+    <style>
+        ul.pagination {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
 
-    ul.pagination li a:hover:not(.active) {background-color: #ddd;}
-    ul.pagination li a {
-      color: black;
-      float: left;
-      padding: 8px 16px;
-      text-decoration: none;
-    }
-    .live-link.button{
-      width: 102px;
-      height: 30px;
-      border-radius: 7px;
-      color: #fff;
-      background: #b9b9b9;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .live-link.button:hover{
-      color: #fff !important;
-      background: #c9c6c6;
-    }
-    .live-link.button img{
-      margin-right: 5px;
-    }
-    .live-link.button.active{
-      background: #ff4d4d;
-    }
-    .live-link.mark{
-      cursor: pointer;
-      color: #999;
-      margin-left: 40px;
-    }
-    .live-link.mark:hover{
-      color:#dd4b39;
-    }
-  </style>
+        ul.pagination li {
+            display: inline;
+        }
+
+        ul.pagination li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul.pagination li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .live-link.button {
+            width: 102px;
+            height: 30px;
+            border-radius: 7px;
+            color: #fff;
+            background: #b9b9b9;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .live-link.button:hover {
+            color: #fff !important;
+            background: #c9c6c6;
+        }
+
+        .live-link.button img {
+            margin-right: 5px;
+        }
+
+        .live-link.button.active {
+            background: #ff4d4d;
+        }
+
+        .live-link.mark {
+            cursor: pointer;
+            color: #999;
+            margin-left: 40px;
+        }
+
+        .live-link.mark:hover {
+            color: #dd4b39;
+        }
+    </style>
 </div>
 

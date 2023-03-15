@@ -22,7 +22,7 @@
                     </div>
                     <div>
                         <div class="match-head">
-                            <strong th:text="${live_info.getData().getLeagueResult().getName_zh_abbr()}"></strong>
+                            <strong th:if="${live_info.getData().getLeagueResult()}" th:text="${live_info.getData().getLeagueResult().getName_zh_abbr()}"></strong>
                             <time class="time" th:text="${#dates.format(live_info.getData().getMatchStartTime(),'MM-dd HH-mm')}"></time>
                         </div>
                         <div class="noLive">

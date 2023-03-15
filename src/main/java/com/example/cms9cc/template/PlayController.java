@@ -23,7 +23,7 @@ public class PlayController {
         this.playService = playService;
     }
 
-    @GetMapping("/basketball/{id}")
+    @GetMapping("/{id}")
     public String playBasketBall(HttpServletRequest request, Model model, @PathVariable("id") Long id){
         model.addAttribute("requestUrl", request.getRequestURI());
         getBaseModel(model);
@@ -31,11 +31,6 @@ public class PlayController {
         model.addAttribute("live_info",liveInfo);
         return "bofang";
     }
-
-    public String playFootBall(@PathVariable Integer id){
-        return "bofang";
-    }
-
     public Model getBaseModel(Model model) {
         model.addAttribute("config", adminService.getAllConfig());
         return model;
