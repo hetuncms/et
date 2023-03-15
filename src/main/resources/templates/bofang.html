@@ -9,6 +9,7 @@
 <body>
 <th:block th:insert="~{header::header}"/>
 <div class="live-content">
+    [(${config})]aaaaa
     <div class="live-main">
         <div class="live-inner">
             <div class="match-info zuqiu-bg" onclick="jumpToInfo(1,3863701);">
@@ -37,7 +38,7 @@
 
         </div>
         <div class="livebox pclivebox">
-            <th:block th:insert="playing::playing"/>
+            <th:block th:insert="~{playing_pc::playing}"/>
         </div>
     </div>
 </div>

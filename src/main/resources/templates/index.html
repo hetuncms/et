@@ -1,6 +1,6 @@
 <html lang="zh-CN">
 <head>
-    <th:block th:insert="meta"></th:block>
+    <th:block th:insert="~{meta}"></th:block>
     <link th:href="@{/emjdjd/css/main.css}" type="text/css" rel="stylesheet">
     <script type="text/javascript" charset="UTF-8" async="" src="https://sdk.51.la/js-sdk-pro.min.js" id="LA_COLLECT"></script>
     <script>
@@ -11,7 +11,7 @@
 
 
 <body>
-<th:block th:insert="header::header"></th:block>
+<th:block th:insert="~{header::header}"></th:block>
 <main class="main">
     <div class="flex-between live-content" style="display: flex;flex-direction: column">
         <div style="display: flex;flex-wrap: wrap;justify-content: space-around;border: 1px solid #e2e3e8;border-radius: 4px;margin-bottom: 10px;margin-top: 10px">
@@ -33,7 +33,7 @@
             <th:block th:if="${showType eq 0}" th:insert="~{list::listFragment}"></th:block>
         </div>
 </main>
-<th:block th:insert="footer::footer"></th:block>
+<th:block th:insert="~{footer::footer}"></th:block>
 <div class="back_top"  onclick="window.scrollTo(0,0)">返回<br>顶部</div>
 
 <script src="https://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
