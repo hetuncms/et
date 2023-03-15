@@ -4,10 +4,10 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>9球体育直播_足球直播_篮球直播_在线直播赛事_在线直播免费观看</title>
-    <meta name="keywords" content="9球体育直播">
+    <title>ET体育直播_足球直播_篮球直播_在线直播赛事_在线直播免费观看</title>
+    <meta name="keywords" content="ET体育直播">
     <meta name="description"
-          content="9球体育直播全程提供NBA直播,CBA直播,中超直播,五大联赛直播,CCTV5在线直播等热门体育赛事免费高清视频直播信号，看比赛上9球直播nba在线观看！">
+          content="ET体育直播全程提供NBA直播,CBA直播,中超直播,五大联赛直播,CCTV5在线直播等热门体育赛事免费高清视频直播信号，看比赛上ET直播nba在线观看！">
     <link rel="shortcut icon" href="/Public/static/ico/favorite_jiuqiu.png" type="image/x-icon">
     <link th:href="@{/emjdjd/css/wap.css}" type="text/css" rel="stylesheet">
     <script type="text/javascript" charset="UTF-8" async="" src="https://sdk.51.la/js-sdk-pro.min.js" id="LA_COLLECT"></script>
@@ -44,66 +44,14 @@
 
     </div>
 </main>
-<div class="toTop"></div>
-<footer class="footer">
-    <div class="m-footer-content">
-        <div class="site-nav">
-            <div class="f-text">网站导航：</div>
-            <ul>
-                <li>
-                    <a target="_blank" href="/lanqiu/nba" title="NBA">
-                        NBA直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/zuqiu/" title="英超">
-                        英超直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/zuqiu/" title="意甲">
-                        意甲直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/zuqiu/" title="德甲">
-                        德甲直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/lanqiu/cba" title="CBA">
-                        CBA直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/zuqiu/" title="西甲">
-                        西甲直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/zuqiu/" title="法甲">
-                        法甲直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/zuqiu/" title="中超">
-                        中超直播
-                    </a>
-                </li>
-                <li>
-                    <a target="_blank" href="/lanqiu/wnba" title="WNBA">
-                        WNBA直播
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="copyright">
-            <p>
-                9球体育直播全程提供NBA直播,CBA直播,中超直播,五大联赛直播,CCTV5在线直播等热门体育赛事免费高清视频直播信号，看比赛上9球直播nba在线观看！</p>
-            <p>Copyright © 9球体育直播. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+<th:block th:insert="mobile/footer::footer"></th:block>
+<div class="back_top" onclick="window.scrollTo(0,0)">
+    <p></p>
+    <span>顶部</span>
+</div>
+<div th:replace="~{ad/between::left_ad}"></div>
+<div th:replace="~{ad/between::right_ad}"></div>
+<div th:replace="~{ad/bottom}"></div>
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script src="/Public/static/js/jquery.lazyload.min.js"></script>
 <script type="text/javascript" src="/Public/static/js/global.js"></script>
@@ -159,7 +107,8 @@
         })
     })
 </script>
-
+<script th:src="@{/emjdjd/js/transfer.js}"></script>
+<script th:src="@{/emjdjd/js/public.js}"></script>
 
 </body>
 </html>

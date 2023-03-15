@@ -27,6 +27,7 @@ td {
     margin: 0;
     padding: 0;
 }
+html, body { scroll-behavior: smooth; }
 body {
     font-family: 'PingFangSC', 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', '寰蒋闆呴粦', 'STHeiti', 'WenQuanYi Micro Hei', SimSun, sans-serif;
     font-size: 14px;
@@ -90,6 +91,16 @@ summary {
 audio,
 canvas,
 progress,
+video {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+audio:not([controls]),
+video:not([controls]) {
+    display: none;
+    height: 0;
+}
 progress {
     vertical-align: baseline;
 }
@@ -425,6 +436,7 @@ a:hover {
     width: 1200px;
     height: 62px;
     margin: 0 auto;
+    background: #ff4d4d;
 }
 .logo-box .nav-box {
     display: flex;
@@ -802,7 +814,7 @@ a:hover {
     box-sizing: border-box;
 }
 body {
-    background: #f5f5f5;
+    background: #f6f6f6;
 }
 .m-width {
     width: 1200px;
@@ -824,12 +836,38 @@ body {
 .header {
     width: 100%;
     min-width: 1200px;
-    background: #fff;
+    background: #ff4d4d;
+    border-bottom: 9px solid #333333;
+    position: relative;
 }
 .header .nav {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.header .nav .button{
+    display: flex;
+    border: 1px solid #ff9b90;
+    border-radius: 15px;
+    padding: 0px 0px;
+    color: #fff;
+    height: 2em;
+    box-sizing: content-box;
+    font-size: 80%;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.header .nav .button span{
+    padding: 2px 5px;
+}
+.header .nav .button .active{
+    background: #fff;
+    color: #ff4d4d;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
 }
 .header .nav ul {
     width: 100%;
@@ -843,18 +881,30 @@ body {
     font-size: 18px;
     padding: 10px 30px;
     flex-grow: 1;
+    margin-right: 5px;
 }
 .header .nav ul a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    color: #fff;
+    position: relative;
 }
-.header .nav ul .active {
-    border-bottom: solid #dd4b39 5px;
+.header .nav ul a:not(.active):hover{
+    font-weight: bold;
 }
-.header .nav ul .active a {
-    color: #dd4b39;
+.header .nav ul .active a::after{
+    content: "";
+    display: block;
+    width: 2.4em;
+    height: .25em;
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 16px);
+    background: #fff;
+    border-radius: 1px;
+    transform: translateX(-50%);
 }
 .header .nav ul .active span {
     position: relative;
@@ -1024,7 +1074,7 @@ body {
     border-top: 1px solid #f6f6f6;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 .live-content .live-list .item:hover {
     background: #f2f6ff;
@@ -1054,6 +1104,7 @@ body {
     align-items: center;
 }
 .live-content .live-list .item .time {
+    color: #999;
     width: 120px;
 }
 .live-content .live-list .status-bar {
@@ -1083,6 +1134,7 @@ body {
     width: 560px;
 }
 .live-content .live-list .duizhen .live-link {
+    cursor: pointer;
     width: 100%;
 }
 .live-content .live-list .duizhen .score-wrap {
@@ -1428,5 +1480,49 @@ body {
     color: #fff;
 }
 .date-list .active:hover {
+    color: #fff;
+}
+.new_footer{
+    background: #333;
+    color: #777;
+    padding: 1px;
+}
+.new_footer a{
+    color: #777;
+}
+.new_footer a:hover{
+    color: #fff;
+}
+.new_footer .foot_one {
+    width: 980px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+}
+.new_footer .foot_two {
+    border-top: 1px #4a4949 solid;
+    text-align: center;
+    padding-top: 10px;
+}
+.new_footer .foot_nav {
+    margin-left: 35px;
+}
+.back_top{
+    background: #f1f1f1;
+    width: 56px;
+    position: fixed;
+    right: 1%;
+    bottom: 150px;
+    z-index: 49;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.back_top:hover{
+    background: #ff4d4d;
     color: #fff;
 }

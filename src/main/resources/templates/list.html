@@ -1,34 +1,27 @@
-<div th:fragment="listFragment">
+<div th:fragment="listFragment" style="width: 100%">
   <div class="live-list">
     <li class="item status-0" th:each="item,count:${list}">
-      <div class="time" th:text="${#dates.format(item.getMatchStartTime(),'yyyy-MM-dd HH:mm')}"></div>
+      <div>
+        <img th:src="@{/base/img/flimg_3.png}" style="margin-right: 5px;"/>
+      </div>
+      <div class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}"></div>
+      <a class="live-link mark">NBA</a>
       <div class="duizhen">
-        <a class="flex live-link" href="/zuqiu/3855577" title="" target="_blank">
-          <div class="f-right">
-            <h3 th:text="${item.leftName}"></h3>
-            <img class="team-logo" th:src="${item.leftImg}"
-                 lazyload="lazy"
-                 alt="" style="display: block;">
+        <a class="flex" href="/zuqiu/3855577" title="" target="_blank">
+          <div class="f-right" style="margin-left: 30px;width: max-content;">
+            <a class="live-link" th:text="${item.leftName}"></a>
           </div>
           <div class="score-wrap">
-            <span class="living" style="color: #f00;"></span>
-            <strong class="score">0-1</strong>
+            <span class="score">vs</span>
           </div>
-          <div class="f-left">
-            <img class="team-logo" th:src="${item.rightImg}"
-                 lazyload="lazy"
-                 alt="" style="display: block;">
-            <h3 th:text="${item.rightName}"></h3>
+          <div class="f-left" style="width: max-content;">
+            <a class="live-link" th:text="${item.rightName}"></a>
           </div>
         </a>
       </div>
-      <dl>
-        <dt>
-          <a class="live-link" th:title="${item.gameName}" href="/zuqiu/">
-            <h2 th:if="${item.getLeagueResult()}" th:text="${item.getLeagueResult().name_zh_abbr}"></h2>
-          </a>
-        </dt>
-      </dl>
+      <a class="live-link button" th:title="${item.gameName}" href="/zuqiu/">
+        <img th:src="@{/base/img/zbvideo.png}"/>高清直播
+      </a>
     </li>
   </div>
   <div th:if="${page_count>1}" style="display: flex;justify-content: center">
@@ -57,6 +50,35 @@
       float: left;
       padding: 8px 16px;
       text-decoration: none;
+    }
+    .live-link.button{
+      width: 102px;
+      height: 30px;
+      border-radius: 7px;
+      color: #fff;
+      background: #b9b9b9;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .live-link.button:hover{
+      color: #fff !important;
+      background: #c9c6c6;
+    }
+    .live-link.button img{
+      margin-right: 5px;
+    }
+    .live-link.button.active{
+      background: #ff4d4d;
+    }
+    .live-link.mark{
+      cursor: pointer;
+      color: #999;
+      margin-left: 40px;
+    }
+    .live-link.mark:hover{
+      color:#dd4b39;
     }
   </style>
 </div>

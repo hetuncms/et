@@ -5,43 +5,38 @@
         <a class="flex-between duizhen" href="/live/basketball/3886445" title="欧联杯 塞维利亚vs费内巴切">
             <div class="box-name">
                 <div class="saishi">
-                    <time class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}">
+                        <time class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}">
                     </time>
                     <span style="text-align: left">欧联杯</span>
-                    <div class="status-text living">
-                        直播中
-                    </div>
                 </div>
             </div>
-            <dl>
-                <dt>
+            <div class="box-name" style="width: 50%;">
+                <div class="lineup">
                     <img class="team-logo" th:src="${item.leftImg}" lazyload="lazy"
                          data-original="https://cdn.sportnanoapi.com/football/team/d20ed1da4f299cc3ef0e1e9eb06eced1.png"
                          style="display: inline;">
-                </dt>
-                <dd>
-                    <h3 th:text="${item.leftName}"></h3>
-                </dd>
-            </dl>
-            <div class="box-name">
-                <strong class="score status-text" th:if="${not #lists.isEmpty(item.mainScore)}"
-                        th:text="${item.mainScore.get(0)+':'+item.visitingScore.get(0)}"></strong>
-            </div>
-            <dl>
-                <dt>
+                    <span th:text="${item.leftName}"></span>
+                </div>
+                <div class="lineup">
                     <img class="team-logo" th:src="${item.rightImg}" lazyload="lazy"
                          data-original="https://cdn.sportnanoapi.com/football/team/dff00f1fd4a7dd2feac000b462416867.png"
                          style="display: inline;">
-                </dt>
-                <dd>
-                    <h3 th:text="${item.rightName}"></h3>
-                </dd>
-            </dl>
+                    <span th:text="${item.rightName}"></span>
+                </div>
+            </div>
+            <div class="box-name link" style="flex-direction: row;align-items: center;font-size: 80%;border-left: 1px solid #eee;margin-left: -20px;padding-left: 20px;">
+                <img th:src="@{/emjdjd/img/gxz.png}" alt="video" style="width: 1.1em;margin-right: 2px;">
+                <span style="color:#ff4d4d;">高清直播</span>
+            </div>
         </a>
+    </li>
 </ul>
 
-    <div id="load_more" style="text-align: center;width:50%;margin-left:auto;margin-right:auto;border: 1px solid red;border-radius: 3px;"
-         th:onclick="loadmore([[${cur_date}]],[[${listtype}]])" >点击加载更多</div>
+    <div id="load_more" style="text-align: center;color: #999;margin-top: -8px;background: #fff;padding: 13px 0"
+         th:onclick="loadmore([[${cur_date}]],[[${listtype}]])" >
+        查看更多
+        <img th:src="@{/emjdjd/img/index_more.png}" alt="more" style="width: 1em;vertical-align: text-bottom;">
+    </div>
 
     <script th:inline="javascript">
         var curPage=0
@@ -61,39 +56,34 @@
         }
 
         function genTemplate(obj){
-            return "<li class=\"item status-0\">\n" +
-                "        <a class=\"flex-between duizhen\" href=\"/zuqiu/3886445\" title=\"欧联杯 塞维利亚vs费内巴切\">\n" +
-                "            <div class=\"box-name\">\n" +
-                "                <div class=\"saishi\">\n" +
-                "                    <time class=\"time\">01:00</time>\n" +
-                "                    <span style=\"text-align: left\">欧联杯</span>\n" +
-                "                    <div class=\"status-text living\">\n" +
-                "                        直播中\n" +
-                "                    </div>\n" +
-                "                </div>\n" +
-                "            </div>\n" +
-                "            <dl>\n" +
-                "                <dt>\n" +
-                "                    <img class=\"team-logo\" src="+obj.leftImg+" lazyload=\"lazy\" data-original=\"https://cdn.sportnanoapi.com/football/team/d20ed1da4f299cc3ef0e1e9eb06eced1.png\" style=\"display: inline;\">\n" +
-                "                </dt>\n" +
-                "                <dd>\n" +
-                "                    <h3>"+obj.leftName+"</h3>\n" +
-                "                </dd>\n" +
-                "            </dl>\n" +
-                "            <div class=\"box-name\">\n" +
-                "                <strong class=\"score status-text\">"+(obj.leftTeamScore!=null?obj.leftTeamScore[0]+':'+(obj.rightTeamScore!=null?obj.rightTeamScore[0]:''):'')+"</strong>\n" +
-                "            </div>\n" +
-                "            <dl>\n" +
-                "                <dt>\n" +
-                "                    <img class=\"team-logo\" src="+obj.rightImg+" lazyload=\"lazy\" data-original=\"https://cdn.sportnanoapi.com/football/team/dff00f1fd4a7dd2feac000b462416867.png\" style=\"display: inline;\">\n" +
-                "                </dt>\n" +
-                "                <dd>\n" +
-                "                    <h3>"+obj.rightName+"</h3>\n" +
-                "                </dd>\n" +
-                "            </dl>\n" +
-                "        </a>\n" +
-                "\n" +
-                "    </li>"
+            return `<li class="item status-0">
+        <a class="flex-between duizhen" href="/live/basketball/3886445" title="欧联杯 塞维利亚vs费内巴切">
+            <div class="box-name">
+                <div class="saishi">
+                    <time class="time">${obj.matchStartTime.split(" ")[1].slice(0,-3)}</time>
+                    <span style="text-align: left">欧联杯</span>
+                </div>
+            </div>
+            <div class="box-name" style="width: 50%;">
+                <div class="lineup">
+                    <img class="team-logo" src="${obj.leftImg}" lazyload="lazy"
+                         data-original="https://cdn.sportnanoapi.com/football/team/d20ed1da4f299cc3ef0e1e9eb06eced1.png"
+                         style="display: inline;">
+                    <span>${obj.leftName}</span>
+                </div>
+                <div class="lineup">
+                    <img class="team-logo" src="${obj.rightImg}" lazyload="lazy"
+                         data-original="https://cdn.sportnanoapi.com/football/team/dff00f1fd4a7dd2feac000b462416867.png"
+                         style="display: inline;">
+                    <span>${obj.rightName}</span>
+                </div>
+            </div>
+            <div class="box-name link" style="flex-direction: row;align-items: center;font-size: 80%;border-left: 1px solid #eee;margin-left: -20px;padding-left: 20px;">
+                <img src="/emjdjd/img/gxz.png" alt="video" style="width: 1.1em;margin-right: 2px;">
+                <span style="color:#ff4d4d;">高清直播</span>
+            </div>
+        </a>
+    </li>`
         }
     </script>
 </div>
