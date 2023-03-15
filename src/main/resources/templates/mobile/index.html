@@ -1,14 +1,6 @@
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>ET体育直播_足球直播_篮球直播_在线直播赛事_在线直播免费观看</title>
-    <meta name="keywords" content="ET体育直播">
-    <meta name="description"
-          content="ET体育直播全程提供NBA直播,CBA直播,中超直播,五大联赛直播,CCTV5在线直播等热门体育赛事免费高清视频直播信号，看比赛上ET直播nba在线观看！">
-    <link rel="shortcut icon" href="/Public/static/ico/favorite_jiuqiu.png" type="image/x-icon">
+    <th:block th:insert="meta"></th:block>
     <link th:href="@{/emjdjd/css/wap.css}" type="text/css" rel="stylesheet">
     <script type="text/javascript" charset="UTF-8" async="" src="https://sdk.51.la/js-sdk-pro.min.js" id="LA_COLLECT"></script>
     <script>
@@ -20,8 +12,10 @@
 
 
 <body>
-<th:block th:insert="mobile/header::header"></th:block>
+<th:block th:insert="mobile/header"></th:block>
 <main class="main">
+    <div th:replace="~{ad/top_ad}"></div>
+    <div th:replace="~{ad/announcement_ad}"></div>
     <div style="display: flex;justify-content: space-around;border: 1px solid #e2e3e8;border-radius: 4px;margin-bottom: 10px;margin-top: 10px">
 
     <a th:each="date:${date_list}"
@@ -44,14 +38,15 @@
 
     </div>
 </main>
-<th:block th:insert="mobile/footer::footer"></th:block>
+<th:block th:insert="mobile/footer"></th:block>
 <div class="back_top" onclick="window.scrollTo(0,0)">
     <p></p>
     <span>顶部</span>
 </div>
-<div th:replace="~{ad/between::left_ad}"></div>
-<div th:replace="~{ad/between::right_ad}"></div>
-<div th:replace="~{ad/bottom}"></div>
+<!--<div th:replace="~{ad/between_ad::left_ad}"></div>-->
+<!--<div th:replace="~{ad/between_ad::right_ad}"></div>-->
+<!--<div th:replace="~{ad/bottom_ad}"></div>-->
+<!--<div th:replace="~{ad/js_ad}"></div>-->
 <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script src="/Public/static/js/jquery.lazyload.min.js"></script>
 <script type="text/javascript" src="/Public/static/js/global.js"></script>
