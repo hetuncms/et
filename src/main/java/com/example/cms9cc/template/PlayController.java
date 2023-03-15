@@ -30,8 +30,7 @@ public class PlayController {
     }
 
     public Model getBaseModel(Model model) {
-
-        model.addAttribute("config", adminService.getAllConfig().getBannerAd());
+        model.addAttribute("config", adminService.getAllConfig());
         return model;
     }
 }
