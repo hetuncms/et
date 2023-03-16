@@ -1059,7 +1059,7 @@ body {
     margin-left: 0.5rem;
 }
 .live-content .live-list .item {
-    padding: 0 20px;
+    padding-left: 40px;
     height: 50px;
     border-top: 1px solid #f6f6f6;
     display: flex;
@@ -1095,7 +1095,7 @@ body {
 }
 .live-content .live-list .item .time {
     color: #999;
-    width: 120px;
+    width: 170px;
 }
 .live-content .live-list .status-bar {
     height: 44px;
@@ -1125,7 +1125,7 @@ body {
 }
 .live-content .live-list .duizhen .live-link {
     cursor: pointer;
-    width: 100%;
+    /*width: 100%;*/
 }
 .live-content .live-list .duizhen .score-wrap {
     width: 100px;

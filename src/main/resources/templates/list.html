@@ -1,10 +1,12 @@
 <div th:fragment="listFragment" style="width: 100%">
     <div class="live-list">
         <li class="item status-0" th:each="item,count:${list}">
+            <div style="display: inline-flex;align-items: center;">
+                <img th:src="@{/base/img/flimg_3.png}" style="margin-right: 5px;"/>
+                <span class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}"></span>
+            </div>
             <a th:href="'/live/'+${item.getId()}">
                 <div style="display: inline-flex;align-items: center;">
-                    <img th:src="@{/base/img/flimg_3.png}" style="margin-right: 5px;"/>
-                    <span class="time" th:text="${#dates.format(item.getMatchStartTime(),'HH:mm')}"></span>
                     <span th:if="${item.getLeagueResult()}"
                           th:text="${item.getLeagueResult().getName_zh_abbr()}"
                           style="display: inline-block;width: 7em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
@@ -23,7 +25,7 @@
                         </div>
                     </a>
                 </div>
-                <a class="live-link button" th:title="${item.gameName}">
+                <a th:class="${item.getLiveing()}?'live-link button active':'live-link button'" th:title="${item.gameName}">
                     <img th:src="@{/base/img/zbvideo.png}"/>高清直播
                 </a>
             </a>
@@ -73,6 +75,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-left: 100px;
+            cursor: pointer;
         }
 
         .live-link.button:hover {
