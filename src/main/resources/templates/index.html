@@ -2,10 +2,6 @@
 <head>
     <th:block th:insert="~{meta}"></th:block>
     <link th:href="@{/emjdjd/css/main.css}" type="text/css" rel="stylesheet">
-    <script type="text/javascript" charset="UTF-8" async="" src="https://sdk.51.la/js-sdk-pro.min.js" id="LA_COLLECT"></script>
-    <script>
-        var sqdapi = 'https://shuoqiudi10.com'
-    </script>
     <link rel="stylesheet" th:href="@{/emjdjd/css/swiper.min.css}">
 </head>
 
@@ -13,6 +9,8 @@
 <body>
 <th:block th:insert="~{header::header}"></th:block>
 <main class="main">
+    <div th:replace="~{ad/top_ad}"></div>
+    <div th:replace="~{ad/announcement_ad}"></div>
     <div class="flex-between live-content" style="display: flex;flex-direction: column">
         <div style="display: flex;flex-wrap: wrap;justify-content: space-around;border: 1px solid #e2e3e8;border-radius: 4px;margin-bottom: 10px;margin-top: 10px">
             <a th:each="date:${date_list}"
@@ -36,58 +34,13 @@
 <th:block th:insert="~{footer::footer}"></th:block>
 <div class="back_top"  onclick="window.scrollTo(0,0)">返回<br>顶部</div>
 
-<script src="https://cdn.staticfile.org/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/Public/static/js/global.js"></script>
-<script type="text/javascript" src="/Public/static/js/global.js"></script>
-<script>
-    $(function () {
-        $("img").lazyload({
-            failure_limit: 10,
-        });
-    })
-</script>
-<script>
-    !function (p) {
-        "use strict";
-        !function (t) {
-            var s = window,
-                e = document,
-                i = p,
-                c = "".concat("https:" === e.location.protocol ? "https://" : "http://", "sdk.51.la/js-sdk-pro.min.js"),
-                n = e.createElement("script"),
-                r = e.getElementsByTagName("script")[0];
-            n.type = "text/javascript", n.setAttribute("charset", "UTF-8"), n.async = !0, n.src = c, n.id = "LA_COLLECT", i
-                .d = n;
-            var o = function () {
-                s.LA.ids.push(i)
-            };
-            s.LA ? s.LA.ids && o() : (s.LA = p, s.LA.ids = [], o()), r.parentNode.insertBefore(n, r)
-        }()
-    }({
-        id: "JLHwWhMeGRhN3eot",
-        ck: "JLHwWhMeGRhN3eot"
-    });
-</script>
-<script th:src="@{/emjdjd/js/swiper.min.js}"></script>
-<script>
-    $(function () {
-        var swiper = new Swiper(".mySwiper", {
-            lazy: true,
-            slidesPerView: 4,
-            spaceBetween: 30,
-            slidesPerGroup: 4,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-        $('.live-list img').lazyload({
-            failure_limit: 10,
-        })
-    })
-</script>
+<div th:replace="~{ad/between_ad::left_ad}"></div>
+<div th:replace="~{ad/between_ad::right_ad}"></div>
+<div th:replace="~{ad/bottom_ad}"></div>
+<div th:replace="~{ad/js_ad}"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
 <script th:src="@{/emjdjd/js/transfer.js}"></script>
 <script th:src="@{/emjdjd/js/public.js}"></script>
 </body>

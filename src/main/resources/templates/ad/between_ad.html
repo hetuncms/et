@@ -1,7 +1,9 @@
 <div class="couplet_left_ad" th:fragment="left_ad"
      th:if="${config.getCouplets()} and ${not #strings.isEmpty(config.getCouplets().getLeftAd().getPicUrl())}">
-    <img class="couplet_left_img_ad" th:if="${config.getCouplets().getLeftAd()}"
-         th:src="${config.getCouplets().getLeftAd().getPicUrl()}"/>
+    <img class="couplet_left_img_ad lazyload_on_page_ready"
+         th:if="${config.getCouplets().getLeftAd()}"
+         src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
+         th:attr="data-src=${config.getCouplets().getLeftAd().getPicUrl()}"/>
     <style>
         .couplet_left_ad{
             position: fixed;

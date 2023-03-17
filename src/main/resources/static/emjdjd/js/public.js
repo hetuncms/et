@@ -30,3 +30,9 @@ $(window).scroll((e)=>{
     else
         $(".back_top").hide()
 })
+
+//懒加载
+new LazyLoad($(".lazyload"));
+$(document).ready(()=>{
+    new LazyLoad($(".lazyload_on_page_ready"));
+})
