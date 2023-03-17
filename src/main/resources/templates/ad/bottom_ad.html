@@ -3,6 +3,7 @@
         <img style="margin: 0 auto"
              class="lazyload_on_page_ready"
              src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs="
+             th:if="${not #lists.isEmpty(config.getFloatAd().getPicUrl())}"
              th:attr="data-src=${config.getFloatAd().getPicUrl()}"/>
     </a>
     <span class="close" onclick="close_float()">关闭</span>
