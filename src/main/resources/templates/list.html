@@ -12,22 +12,22 @@
                           style="display: inline-block;width: 7em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
                 </span>
                 </div>
-                <div class="duizhen">
-                    <a class="flex" title="" target="_blank">
-                        <div class="f-right" style="margin-left: 30px;width: max-content;">
-                            <a class="live-link" th:text="${item.leftName}"></a>
-                        </div>
-                        <div class="score-wrap">
-                            <span class="score">vs</span>
-                        </div>
-                        <div class="f-left" style="width: max-content;">
-                            <a class="live-link" th:text="${item.rightName}"></a>
-                        </div>
-                    </a>
-                </div>
-                <a th:class="${item.getLiveing()}?'live-link button active':'live-link button'" th:title="${item.gameName}">
-                    <img th:src="@{/base/img/zbvideo.png}"/>高清直播
+            </a>
+            <div class="duizhen">
+                <a class="flex" title="" target="_blank">
+                    <div class="f-right" style="margin-left: 30px;width: max-content;">
+                        <a class="live-link" th:text="${item.leftName}" th:href="'/live/'+${item.getId()}"></a>
+                    </div>
+                    <div class="score-wrap">
+                        <span class="score">vs</span>
+                    </div>
+                    <div class="f-left" style="width: max-content;">
+                        <a class="live-link" th:text="${item.rightName}" th:href="'/live/'+${item.getId()}"></a>
+                    </div>
                 </a>
+            </div>
+            <a th:href="'/live/'+${item.getId()}" th:class="${item.getLiveing()}?'live-link button active':'live-link button'" th:title="${item.gameName}">
+                <img th:src="@{/base/img/zbvideo.png}"/>高清直播
             </a>
         </li>
     </div>
