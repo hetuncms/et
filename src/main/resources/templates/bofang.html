@@ -20,7 +20,7 @@
             <div class="match-info zuqiu-bg" onclick="jumpToInfo(1,3863701);">
                 <div class="flex match-team">
                     <div class="team home">
-                        <img class="t-logo" src="https://cdn.sportnanoapi.com/football/team/36559689046e7d1d4f597c1a0bf9c5d6.png" alt="仁川联队">
+                        <img class="t-logo" th:src="${live_info.getData().getLeftImg()}">
                         <p th:text="${live_info.getData().getLeftName()}"></p>
                     </div>
                     <div>
@@ -37,7 +37,7 @@
                                     + ${live_info.getData().getMainScore().get(live_info.getData().getMainScore().size()-1)}">></p>
                     </div>
                     <div class="team away">
-                        <img class="t-logo" src="https://cdn.sportnanoapi.com/football/team/c8fd873ce70869e03c201131166b6229.png" alt="济州联队">
+                        <img class="t-logo" th:src="${live_info.getData().getRightImg()}">
                         <p th:text="${live_info.getData().getRightName()}"></p>
                     </div>
                 </div>
