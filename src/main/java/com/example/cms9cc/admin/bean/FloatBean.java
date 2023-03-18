@@ -17,7 +17,7 @@ public class FloatBean {
 
     private String url;
     private String picUrl;
-    private Date status;
+    private Date statusTime;
     private String tel;
     @Transient
     private boolean update;
