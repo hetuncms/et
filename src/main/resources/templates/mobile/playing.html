@@ -1,14 +1,21 @@
 <div th:fragment="playing">
 
-    <video-js id="my_video_1" class="vjs-default-skin"
-              playsinline
-              width="1600"
-              height="400"
-              controls preload="auto" style="object-fit: fill;max-width: 100%">
-        <source src="http://kbs-dokdo.gscdn.com/dokdo_300/_definst_/dokdo_300.stream/playlist.m3u8">
-    </video-js>
-
-    <script>
-        var player = videojs('my_video_1');
-    </script>
+    <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet"/>
+    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+    <video
+            id="my-video"
+            class="video-js"
+            controls
+            preload="auto"
+            width="710"
+            height="500"
+            data-setup="{}">
+        <!--        <source th:if="${playurl}" th:src="${playurl.get(0).getUrl()}" type="video/mp4"/>-->
+        <source src="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8" type="application/x-mpegURL"/>
+        <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
 </div>
